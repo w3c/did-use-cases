@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Use Cases for Decentralized Identifiers</title>
+    <script
+     src='https://www.w3.org/Tools/respec/respec-w3c-common'
+     class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+        specStatus: "CG-DRAFT",
+        editors: [{
+          name: "W3C Credentials Community Group",
+          url: "https://www.w3.org/community/credentials/",
+        }],
+        authors: [{
+          name: "Manu Sporny",
+          url: "https://manu.sporny.org/",
+        },
+        {
+          name: "Joe Andrieu",
+          url: "https://www.joeandrieu.com",
+        },
+        {
+          name: "Kim Hamilton Duffy",
+          url: "https://www.okimsrazor.com/",
+        },
+        {
+          name: "Ryan Grant",
+          url: "",
+        },
+        {
+          name: "Adrian",
+          url: "",
+        }],
+        edDraftURI: "https://w3c-ccg.github.io/did-use-cases/",
+        shortName: "did-use-cases",
+        wg: "Credentials Community Group",
+        wgURI: "https://www.w3.org/community/credentials/",
+        wgPatentURI: "https://www.w3.org/community/about/agreements/cla/",
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        The use cases for Decentralized Identifiers have been curated by the
+        various organizations implementing and deploying this technology in
+        commercial environments.
+      </p>
+    </section>
+    <section id='sotd'></section>
+    <section>
+      <h2>Decentralized Corporate Identifiers (enterprise)</h2>
+      <section>
+        <h3>Background</h3>
+        <p>
+          There are many types of identifiers that corporations use today
+          including tax identification numbers (e.g. 238-42-3893), Legal
+          Entity Identifiers (e.g. 5493000IBP32UQZ0KL24), Data Universal
+          Numbering System identifiers (aka. DUNS Number) (e.g. 150483782),
+          and many more that communicate the unique identity of an organization.
+          None of these numbers enable an organization to self-issue an
+          identifier or to use the number to cryptographically authenticate or
+          digitally sign agreements. A great number of business to business
+          and business to custome transactions could be executed more quickly
+          and with greater assurance of the validity of the transaction if a
+          mechanism to self-issue cryptographic identifiers were created.
+        </p>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          A North American government would like to ensure that the supply
+          chain that feeds electronic products into the country is secure. As
+          a result, a new method of submitting digital documentation to Customs
+          is enabled that requires that all documentation is provided as
+          machine-readable digitally signed data. Digitally signed documentation
+          is collected at each stage of the manufacturing, packaging, and
+          shipping process. This documentation is then submitted to Customs
+          upon the products entry into the country where all digital signatures
+          are verified on the documentation. Some aspects of the signed
+          documentation, such as firmware hashes and checksums, are then used
+          by Customs and downstream customers to verify that the products have
+          not been tampered with after leaving the manufacturing facility.
+        </p>
+        <p>
+          Decentralized Identifiers are chosen in order to ensure 1) low
+          management overhead for the government, 2) self-management of
+          identifiers and cryptographic key material, and 3) a competitive
+          marketplace.
+        </p>
+      </section>
+      <section>
+        <h3>Challenges</h3>
+        <p>
+          The requirement of downstream customers to use the same documentation
+          and digital signature mechanisms that were provided to Customs is the
+          sticky wicket in this scenario. Governments often create ad-hoc
+          solutions for their import solutions, which make securing the global
+          supply chain difficult as each government has their own method of
+          securing the supply chain and identifying corporations that downstream
+          customers need to integrate with. If you are a global company, that
+          means integrating with many supply chain systems (each with different
+          capabilities). As such, any securing of the supply chain with downstream
+          customers must then depend on the country-specific corporate
+          identification and PKI solution, which leads to ad-hoc solutions that
+          drive up the cost of doing business across borders.
+        </p>
+        <p>
+          A supply chain identifier solution that is simple, self-administered,
+          built on global standards, is flexible in the cryptographic mechanisms
+          used to authenticate, and can be used by governments and downstream
+          customers with little to no modification to the regional government
+          or corporate systems does not exist today.
+        </p>
+      </section>
+      <section>
+        <h3>Distinction</h3>
+        <p>
+          Many Decentralized Identifier use cases focus on Self-Sovereign
+          Identity and individuals. This use case focuses on organizations and
+          their departments as entities that would also benefit from
+          Decentralized Identifiers.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h2>Life-long, Recipient-owned Credentials (education)</h2>
+      <section>
+        <h3>Background</h3>
+        <p>
+          Educational Verifiable Credentials offer benefits over traditional
+          educational credentials in that the recipient is able to store and
+          share their credentials, and a third party may independently verify
+          the claim (without necessarily consulting the issuer). This provides
+          the promise of recipient-owned long-lived credentials that the
+          recipient may use even if the issuing institution goes out of
+          business.
+        </p>
+        <p>
+          Usability issues around cryptographic keys introduce a threat to
+          achieving this goal; if the recipient loses their private key, they
+          lose ability to prove ownership of a credential. The existing ways to
+          re-obtain the credential include re-requesting the credential from
+          the issuer, or TBD.
+        </p>
+        <p>
+          If a credential is issued to a recipient's DID, the recipient has the
+          ability to prove ownership of a credential even if the recipient
+          loses a private key used to show ownership of a credential referenced
+          in a claim.
+        </p>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Yanny uses DIDs as subjects of its Verifiable Credentials. By using
+          DIDs, Yanny is able to prove “ownership” of a credential. Even if
+          Yanny loses the private keys corresponding to all keys referenced in
+          the DID document, Yanny is able to invoke the update method on the
+          DID to once again gain control over the DID, and therefore continue
+          to use the Verifiable Credential.
+        </p>
+      </section>
+      <section>
+        <h3>Distinction</h3>
+        <p>
+          Emphasizes the full lifecycle of cryptographic key management; i.e.
+          loss of control is handled in a first-class manner via DIDs, and not
+          as an exceptional event.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h2>Prescriptions (healthcare)</h2>
+      <section>
+        <h3>Background</h3>
+        <p>
+          Alice wants help with her urinary tract infection (UTI) and is a bit
+          touchy about her privacy. In the old days, she would have to make an
+          appointment in-person and get a paper prescription to take to a
+          pharmacy. She wants to save money and have peace of mind.
+        </p>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Because she lives in Seattle, Alice is in a state that allows Planned
+          Parenthood to diagnose and prescribe online
+          https://www.plannedparenthood.org/get-care/get-care-online . Alice
+          uses the identity wallet on her iPhone to register with the online
+          medical practice. She tells the online practice her name is Althea
+          with password-less authentication and a verified driver's license
+          credential to prove that she's a WA resident. The remote physician,
+          Bob, is licensed by the WA Board of Medicine and credentialed by
+          Planned Parenthood of WA, Inc. He's securely signed in using the
+          identity wallet on his smartphone. Bob issues Alice a digital
+          prescription in the form of a verifiable credential and allows Alice
+          to download it however she pleases. Alice is a librarian and trusts
+          her local public library to erase their logs as allowed by law. She
+          uses one of their computers to sign-in and do all of this. She snaps
+          a picture of the QR code that is the prescription to take to the
+          pharmacy. Charlie, the licensed pharmacist, scans the prescription
+          QR code and fills the prescription. Alice pays cash.
+        </p>
+      </section>
+      <section>
+        <h3>Challenges</h3>
+        <p>
+          The challenge of this particular use-case is that only Bob and
+          Charlie are verified identities and accountable for their interaction
+          with Alice. Alice can be anonymous or pairwise-pseudonymous with both
+          Bob and Charlie and everything just works. Alice, Bob, and Charlie
+          all keep separate and legally authentic copies of the records of their
+          interaction in case of dispute.
+        </p>
+      </section>
+      <section>
+        <h3>Distinction</h3>
+        <p>
+          The Prescription use-case is a common and high-value example of
+          privacy engineering as we shift to convenient and cost-effective
+          online commerce among licensed and unlicensed individuals as peers.
+          Bob and Charlie benefit by reducing or even eliminating the influence
+          of their respective institutions or employers and therefore make more
+          money. They pass some savings to Alice who also gets increased peace
+          of mind.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h2>Digital Executor (law)</h2>
+      <section>
+        <h3>Background</h3>
+        <p>
+          Today, when people die, there are no standard technologies for heirs,
+          executors, or probate courts to properly take control of an individual's
+          online accounts and digital assets. With a DID linked to accounts and
+          assets, a DID owner could define a trigger for a third party to assume
+          control over the DID Document. Ideally, this trigger would specify (a)
+          an oracle (how to know the death/incapacity occurred), (b) a means for
+          the new owner to assert control, and (c) appropriate checks and
+          accountability.
+        </p>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Kathy uses DIDs to manage her authentications to various services.
+          As part of her estate planning, she generates a unique credential
+          that she gives to her attorney, Gloria, with provisions specified in
+          her will, which initially lists Mike as the digital executor. With
+          appropriate obfuscation, that credential is specified in multiple DID
+          documents as a probate authority, with the authorization to change the
+          master key in case of death, which shall be recorded publicly, on chain,
+          as a notarized invocation of the probate authority. As it happens,
+          Kathy had a falling out with Mike and notified Gloria just two weeks
+          before her death that her friend Miyake should now be her digital
+          executor. Upon Kathy's death, Gloria uses the probate credential to
+          publicly record the assertion of probate and to replace the DID's master
+          key with a new key, controlled by Miyake, who lives in Japan (Kathy,
+          Gloria, and Mike live in the United States). Now, any system using
+          Kathy's DIDs for authentication can programmatically recognized Miyake's
+          authority <em>and</em> specifically know that Kathy's credentials were
+          modified under a assertion of probate.
+        </p>
+      </section>
+      <section>
+        <h3>Challenges</h3>
+        <p>
+          The late date change in digital executorship from Mike to Miyake
+          could be problematic if Kathy had directly listed Mike's credential
+          in the DID Document. Because she instead chose to rely on her attorney,
+          Kathy has a more flexible way to direct her wishes, while still
+          leveraging the collective control over her authenticated logins to
+          various services. In addition, Miyake's geographic location could
+          make it hard for them to travel to the United States and may make it
+          difficult to provide proof of identity traditionally used by U.S. courts.
+          Also, because Gloria invokes the probate mechanism, Miyake need only
+          provide a suitable credential at that time; he did not need to create
+          and maintain a credential over a long period of time (as would be the
+          case if Gloria weren't involved).
+        </p>
+      </section>
+      <section>
+        <h3>Distinction</h3>
+        <p>
+          Multiple DIDs with a common, blinded authority for probate assumption
+          of control. The legal selection of the new owner is mediated through
+          a trusted fiduciary (an attorney of record). Cross-border transfer of
+          ownership.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h2>Single Sign On (security)</h2>
+      <section>
+        <h3>Background</h3>
+        <p>
+          Passwords are notoriously misused ("123456"), stolen from the
+          supposedly-secure database on the server-side, easy to forget when
+          sufficiently secure, and never the last word in authentication for
+          forgotten password situations.  Proving control of a DID can replace
+          storage and retrieval of a shared secret.
+        </p>
+      </section>
+      <section>
+        <h3>Description</h3>
+        <p>
+          Use DID as single-sign-on to a website, using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/draft-documents/did_auth_draft.md">DID Auth</a> (especially
+          cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
+          example between a web page and web browser with a mobile
+          identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
+          Credential Handler API</a>. When desirable, the relationship can add
+          a shared secret for 2FA.
+          <!--(except does DID Auth include any extensions that enable this
+          subsequent ascension without starting another socket?).-->
+        </p>
+        <p>
+          Note that what is stored on the server-side is a DID, so in cases
+          where a successful attack reads (but does not mutate) the database,
+          all that is revealed is linkage of the DID to use the site (so
+          probably as a consequence the user should spawn a unique DID to reveal
+          to that site), and any 2FA secret (which should be a random number for
+          <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm">TOTP</a>,
+          instead of a <a href="https://blog.coinbase.com/on-phone-numbers-and-identity-423db8577e58">phone number</a>
+          susceptible to carrier social engineering and
+          <a href="https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls">SS7 bugs</a>).  In other words, the user's DID Auth
+          procedures remain valid after the hack, even for that site.
+        </p>
+      </section>
+      <section>
+        <h3>Challenges</h3>
+        <p>
+          Transfer sign-on capability from control of a password to control of
+          the DID, as shown in DID-Auth, using appropriate devices.  Optionally
+          include 2FA, although DID Auth doesn't handle that well, yet.
+        </p>
+      </section>
+      <section>
+        <h3>Distinction</h3>
+        <p>
+          This use case describes the most common authentication action for
+          people on the Internet.
+        </p>
+      </section>
+    </section>
+  </body>
+</html>
