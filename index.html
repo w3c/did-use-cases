@@ -113,7 +113,7 @@
         </p>
       </section>
       <section>
-        <h3>Distinction</h3>
+        <h3>Distinctions</h3>
         <p>
           Many Decentralized Identifier use cases focus on Self-Sovereign
           Identity and individuals. This use case focuses on organizations and
@@ -126,48 +126,66 @@
       <h2>Life-long, Recipient-owned Credentials (education)</h2>
       <section>
         <h3>Background</h3>
-        <p>
-          Educational Verifiable Credentials offer benefits over traditional
+        <p>Educational <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Credentials</a> offer benefits over traditional
           educational credentials in that the recipient is able to store and
           share their credentials, and a third party may independently verify
-          the claim (without necessarily consulting the issuer). This provides
-          the promise of recipient-owned long-lived credentials that the
-          recipient may use even if the issuing institution goes out of
-          business.
+          the credential (including authenticating the identity of the receipient),
+		  without necessarily consulting the issuer, and without dependence on
+		  centuries old treaty-based bureaucratic process for the verification
+		  of credentials. This provides the promise of recipient-owned 
+		  long-lived credentials that the recipient may use in any country, 
+		  even if the issuing institution goes out of business.
         </p>
-        <p>
-          Usability issues around cryptographic keys introduce a threat to
-          achieving this goal; if the recipient loses their private key, they
-          lose ability to prove ownership of a credential. The existing ways to
-          re-obtain the credential include re-requesting the credential from
-          the issuer, or TBD.
-        </p>
-        <p>
-          If a credential is issued to a recipient's DID, the recipient has the
-          ability to prove ownership of a credential even if the recipient
-          loses a private key used to show ownership of a credential referenced
-          in a claim.
+        <p> However, traditional public-private key pair-based identifiers 
+			present challenges for rotating keys, especially if 
+			the identifier in a credential is simply the public key (with 
+			the private key used for authentication).</p>
+        <ol>
+    		<li>With the public key embedded in the digitally signed credential, 
+				it is literally impossible to update the signing key; a recipient 
+				must  contact the issuer and request re-issuing with a new 
+				identifer. If the issuer is not reachable, or is unwilling 
+				or unable to issue a new credential, the recipient cannot 
+				update the cryptographic material.</li>
+			<li>If the credential relies on a centralized key registry or 
+				authority for managing rotation, then that registry becomes 
+				the centralized point of failure. This may or may not be an 
+				improvement, especially for longer held credentials.</li>
+			<li>If the credential's cryptographic technology becomes outdated, 
+				there is no way to update the credential to use a more robust 
+				technology; a recipient must contact the issuer for reissuance.</li>
+		  </ol>
+        <p>The challenges for key rotation are particularly problematic for 
+			credentials expected to last a lifetime. It can be expected that 
+			a given individual will change their key management strategy and 
+		    systems several times over the course of their life, relying
+		    on a cloud wallet, a mobile wallet, or a dedicated hardware wallet,
+		    as their needs change.</p>
+        <p>By issuing an educational credential to a recipient's DID, the 
+			recipient has the ability to prove ownership of a credential even 
+			if the cryptographic material used for authenticating changes over time.
         </p>
       </section>
       <section>
         <h3>Description</h3>
-        <p>
-          Yanny uses DIDs as subjects of its Verifiable Credentials. By using
-          DIDs, Yanny is able to prove “ownership” of a credential. Even if
-          Yanny loses the private keys corresponding to all keys referenced in
-          the DID document, Yanny is able to invoke the update method on the
-          DID to once again gain control over the DID, and therefore continue
-          to use the Verifiable Credential.
-        </p>
+        <p>When Sally earned her master&rsquo;s degree at  Oxford, she received a 
+			digital diploma which contained a decentralized identifier she provided. 
+			Over time, she updates the cryptographic material  associated with that 
+			DID to use her latest hardware wallet, with biometric protections and a 
+			quantum resistant algorithm. A decade after  graduation, she applies for 
+			a job in Japan, for which she provides her digital diploma by uploading 
+			it to the prospective employee&rsquo;s website. To verify she is the 
+			actual recipient of that degree, she uses the decentralized identifier 
+			to authenticate, using her current hardware wallet (with rotated keys). 
+			In addition to the fact that her name matches the name on the diploma, 
+			the cryptographic authentication provides a robust verification of her 
+			claim, allowing the employer to rely on Sally&rsquo;s assertion that she 
+			earned a master&rsquo;s degree from Oxford. </p>
       </section>
       <section>
         <h3>Distinction</h3>
-        <p>
-          Emphasizes the full lifecycle of cryptographic key management; i.e.
-          loss of control is handled in a first-class manner via DIDs, and not
-          as an exceptional event.
-        </p>
-      </section>
+        <p>Oxford had no need to provide services for  resetting or updating Sally&rsquo;s username or password; they had no role in  managing Sally&rsquo;s changes to her authentication credentials. The potential  employer did not need to contact Oxford to verify Sally&rsquo;s claim of a master&rsquo;s  degree; they were able to verify the credential and authenticate Sally&rsquo;s  identity with information retrieved over the Internet. </p>
+</section>
     </section>
     <section>
       <h2>Prescriptions (healthcare)</h2>
