@@ -8,7 +8,35 @@
      class="remove"></script>
     <script class="remove">
       var respecConfig = {
-        specStatus: "CG-DRAFT",
+        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: "ED",
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: "did-use-cases",
+
+        // subtitle
+        subtitle: "Draft Community Group Report 11 February 2019",
+
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
+
+        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        // previousPublishDate:  "1977-03-15",
+        // previousMaturity:  "WD",
+
+        // extend the bibliography entries
+        localBiblio: ccg.localBiblio,
+
+        github: "https://github.com/w3c-ccg/did-use-cases",
+        includePermalinks: false,
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: "https://w3c-ccg.github.io/did-use-cases/",
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
         editors: [{
           name: "Joe Andrieu",
           url: "https://www.joeandrieu.com"
@@ -16,21 +44,21 @@
         authors: [
         {
           name: "Kim Hamilton Duffy",
-          url: "https://www.okimsrazor.com/",
+          url: "https://www.okimsrazor.com/"
         },
         {
           name: "Ryan Grant",
-          url: "",
+          url: ""
         },
         {
           name: "Adrian Gropper",
-          url: "",
+          url: ""
         }],
-        edDraftURI: "https://w3c-ccg.github.io/did-use-cases/",
-        shortName: "did-use-cases",
         wg: "Credentials Community Group",
         wgURI: "https://www.w3.org/community/credentials/",
         wgPatentURI: "https://www.w3.org/community/about/agreements/cla/",
+        maxTocLevel: 4,
+        inlineCSS: true
       };
     </script>
   </head>
