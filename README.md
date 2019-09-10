@@ -3,7 +3,7 @@
 
 # Decentralized Identifier Use Cases v1.0
 
-This is the repository of the W3C’s note on Decentralized Identifier Use Cases v1.0, developed by the [DID Working Group](https://www.w3.org/2019/did-wg/). The editors’ draft of the specification can also be [read directly](https://w3c.github.io/did-use-cases/index.html).
+This is the repository of the W3C’s note on Decentralized Identifier Use Cases v1.0, developed by the [DID Working Group](https://www.w3.org/2019/did-wg/). The editors’ draft of the specification can also be [read directly](https://w3c.github.io/did-use-cases/).
 
 ## Contributing to the Repository
 
