@@ -15,10 +15,10 @@
         shortName: "did-use-cases",
 
         // subtitle
-        subtitle: "Draft Community Group Report 11 February 2019",
+        // subtitle: "Use Cases for Decentralized Identifiers",
 
         // if you wish the publication date to be other than today, set this
-        // publishDate:  "2009-08-06",
+        // publishDate:  "2019-11-07",
 
         // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
         // and its maturity status
@@ -28,11 +28,11 @@
         // extend the bibliography entries
         // localBiblio: ccg.localBiblio,
 
-        github: "https://github.com/w3c-ccg/did-use-cases",
+        github: "https://github.com/w3c/did-use-cases",
         includePermalinks: false,
 
         // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: "https://w3c-ccg.github.io/did-use-cases/",
+        edDraftURI: "https://w3c.github.io/did-use-cases/",
 
         // if this is a LCWD, uncomment and set the end of its review period
         // lcEnd: "2009-08-05",
@@ -54,13 +54,21 @@
           name: "Adrian Gropper",
           url: ""
         }],
-        wg: "Credentials Community Group",
-        wgURI: "https://www.w3.org/community/credentials/",
-        wgPatentURI: "https://www.w3.org/community/about/agreements/cla/",
+        wgPublicList: "public-did-wg",
+        wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/117488/status",
+        wg: "Decentralized Identifier Working Group",
+        wgURI: "https://www.w3.org/2019/did-wg/",
         maxTocLevel: 4,
         inlineCSS: true
       };
     </script>
+    <style>
+      table.feature_grid { border: 1px solid; width: 1000px; }
+      table.feature_grid td { border: 1px solid; text-align: center; }
+      table.feature_grid th { border: 1px solid; }
+      table.feature_grid th[scope=row] { text-align: left; }
+      dl.feature_definitions dt { font-weight: 400; }
+    </style>
   </head>
   <body>
     <section id="abstract">
@@ -74,7 +82,7 @@
         </p>
         <p>
             <strong>Note:</strong><em>This document is still in early development. 
-            Please provide feedback via <a href="https://github.com/w3c-ccg/did-use-cases">Github</a></em>
+            Please provide feedback via <a href="https://github.com/w3c/did-use-cases">Github</a></em>
       </p>
     </section>
     <section id="sotd"></section>
@@ -98,9 +106,9 @@
       </section>
       <section>
       <h2>DID Actions</h2>
-        <p>Here are the  eleven (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
+        <p>Here are the thirteen (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
         <p>In the diagram,  we have grouped the actions by Create, Read, Update, and Delete (CRUD) as well  as Use.</p>
-            <img src="images/did_actions.png"/>
+            <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
       <section>
         <h2>Create</h2>
         <p>Controllers create DIDs, uniquely binding cryptographic  proofs with the identifier, typically using public-private key-pairs. These  DIDs are recorded in a registry in such a manner as to be able to resolve to a  DID Document. The DID Document may be dynamically and deterministically  generated through resolution or it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. This  process needs access to the registry, ideally a decentralized system, and like  the rest of the DID CRUD actions, can be performed without interaction with any  particular authority.</p>
@@ -160,12 +168,7 @@
 		ease of use, privacy, and sustainability.<p>
 		<p>The features and their associated benefits can be seen in the following 
         grid. A brief definition of each feature follows.</p>
-  <style>
-  	table.feature_grid td { text-align: center;	}
-	  table.feature_grid th[scope=row] { text-align: left;	}
-    dl.feature_definitions dt { font-weight: 400; }
-  </style>
-  <table width="1000" border="1" id="feature_benefit_grid" class="feature_grid">
+  <table id="feature_benefit_grid" class="feature_grid">
   <tbody>
     <tr>
       <th scope="col">Feature </th>
@@ -387,7 +390,7 @@
 		  use cases to make sure all key features are clearly described. The
         following chart shows which features are explicitly illustrated in 
         the <a href="#focal-use-cases">Focal Use Cases</a>.</p>
-  <table width="1000" border="1" class="feature_grid">
+  <table class="feature_grid">
   <tbody>
     <tr>
       <th scope="col">Feature </th>
