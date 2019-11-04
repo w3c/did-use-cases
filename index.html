@@ -15,7 +15,7 @@
         shortName: "did-use-cases",
 
         // subtitle
-        subtitle: "Draft Community Group Report 11 February 2019",
+        //subtitle: "Draft  11 February 2019",
 
         // if you wish the publication date to be other than today, set this
         // publishDate:  "2009-08-06",
@@ -28,35 +28,30 @@
         // extend the bibliography entries
         // localBiblio: ccg.localBiblio,
 
-        github: "https://github.com/w3c-ccg/did-use-cases",
+        github: "https://github.com/w3c/did-use-cases",
         includePermalinks: false,
 
         // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: "https://w3c-ccg.github.io/did-use-cases/",
+        edDraftURI: "https://w3c.github.io/did-use-cases/",
 
         // if this is a LCWD, uncomment and set the end of its review period
         // lcEnd: "2009-08-05",
 
         editors: [{
-          name: "Joe Andrieu",
-          url: "https://www.joeandrieu.com"
-        },
-	{
-          name: "Kim Hamilton Duffy",
-          url: "https://www.okimsrazor.com/"
+          name: "Joe Andrieu", 
+          company: "Legendary Requirements",
+          companyURL: "http://legreq.com" },
+
+      	{
+          name: "Phil Archer",
+          url: "https://philarcher.org/",
+          companyURL: "https://www.gs1.org",
+          company: "GS1"
         }],
-        authors: [
-        {
-          name: "Ryan Grant",
-          url: ""
-        },
-        {
-          name: "Adrian Gropper",
-          url: ""
-        }],
-        wg: "Credentials Community Group",
-        wgURI: "https://www.w3.org/community/credentials/",
-        wgPatentURI: "https://www.w3.org/community/about/agreements/cla/",
+        wgPublicList: "public-did-wg",
+        wg: "Decentralized Identifier Working Group",
+        wgURI: "https://www.w3.org/2019/did-wg/",
+        wgPatentURI: "https://www.w3.org/2004/01/pp-impl/117488/status",
         maxTocLevel: 4,
         inlineCSS: true
       };
@@ -111,23 +106,23 @@
         <p>Perhaps the most salient point about Decentralized Identifiers is that there are no "Identity Providers". Instead, this role is subsumed in the decentralized systems that Controllers use to manage <abbr title="Decentralized Identifier">DID</abbr>s and, in turn, Relying Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s. These  decentralized systems, which we refer to as <abbr title="Decentralized Identifier">DID</abbr> registries, are designed to  operate independently from any particular service provider and hence, free from  any given platform authority. It is anticipated that <abbr title="Decentralized Identifier">DID</abbr>s will be registered using distributed ledger technology (DLT). 
 
 <!-- for their registries, for example, BTCR uses Bitcoin and ERC725  uses Ethereum. Some use alternative decentralized technologies, as IPID, which  uses IPFS. You may see the current DID Methods at the DID Method Registry (<a href="https://w3c-ccg.github.io/did-method-registry/">https://w3c-ccg.github.io/did-method-registry/</a>), maintained by the Credentials Community Group. </p>-->
-        <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate such systems &mdash; from who controls the most widely used code base to who controls  the specification &mdash; where a system resides on the spectrum of centralized and decentralized varies. However, the design of any dectralized identity system is separate from the  academic debate about how decentralized it may be in practice.</p>
+        <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate such systems &mdash; from who controls the most widely used code base to who controls  the specification &mdash; where a system resides on the spectrum of centralized and decentralized varies. However, the design of any decentralized identity system is separate from the  academic debate about how decentralized it may be in practice.</p>
 
 <!--        <p>The DID methods specified in each DID MAY define how one performs these actions, including the  mechanism(s) for interacting with any particular DID registry. Not all of these  actions are supported by all DID methods. Which actions are required is an open  question. Similarly, it remains an open question whether or not all DID methods  should be required to be decentralized. As mentioned previously, this quickly becomes  an academic debate about the definition of decentralized, which we leave as an  exercise for the reader. Therefore, each DID method and DID registry should be  evaluated on its own merits as to precisely how decentralized it may or may not  be relative to its anticipated use. </p> -->
 
         <p>The use cases presented below make use of a number of high level concepts as follows.</p>
 <dl>
-  <dt>Decentralized identifier (DID)</dt>
+  <dt>Decentralized Identifier (DID)</dt>
   <dd>The actual identifier</dd>
   <dt><abbr title="Decentralized Identifier">DID</abbr> Method</dt>
   <dd>The method by which a <abbr title="Decentralized Identifier">DID</abbr> is generated<dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> registries</dt>
+  <dt><abbr title="Decentralized Identifier">DID</abbr> Registries</dt>
   <dd>A registry where <abbr title="Decentralized Identifier">DID</abbr>s are recorded</dd>
   <dt><abbr title="Decentralized Identifier">DID</abbr> Documents</dt>
   <dd>A document that contains metadata about the <abbr title="Decentralized Identifier">DID</abbr></dd>
 </dl>
 
-<p>When we  refer to <em>methods</em> and <em>registries</em>, we mean <abbr title="Decentralized Identifier">DID</abbr> methods and <abbr title="Decentralized Identifier">DID</abbr> registries. A working assumotion for the use cases is that all <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr> Documents contain the cryptographic material  to perform the functions related to that particular <abbr title="Decentralized Identifier">DID</abbr>, including associated proof methods and any service endpoints, that is, services that can make use of the <abbr title="Decentralized Identifier">DID</abbr>.<!-- When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.--></p>
+<p>When we  refer to <em>methods</em> and <em>registries</em>, we mean <abbr title="Decentralized Identifier">DID</abbr> methods and <abbr title="Decentralized Identifier">DID</abbr> registries. A working assumption for the use cases is that all <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr> Documents contain the cryptographic material  to perform the functions related to that particular <abbr title="Decentralized Identifier">DID</abbr>, including associated proof methods and any service endpoints, that is, services that can make use of the <abbr title="Decentralized Identifier">DID</abbr>.<!-- When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.--></p>
       </section>
 
 
@@ -152,7 +147,7 @@
 <hr/>
       <section>
       <h2>DID Actions</h2>
-        <p>Here are the  eleven (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
+        <p>Here are the  thirteen (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
         <p>In the diagram,  we have grouped the actions by Create, Read, Update, and Delete (CRUD) as well  as Use.</p>
             <img src="images/did_actions.png"/>
       <section>
@@ -182,6 +177,8 @@
         <section>
         <h2>Verify Signature</h2>
         <p>Given a digital asset signed by a DID, a Relying Party may  use the cryptographic material in the DID Document to verify the signature.</p>
+        </section>
+        <section>
         <h2>Rotate</h2>
         <p>Controllers may rotate the cryptographic material for a DID  by updating the DID Document as recorded in its registry. Different methods  handle this differently, but the result is an update to the core cryptographic  proof required to prove control of the DID and the DID Document.</p>
         </section>
