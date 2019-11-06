@@ -1,0 +1,104 @@
+<p>
+This document attempts to communicate the concepts outlined in the
+<a>decentralized identifier</a> space by using specialized terms to discuss specific
+concepts. This terminology is included below and linked to throughout the
+document to aid the reader:
+</p>
+
+<dl class="termlist">
+
+  <dt><dfn data-lt="DID|DIDs">decentralized identifier</dfn> (DID)</dt>
+
+  <dd>
+A globally unique identifier that does
+not require a centralized registration authority because it is
+registered with <a>distributed ledger technology</a> (DLT) or other form of
+decentralized network. The generic format of a DID is defined in the DID
+specification. A specific <a>DID scheme</a> is defined in a
+<a>DID method</a> specification.
+  </dd>
+
+  <dt><dfn data-lt="did controller(s)">DID controller</dfn></dt>
+
+  <dd>
+The entity, or a group of entities, in control of a DID and/or <a>DID document</a>.
+Note that the <a>DID controller</a> might include the <a>DID subject</a>.
+  </dd>
+
+
+  <dt><dfn data-lt="">DID document</dfn></dt>
+
+  <dd>
+A set of data that describes the <a>DID subject</a>,
+including mechanisms, such as public keys and
+pseudonymous biometrics, that the <a>DID subject</a> can use to authenticate itself
+and prove their association with the DID. A DID document MAY also contain other
+<a href="https://en.wikipedia.org/wiki/Attribute_(computing)">attributes</a> or
+<a href="https://en.wikipedia.org/wiki/Claims-based_identity">claims</a>
+describing the subject. These documents are graph-based data structures that
+are typically expressed using [[JSON-LD]], but may be expressed using other
+compatible graph-based data formats.
+  </dd>
+
+
+  <dt><dfn data-lt="">DID method</dfn></dt>
+
+  <dd>
+A definition of how a specific <a>DID scheme</a> can be implemented
+on a specific <a>distributed ledger</a> or network, including the precise
+method(s) by which <a>DIDs</a> are resolved and deactivated and <a>DID
+documents</a> are written and updated.
+  </dd>
+
+  <dt><dfn data-lt="decentralized identifier registry|decentralized identifier registries">DID registry</dfn></dt>
+
+  <dd>
+A role a system performs to mediate the creation, verification, updating, and
+deactivation of <a>decentralized identifiers</a>.
+A DID registry is a type of verifiable data registry (see [[VC-DATA-MODEL]]).
+  </dd>
+
+  <dt><dfn data-lt="">DID resolver</dfn></dt>
+
+  <dd>
+A system that is capable of retrieving a <a>DID document</a> for a given <a>DID</a>.
+These systems are specified in the DID Resolution specification
+[[DID-RESOLUTION]].
+  </dd>
+  </dt>
+
+  <dt><dfn data-lt="">DID subject</dfn></dt>
+
+  <dd>
+The DID subject is the entity that the <a>DID document</a> is about, i.e.,
+it is the entity identified by the <a>DID</a> and described by the <a>DID
+document</a>.
+  </dd>
+
+  <dt><dfn data-lt="">DID URL</dfn></dt>
+
+  <dd>
+A DID plus an optional DID path, optional <code>?</code> character followed by a
+DID query, and optional <code>#</code> character followed by a DID fragment.
+  </dd>
+
+  <dt><dfn data-lt="">DID scheme</dfn></dt>
+
+  <dd>
+The formal syntax of a <a>decentralized identifier</a>. The generic DID
+scheme is defined in the DID specification. Separate <a>DID method</a> specifications
+define a specific DID scheme that works with that specific <a>DID method</a>.
+  </dd>
+
+  <dt><dfn data-lt="distributed ledger technology|DLT">distributed ledger</dfn> (DLT)</dt>
+
+  <dd>
+A <a href=
+  "https://en.wikipedia.org/wiki/Distributed_database">distributed
+database</a> in which the various nodes use a <a href=
+  "https://en.wikipedia.org/wiki/Consensus_(computer_science)">consensus
+protocol</a> to maintain a shared ledger in which each transaction is
+cryptographically signed and chained to the previous transaction.
+  </dd>
+
+</dl>
