@@ -6,6 +6,8 @@
     <script
      src="https://www.w3.org/Tools/respec/respec-w3c-common"
      class="remove"></script>
+    <script class='remove' src="./common.js">
+    </script>
     <script class="remove">
       var respecConfig = {
         // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -26,7 +28,7 @@
         // previousMaturity:  "WD",
 
         // extend the bibliography entries
-        // localBiblio: ccg.localBiblio,
+        localBiblio: didwg.localBiblio,
 
         github: "https://github.com/w3c-ccg/did-use-cases",
         includePermalinks: false,
@@ -70,7 +72,7 @@
         DIDs share many features with extant identity systems,
         no other system combines all the features designed into DIDs. We present the 
           current consensus of the motivations behind DIDs based on input and 
-          collaboration with implementers currently building products to the DID specification. 
+          collaboration with implementers currently building products to the [[DID-CORE]] specification.
         </p>
         <p>
             <strong>Note:</strong><em>This document is still in early development. 
@@ -90,11 +92,11 @@
         <p>The Subject is  the entity referred to by the DID, which can be literally anything: a person,  an organization, a device, a location, even a concept. Typically, the Subject is  also the Controller, but in cases of guardianship, agents (human or software),  and inanimate Subjects, this is not possible. As such, the Subject has no functional  role. When the Subject is, in fact, the Controller, we consider the action to  be taken by the Controller on their own behalf as the Subject. When the Subject  is not the Controller, the Controller is said to be taking action on behalf of the Subject, such as when an employee manages a DID on behalf of their employer  or a parent uses a DID on behalf of their child.</p>
         <p>The Controller  and Relying Party may be individuals or interactive systems, but for  simplicity in this document, we refer to both as if they were individual  persons performing these actions. </p>
         <p>Only a Controller  can perform the actions that control a DID, however, anyone can act as a  Relying Party for any DID they know, including the Controller should they wish  to inspect or verify their own DID.</p>
-        <p>As a use case  document, we define these actions in terms of the eventual systems we  anticipate using this specification. The initial DID Working Group Charter only  covers the initial specification of the DID syntax itself and the syntax and  semantics of its associated DID Document. Together, these encode the information  necessary to eventually perform these various actions. Additional  specifications, such as DID Resolution and DID Auth (both under incubation in  the Credentials Community Group), will specify how these actions take place. There  has been interest expressed in standardizing how DIDs can be used for signing  and how those signatures are verified, however it is an open question as to  whether or not this capability should be a part of the DID Auth specification  or a separate work. This document captures these uses as design goals, but it is  anticipated that the DID Specification will not define how these actions are realized.</p>
+        <p>As a use case  document, we define these actions in terms of the eventual systems we  anticipate using this specification. The initial DID Working Group Charter only  covers the initial specification of the DID syntax itself and the syntax and  semantics of its associated DID Document (see [[DID-CORE]]. Together, these encode the information  necessary to eventually perform these various actions. Additional  specifications, such as [[DID-RESOLUTION]] (under incubation in the Credentials Community Group) and variants of DID Auth (see [[DID-AUTH-INTRO]]), will specify how these actions take place. There  has been interest expressed in standardizing how DIDs can be used for signing  and how those signatures are verified, however it is an open question as to  whether or not this capability should be a part of the DID Auth specification(s)  or a separate work. This document captures these uses as design goals, but it is  anticipated that the DID specification will not define how these actions are realized.</p>
         <p>Perhaps the most salient point about Decentralized Identifiers is that there are no "Identity  Providers". Instead, this role is subsumed in the decentralized systems that Controllers  use to manage DIDs and, in turn, Relying Parties use to apply DIDs. These  decentralized systems, which we refer to as DID registries, are designed to  operate independently from any particular service provider and hence, free from  any given platform authority. Most current DID methods use distributed ledger technology (DLT) for their registries, for example, BTCR uses Bitcoin and ERC725  uses Ethereum. Some use alternative decentralized technologies, as IPID, which  uses IPFS. You may see the current DID Methods at the DID Method Registry (<a href="https://w3c-ccg.github.io/did-method-registry/">https://w3c-ccg.github.io/did-method-registry/</a>), maintained by the Credentials Community Group. </p>
         <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate  such systems—from who controls the most widely used code base to who controls  the specification—where a system resides on the spectrum of centralized and decentralized varies. However, the design of DIDs is a separate matter from the  academic debate about how decentralized any particular DID registry is.</p>
         <p>The DID methods specified in each DID MAY define how one performs these actions, including the  mechanism(s) for interacting with any particular DID registry. Not all of these  actions are supported by all DID methods. Which actions are required is an open  question. Similarly, it remains an open question whether or not all DID methods  should be required to be decentralized. As mentioned previously, this quickly becomes  an academic debate about the definition of decentralized, which we leave as an  exercise for the reader. Therefore, each DID method and DID registry should be  evaluated on its own merits as to precisely how decentralized it may or may not  be relative to its anticipated use. </p>
-        <p>DIDs, DID methods,  DID registries, and DID Documents are anticipated design elements in the DID  specification. For illustration we use these elements in this document. When we  refer to methods and registries, we mean DID methods and DID registries. All  DIDs resolve to DID Documents. DID Documents contain the cryptographic material  to perform the functions related to that particular DID, including associated  proof methods and service endpoints. When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.</p>
+        <p>DIDs, DID methods,  DID registries, and DID Documents are anticipated design elements in the DID  specification (see [[DID-CORE]]). For illustration we use these elements in this document. When we  refer to methods and registries, we mean DID methods and DID registries. All  DIDs resolve to DID Documents. DID Documents contain the cryptographic material  to perform the functions related to that particular DID, including associated  proof methods and service endpoints. When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.</p>
       </section>
       <section>
       <h2>DID Actions</h2>
@@ -119,7 +121,7 @@
         </section>
         <section>
         <h2>Resolve</h2>
-        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the DID Resolution  specification. </p>
+        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the [[DID-RESOLUTION]] specification. </p>
         </section>
         <section>
         <h2>Dereference</h2>
@@ -819,11 +821,9 @@
       <section>
         <h4>Description</h4>
         <p>
-          Use DID as single-sign-on to a website, using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/draft-documents/did_auth_draft.md">DID Auth</a> (especially
-          cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
-          example between a web page and web browser with a mobile
-          identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
-          Credential Handler API</a>. When desirable, the relationship can add
+          Use DID as single-sign-on to a website, using one of the variants of DID Auth (see [[DID-AUTH-INTRO]]).
+          This can be implemented using different protocols and APIs, such as [[DID-AUTH-OIDC-SIOP]] or [[CREDENTIAL-HANDLER-API]].
+          When desirable, the relationship can add
           a shared secret for 2FA.
           <!--(except does DID Auth include any extensions that enable this
           subsequent ascension without starting another socket?).-->
@@ -845,7 +845,7 @@
         <h4>Challenges</h4>
         <p>
           Transfer sign-on capability from control of a password to control of
-          the DID, as shown in DID-Auth, using appropriate devices.  Optionally
+          the DID, as shown in DID Auth, using appropriate devices.  Optionally
           include 2FA, although DID Auth doesn't handle that well, yet.
         </p>
       </section>
