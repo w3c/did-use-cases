@@ -15,6 +15,922 @@
         shortName: "did-use-cases",
 
         // subtitle
+        //subtitle: "Draft  11 February 2019",
+
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
+
+        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        // previousPublishDate:  "1977-03-15",
+        // previousMaturity:  "WD",
+
+        // extend the bibliography entries
+        // localBiblio: ccg.localBiblio,
+
+        github: "https://github.com/w3c/did-use-cases",
+        includePermalinks: false,
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: "https://w3c.github.io/did-use-cases/",
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        editors: [{
+          name: "Joe Andrieu", 
+          company: "Invited Expert",
+          url: "http://legreq.com",
+          w3cid: 97261
+        },
+      	{
+          name: "Phil Archer",
+          url: "https://philarcher.org/",
+          companyURL: "https://www.gs1.org",
+          company: "GS1",
+          w3cid: 101627
+        }],
+        wgPublicList: "public-did-wg",
+        wg: "Decentralized Identifier Working Group",
+        wgURI: "https://www.w3.org/2019/did-wg/",
+        wgPatentURI: "https://www.w3.org/2004/01/pp-impl/117488/status",
+        maxTocLevel: 4,
+        inlineCSS: true
+      };
+    </script>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>This document sets out use cases and requirements for a new type of identifier that has 4 essential characteristics:</p>
+      <ol>
+        <li><strong>decentralized</strong>: there should be no central issuing agency;</li>
+        <li><strong>persistent</strong>: the identifier should be inherently persistent, not requiring the continued operation of an underling organization;</li>
+        <li><strong>crytopgraphically verifiable</strong>: it should be possible to prove control of the identifier cryptographically;</li>
+        <li><strong>resolvable</strong>: it shold be possible to discover metadata about the identifier.</li>
+    </ol>
+    <p>Although existing identifiers may display some of these characteristics, none currently displays all four.</p>
+    <!--
+      <p>
+        Decentralized Identifiers (DIDs) allow for exceptional user-driven control 
+        and overall reliability of publicly resolvable, provable identifiers. While 
+        DIDs share many features with extant identity systems,
+        no other system combines all the features designed into DIDs. We present the 
+          current consensus of the motivations behind DIDs based on input and 
+          collaboration with implementers currently building products to the DID specification. 
+        </p>
+        <p>
+            <strong>Note:</strong><em>This document is still in early development. 
+            Please provide feedback via <a href="https://github.com/w3c-ccg/did-use-cases">Github</a></em>
+      </p>-->
+    </section>
+    <section id="sotd"></section>
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>A longer version of the abstract that introduces the name DID although in such a way as not to present it as a baked solution.</p>
+
+<!--
+
+        <p>This document attempts to explain what you can do with DIDs and why you might care to use them. We start by describing the basic conceptual framework for DIDs, including basic terminology, followed by the actions one can take with a DID. Then we introduce the defining features and benefits of DIDs along with five focal use cases illustrating those features and benefits. 
+        </p>-->
+      </section>
+    <section>
+      <h2 id="concepts">Concepts of Decentralized Identity</h2>
+        <p>A decentralized system will enable several key actions by three distinct entities: the Controller, the Relying Party, and the Subject.</p>
+        <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s, while Relying Parties rely on <abbr title="Decentralized Identifier">DID</abbr>s as an identifier for  interactions related to the Subject.</p>
+        <p>The Subject is the entity referred to by the <abbr title="Decentralized Identifier">DID</abbr>, which can be anything: a person,  an organization, a device, a location, even a concept. Typically, the Subject is  also the Controller, but in cases of guardianship, agents (human or software),  and inanimate Subjects, this is not possible. As such, the Subject has no functional  role. When the Subject is, in fact, the Controller, we consider the action to  be taken by the Controller on their own behalf as the Subject. When the Subject  is not the Controller, the Controller is said to be taking action on behalf of the Subject, such as when an employee manages a <abbr title="Decentralized Identifier">DID</abbr> on behalf of their employer  or a parent uses a <abbr title="Decentralized Identifier">DID</abbr> on behalf of their child.</p>
+        <p>The Controller  and Relying Party may be individuals or interactive systems, but for simplicity in this document, we refer to both as if they were individual  persons performing these actions. </p>
+        <p>Only a Controller  can perform the actions that control a <abbr title="Decentralized Identifier">DID</abbr>, however, anyone can act as a  Relying Party for any <abbr title="Decentralized Identifier">DID</abbr> they know, including the Controller should they wish  to inspect or verify their own <abbr title="Decentralized Identifier">DID</abbr>.</p>
+        <p>This use case document defines these actions in terms of the eventual systems we anticipate using the resultant specification.
+
+
+<!-- The initial DID Working Group Charter only  covers the initial specification of the DID syntax itself and the syntax and  semantics of its associated DID Document. Together, these encode the information  necessary to eventually perform these various actions. Additional  specifications, such as DID Resolution and DID Auth (both under incubation in  the Credentials Community Group), will specify how these actions take place. There  has been interest expressed in standardizing how DIDs can be used for signing  and how those signatures are verified, however it is an open question as to  whether or not this capability should be a part of the DID Auth specification  or a separate work. This document captures these uses as design goals, but it is  anticipated that the DID Specification will not define how these actions are realized.</p>-->
+
+        <p>Perhaps the most salient point about Decentralized Identifiers is that there are no "Identity Providers". Instead, this role is subsumed in the decentralized systems that Controllers use to manage <abbr title="Decentralized Identifier">DID</abbr>s and, in turn, Relying Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s. These  decentralized systems, which we refer to as <abbr title="Decentralized Identifier">DID</abbr> registries, are designed to  operate independently from any particular service provider and hence, free from  any given platform authority. It is anticipated that <abbr title="Decentralized Identifier">DID</abbr>s will be registered using distributed ledger technology (DLT). 
+
+<!-- for their registries, for example, BTCR uses Bitcoin and ERC725  uses Ethereum. Some use alternative decentralized technologies, as IPID, which  uses IPFS. You may see the current DID Methods at the DID Method Registry (<a href="https://w3c-ccg.github.io/did-method-registry/">https://w3c-ccg.github.io/did-method-registry/</a>), maintained by the Credentials Community Group. </p>-->
+        <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate such systems &mdash; from who controls the most widely used code base to who controls  the specification &mdash; where a system resides on the spectrum of centralized and decentralized varies. However, the design of any decentralized identity system is separate from the  academic debate about how decentralized it may be in practice.</p>
+
+<!--        <p>The DID methods specified in each DID MAY define how one performs these actions, including the  mechanism(s) for interacting with any particular DID registry. Not all of these  actions are supported by all DID methods. Which actions are required is an open  question. Similarly, it remains an open question whether or not all DID methods  should be required to be decentralized. As mentioned previously, this quickly becomes  an academic debate about the definition of decentralized, which we leave as an  exercise for the reader. Therefore, each DID method and DID registry should be  evaluated on its own merits as to precisely how decentralized it may or may not  be relative to its anticipated use. </p> -->
+
+        <p>The use cases presented below make use of a number of high level concepts as follows.</p>
+<dl>
+  <dt>Decentralized Identifier (DID)</dt>
+  <dd>The actual identifier</dd>
+  <dt><abbr title="Decentralized Identifier">DID</abbr> Method</dt>
+  <dd>The method by which a <abbr title="Decentralized Identifier">DID</abbr> is generated<dd>
+  <dt><abbr title="Decentralized Identifier">DID</abbr> Registries</dt>
+  <dd>A registry where <abbr title="Decentralized Identifier">DID</abbr>s are recorded</dd>
+  <dt><abbr title="Decentralized Identifier">DID</abbr> Documents</dt>
+  <dd>A document that contains metadata about the <abbr title="Decentralized Identifier">DID</abbr></dd>
+</dl>
+
+<p>When we  refer to <em>methods</em> and <em>registries</em>, we mean <abbr title="Decentralized Identifier">DID</abbr> methods and <abbr title="Decentralized Identifier">DID</abbr> registries. A working assumption for the use cases is that all <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr> Documents contain the cryptographic material  to perform the functions related to that particular <abbr title="Decentralized Identifier">DID</abbr>, including associated proof methods and any service endpoints, that is, services that can make use of the <abbr title="Decentralized Identifier">DID</abbr>.<!-- When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.--></p>
+      </section>
+
+
+      <section id="uc">
+        <h2>Use Cases</h2>
+        <p style="background-color:yellow">This is the kind of thing I think of with the term 'use case'.</p>
+        <section id="onlineShopper">
+          <h3>Online shopper</h3>
+        <p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase. The product and the information about it is trusted, because  it is put there by the brand, and shopper trusts the retailer has received the product through trusted supply chain partners. Today, there are a multitude of channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers, as the relationship is not as direct as the traditional mode of shopping.</p>
+        <p>Online shopping, especially including 3rd party marketplaces creates  the proliferation of digital records about that product across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information presented about that product) came from the brand or other authoritative source. Product identification and information and the source of the product itself is less reliable, and introduces trust issues with representations of products bought and sold online. Additionally, unique identification is critical to business processes, but also to online purchasing. Very often two different products share the same identifier across the supply chain, and so what a consumer purchases and what ultimately is received may be different.</p>
+        <p>Mechanisms are required for the following to provide trust in the digital representation of a product across platforms:</p><ol>
+          <li>validation of the legitimacy of an online listing &mdash; in particular on third party marketplaces;</li>
+          <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
+        </ol>
+        </section><!-- Online shopper-->
+
+
+
+      </section>
+<hr />
+<p style="background-color:yellow">Stopped here</p>
+<hr/>
+      <section>
+      <h2>DID Actions</h2>
+        <p>Here are the  thirteen (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
+        <p>In the diagram,  we have grouped the actions by Create, Read, Update, and Delete (CRUD) as well  as Use.</p>
+            <img src="images/did_actions.png"/>
+      <section>
+        <h2>Create</h2>
+        <p>Controllers create DIDs, uniquely binding cryptographic  proofs with the identifier, typically using public-private key-pairs. These  DIDs are recorded in a registry in such a manner as to be able to resolve to a  DID Document. The DID Document may be dynamically and deterministically  generated through resolution or it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. This  process needs access to the registry, ideally a decentralized system, and like  the rest of the DID CRUD actions, can be performed without interaction with any  particular authority.</p>
+        </section>
+        <section>
+            <h2>Present</h2>
+        <p>DIDs are URIs, which is to say a string of characters. As  such, they may be presented in the same manner as URIs, by simply transmitting  or presenting that string of characters. DIDs, however are not designed to be  human readable. They invariably contain long, complex numbers represented in  various formats. For ease of use, implementations often rely on QR codes for  ease of capture using a camera-enabled device such as a smart phone.</p>
+        </section>
+        <section>
+        <h2>Authenticate</h2>
+        <p>Relying Parties may wish to prove that the individual  presenting a DID is in fact its controller or specified as a Controller for a  particular service endpoint. This authentication process uses the cryptographic  material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some sort of challenge-response. Some DID Documents  and methods allow for separate, proofs for different service endpoints,  distinct from update and delete actions. This separation allows transactional  proofs that are expected to be used frequently, while controlling proofs are  used rarely.</p>
+        </section>
+            <section>
+        <h2>Sign</h2>
+        <p>Using cryptographic material associated with that found in a  DID Document, DID Controllers may sign digital assets or documents. This  signature can later be verified (#7 Signature Verification) to demonstrate the  authenticity of the asset. In this way, we may referred to the asset as "signed  by the DID".</p>
+        </section>
+        <section>
+        <h2>Resolve</h2>
+        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the DID Resolution  specification. </p>
+        </section>
+        <section>
+        <h2>Dereference</h2>
+        <p>Dereferencing a DID uses the material in its DID Document to  return a resource. By default, dereferencing a DID without a reference to service  endpoint returns the DID Document itself. When a DID contains a service name,  dereferencing returns the resource pointed to from the named service endpoint,  which was discovered by resolving the DID to its DID Document and looking up  the endpoint by name. In this way, a Relying Party may dynamically discover and  interact with the current service endpoints for a given DID.</p>
+        </section>
+        <section>
+        <h2>Verify Signature</h2>
+        <p>Given a digital asset signed by a DID, a Relying Party may  use the cryptographic material in the DID Document to verify the signature.</p>
+        </section>
+        <section>
+        <h2>Rotate</h2>
+        <p>Controllers may rotate the cryptographic material for a DID  by updating the DID Document as recorded in its registry. Different methods  handle this differently, but the result is an update to the core cryptographic  proof required to prove control of the DID and the DID Document.</p>
+        </section>
+        <section>
+        <h2>Modify Service Endpoint</h2>
+        <p>Controllers may change service endpoints associated with a  DID, including the proof mechanism for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed  to allow Controllers to make these change without necessarily changing the  primary proof mechanism for control of the DID itself.</p>
+        </section>
+        <section>
+        <h2>Forward / Migrate</h2>
+        <p>To support interoperability, some methods provide a way for  controllers to record in the registry (by updating the DID Document), that the  DID should be redirected to another DID, which now has full authority to represent  the originating DID. This mechanism allows DID controllers to migrate a DID  from one method or registry to another.</p>
+        </section>
+        <section>
+        <h2>Recover</h2>
+        <p>Some methods provide means for recovering control of a DID  if its existing private cryptographic material is lost. These means vary by  method but can include social recovery, multi-sig, Shamir sharing, or pre-rotated  keys. In general, recovery triggers a rotation to a new proof, allowing the  Controller of that new proof to recover control of the DID without interacting  with any Relying Parties.</p>
+        </section>
+        <section>
+        <h2>Audit</h2>
+        <p>Some methods provide an explicit audit trail of all CRUD  actions on that DID, including a timestamp for when the actions took place. For  distributed ledger-based registries, this audit trail is fundamental to the way  the ledgers record transactions. This allows relying parties to see, for  example, how recently a DID was rotated or its service endpoints updated, which  may inform certain analytics regarding the reliability of the DID's  cryptographic material.</p>
+        </section>
+        <section>
+        <h2>Revoke</h2>
+        <p>Instead of deleting a DID, Controllers can revoke a DID such  that downstream processes like authentication and dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.  Indeed, distributed ledgers are often touted as "immutable". Methods define  revocation processes to achieve the same effect as deletion. The mechanisms for  revocation vary based on the method.</p>
+        </section>
+    </section>
+    <section>
+	<h2>Feature/Benefit Grid</h2>
+		<p>In collecting and evaluating potential use cases, we have 
+		identified fifteen (15) key features supported by the DID specification, 
+		which provide benefits in the areas of anti-censorship, anti-exploitation,
+		ease of use, privacy, and sustainability.<p>
+		<p>The features and their associated benefits can be seen in the following 
+        grid. A brief definition of each feature follows.</p>
+  <style>
+  	table.feature_grid td { text-align: center;	}
+	  table.feature_grid th[scope=row] { text-align: left;	}
+    dl.feature_definitions dt { font-weight: 400; }
+  </style>
+  <table width="1000" border="1" id="feature_benefit_grid" class="feature_grid">
+  <tbody>
+    <tr>
+      <th scope="col">Feature </th>
+      <th scope="col">Anti-censor</th>
+      <th scope="col">Anti-exploitation</th>
+      <th scope="col">Ease of Use</th>
+      <th scope="col">Privacy</th>
+      <th scope="col">Sustainability</th>
+    </tr>
+    <tr>
+        <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
+      <td class="a-censor">X</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f2">2. Can't be administratively denied</a></th>
+	  <td class="a-censor">X</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">&nbsp;</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f3">3. Minimized rents</a></th>
+	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">X</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f4">4. No vendor lock in</a></th>
+	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">X</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f5">5. Self-issued, self-managed</a></th>
+	  <td class="a-censor">X</td>
+      <td class="a-exploit">X</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">X</td>
+      <td class="sustainability">&nbsp;</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f6">6. Streamlined rotation</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">X</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">&nbsp;</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f7">7. No phone home</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">X</td>
+      <td class="sustainability">&nbsp;</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f8">8. No surveillance capitalism</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">X</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">X</td>
+      <td class="sustainability">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f9">9. Cryptographic future proof</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f10">10. Survives issuing organization mortality</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">X</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f11">11. Survives deployment end-of-life</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f12">12. Survives relationship with service provider</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">X</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f13">13. Cryptographic authentication and communication</a></th>
+ 	  <td class="a-censor">X</td>
+      <td class="a-exploit">X</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">X</td>
+      <td class="sustainability">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f14">14. Service Discovery</a></th>
+ 	  <td class="a-censor">&nbsp;</td>
+      <td class="a-exploit">&nbsp;</td>
+      <td class="ease">X</td>
+      <td class="privacy">&nbsp;</td>
+      <td class="sustainability">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f15">15. Registry agnostic</a></th>
+ 	  <td class="a-censor">X</td>
+      <td class="a-exploit">X</td>
+      <td class="ease">&nbsp;</td>
+      <td class="privacy">X</td>
+      <td class="sustainability">X</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+  <section>
+  <h2>Required Features</h2>
+	  <dl id="feature_definitions">
+  <dt id="f1">1. Inter-jurisdictional</dt>
+	<dd>Inter-jurisdictional identifiers do not depend on the legal jurisdiction 
+      in which they are issued. They are valid for uses anywhere without loss 
+      of fidelity or reliability. No jurisdiction is directly able to prevent 
+      their use. (Anti-censorship and Sustainable).</dd>
+  <dt id="f2">2. Can't be administratively denied</dt>
+    <dd>These identifiers can't be denied or taken away by administrative 
+        function. This prevents shifting politics and bad actors from 
+        interfering. (Anti-censorship).</dd>
+  <dt id="f3">3. Minimized rents</dt>
+    <dd>These identifiers don't incur ongoing expenses if unused nor on a per 
+        transaction basis. Fees based on updates—which incurs network and 
+        computational costs to verify—are considered "minimal". (Anti-exploitation 
+        and Sustainable).</dd>
+  <dt id="f4">4. No vendor lock in</dt>
+    <dd>These identifiers are not dependent on any given vendor. Vendor-specific 
+        identifiers restrict usage to that which is acceptable to the vendor and 
+        may allow vendors to extract disproportionate rents for usage. 
+        (Anti-exploitation, Privacy, and Sustainable).</dd>
+  <dt id="f5">5. Self-issued, self-managed</dt>
+    <dd>These identifiers are created and managed by the subject of the identifier. 
+        They are not assigned, given, sold, or rented to the individual using them. 
+        The party relying on the identifier for identification, authentication, and 
+        authorization, does not need to manage the creation, update, and recovery of 
+        these identifiers. (Anti-censorship, Ease of use, and Privacy)</dd>
+  <dt id="f6">6. Streamlined rotation</dt>
+    <dd>When authentication materials need to be updated, these identifiers can 
+        update without direct intervention with relying parties and with minimal 
+        individual interaction. (Ease of use)</dd>
+  <dt id="f7">7. No phone home</dt>
+    <dd>When using these identifiers, there is no need to contact the issuer of the 
+        identifier to verify it. Verification and authentication can occur without 
+        further communication with the issuer. (Privacy)</dd>
+  <dt id="f8">8. No surveillance capitalism</dt>
+    <dd>These identifiers limit the effectiveness of surveillance capitalism by 
+        minimizing cross-service correlatability. Individuals may use these 
+        identifiers at multiple service providers without their activity being 
+        tracked for collusion or third party embedded surveillance techniques like 
+        cookies. (Anti-exploitation and Privacy).</dd>
+  <dt id="f9">9. Cryptographic future proofing</dt>
+    <dd>These identifiers are capable of being updated as technology evolves. Current 
+        cryptography techniques are known to be susceptible to quantum computational 
+        attacks. Future-proofed identifiers provide a means to continue using the same 
+        identifier with updated, advanced authentication and authorization technologies. 
+        (Sustainable)</dd>
+  <dt id="f10">10. Survives organizational mortality</dt>
+    <dd>These identifiers survive the demise of the organization that issued them. They 
+        usefulness of these identifiers survive organizations going out of business, 
+        being purchased (and potentially losing domain names or root credentials), and 
+        even the internal decay of an organization that no longer has the ability to 
+        verify the authenticity of records they once issued.</dd>
+  <dt id="f11">11. Survives deployment end-of-life</dt>
+    <dd>These identifiers are usable even after the systems deployed by relying parties 
+        move past their useful lifetime. They are robust against technology fads and can 
+        seamlessly work with both legacy and next-generation systems.</dd>
+  <dt id="f12">12. Survives relationship with service provider</dt>
+    <dd>These identifiers are not dependent on the tenure of the relationship with a 
+        service provider. This contrasts with identifiers like service-centric emails, 
+        e.g., joe@aol.com, which when used as identifiers in other systems can cause 
+        problems when individuals no longer use the service provider.</dd>
+  <dt id="f13">13. Cryptographic authentication and communication</dt>
+    <dd>These identifiers enable cryptographic techniques to authenticate individuals 
+        and to secure communications with the subject of the identifier, typically using 
+        public-private key pairs.</dd>
+  <dt id="f14">14. Service discovery</dt>
+    <dd>These identifiers allow relying parties to look up available service endpoints 
+        for interacting with the subject of the identifier. (Ease of use and Sustainable)</dd>
+  <dt id="f15">15. Registry agnostic</dt>
+	    <dd>These identifiers are free to reside on any registry implementing a compatible 
+          interface. They are not beholden to any particular technology or vendor.</dd>
+    </dl>
+	  </section>
+    <section>
+	<h2>Feature Coverage</h2>
+		<p>Not all use cases illustrate each feature, and not all DID methods
+		  support all features. However, we are gathering 
+		  use cases to make sure all key features are clearly described. The
+        following chart shows which features are explicitly illustrated in 
+        the <a href="#focal-use-cases">Focal Use Cases</a>.</p>
+  <table width="1000" border="1" class="feature_grid">
+  <tbody>
+    <tr>
+      <th scope="col">Feature </th>
+      <th scope="col">Corporate</th>
+      <th scope="col">Educational<br/>credentials</th>
+      <th scope="col">Prescriptions</th>
+      <th scope="col">Digital<br/>Executor</th>
+      <th scope="col">Single<br/>Sign On</th>
+    </tr>
+    <tr>
+        <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
+      <td class="corporate">X</td>
+      <td class="education">X</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">X</td>
+      <td class="sso">&nbsp;</td>
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f2">2. Can't be administratively denied</a></th>
+      <td class="corporate">X</td>
+      <td class="education">&nbsp;</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">X</td>
+      <td class="sso">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f3">3. Minimized rents</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">&nbsp;</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f4">4. No vendor lock in</a></th>
+      <td class="corporate">X</td>
+      <td class="education">X</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">X</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f5">5. Self-issued, self-managed</a></th>
+      <td class="corporate">X</td>
+      <td class="education">X</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">X</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+      <th scope="row"><a href="#f6">6. Streamlined rotation</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">X</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">X</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f7">7. No phone home</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">X</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f8">8. No surveillance capitalism</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">&nbsp;</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f9">9. Cryptographic future proof</a></th>
+      <td class="corporate">X</td>
+      <td class="education">X</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f10">10. Survives issuing organization mortality</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">X</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f11">11. Survives deployment end-of-life</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">X</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f12">12. Survives relationship with service provider</a></th>
+      <td class="corporate">X</td>
+      <td class="education">X</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f13">13. Cryptographic authentication and communication</a></th>
+      <td class="corporate">X</td>
+      <td class="education">X</td>
+      <td class="prescriptions">X</td>
+      <td class="executor">X</td>
+      <td class="sso">X</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f14">14. Service Discovery</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">&nbsp;</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+
+    </tr>
+    <tr>
+        <th scope="row"><a href="#f15">15. Registry agnostic</a></th>
+      <td class="corporate">&nbsp;</td>
+      <td class="education">&nbsp;</td>
+      <td class="prescriptions">&nbsp;</td>
+      <td class="executor">&nbsp;</td>
+      <td class="sso">&nbsp;</td>
+
+    </tr>
+  </tbody>
+</table>
+  </section>
+
+    <section>
+        <h2>Focal Use Cases</h2>
+        <section>
+      <h3>Decentralized Corporate Identifiers (enterprise)</h3>
+      <section>
+        <h4>Background</h4>
+        <p>
+          There are many types of identifiers that corporations use today
+          including tax identification numbers (e.g. 238-42-3893), Legal
+          Entity Identifiers (e.g. 5493000IBP32UQZ0KL24), Data Universal
+          Numbering System identifiers (aka. DUNS Number) (e.g. 150483782),
+          and many more that communicate the unique identity of an organization.
+          None of these numbers enable an organization to self-issue an
+          identifier or to use the number to cryptographically authenticate or
+          digitally sign agreements. A great number of business to business
+          and business to customer transactions could be executed more quickly
+          and with greater assurance of the validity of the transaction if a
+          mechanism to self-issue cryptographic identifiers were created.
+        </p>
+      </section>
+      <section>
+        <h4>Description</h4>
+        <p>
+          A North American government would like to ensure that the supply
+          chain that feeds electronic products into the country is secure. As
+          a result, a new method of submitting digital documentation to Customs
+          is enabled that requires that all documentation is provided as
+          machine-readable digitally signed data. Digitally signed documentation
+          is collected at each stage of the manufacturing, packaging, and
+          shipping process. This documentation is then submitted to Customs
+          upon the products entry into the country where all digital signatures
+          are verified on the documentation. Some aspects of the signed
+          documentation, such as firmware hashes and checksums, are then used
+          by Customs and downstream customers to verify that the products have
+          not been tampered with after leaving the manufacturing facility.
+        </p>
+        <p>
+          Decentralized Identifiers are chosen in order to ensure 1) low
+          management overhead for the government, 2) self-management of
+          identifiers and cryptographic key material, and 3) a competitive
+          marketplace.
+        </p>
+      </section>
+      <section>
+        <h4>Challenges</h4>
+        <p>
+          The requirement of downstream customers to use the same documentation
+          and digital signature mechanisms that were provided to Customs is the
+          sticky wicket in this scenario. Governments often create ad-hoc
+          solutions for their import solutions, which make securing the global
+          supply chain difficult as each government has their own method of
+          securing the supply chain and identifying corporations that downstream
+          customers need to integrate with. If you are a global company, that
+          means integrating with many supply chain systems (each with different
+          capabilities). As such, any securing of the supply chain with downstream
+          customers must then depend on the country-specific corporate
+          identification and PKI solution, which leads to ad-hoc solutions that
+          drive up the cost of doing business across borders.
+        </p>
+        <p>
+          A supply chain identifier solution that is simple, self-administered,
+          built on global standards, is flexible in the cryptographic mechanisms
+          used to authenticate, and can be used by governments and downstream
+          customers with little to no modification to the regional government
+          or corporate systems does not exist today.
+        </p>
+      </section>
+      <section>
+        <h4>Distinctions</h4>
+        <p>
+          Many Decentralized Identifier use cases focus on Self-Sovereign
+          Identity and individuals. This use case focuses on organizations and
+          their departments as entities that would also benefit from
+          Decentralized Identifiers.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h3>Life-long, recipient-managed Credentials (education)</h3>
+      <section>
+        <h4>Background</h4>
+        <p>Educational <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Credentials</a> offer benefits over traditional
+          educational credentials in that the recipient is able to store and
+          share their credentials, and a third party may independently verify
+          the credential (including authenticating the identity of the recipient),
+		  without necessarily consulting the issuer, and without dependence on
+		  centuries old treaty-based bureaucratic process for the international 
+      verification of credentials. This provides the promise of recipient-owned 
+		  long-lived credentials that the recipient may use in any country, 
+		  even if the issuing institution goes out of business.
+        </p>
+        <p> However, traditional public-private key pair-based identifiers 
+			present challenges for rotating keys, especially if 
+			the identifier in a credential is simply the public key (with 
+			the private key used for authentication).</p>
+        <ol>
+    		<li>With the public key embedded in the digitally signed credential, 
+				it is literally impossible to update the signing key; a recipient 
+				must  contact the issuer and request re-issuing with a new 
+				identifer. If the issuer is not reachable, or is unwilling 
+				or unable to issue a new credential, the recipient cannot 
+				update the cryptographic material.</li>
+			<li>If the credential relies on a centralized key registry or 
+				authority for managing rotation, then that registry becomes 
+				the centralized point of failure. This may or may not be an 
+				improvement, especially for longer held credentials.</li>
+			<li>If the credential's cryptographic technology becomes outdated, 
+				there is no way to update the credential to use a more robust 
+				technology; a recipient must contact the issuer for reissuance.</li>
+		  </ol>
+        <p>The key rotation is particularly problematic for credentials 
+            expected to last a lifetime. It should be anticipated that 
+			a given individual will change their key management strategy and 
+		    systems several times over the course of their life, e.g., relying
+		    on a cloud wallet, a mobile wallet, or a dedicated hardware wallet,
+		    as their needs change.</p>
+        <p>By issuing an educational credential to a recipient's DID, the 
+			recipient has the ability to prove ownership of a credential even 
+			if the cryptographic material used for authenticating changes over time.
+        </p>
+      </section>
+      <section>
+        <h4>Description</h4>
+        <p>When Sally earned her master&rsquo;s degree at  Oxford, she received a 
+			digital diploma which contained a decentralized identifier she provided. 
+			Over time, she updates the cryptographic material associated with that 
+			DID to use her latest hardware wallet, with biometric protections and a 
+			quantum resistant algorithm. A decade after  graduation, she applies for 
+			a job in Japan, for which she provides her digital diploma by uploading 
+			it to the prospective employee&rsquo;s website. To verify she is the 
+			actual recipient of that degree, she uses the decentralized identifier 
+			to authenticate, using her current hardware wallet (with rotated keys). 
+			In addition to the fact that her name matches the name on the diploma, 
+			the cryptographic authentication provides a robust verification of her 
+			claim, allowing the employer to rely on Sally&rsquo;s assertion that she 
+			earned a master&rsquo;s degree from Oxford. </p>
+      </section>
+      <section>
+        <h4>Challenges</h4>
+        <p>Rotating keys without invalidating Sally's educational credentials and 
+			providing acceptable proof of education internationally.</p>
+</section>
+      <section>
+        <h4>Distinction</h4>
+        <p>Oxford had no need to provide services for  resetting or updating Sally&rsquo;s username or password; they had no role in  managing Sally&rsquo;s changes to her authentication credentials. The potential  employer did not need to contact Oxford to verify Sally&rsquo;s claim of a master&rsquo;s  degree; they were able to verify the credential and authenticate Sally&rsquo;s  identity with information retrieved over the Internet. </p>
+</section>
+    </section>
+    <section>
+      <h3>Prescriptions (healthcare)</h3>
+      <section>
+        <h4>Background</h4>
+        <p>
+          Alice wants help with her urinary tract infection (UTI) and is a bit
+          touchy about her privacy. In the old days, she would have to make an
+          appointment in-person and get a paper prescription to take to a
+          pharmacy. She wants to save money and have peace of mind.
+        </p>
+      </section>
+      <section>
+        <h4>Description</h4>
+        <p>
+          Because she lives in Seattle, Alice is in a state that allows Planned
+          Parenthood to diagnose and prescribe online
+          https://www.plannedparenthood.org/get-care/get-care-online . Alice
+          uses the identity wallet on her iPhone to register with the online
+          medical practice. She tells the online practice her name is Althea
+          with password-less authentication and a verified driver's license
+          credential to prove that she's a WA resident. The remote physician,
+          Bob, is licensed by the WA Board of Medicine and credentialed by
+          Planned Parenthood of WA, Inc. He's securely signed in using the
+          identity wallet on his smartphone. Bob issues Alice a digital
+          prescription in the form of a verifiable credential and allows Alice
+          to download it however she pleases. Alice is a librarian and trusts
+          her local public library to erase their logs as allowed by law. She
+          uses one of their computers to sign-in and do all of this. She snaps
+          a picture of the QR code that is the prescription to take to the
+          pharmacy. Charlie, the licensed pharmacist, scans the prescription
+          QR code and fills the prescription. Alice pays cash.
+        </p>
+      </section>
+      <section>
+        <h4>Challenges</h4>
+        <p>
+          The challenge of this particular use-case is that only Bob and
+          Charlie are verified identities and accountable for their interaction
+          with Alice. Alice can be anonymous or pairwise-pseudonymous with both
+          Bob and Charlie and everything just works. Alice, Bob, and Charlie
+          all keep separate and legally authentic copies of the records of their
+          interaction in case of dispute.
+        </p>
+      </section>
+      <section>
+        <h4>Distinction</h4>
+        <p>
+          The Prescription use-case is a common and high-value example of
+          privacy engineering as we shift to convenient and cost-effective
+          online commerce among licensed and unlicensed individuals as peers.
+          Bob and Charlie benefit by reducing or even eliminating the influence
+          of their respective institutions or employers and therefore make more
+          money. They pass some savings to Alice who also gets increased peace
+          of mind.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h3>Digital Executor (law)</h3>
+      <section>
+        <h4>Background</h4>
+        <p>
+          Today, when people die, there are no standard technologies for heirs,
+          executors, or probate courts to properly take control of an individual's
+          online accounts and digital assets. With a DID linked to accounts and
+          assets, a DID owner could define a trigger for a third party to assume
+          control over the DID Document. Ideally, this trigger would specify (a)
+          an oracle (how to know the death/incapacity occurred), (b) a means for
+          the new owner to assert control, and (c) appropriate checks and
+          accountability.
+        </p>
+      </section>
+      <section>
+        <h4>Description</h4>
+        <p>
+          Kathy uses DIDs to manage her authentications to various services.
+          As part of her estate planning, she generates a unique credential
+          that she gives to her attorney, Gloria, with provisions specified in
+          her will, which initially lists Mike as the digital executor. With
+          appropriate obfuscation, that credential is specified in multiple DID
+          documents as a probate authority, with the authorization to change the
+          master key in case of death, which shall be recorded publicly, on chain,
+          as a notarized invocation of the probate authority. As it happens,
+          Kathy had a falling out with Mike and notified Gloria just two weeks
+          before her death that her friend Miyake should now be her digital
+          executor. Upon Kathy's death, Gloria uses the probate credential to
+          publicly record the assertion of probate and to replace the DID's master
+          key with a new key, controlled by Miyake, who lives in Japan (Kathy,
+          Gloria, and Mike live in the United States). Now, any system using
+          Kathy's DIDs for authentication can programmatically recognized Miyake's
+          authority <em>and</em> specifically know that Kathy's credentials were
+          modified under a assertion of probate.
+        </p>
+      </section>
+      <section>
+        <h4>Challenges</h4>
+        <p>
+          The late date change in digital executorship from Mike to Miyake
+          could be problematic if Kathy had directly listed Mike's credential
+          in the DID Document. Because she instead chose to rely on her attorney,
+          Kathy has a more flexible way to direct her wishes, while still
+          leveraging the collective control over her authenticated logins to
+          various services. In addition, Miyake's geographic location could
+          make it hard for them to travel to the United States and may make it
+          difficult to provide proof of identity traditionally used by U.S. courts.
+          Also, because Gloria invokes the probate mechanism, Miyake need only
+          provide a suitable credential at that time; he did not need to create
+          and maintain a credential over a long period of time (as would be the
+          case if Gloria weren't involved).
+        </p>
+      </section>
+      <section>
+        <h4>Distinction</h4>
+        <p>
+          Multiple DIDs with a common, blinded authority for probate assumption
+          of control. The legal selection of the new owner is mediated through
+          a trusted fiduciary (an attorney of record). Cross-border transfer of
+          ownership.
+        </p>
+      </section>
+    </section>
+    <section>
+      <h3>Single Sign On (security)</h3>
+      <section>
+        <h4>Background</h4>
+        <p>
+          Passwords are notoriously misused ("123456"), stolen from the
+          supposedly-secure database on the server-side, easy to forget when
+          sufficiently secure, and never the last word in authentication for
+          forgotten password situations.  Proving control of a DID can replace
+          storage and retrieval of a shared secret.
+        </p>
+      </section>
+      <section>
+        <h4>Description</h4>
+        <p>
+          Use DID as single-sign-on to a website, using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/draft-documents/did_auth_draft.md">DID Auth</a> (especially
+          cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
+          example between a web page and web browser with a mobile
+          identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
+          Credential Handler API</a>. When desirable, the relationship can add
+          a shared secret for 2FA.
+          <!--(except does DID Auth include any extensions that enable this
+          subsequent ascension without starting another socket?).-->
+        </p>
+        <p>
+          Note that what is stored on the server-side is a DID, so in cases
+          where a successful attack reads (but does not mutate) the database,
+          all that is revealed is linkage of the DID to use the site (so
+          probably as a consequence the user should spawn a unique DID to reveal
+          to that site), and any 2FA secret (which should be a random number for
+          <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm">TOTP</a>,
+          instead of a <a href="https://blog.coinbase.com/on-phone-numbers-and-identity-423db8577e58">phone number</a>
+          susceptible to carrier social engineering and
+          <a href="https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls">SS7 bugs</a>).  In other words, the user's DID Auth
+          procedures remain valid after the hack, even for that site.
+        </p>
+      </section>
+      <section>
+        <h4>Challenges</h4>
+        <p>
+          Transfer sign-on capability from control of a password to control of
+          the DID, as shown in DID-Auth, using appropriate devices.  Optionally
+          include 2FA, although DID Auth doesn't handle that well, yet.
+        </p>
+      </section>
+      <section>
+        <h4>Distinction</h4>
+        <p>
+          This use case describes the most common authentication action for
+          people on the Internet.
+        </p>
+      </section>
+    </section>
+      </section>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"> 
+    <title>Use Cases and Requirements for Decentralized Identifiers</title>
+    <script
+     src="https://www.w3.org/Tools/respec/respec-w3c-common"
+     class="remove"></script>
+    <script class="remove">
+      var respecConfig = {
+        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: "ED",
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: "did-use-cases",
+
+        // subtitle
 
         //subtitle: "Draft Working Group Report 5 November 2019",
         // subtitle: "Use Cases for Decentralized Identifiers",
