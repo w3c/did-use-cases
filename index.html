@@ -55,7 +55,16 @@
         wgURI: "https://www.w3.org/2019/did-wg/",
         wgPatentURI: "https://www.w3.org/2004/01/pp-impl/117488/status",
         maxTocLevel: 4,
-        inlineCSS: true
+        inlineCSS: true,
+
+        localBiblio: {
+      	  "DID-RESOLUTION" : {
+    		  title : "Decentralized Identifier Resolution (DID Resolution)",
+      		href : "https://w3c-ccg.github.io/did-resolution/",
+          authors: ["Markus Sabadello", "Dmitri Zagidulin"],
+          status: "W3C Community Group Report"
+       	  }
+        }
       };
     </script>
     <style>
@@ -73,32 +82,39 @@
         <li><strong>decentralized</strong>: there should be no central issuing agency;</li>
         <li><strong>persistent</strong>: the identifier should be inherently persistent, not requiring the continued operation of an underling organization;</li>
         <li><strong>crytopgraphically verifiable</strong>: it should be possible to prove control of the identifier cryptographically;</li>
-        <li><strong>resolvable</strong>: it shold be possible to discover metadata about the identifier.</li>
+        <li><strong>resolvable</strong>: it should be possible to discover metadata about the identifier.</li>
     </ol>
     <p>Although existing identifiers may display some of these characteristics, none currently displays all four.</p>
-    <!--
-      <p>
-        Decentralized Identifiers (DIDs) allow for exceptional user-driven control 
-        and overall reliability of publicly resolvable, provable identifiers. While 
-        DIDs share many features with extant identity systems,
-        no other system combines all the features designed into DIDs. We present the 
-          current consensus of the motivations behind DIDs based on input and 
-          collaboration with implementers currently building products to the DID specification. 
-        </p>
-        <p>
-            <strong>Note:</strong><em>This document is still in early development. 
-            Please provide feedback via <a href="https://github.com/w3c-ccg/did-use-cases">Github</a></em>
-      </p>-->
     </section>
     <section id="sotd"></section>
     <section id="intro">
-        <h2>Introduction</h2>
-        <p>A longer version of the abstract that introduces the name DID although in such a way as not to present it as a baked solution.</p>
+      <h2>Introduction</h2>
+      <p>The need for globally unique identifier schemes has been addressed many times. Globally unique ID schemes typically rely on a central authority controlling a 'root' space that is then delegated to local organizations who in turn delegate to further organizations who eventually add the final string to complete the identifer. Even if we restrict ourseleves to online identifiers, there are many examples of this.</p><ul>
+  <li>IANA controls the root namespace of the Internet's Domain Name System; registras operate the top level domains and then license specific domain names to their clients, and it's these clients who create the actual identifiers for online resources (URLs). The example below shows who controls what in a typical URL.
 
-<!--
+<pre class="example">
 
-        <p>This document attempts to explain what you can do with DIDs and why you might care to use them. We start by describing the basic conceptual framework for DIDs, including basic terminology, followed by the actions one can take with a DID. Then we introduce the defining features and benefits of DIDs along with five focal use cases illustrating those features and benefits. 
-        </p>-->
+                IANA
+                 ↓
+https://example.com/page.html
+           ↑           ↑
+        Registrar   Licensee
+</pre></li>
+  <li><abbr title="Digital Object Identifier">DOI</abbr>s have the form <code>10.{registrant}/{suffix}</code> where 'registrant' is defined by the DOI organization and the suffix by the registrant.</li>
+  <li>Global Trade Item Numbers (GTINs) seen on many of the world's barcodes are managed in a similar way, as are Legal Entity Identifiers, <abbr title="International Standard Book Number">ISBN</a>s and more.</li>
+  </ul>
+  <p>In all these cases, ultimately, there is a central authority on which the identifier system depends. Those central authorities go to significant efforts to make their identifiers persistent and resolvable, however, should they cease to exist, the long term integrity of the identifier is at least questionable to a greater or lesser extent. For as long as those organizations exist (and they are generally well established with no immediate threat to their survival), the way to assess whether a particular identifier is in some way 'valid' is to query the issuing authority.</p>
+  <p>These factors point to a need in some circumstances for a globally unique identifier that is 'self sovereign', that is, one that does not depend on any issuing authority. Universally unique identifiers (UUIDs) [[RFC4122]] fulfill this role, however, there is no way to <em>prove</em> control of a <abbr title="Universally unique identifier">UUID</abbr>.</p>
+  <p>This document sets out use cases and requirements for a new kind of identifier that meets all these basic requirements:</p>
+      <ol>
+        <li><strong>decentralized</strong>: there should be no central issuing agency;</li>
+        <li><strong>persistent</strong>: the identifier should be inherently persistent, not requiring the continued operation of an underling organization;</li>
+        <li><strong>crytopgraphically verifiable</strong>: it should be possible to prove control of the identifier cryptographically;</li>
+        <li><strong>resolvable</strong>: it should be possible to discover metadata about the identifier.</li>
+    </ol>
+  <section id="existingWork">
+    <h3>Existing Work</h3>
+    <p>The use cases and requirements set out below have not been created <i>a priori</i>. Substantial work has been done within W3C and elsewhere leading, in particular, to <a href="https://www.w3.org/2019/08/did-20190828/">Decentralized Identifiers (DIDs) Data Model and Syntaxes</a> published as a Community Group Report by the <a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> in August 2019. That work provides a framework &mdash; a set of concepts &mdash; that have proved to be useful when discussing <abbr title="Decentralized Identifier">DID</abbr>s and the problems they can solve (see below). Those concepts are used within this document to set out the detail of the problem that the Decentralized Identifier Working Group is <a href="https://www.w3.org/2019/09/did-wg-charter">chartered</a> to solve. It is the nature of the standardization process that these terms may be modified within the standard itself and therefore, their use here should not be seen as authoritative.</p>
       </section>
     <section>
       <h2 id="concepts">Concepts of Decentralized Identity</h2>
@@ -107,29 +123,62 @@
         <p>The Subject is the entity referred to by the <abbr title="Decentralized Identifier">DID</abbr>, which can be anything: a person,  an organization, a device, a location, even a concept. Typically, the Subject is  also the Controller, but in cases of guardianship, agents (human or software),  and inanimate Subjects, this is not possible. As such, the Subject has no functional  role. When the Subject is, in fact, the Controller, we consider the action to  be taken by the Controller on their own behalf as the Subject. When the Subject  is not the Controller, the Controller is said to be taking action on behalf of the Subject, such as when an employee manages a <abbr title="Decentralized Identifier">DID</abbr> on behalf of their employer  or a parent uses a <abbr title="Decentralized Identifier">DID</abbr> on behalf of their child.</p>
         <p>The Controller  and Relying Party may be individuals or interactive systems, but for simplicity in this document, we refer to both as if they were individual  persons performing these actions. </p>
         <p>Only a Controller  can perform the actions that control a <abbr title="Decentralized Identifier">DID</abbr>, however, anyone can act as a  Relying Party for any <abbr title="Decentralized Identifier">DID</abbr> they know, including the Controller should they wish  to inspect or verify their own <abbr title="Decentralized Identifier">DID</abbr>.</p>
-        <p>This use case document defines these actions in terms of the eventual systems we anticipate using the resultant specification.
-
-
-<!-- The initial DID Working Group Charter only  covers the initial specification of the DID syntax itself and the syntax and  semantics of its associated DID Document. Together, these encode the information  necessary to eventually perform these various actions. Additional  specifications, such as DID Resolution and DID Auth (both under incubation in  the Credentials Community Group), will specify how these actions take place. There  has been interest expressed in standardizing how DIDs can be used for signing  and how those signatures are verified, however it is an open question as to  whether or not this capability should be a part of the DID Auth specification  or a separate work. This document captures these uses as design goals, but it is  anticipated that the DID Specification will not define how these actions are realized.</p>-->
+        <p>This use case document defines these actions in terms of the eventual systems we anticipate using the resultant specification.</p>
 
         <p>Perhaps the most salient point about Decentralized Identifiers is that there are no "Identity Providers". Instead, this role is subsumed in the decentralized systems that Controllers use to manage <abbr title="Decentralized Identifier">DID</abbr>s and, in turn, Relying Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s. These  decentralized systems, which we refer to as <abbr title="Decentralized Identifier">DID</abbr> registries, are designed to  operate independently from any particular service provider and hence, free from  any given platform authority. It is anticipated that <abbr title="Decentralized Identifier">DID</abbr>s will be registered using distributed ledger technology (DLT). 
 
-<!-- for their registries, for example, BTCR uses Bitcoin and ERC725  uses Ethereum. Some use alternative decentralized technologies, as IPID, which  uses IPFS. You may see the current DID Methods at the DID Method Registry (<a href="https://w3c-ccg.github.io/did-method-registry/">https://w3c-ccg.github.io/did-method-registry/</a>), maintained by the Credentials Community Group. </p>-->
         <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate such systems &mdash; from who controls the most widely used code base to who controls  the specification &mdash; where a system resides on the spectrum of centralized and decentralized varies. However, the design of any decentralized identity system is separate from the  academic debate about how decentralized it may be in practice.</p>
-
-<!--        <p>The DID methods specified in each DID MAY define how one performs these actions, including the  mechanism(s) for interacting with any particular DID registry. Not all of these  actions are supported by all DID methods. Which actions are required is an open  question. Similarly, it remains an open question whether or not all DID methods  should be required to be decentralized. As mentioned previously, this quickly becomes  an academic debate about the definition of decentralized, which we leave as an  exercise for the reader. Therefore, each DID method and DID registry should be  evaluated on its own merits as to precisely how decentralized it may or may not  be relative to its anticipated use. </p> -->
-
         <p>The use cases presented below make use of a number of high level concepts as follows.</p>
-<dl>
-  <dt>Decentralized Identifier (DID)</dt>
-  <dd>The actual identifier</dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> Method</dt>
-  <dd>The method by which a <abbr title="Decentralized Identifier">DID</abbr> is generated<dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> Registries</dt>
-  <dd>A registry where <abbr title="Decentralized Identifier">DID</abbr>s are recorded</dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> Documents</dt>
-  <dd>A document that contains metadata about the <abbr title="Decentralized Identifier">DID</abbr></dd>
+
+
+<dl class="termlist">
+<div class="issue" data-number="12">
+  <p>This section is very similar to that proposed in <a href="https://github.com/w3c/did-use-cases/pull/33">PR 33</a>, however, there are comments on that PR that need to be resolved.</p></div>
+
+  <dt><dfn data-lt="DID|DIDs|decentralized identifier" id="dfn-did">decentralized identifier</dfn> (DID)</dt>
+
+  <dd>A globally unique identifier that does not require a centralized registration authority because it is registered with <a>distributed ledger technology</a> (DLT) or other form of decentralized network. The generic format of a DID is defined in the DID specification [[DID-CORE]]. A specifictype of DID is defined in a <a>DID method</a> specification.</dd>
+
+  <dt><dfn data-lt="did controller(s)|DID controller" id="dfn-did-controller">DID controller</dfn></dt>
+
+  <dd>The entity, or a group of entities, in control of a DID and/or <a>DID document</a>. Note that the <a>DID controller</a> might include the <a>DID subject</a>.</dd>
+
+  <dt><dfn data-lt="DIDdoc|DID document" id="dfn-did-document">DID document</dfn></dt>
+
+  <dd>A set of data that describes the <a>DID subject</a>, including mechanisms, such as public keys and pseudonymous biometrics, that the <a>DID subject</a> can use to authenticate itself and prove their association with the DID. A DID document <em class="rfc2119" title="MAY">MAY</em> also contain other attributes or claims describing the subject. These documents are graph-based data structures that are typically expressed using [[JSON-LD]], but may be expressed using other
+compatible graph-based data formats.</dd>
+
+  <dt><dfn id="dfn-did-method">DID method</dfn></dt>
+  <dd>A definition of how a specific <a>DID scheme</a> can be implemented on a specific <a>distributed ledger</a> or network, including the precise method(s) by which <a>DIDs</a> are resolved and deactivated and <a>DID documents</a> are written and updated.</dd>
+
+  <dt><dfn data-lt="decentralized identifier registry|decentralized identifier registries|DID registry" id="dfn-decentralized-identifier-registry">DID registry</dfn></dt>
+
+  <dd>A role a system performs to mediate the creation, verification, updating, and deactivation of <a>decentralized identifiers</a>. A DID registry is a type of verifiable data registry (see [[VC-DATA-MODEL]]).</dd>
+
+  <dt><dfn data-lt="DID resolver" data-dfn-type="dfn" id="dfn-did-resolver">DID resolver</dfn></dt>
+
+  <dd>A system that is capable of retrieving a <a>DID document</a> for a given <a>DID</a>. The specification of these systems is out of scope for the Decentralized Identifier Working Group but a proposal for such a specification exists [[DID-RESOLUTION]].</dd>
+<p class="ednote">The above definition differs slightly from that proposed by Markus to reflect formal position wrt. the CG report</p>
+  
+  <dt><dfn data-lt="" data-dfn-type="dfn" id="dfn-did-subject">DID subject</dfn></dt>
+
+  <dd>The DID subject is the entity that the <a>DID document</a> is about, i.e. it is the entity identified by the <a>DID</a> and described by the <a>DID document</a>.  </dd>
+
+  <dt><dfn data-lt="DID URL" data-dfn-type="dfn" id="dfn-did-url">DID URL</dfn></dt>
+
+  <dd>A DID plus an optional DID path, optional <code>?</code> character followed by a DID query, and optional <code>#</code> character followed by a DID fragment.</dd>
+
+  <dt><dfn data-lt="DID scheme" data-dfn-type="dfn" id="dfn-did-scheme">DID scheme</dfn></dt>
+
+  <dd>The formal syntax of a <a>decentralized identifier</a>. The generic DID scheme is defined in the DID specification [[DID-CORE]]. Separate <a>DID method</a> specifications define a specific DID scheme that works with that specific <a>DID method</a>.</dd>
+
+  <dt><dfn data-lt="distributed ledger technology|DLT|distributed ledger" data-dfn-type="dfn" id="dfn-distributed-ledger-technology">distributed ledger</dfn> (DLT)</dt>
+
+  <dd>A <a href="https://en.wikipedia.org/wiki/Distributed_database">distributed database</a> in which the various nodes use a <a href="https://en.wikipedia.org/wiki/Consensus_(computer_science)">consensus protocol</a> to maintain a shared ledger in which each transaction is cryptographically signed and chained to the previous transaction.</dd>
+
 </dl>
+
+
 
 <p>When we  refer to <em>methods</em> and <em>registries</em>, we mean <abbr title="Decentralized Identifier">DID</abbr> methods and <abbr title="Decentralized Identifier">DID</abbr> registries. A working assumption for the use cases is that all <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr> Documents contain the cryptographic material  to perform the functions related to that particular <abbr title="Decentralized Identifier">DID</abbr>, including associated proof methods and any service endpoints, that is, services that can make use of the <abbr title="Decentralized Identifier">DID</abbr>.<!-- When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.--></p>
       </section>
