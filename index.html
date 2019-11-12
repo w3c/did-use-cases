@@ -6,6 +6,8 @@
     <script
      src="https://www.w3.org/Tools/respec/respec-w3c-common"
      class="remove"></script>
+    <script class='remove' src="./common.js">
+    </script>
     <script class="remove">
       var respecConfig = {
         // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -26,7 +28,7 @@
         // previousMaturity:  "WD",
 
         // extend the bibliography entries
-        // localBiblio: ccg.localBiblio,
+        localBiblio: didwg.localBiblio,
 
         github: "https://github.com/w3c/did-use-cases",
         includePermalinks: false,
@@ -326,10 +328,9 @@ https://example.com/page.html
           <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
         </ol>
         </section><!-- Online shopper-->
-
         <p class="ednote">More short use cases to be added</p>
 
-      </section>
+    </section>
       <section id="actions">
       <h2>DID Actions</h2>
       <p class="ednote">This section currently unchanged from CG's document - needs to be updated.</p>
@@ -354,11 +355,11 @@ https://example.com/page.html
         </section>
         <section id="resolve">
         <h2>Resolve</h2>
-        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the DID Resolution  specification. </p>
+        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the [[DID-RESOLUTION]] specification. </p>
         </section>
         <section id="dereference">
         <h2>Dereference</h2>
-        <p>Dereferencing a DID uses the material in its DID Document to  return a resource. By default, dereferencing a DID without a reference to service  endpoint returns the DID Document itself. When a DID contains a service name,  dereferencing returns the resource pointed to from the named service endpoint,  which was discovered by resolving the DID to its DID Document and looking up  the endpoint by name. In this way, a Relying Party may dynamically discover and  interact with the current service endpoints for a given DID.</p>
+        <p>Dereferencing a DID uses the material in its DID Document to  return a resource. By default, dereferencing a DID without a reference to a service  endpoint returns the DID Document itself. When a DID is combined with a <code>service</code> <a href="https://w3c.github.io/did-core/#generic-did-parameter-names">parameter</a> (forming a DID URL),  dereferencing returns the resource pointed to from the named service endpoint,  which was discovered by resolving the DID to its DID Document and looking up  the endpoint by name. In this way, a Relying Party may dynamically discover and  interact with the current service endpoints for a given DID. Services can therefore be given persistent identifiers that do not change even when the underlying service endpoints change.</p>
         </section>
         <section id="verifySignature">
         <h2>Verify Signature</h2>
@@ -387,6 +388,10 @@ https://example.com/page.html
         <section id="revoke">
         <h2>Revoke</h2>
         <p>Instead of deleting a DID, Controllers can revoke a DID such  that downstream processes like authentication and dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.  Indeed, distributed ledgers are often touted as "immutable". Methods define  revocation processes to achieve the same effect as deletion. The mechanisms for  revocation vary based on the method.</p>
+        </section>
+        <section id="deactivate">
+        <h2>Deactivate</h2>
+        <p>Instead of deleting a DID, Controllers can deactivate a DID such  that downstream processes like authentication and dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.  Indeed, distributed ledgers are often touted as "immutable". Methods define  deactivation processes to achieve the same effect as deletion. The mechanisms for  deactivation vary based on the method.</p>
         </section>
     </section>
     <section id="featureBenefitGrid">
@@ -1057,8 +1062,7 @@ https://example.com/page.html
         <h4>Description</h4>
 <p class="ednote">This section in particular needs review to ensure it carries 
 information relevant to the WG's work.</p>
-        <p>
-          Use a DID as a single-sign-on to a Web site, for example between
+        <p>Use a DID as a single-sign-on to a Web site, for example between
           a Web page and a Web browser with a mobile identity app. When desirable, 
           the relationship can add a shared secret for 2FA.</p>
         <p>Detailed aspects of this use case are out of scope for the Decentralized
@@ -1069,8 +1073,14 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
           cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
           example between a web page and web browser with a mobile
           identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
-          Credential Handler API</a>.-->
-          <!--(except does DID Auth include any extensions that enable this
+          Credential Handler API</a>.
+
+          Use DID as single-sign-on to a website, using one of the variants of DID Auth (see [[DID-AUTH-INTRO]]).
+          This can be implemented using different protocols and APIs, such as [[DID-AUTH-OIDC-SIOP]] or [[CREDENTIAL-HANDLER-API]].
+          When desirable, the relationship can add
+          a shared secret for 2FA.
+
+          (except does DID Auth include any extensions that enable this
           subsequent ascension without starting another socket?).-->
         </p>
 <!--        <p>
@@ -1090,8 +1100,11 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
         <h4>Challenges</h4>
         <p>
           Transfer sign-on capability from control of a password to control of
+
           the DID. <!--, as shown in DID-Auth, using appropriate devices.  Optionally
-          include 2FA, although DID Auth doesn't handle that well, yet.-->
+          include 2FA, although DID Auth doesn't handle that well, yet.
+          the DID, as shown in DID Auth, using appropriate devices.  Optionally
+          include 2FA, although DID Auth doesn't handle that well, yet. -->
         </p>
       </section>
       <section id="ssoDistinction">
