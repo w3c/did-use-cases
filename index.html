@@ -171,6 +171,8 @@ https://example.com/page.html
       </section>
     <section>
       <h2 id="concepts">Concepts of Decentralized Identity</h2>
+	<p class="issue" data-number="40">Terminology in this opening prose is being discussed, in particular
+	the term 'relying party'</p>
         <p>A decentralized system will enable several key actions by three 
         distinct entities: the Controller, the Relying Party, and the Subject.</p>
         <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s, 
@@ -225,9 +227,8 @@ https://example.com/page.html
 
 <dl class="termlist">
 <div class="issue" data-number="12">
-  <p>This section is very similar to that proposed in 
-    <a href="https://github.com/w3c/did-use-cases/pull/33">PR 33</a>, however, 
-    there are comments on that PR that need to be resolved.</p></div>
+  <p>This section is a snapshot of the terminology used by the DID WG. Future versions of this
+	document will include a single glossary that appears both here and in the DID Core specification.</p></div>
 
   <dt><dfn data-lt="DID|DIDs|decentralized identifier" id="dfn-did">decentralized identifier</dfn> (DID)</dt>
 
@@ -255,13 +256,13 @@ https://example.com/page.html
     expressed using other compatible graph-based data formats.</dd>
 
   <dt><dfn id="dfn-did-method">DID method</dfn></dt>
-  <dd>A definition of how a specific <a>DID scheme</a> can be implemented on a 
-    specific <a>distributed ledger</a> or network, including the precise method(s) 
-    by which <a>DIDs</a> are resolved and deactivated and <a>DID documents</a> 
-    are written and updated.</dd>
+	<dd>A definition of mechanisms by which one resolves and interacts with <a>DID</a>s and <a>DID Document</a>s 
+	on a specific <a>distributed ledger</a> or network.</dd>
 
   <dt><dfn data-lt="decentralized identifier registry|decentralized identifier 
   registries|DID registry" id="dfn-decentralized-identifier-registry">DID registry</dfn></dt>
+	<dd class="issue" data-number="14">The term DID registry is under discussion within the Working Group.
+	A particular point to bear in mind is that not all DID methods require DIDs to be registered to be functional.</p>
 
   <dd>A role a system performs to mediate the creation, verification, updating, 
     and deactivation of <a>decentralized identifiers</a>. A DID registry is a 
