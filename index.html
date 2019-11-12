@@ -6,6 +6,8 @@
     <script
      src="https://www.w3.org/Tools/respec/respec-w3c-common"
      class="remove"></script>
+    <script class='remove' src="./common.js">
+    </script>
     <script class="remove">
       var respecConfig = {
         // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -26,7 +28,7 @@
         // previousMaturity:  "WD",
 
         // extend the bibliography entries
-        // localBiblio: ccg.localBiblio,
+        localBiblio: didwg.localBiblio,
 
         github: "https://github.com/w3c/did-use-cases",
         includePermalinks: false,
@@ -83,7 +85,7 @@
         DIDs share many features with extant identity systems,
         no other system combines all the features designed into DIDs. We present the 
           current consensus of the motivations behind DIDs based on input and 
-          collaboration with implementers currently building products to the DID specification. 
+          collaboration with implementers currently building products to the [[DID-CORE]] specification.
         </p>
         <p>
             <strong>Note:</strong><em>This document is still in early development. 
@@ -148,8 +150,6 @@
         </ol>
         </section><!-- Online shopper-->
 
-
-
       </section>
 <hr />
 <p style="background-color:yellow">Stopped here</p>
@@ -177,7 +177,7 @@
         </section>
         <section>
         <h2>Resolve</h2>
-        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the DID Resolution  specification. </p>
+        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the [[DID-RESOLUTION]] specification. </p>
         </section>
         <section>
         <h2>Dereference</h2>
@@ -874,11 +874,9 @@
       <section>
         <h4>Description</h4>
         <p>
-          Use DID as single-sign-on to a website, using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/draft-documents/did_auth_draft.md">DID Auth</a> (especially
-          cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
-          example between a web page and web browser with a mobile
-          identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
-          Credential Handler API</a>. When desirable, the relationship can add
+          Use DID as single-sign-on to a website, using one of the variants of DID Auth (see [[DID-AUTH-INTRO]]).
+          This can be implemented using different protocols and APIs, such as [[DID-AUTH-OIDC-SIOP]] or [[CREDENTIAL-HANDLER-API]].
+          When desirable, the relationship can add
           a shared secret for 2FA.
           <!--(except does DID Auth include any extensions that enable this
           subsequent ascension without starting another socket?).-->
@@ -900,7 +898,7 @@
         <h4>Challenges</h4>
         <p>
           Transfer sign-on capability from control of a password to control of
-          the DID, as shown in DID-Auth, using appropriate devices.  Optionally
+          the DID, as shown in DID Auth, using appropriate devices.  Optionally
           include 2FA, although DID Auth doesn't handle that well, yet.
         </p>
       </section>
