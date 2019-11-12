@@ -1,65 +1,296 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8"> 
-    <title>Use Cases and Requirements for Decentralized Identifiers</title>
-    <script
-     src="https://www.w3.org/Tools/respec/respec-w3c-common"
-     class="remove"></script>
-    <script class='remove' src="./common.js">
-    </script>
-    <script class="remove">
-      var respecConfig = {
-        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
-        specStatus: "ED",
+<!DOCTYPE html><html dir="ltr" lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.34.1"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     
+    <title>Use Cases for Decentralized Identifiers</title>
+    <style id="respec-mainstyle">/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
 
-        // the specification's short name, as in http://www.w3.org/TR/short-name/
-        shortName: "did-use-cases",
+@keyframes pop {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.25, 1.25);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 
-        // subtitle
-        //subtitle: "Draft  11 February 2019",
+/* Override code highlighter background */
+.hljs {
+  background: transparent !important;
+}
 
-        // if you wish the publication date to be other than today, set this
-        // publishDate:  "2009-08-06",
+/* --- INLINES --- */
+h1 abbr,
+h2 abbr,
+h3 abbr,
+h4 abbr,
+h5 abbr,
+h6 abbr,
+a abbr {
+  border: none;
+}
 
-        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
-        // and its maturity status
-        // previousPublishDate:  "1977-03-15",
-        // previousMaturity:  "WD",
+dfn {
+  font-weight: bold;
+}
 
-        // extend the bibliography entries
-        localBiblio: didwg.localBiblio,
+a.internalDFN {
+  color: inherit;
+  border-bottom: 1px solid #99c;
+  text-decoration: none;
+}
 
-        github: "https://github.com/w3c/did-use-cases",
-        includePermalinks: false,
+a.externalDFN {
+  color: inherit;
+  border-bottom: 1px dotted #ccc;
+  text-decoration: none;
+}
 
-        // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: "https://w3c.github.io/did-use-cases/",
+a.bibref {
+  text-decoration: none;
+}
 
-        // if this is a LCWD, uncomment and set the end of its review period
-        // lcEnd: "2009-08-05",
+.respec-offending-element:target {
+  animation: pop 0.25s ease-in-out 0s 1;
+}
 
-        editors: [{
-          name: "Joe Andrieu", 
-          company: "Invited Expert",
-          url: "http://legreq.com",
-          w3cid: 97261
-        },
-      	{
-          name: "Phil Archer",
-          url: "https://philarcher.org/",
-          companyURL: "https://www.gs1.org",
-          company: "GS1",
-          w3cid: 101627
-        }],
-        wgPublicList: "public-did-wg",
-        wg: "Decentralized Identifier Working Group",
-        wgURI: "https://www.w3.org/2019/did-wg/",
-        wgPatentURI: "https://www.w3.org/2004/01/pp-impl/117488/status",
-        maxTocLevel: 4,
-        inlineCSS: true
-      };
-    </script>
+.respec-offending-element,
+a[href].respec-offending-element {
+  text-decoration: red wavy underline;
+}
+@supports not (text-decoration: red wavy underline) {
+  .respec-offending-element:not(pre) {
+    display: inline-block;
+  }
+  .respec-offending-element {
+    /* Red squiggly line */
+    background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
+      bottom repeat-x;
+  }
+}
+
+#references :target {
+  background: #eaf3ff;
+  animation: pop 0.4s ease-in-out 0s 1;
+}
+
+cite .bibref {
+  font-style: normal;
+}
+
+code {
+  color: #c83500;
+}
+
+th code {
+  color: inherit;
+}
+
+a[href].orcid {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+a[href].orcid > svg {
+    margin-bottom: -2px;
+}
+
+/* --- TOC --- */
+
+.toc a,
+.tof a {
+  text-decoration: none;
+}
+
+a .secno,
+a .figno {
+  color: #000;
+}
+
+ul.tof,
+ol.tof {
+  list-style: none outside none;
+}
+
+.caption {
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+/* --- TABLE --- */
+
+table.simple {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-bottom: 3px solid #005a9c;
+}
+
+.simple th {
+  background: #005a9c;
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th a {
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th[scope="row"] {
+  background: inherit;
+  color: inherit;
+  border-top: 1px solid #ddd;
+}
+
+.simple td {
+  padding: 3px 10px;
+  border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+  background: #f0f6ff;
+}
+
+/* --- DL --- */
+
+.section dd > p:first-child {
+  margin-top: 0;
+}
+
+.section dd > p:last-child {
+  margin-bottom: 0;
+}
+
+.section dd {
+  margin-bottom: 1em;
+}
+
+.section dl.attrs dd,
+.section dl.eldef dd {
+  margin-bottom: 0;
+}
+
+#issue-summary > ul,
+.respec-dfn-list {
+  column-count: 2;
+}
+
+#issue-summary li,
+.respec-dfn-list li {
+  list-style: none;
+}
+
+details.respec-tests-details {
+  margin-left: 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+details.respec-tests-details > * {
+  padding-right: 2em;
+}
+
+details.respec-tests-details[open] {
+  z-index: 999999;
+  position: absolute;
+  border: thin solid #cad3e2;
+  border-radius: 0.3em;
+  background-color: white;
+  padding-bottom: 0.5em;
+}
+
+details.respec-tests-details[open] > summary {
+  border-bottom: thin solid #cad3e2;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  line-height: 2em;
+}
+
+details.respec-tests-details > ul {
+  width: 100%;
+  margin-top: -0.3em;
+}
+
+details.respec-tests-details > li {
+  padding-left: 1em;
+}
+
+a[href].self-link:hover {
+  opacity: 1;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+}
+
+aside.example .marker > a.self-link {
+  color: inherit;
+}
+
+h2 > a.self-link,
+h3 > a.self-link,
+h4 > a.self-link,
+h5 > a.self-link,
+h6 > a.self-link {
+  border: none;
+  color: inherit;
+  font-size: 83%;
+  height: 2em;
+  left: -1.6em;
+  opacity: 0.5;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  transition: opacity 0.2s;
+  width: 2em;
+}
+
+h2 > a.self-link::before,
+h3 > a.self-link::before,
+h4 > a.self-link::before,
+h5 > a.self-link::before,
+h6 > a.self-link::before {
+  content: "§";
+  display: block;
+}
+
+@media (max-width: 767px) {
+  dd {
+    margin-left: 0;
+  }
+
+  /* Don't position self-link in headings off-screen */
+  h2 > a.self-link,
+  h3 > a.self-link,
+  h4 > a.self-link,
+  h5 > a.self-link,
+  h6 > a.self-link {
+    left: auto;
+    top: auto;
+  }
+}
+
+@media print {
+  .removeOnSave {
+    display: none;
+  }
+}
+</style>
+    
     <style>
       table.feature_grid { border: 1px solid; width: 1000px; }
       table.feature_grid td { border: 1px solid; text-align: center; }
@@ -67,158 +298,280 @@
       table.feature_grid th[scope=row] { text-align: left; }
       dl.feature_definitions dt { font-weight: 400; }
     </style>
-  </head>
-  <body>
-    <section id="abstract">
-      <p>This document sets out use cases and requirements for a new type of identifier that has 4 essential characteristics:</p>
-      <ol>
-        <li><strong>decentralized</strong>: there should be no central issuing agency;</li>
-        <li><strong>persistent</strong>: the identifier should be inherently persistent, not requiring the continued operation of an underling organization;</li>
-        <li><strong>crytopgraphically verifiable</strong>: it should be possible to prove control of the identifier cryptographically;</li>
-        <li><strong>resolvable</strong>: it shold be possible to discover metadata about the identifier.</li>
-    </ol>
-    <p>Although existing identifiers may display some of these characteristics, none currently displays all four.</p>
-    <!--
+  <link rel="canonical" href="https://www.w3.org/TR/did-use-cases/"><style>var {
+  position: relative;
+  cursor: pointer;
+}
+
+var[data-type]::before,
+var[data-type]::after {
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+/* the triangle or arrow or caret or whatever */
+var[data-type]::before {
+  content: "";
+  transform: translateX(-50%);
+  border-width: 4px 6px 0 6px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #000;
+}
+
+/* actual text */
+var[data-type]::after {
+  content: attr(data-type);
+  transform: translateX(-50%) translateY(-100%);
+  background: #000;
+  text-align: center;
+  /* additional styling */
+  font-family: "Dank Mono", "Fira Code", monospace;
+  font-style: normal;
+  padding: 6px;
+  border-radius: 3px;
+  color: #daca88;
+  text-indent: 0;
+  font-weight: normal;
+}
+
+var[data-type]:hover::after,
+var[data-type]:hover::before {
+  opacity: 1;
+}
+</style><script id="initialUserConfig" type="application/json">{
+  "specStatus": "FPWD",
+  "shortName": "did-use-cases",
+  "publishDate": "2019-11-07",
+  "github": "https://github.com/w3c/did-use-cases",
+  "includePermalinks": false,
+  "edDraftURI": "https://w3c.github.io/did-use-cases/",
+  "editors": [
+    {
+      "name": "Joe Andrieu",
+      "url": "https://www.joeandrieu.com"
+    },
+    {
+      "name": "Kim Hamilton Duffy",
+      "url": "https://www.okimsrazor.com/"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Ryan Grant",
+      "url": ""
+    },
+    {
+      "name": "Adrian Gropper",
+      "url": ""
+    }
+  ],
+  "wgPublicList": "public-did-wg",
+  "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/117488/status",
+  "wg": "Decentralized Identifier Working Group",
+  "wgURI": "https://www.w3.org/2019/did-wg/",
+  "maxTocLevel": 4,
+  "inlineCSS": true,
+  "publishISODate": "2019-11-07T00:00:00.000Z",
+  "generatedSubtitle": "First Public Working Draft 07 November 2019"
+}</script><meta name="description" content="Decentralized Identifiers (DIDs) allow for exceptional user-driven control 
+        and overall reliability of publicly resolvable, provable identifiers. While 
+        DIDs share many features with extant identity systems,
+        no other system combines all the features designed into DIDs. We present the 
+          current consensus of the motivations behind DIDs based on input and 
+          collaboration with implementers currently building products to the DID specification."><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-WD"></head>
+  <body class="h-entry informative"><div class="head">
+      <a class="logo" href="https://www.w3.org/"><img alt="W3C" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72" height="48"></a> <h1 id="title" class="title p-name">Use Cases for Decentralized Identifiers</h1>
+      
+      <h2>
+        W3C First Public Working Draft
+        <time class="dt-published" datetime="2019-11-07">07 November 2019</time>
+      </h2>
+      <dl>
+        <dt>This version:</dt><dd>
+                <a class="u-url" href="https://www.w3.org/TR/2019/WD-did-use-cases-20191107/">https://www.w3.org/TR/2019/WD-did-use-cases-20191107/</a>
+              </dd><dt>Latest published version:</dt><dd>
+                <a href="https://www.w3.org/TR/did-use-cases/">https://www.w3.org/TR/did-use-cases/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/did-use-cases/">https://w3c.github.io/did-use-cases/</a></dd>
+        
+        
+        
+        
+        
+        
+        <dt>Editors:</dt>
+        <dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://www.joeandrieu.com">Joe Andrieu</a></dd><dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://www.okimsrazor.com/">Kim Hamilton Duffy</a></dd>
+        
+        <dt>
+                Authors:
+              </dt><dd class="p-author h-card vcard"><span class="p-name fn">Ryan Grant</span></dd><dd class="p-author h-card vcard"><span class="p-name fn">Adrian Gropper</span></dd>
+        <dt>Participate:</dt><dd>
+      <a href="https://github.com/w3c/did-use-cases/">GitHub w3c/did-use-cases</a>
+    </dd><dd>
+      <a href="https://github.com/w3c/did-use-cases/issues/">File a bug</a>
+    </dd><dd>
+      <a href="https://github.com/w3c/did-use-cases/commits/gh-pages">Commit history</a>
+    </dd><dd>
+      <a href="https://github.com/w3c/did-use-cases/pulls/">Pull requests</a>
+    </dd>
+      </dl>
+      
+      
+      
+      <p class="copyright">
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+      ©
+      2019
+      
+      <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+      <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+      <a href="https://ev.buaa.edu.cn/">Beihang</a>). 
+      W3C <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules
+      apply.
+    </p>
+      <hr title="Separator for header">
+    </div>
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
       <p>
         Decentralized Identifiers (DIDs) allow for exceptional user-driven control 
         and overall reliability of publicly resolvable, provable identifiers. While 
         DIDs share many features with extant identity systems,
         no other system combines all the features designed into DIDs. We present the 
           current consensus of the motivations behind DIDs based on input and 
-          collaboration with implementers currently building products to the [[DID-CORE]] specification.
+          collaboration with implementers currently building products to the DID specification. 
         </p>
         <p>
             <strong>Note:</strong><em>This document is still in early development. 
             Please provide feedback via <a href="https://github.com/w3c-ccg/did-use-cases">Github</a></em>
-      </p>-->
+      </p>
     </section>
-    <section id="sotd"></section>
-    <section id="intro">
-        <h2>Introduction</h2>
-        <p>A longer version of the abstract that introduces the name DID although in such a way as not to present it as a baked solution.</p>
-
-<!--
-
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em></p><p>
+      This document was published by the <a href="https://www.w3.org/2019/did-wg/">Decentralized Identifier Working Group</a> as a
+      First Public Working Draft.
+      This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
+    </p><p>
+      <a href="https://github.com/w3c/did-use-cases/issues/">GitHub Issues</a> are preferred for
+            discussion of this specification.
+          
+      Alternatively, you can send comments to our mailing list.
+            Please send them to
+            <a href="mailto:public-did-wg@w3.org">public-did-wg@w3.org</a>
+            (<a href="https://lists.w3.org/Archives/Public/public-did-wg/">archives</a>).
+          
+    </p><p>
+      Publication as a First Public Working Draft does not imply endorsement by the
+      <abbr title="World Wide Web Consortium">W3C</abbr> Membership. This is a draft document and may be updated, replaced or
+      obsoleted by other documents at any time. It is inappropriate to cite this
+      document as other than work in progress.
+    </p><p>
+      
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+       
+      
+                  <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                  <a rel="disclosure" href="https://www.w3.org/2004/01/pp-impl/117488/status">public list of any patent disclosures</a>
+            made in connection with the deliverables of
+            the group; that page also includes
+            instructions for disclosing a patent. An individual who has actual
+            knowledge of a patent which the individual believes contains
+            <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
+            must disclose the information in accordance with
+            <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+          
+      
+    </p><p>
+                  This document is governed by the
+                  <a id="w3c_process_revision" href="https://www.w3.org/2019/Process-20190301/">1 March 2019 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#what-can-you-do-with-a-did"><bdi class="secno">2. </bdi>What can you do with a DID?</a></li><li class="tocline"><a class="tocxref" href="#did-actions"><bdi class="secno">3. </bdi>DID Actions</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#create"><bdi class="secno">3.1 </bdi>Create</a></li><li class="tocline"><a class="tocxref" href="#present"><bdi class="secno">3.2 </bdi>Present</a></li><li class="tocline"><a class="tocxref" href="#authenticate"><bdi class="secno">3.3 </bdi>Authenticate</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">3.4 </bdi>Sign</a></li><li class="tocline"><a class="tocxref" href="#resolve"><bdi class="secno">3.5 </bdi>Resolve</a></li><li class="tocline"><a class="tocxref" href="#dereference"><bdi class="secno">3.6 </bdi>Dereference</a></li><li class="tocline"><a class="tocxref" href="#verify-signature"><bdi class="secno">3.7 </bdi>Verify Signature</a></li><li class="tocline"><a class="tocxref" href="#modify-service-endpoint"><bdi class="secno">3.8 </bdi>Modify Service Endpoint</a></li><li class="tocline"><a class="tocxref" href="#forward-migrate"><bdi class="secno">3.9 </bdi>Forward / Migrate</a></li><li class="tocline"><a class="tocxref" href="#recover"><bdi class="secno">3.10 </bdi>Recover</a></li><li class="tocline"><a class="tocxref" href="#audit"><bdi class="secno">3.11 </bdi>Audit</a></li><li class="tocline"><a class="tocxref" href="#revoke"><bdi class="secno">3.12 </bdi>Revoke</a></li></ol></li><li class="tocline"><a class="tocxref" href="#feature-benefit-grid"><bdi class="secno">4. </bdi>Feature/Benefit Grid</a></li><li class="tocline"><a class="tocxref" href="#required-features"><bdi class="secno">5. </bdi>Required Features</a></li><li class="tocline"><a class="tocxref" href="#feature-coverage"><bdi class="secno">6. </bdi>Feature Coverage</a></li><li class="tocline"><a class="tocxref" href="#focal-use-cases"><bdi class="secno">7. </bdi>Focal Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#decentralized-corporate-identifiers-enterprise"><bdi class="secno">7.1 </bdi>Decentralized Corporate Identifiers (enterprise)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background"><bdi class="secno">7.1.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#description"><bdi class="secno">7.1.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#challenges"><bdi class="secno">7.1.3 </bdi>Challenges</a></li><li class="tocline"><a class="tocxref" href="#distinctions"><bdi class="secno">7.1.4 </bdi>Distinctions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#life-long-recipient-managed-credentials-education"><bdi class="secno">7.2 </bdi>Life-long, recipient-managed Credentials (education)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-0"><bdi class="secno">7.2.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#description-0"><bdi class="secno">7.2.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#challenges-0"><bdi class="secno">7.2.3 </bdi>Challenges</a></li><li class="tocline"><a class="tocxref" href="#distinction"><bdi class="secno">7.2.4 </bdi>Distinction</a></li></ol></li><li class="tocline"><a class="tocxref" href="#prescriptions-healthcare"><bdi class="secno">7.3 </bdi>Prescriptions (healthcare)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-1"><bdi class="secno">7.3.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#description-1"><bdi class="secno">7.3.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#challenges-1"><bdi class="secno">7.3.3 </bdi>Challenges</a></li><li class="tocline"><a class="tocxref" href="#distinction-0"><bdi class="secno">7.3.4 </bdi>Distinction</a></li></ol></li><li class="tocline"><a class="tocxref" href="#digital-executor-law"><bdi class="secno">7.4 </bdi>Digital Executor (law)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-2"><bdi class="secno">7.4.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#description-2"><bdi class="secno">7.4.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#challenges-2"><bdi class="secno">7.4.3 </bdi>Challenges</a></li><li class="tocline"><a class="tocxref" href="#distinction-1"><bdi class="secno">7.4.4 </bdi>Distinction</a></li></ol></li><li class="tocline"><a class="tocxref" href="#single-sign-on-security"><bdi class="secno">7.5 </bdi>Single Sign On (security)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background-3"><bdi class="secno">7.5.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#description-3"><bdi class="secno">7.5.2 </bdi>Description</a></li><li class="tocline"><a class="tocxref" href="#challenges-3"><bdi class="secno">7.5.3 </bdi>Challenges</a></li><li class="tocline"><a class="tocxref" href="#distinction-2"><bdi class="secno">7.5.4 </bdi>Distinction</a></li></ol></li></ol></li></ol></nav>
+    <section id="introduction">
+        <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2>
         <p>This document attempts to explain what you can do with DIDs and why you might care to use them. We start by describing the basic conceptual framework for DIDs, including basic terminology, followed by the actions one can take with a DID. Then we introduce the defining features and benefits of DIDs along with five focal use cases illustrating those features and benefits. 
-        </p>-->
+        </p>
       </section>
-    <section>
-      <h2 id="concepts">Concepts of Decentralized Identity</h2>
-        <p>A decentralized system will enable several key actions by three distinct entities: the Controller, the Relying Party, and the Subject.</p>
-        <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s, while Relying Parties rely on <abbr title="Decentralized Identifier">DID</abbr>s as an identifier for  interactions related to the Subject.</p>
-        <p>The Subject is the entity referred to by the <abbr title="Decentralized Identifier">DID</abbr>, which can be anything: a person,  an organization, a device, a location, even a concept. Typically, the Subject is  also the Controller, but in cases of guardianship, agents (human or software),  and inanimate Subjects, this is not possible. As such, the Subject has no functional  role. When the Subject is, in fact, the Controller, we consider the action to  be taken by the Controller on their own behalf as the Subject. When the Subject  is not the Controller, the Controller is said to be taking action on behalf of the Subject, such as when an employee manages a <abbr title="Decentralized Identifier">DID</abbr> on behalf of their employer  or a parent uses a <abbr title="Decentralized Identifier">DID</abbr> on behalf of their child.</p>
-        <p>The Controller  and Relying Party may be individuals or interactive systems, but for simplicity in this document, we refer to both as if they were individual  persons performing these actions. </p>
-        <p>Only a Controller  can perform the actions that control a <abbr title="Decentralized Identifier">DID</abbr>, however, anyone can act as a  Relying Party for any <abbr title="Decentralized Identifier">DID</abbr> they know, including the Controller should they wish  to inspect or verify their own <abbr title="Decentralized Identifier">DID</abbr>.</p>
-        <p>This use case document defines these actions in terms of the eventual systems we anticipate using the resultant specification.
-
-
-<!-- The initial DID Working Group Charter only  covers the initial specification of the DID syntax itself and the syntax and  semantics of its associated DID Document. Together, these encode the information  necessary to eventually perform these various actions. Additional  specifications, such as DID Resolution and DID Auth (both under incubation in  the Credentials Community Group), will specify how these actions take place. There  has been interest expressed in standardizing how DIDs can be used for signing  and how those signatures are verified, however it is an open question as to  whether or not this capability should be a part of the DID Auth specification  or a separate work. This document captures these uses as design goals, but it is  anticipated that the DID Specification will not define how these actions are realized.</p>-->
-
-        <p>Perhaps the most salient point about Decentralized Identifiers is that there are no "Identity Providers". Instead, this role is subsumed in the decentralized systems that Controllers use to manage <abbr title="Decentralized Identifier">DID</abbr>s and, in turn, Relying Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s. These  decentralized systems, which we refer to as <abbr title="Decentralized Identifier">DID</abbr> registries, are designed to  operate independently from any particular service provider and hence, free from  any given platform authority. It is anticipated that <abbr title="Decentralized Identifier">DID</abbr>s will be registered using distributed ledger technology (DLT). 
-
-<!-- for their registries, for example, BTCR uses Bitcoin and ERC725  uses Ethereum. Some use alternative decentralized technologies, as IPID, which  uses IPFS. You may see the current DID Methods at the DID Method Registry (<a href="https://w3c-ccg.github.io/did-method-registry/">https://w3c-ccg.github.io/did-method-registry/</a>), maintained by the Credentials Community Group. </p>-->
-        <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate such systems &mdash; from who controls the most widely used code base to who controls  the specification &mdash; where a system resides on the spectrum of centralized and decentralized varies. However, the design of any decentralized identity system is separate from the  academic debate about how decentralized it may be in practice.</p>
-
-<!--        <p>The DID methods specified in each DID MAY define how one performs these actions, including the  mechanism(s) for interacting with any particular DID registry. Not all of these  actions are supported by all DID methods. Which actions are required is an open  question. Similarly, it remains an open question whether or not all DID methods  should be required to be decentralized. As mentioned previously, this quickly becomes  an academic debate about the definition of decentralized, which we leave as an  exercise for the reader. Therefore, each DID method and DID registry should be  evaluated on its own merits as to precisely how decentralized it may or may not  be relative to its anticipated use. </p> -->
-
-        <p>The use cases presented below make use of a number of high level concepts as follows.</p>
-<dl>
-  <dt>Decentralized Identifier (DID)</dt>
-  <dd>The actual identifier</dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> Method</dt>
-  <dd>The method by which a <abbr title="Decentralized Identifier">DID</abbr> is generated<dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> Registries</dt>
-  <dd>A registry where <abbr title="Decentralized Identifier">DID</abbr>s are recorded</dd>
-  <dt><abbr title="Decentralized Identifier">DID</abbr> Documents</dt>
-  <dd>A document that contains metadata about the <abbr title="Decentralized Identifier">DID</abbr></dd>
-</dl>
-
-<p>When we  refer to <em>methods</em> and <em>registries</em>, we mean <abbr title="Decentralized Identifier">DID</abbr> methods and <abbr title="Decentralized Identifier">DID</abbr> registries. A working assumption for the use cases is that all <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr> Documents contain the cryptographic material  to perform the functions related to that particular <abbr title="Decentralized Identifier">DID</abbr>, including associated proof methods and any service endpoints, that is, services that can make use of the <abbr title="Decentralized Identifier">DID</abbr>.<!-- When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.--></p>
+    <section id="what-can-you-do-with-a-did">
+      <h2 id="x2-what-can-you-do-with-a-did"><bdi class="secno">2. </bdi>What can you do with a DID?<a class="self-link" aria-label="§" href="#what-can-you-do-with-a-did"></a></h2>
+        <p>Decentralized  identifiers enable several key actions by individual actors. These actions are  the functional interface for working with DIDs and involve three entities. The Controller,  the Relying Party, and the Subject.</p>
+        <p>Controllers create  and control DIDs, while Relying Parties rely on DIDs as an identifier for  interactions related to the Subject.</p>
+        <p>The Subject is  the entity referred to by the DID, which can be literally anything: a person,  an organization, a device, a location, even a concept. Typically, the Subject is  also the Controller, but in cases of guardianship, agents (human or software),  and inanimate Subjects, this is not possible. As such, the Subject has no functional  role. When the Subject is, in fact, the Controller, we consider the action to  be taken by the Controller on their own behalf as the Subject. When the Subject  is not the Controller, the Controller is said to be taking action on behalf of the Subject, such as when an employee manages a DID on behalf of their employer  or a parent uses a DID on behalf of their child.</p>
+        <p>The Controller  and Relying Party may be individuals or interactive systems, but for  simplicity in this document, we refer to both as if they were individual  persons performing these actions. </p>
+        <p>Only a Controller  can perform the actions that control a DID, however, anyone can act as a  Relying Party for any DID they know, including the Controller should they wish  to inspect or verify their own DID.</p>
+        <p>As a use case  document, we define these actions in terms of the eventual systems we  anticipate using this specification. The initial DID Working Group Charter only  covers the initial specification of the DID syntax itself and the syntax and  semantics of its associated DID Document. Together, these encode the information  necessary to eventually perform these various actions. Additional  specifications, such as DID Resolution and DID Auth (both under incubation in  the Credentials Community Group), will specify how these actions take place. There  has been interest expressed in standardizing how DIDs can be used for signing  and how those signatures are verified, however it is an open question as to  whether or not this capability should be a part of the DID Auth specification  or a separate work. This document captures these uses as design goals, but it is  anticipated that the DID Specification will not define how these actions are realized.</p>
+        <p>Perhaps the most salient point about Decentralized Identifiers is that there are no "Identity  Providers". Instead, this role is subsumed in the decentralized systems that Controllers  use to manage DIDs and, in turn, Relying Parties use to apply DIDs. These  decentralized systems, which we refer to as DID registries, are designed to  operate independently from any particular service provider and hence, free from  any given platform authority. Most current DID methods use distributed ledger technology (DLT) for their registries, for example, BTCR uses Bitcoin and ERC725  uses Ethereum. Some use alternative decentralized technologies, as IPID, which  uses IPFS. You may see the current DID Methods at the DID Method Registry (<a href="https://w3c-ccg.github.io/did-method-registry/">https://w3c-ccg.github.io/did-method-registry/</a>), maintained by the Credentials Community Group. </p>
+        <p>In practice, the definition and operation of all current decentralized systems retain some elements of centralized control. Depending on the criteria one uses to evaluate  such systems—from who controls the most widely used code base to who controls  the specification—where a system resides on the spectrum of centralized and decentralized varies. However, the design of DIDs is a separate matter from the  academic debate about how decentralized any particular DID registry is.</p>
+        <p>The DID methods specified in each DID <em class="rfc2119" title="MAY">MAY</em> define how one performs these actions, including the  mechanism(s) for interacting with any particular DID registry. Not all of these  actions are supported by all DID methods. Which actions are required is an open  question. Similarly, it remains an open question whether or not all DID methods  should be required to be decentralized. As mentioned previously, this quickly becomes  an academic debate about the definition of decentralized, which we leave as an  exercise for the reader. Therefore, each DID method and DID registry should be  evaluated on its own merits as to precisely how decentralized it may or may not  be relative to its anticipated use. </p>
+        <p>DIDs, DID methods,  DID registries, and DID Documents are anticipated design elements in the DID  specification. For illustration we use these elements in this document. When we  refer to methods and registries, we mean DID methods and DID registries. All  DIDs resolve to DID Documents. DID Documents contain the cryptographic material  to perform the functions related to that particular DID, including associated  proof methods and service endpoints. When working with DIDs, the DID Document  is first resolved, then further dereferencing may return a resource, as is  typical for URLs. We use this design framework to describe DID actions.</p>
       </section>
-
-
-      <section id="uc">
-        <h2>Use Cases</h2>
-        <p style="background-color:yellow">This is the kind of thing I think of with the term 'use case'.</p>
-        <section id="onlineShopper">
-          <h3>Online shopper</h3>
-        <p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase. The product and the information about it is trusted, because  it is put there by the brand, and shopper trusts the retailer has received the product through trusted supply chain partners. Today, there are a multitude of channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers, as the relationship is not as direct as the traditional mode of shopping.</p>
-        <p>Online shopping, especially including 3rd party marketplaces creates  the proliferation of digital records about that product across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information presented about that product) came from the brand or other authoritative source. Product identification and information and the source of the product itself is less reliable, and introduces trust issues with representations of products bought and sold online. Additionally, unique identification is critical to business processes, but also to online purchasing. Very often two different products share the same identifier across the supply chain, and so what a consumer purchases and what ultimately is received may be different.</p>
-        <p>Mechanisms are required for the following to provide trust in the digital representation of a product across platforms:</p><ol>
-          <li>validation of the legitimacy of an online listing &mdash; in particular on third party marketplaces;</li>
-          <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
-        </ol>
-        </section><!-- Online shopper-->
-
-      </section>
-<hr />
-<p style="background-color:yellow">Stopped here</p>
-<hr/>
-      <section>
-      <h2>DID Actions</h2>
-        <p>Here are the  thirteen (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
+      <section id="did-actions">
+      <h2 id="x3-did-actions"><bdi class="secno">3. </bdi>DID Actions<a class="self-link" aria-label="§" href="#did-actions"></a></h2>
+        <p>Here are the thirteen (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
         <p>In the diagram,  we have grouped the actions by Create, Read, Update, and Delete (CRUD) as well  as Use.</p>
-            <img src="images/did_actions.png"/>
-      <section>
-        <h2>Create</h2>
+            <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action" width="593" height="659">
+      <section id="create">
+        <h3 id="x3-1-create"><bdi class="secno">3.1 </bdi>Create<a class="self-link" aria-label="§" href="#create"></a></h3>
         <p>Controllers create DIDs, uniquely binding cryptographic  proofs with the identifier, typically using public-private key-pairs. These  DIDs are recorded in a registry in such a manner as to be able to resolve to a  DID Document. The DID Document may be dynamically and deterministically  generated through resolution or it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. This  process needs access to the registry, ideally a decentralized system, and like  the rest of the DID CRUD actions, can be performed without interaction with any  particular authority.</p>
         </section>
-        <section>
-            <h2>Present</h2>
+        <section id="present">
+            <h3 id="x3-2-present"><bdi class="secno">3.2 </bdi>Present<a class="self-link" aria-label="§" href="#present"></a></h3>
         <p>DIDs are URIs, which is to say a string of characters. As  such, they may be presented in the same manner as URIs, by simply transmitting  or presenting that string of characters. DIDs, however are not designed to be  human readable. They invariably contain long, complex numbers represented in  various formats. For ease of use, implementations often rely on QR codes for  ease of capture using a camera-enabled device such as a smart phone.</p>
         </section>
-        <section>
-        <h2>Authenticate</h2>
+        <section id="authenticate">
+        <h3 id="x3-3-authenticate"><bdi class="secno">3.3 </bdi>Authenticate<a class="self-link" aria-label="§" href="#authenticate"></a></h3>
         <p>Relying Parties may wish to prove that the individual  presenting a DID is in fact its controller or specified as a Controller for a  particular service endpoint. This authentication process uses the cryptographic  material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some sort of challenge-response. Some DID Documents  and methods allow for separate, proofs for different service endpoints,  distinct from update and delete actions. This separation allows transactional  proofs that are expected to be used frequently, while controlling proofs are  used rarely.</p>
         </section>
-            <section>
-        <h2>Sign</h2>
+            <section id="sign">
+        <h3 id="x3-4-sign"><bdi class="secno">3.4 </bdi>Sign<a class="self-link" aria-label="§" href="#sign"></a></h3>
         <p>Using cryptographic material associated with that found in a  DID Document, DID Controllers may sign digital assets or documents. This  signature can later be verified (#7 Signature Verification) to demonstrate the  authenticity of the asset. In this way, we may referred to the asset as "signed  by the DID".</p>
         </section>
-        <section>
-        <h2>Resolve</h2>
-        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the [[DID-RESOLUTION]] specification. </p>
+        <section id="resolve">
+        <h3 id="x3-5-resolve"><bdi class="secno">3.5 </bdi>Resolve<a class="self-link" aria-label="§" href="#resolve"></a></h3>
+        <p>The first step in using a DID for anything other than  presentation is to resolve the DID to a specific DID Document, to reveal the  cryptographic material and service endpoints associated with that DID. How this  occurs is method-specific and currently under development in the DID Resolution  specification. </p>
         </section>
-        <section>
-        <h2>Dereference</h2>
-        <p>Dereferencing a DID uses the material in its DID Document to  return a resource. By default, dereferencing a DID without a reference to a service  endpoint returns the DID Document itself. When a DID is combined with a <code>service</code> <a href="https://w3c.github.io/did-core/#generic-did-parameter-names">parameter</a> (forming a DID URL),  dereferencing returns the resource pointed to from the named service endpoint,  which was discovered by resolving the DID to its DID Document and looking up  the endpoint by name. In this way, a Relying Party may dynamically discover and  interact with the current service endpoints for a given DID. Services can therefore be given persistent identifiers that do not change even when the underlying service endpoints change.</p>
+        <section id="dereference">
+        <h3 id="x3-6-dereference"><bdi class="secno">3.6 </bdi>Dereference<a class="self-link" aria-label="§" href="#dereference"></a></h3>
+        <p>Dereferencing a DID uses the material in its DID Document to  return a resource. By default, dereferencing a DID without a reference to service  endpoint returns the DID Document itself. When a DID contains a service name,  dereferencing returns the resource pointed to from the named service endpoint,  which was discovered by resolving the DID to its DID Document and looking up  the endpoint by name. In this way, a Relying Party may dynamically discover and  interact with the current service endpoints for a given DID.</p>
         </section>
-        <section>
-        <h2>Verify Signature</h2>
+        <section id="verify-signature">
+        <h3 id="x3-7-verify-signature"><bdi class="secno">3.7 </bdi>Verify Signature<a class="self-link" aria-label="§" href="#verify-signature"></a></h3>
         <p>Given a digital asset signed by a DID, a Relying Party may  use the cryptographic material in the DID Document to verify the signature.</p>
-        </section>
-        <section>
-        <h2>Rotate</h2>
+        <h2 id="rotate">Rotate<a class="self-link" aria-label="§" href="#verify-signature"></a></h2>
         <p>Controllers may rotate the cryptographic material for a DID  by updating the DID Document as recorded in its registry. Different methods  handle this differently, but the result is an update to the core cryptographic  proof required to prove control of the DID and the DID Document.</p>
         </section>
-        <section>
-        <h2>Modify Service Endpoint</h2>
+        <section id="modify-service-endpoint">
+        <h3 id="x3-8-modify-service-endpoint"><bdi class="secno">3.8 </bdi>Modify Service Endpoint<a class="self-link" aria-label="§" href="#modify-service-endpoint"></a></h3>
         <p>Controllers may change service endpoints associated with a  DID, including the proof mechanism for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed  to allow Controllers to make these change without necessarily changing the  primary proof mechanism for control of the DID itself.</p>
         </section>
-        <section>
-        <h2>Forward / Migrate</h2>
+        <section id="forward-migrate">
+        <h3 id="x3-9-forward-migrate"><bdi class="secno">3.9 </bdi>Forward / Migrate<a class="self-link" aria-label="§" href="#forward-migrate"></a></h3>
         <p>To support interoperability, some methods provide a way for  controllers to record in the registry (by updating the DID Document), that the  DID should be redirected to another DID, which now has full authority to represent  the originating DID. This mechanism allows DID controllers to migrate a DID  from one method or registry to another.</p>
         </section>
-        <section>
-        <h2>Recover</h2>
+        <section id="recover">
+        <h3 id="x3-10-recover"><bdi class="secno">3.10 </bdi>Recover<a class="self-link" aria-label="§" href="#recover"></a></h3>
         <p>Some methods provide means for recovering control of a DID  if its existing private cryptographic material is lost. These means vary by  method but can include social recovery, multi-sig, Shamir sharing, or pre-rotated  keys. In general, recovery triggers a rotation to a new proof, allowing the  Controller of that new proof to recover control of the DID without interacting  with any Relying Parties.</p>
         </section>
-        <section>
-        <h2>Audit</h2>
+        <section id="audit">
+        <h3 id="x3-11-audit"><bdi class="secno">3.11 </bdi>Audit<a class="self-link" aria-label="§" href="#audit"></a></h3>
         <p>Some methods provide an explicit audit trail of all CRUD  actions on that DID, including a timestamp for when the actions took place. For  distributed ledger-based registries, this audit trail is fundamental to the way  the ledgers record transactions. This allows relying parties to see, for  example, how recently a DID was rotated or its service endpoints updated, which  may inform certain analytics regarding the reliability of the DID's  cryptographic material.</p>
         </section>
-        <section>
-        <h2>Revoke</h2>
+        <section id="revoke">
+        <h3 id="x3-12-revoke"><bdi class="secno">3.12 </bdi>Revoke<a class="self-link" aria-label="§" href="#revoke"></a></h3>
         <p>Instead of deleting a DID, Controllers can revoke a DID such  that downstream processes like authentication and dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.  Indeed, distributed ledgers are often touted as "immutable". Methods define  revocation processes to achieve the same effect as deletion. The mechanisms for  revocation vary based on the method.</p>
         </section>
     </section>
-    <section>
-	<h2>Feature/Benefit Grid</h2>
+    <section id="feature-benefit-grid">
+	<h2 id="x4-feature-benefit-grid"><bdi class="secno">4. </bdi>Feature/Benefit Grid<a class="self-link" aria-label="§" href="#feature-benefit-grid"></a></h2>
 		<p>In collecting and evaluating potential use cases, we have 
 		identified fifteen (15) key features supported by the DID specification, 
 		which provide benefits in the areas of anti-censorship, anti-exploitation,
-		ease of use, privacy, and sustainability.<p>
-		<p>The features and their associated benefits can be seen in the following 
+		ease of use, privacy, and sustainability.</p><p>
+		</p><p>The features and their associated benefits can be seen in the following 
         grid. A brief definition of each feature follows.</p>
   <table id="feature_benefit_grid" class="feature_grid">
   <tbody>
@@ -360,8 +713,8 @@
   </tbody>
 </table>
   </section>
-  <section>
-  <h2>Required Features</h2>
+  <section id="required-features">
+  <h2 id="x5-required-features"><bdi class="secno">5. </bdi>Required Features<a class="self-link" aria-label="§" href="#required-features"></a></h2>
 	  <dl id="feature_definitions">
   <dt id="f1">1. Inter-jurisdictional</dt>
 	<dd>Inter-jurisdictional identifiers do not depend on the legal jurisdiction 
@@ -435,22 +788,22 @@
           interface. They are not beholden to any particular technology or vendor.</dd>
     </dl>
 	  </section>
-    <section>
-	<h2>Feature Coverage</h2>
+    <section id="feature-coverage">
+	<h2 id="x6-feature-coverage"><bdi class="secno">6. </bdi>Feature Coverage<a class="self-link" aria-label="§" href="#feature-coverage"></a></h2>
 		<p>Not all use cases illustrate each feature, and not all DID methods
 		  support all features. However, we are gathering 
 		  use cases to make sure all key features are clearly described. The
         following chart shows which features are explicitly illustrated in 
         the <a href="#focal-use-cases">Focal Use Cases</a>.</p>
-  <table width="1000" border="1" class="feature_grid">
+  <table class="feature_grid">
   <tbody>
     <tr>
       <th scope="col">Feature </th>
       <th scope="col">Corporate</th>
-      <th scope="col">Educational<br/>credentials</th>
+      <th scope="col">Educational<br>credentials</th>
       <th scope="col">Prescriptions</th>
-      <th scope="col">Digital<br/>Executor</th>
-      <th scope="col">Single<br/>Sign On</th>
+      <th scope="col">Digital<br>Executor</th>
+      <th scope="col">Single<br>Sign On</th>
     </tr>
     <tr>
         <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
@@ -591,12 +944,12 @@
 </table>
   </section>
 
-    <section>
-        <h2>Focal Use Cases</h2>
-        <section>
-      <h3>Decentralized Corporate Identifiers (enterprise)</h3>
-      <section>
-        <h4>Background</h4>
+    <section id="focal-use-cases">
+        <h2 id="x7-focal-use-cases"><bdi class="secno">7. </bdi>Focal Use Cases<a class="self-link" aria-label="§" href="#focal-use-cases"></a></h2>
+        <section id="decentralized-corporate-identifiers-enterprise">
+      <h3 id="x7-1-decentralized-corporate-identifiers-enterprise"><bdi class="secno">7.1 </bdi>Decentralized Corporate Identifiers (enterprise)<a class="self-link" aria-label="§" href="#decentralized-corporate-identifiers-enterprise"></a></h3>
+      <section id="background">
+        <h4 id="x7-1-1-background"><bdi class="secno">7.1.1 </bdi>Background<a class="self-link" aria-label="§" href="#background"></a></h4>
         <p>
           There are many types of identifiers that corporations use today
           including tax identification numbers (e.g. 238-42-3893), Legal
@@ -611,8 +964,8 @@
           mechanism to self-issue cryptographic identifiers were created.
         </p>
       </section>
-      <section>
-        <h4>Description</h4>
+      <section id="description">
+        <h4 id="x7-1-2-description"><bdi class="secno">7.1.2 </bdi>Description<a class="self-link" aria-label="§" href="#description"></a></h4>
         <p>
           A North American government would like to ensure that the supply
           chain that feeds electronic products into the country is secure. As
@@ -634,8 +987,8 @@
           marketplace.
         </p>
       </section>
-      <section>
-        <h4>Challenges</h4>
+      <section id="challenges">
+        <h4 id="x7-1-3-challenges"><bdi class="secno">7.1.3 </bdi>Challenges<a class="self-link" aria-label="§" href="#challenges"></a></h4>
         <p>
           The requirement of downstream customers to use the same documentation
           and digital signature mechanisms that were provided to Customs is the
@@ -658,8 +1011,8 @@
           or corporate systems does not exist today.
         </p>
       </section>
-      <section>
-        <h4>Distinctions</h4>
+      <section id="distinctions">
+        <h4 id="x7-1-4-distinctions"><bdi class="secno">7.1.4 </bdi>Distinctions<a class="self-link" aria-label="§" href="#distinctions"></a></h4>
         <p>
           Many Decentralized Identifier use cases focus on Self-Sovereign
           Identity and individuals. This use case focuses on organizations and
@@ -668,10 +1021,10 @@
         </p>
       </section>
     </section>
-    <section>
-      <h3>Life-long, recipient-managed Credentials (education)</h3>
-      <section>
-        <h4>Background</h4>
+    <section id="life-long-recipient-managed-credentials-education">
+      <h3 id="x7-2-life-long-recipient-managed-credentials-education"><bdi class="secno">7.2 </bdi>Life-long, recipient-managed Credentials (education)<a class="self-link" aria-label="§" href="#life-long-recipient-managed-credentials-education"></a></h3>
+      <section id="background-0">
+        <h4 id="x7-2-1-background"><bdi class="secno">7.2.1 </bdi>Background<a class="self-link" aria-label="§" href="#background-0"></a></h4>
         <p>Educational <a href="https://www.w3.org/TR/verifiable-claims-data-model/">Verifiable Credentials</a> offer benefits over traditional
           educational credentials in that the recipient is able to store and
           share their credentials, and a third party may independently verify
@@ -712,36 +1065,36 @@
 			if the cryptographic material used for authenticating changes over time.
         </p>
       </section>
-      <section>
-        <h4>Description</h4>
-        <p>When Sally earned her master&rsquo;s degree at  Oxford, she received a 
+      <section id="description-0">
+        <h4 id="x7-2-2-description"><bdi class="secno">7.2.2 </bdi>Description<a class="self-link" aria-label="§" href="#description-0"></a></h4>
+        <p>When Sally earned her master’s degree at  Oxford, she received a 
 			digital diploma which contained a decentralized identifier she provided. 
 			Over time, she updates the cryptographic material associated with that 
 			DID to use her latest hardware wallet, with biometric protections and a 
 			quantum resistant algorithm. A decade after  graduation, she applies for 
 			a job in Japan, for which she provides her digital diploma by uploading 
-			it to the prospective employee&rsquo;s website. To verify she is the 
+			it to the prospective employee’s website. To verify she is the 
 			actual recipient of that degree, she uses the decentralized identifier 
 			to authenticate, using her current hardware wallet (with rotated keys). 
 			In addition to the fact that her name matches the name on the diploma, 
 			the cryptographic authentication provides a robust verification of her 
-			claim, allowing the employer to rely on Sally&rsquo;s assertion that she 
-			earned a master&rsquo;s degree from Oxford. </p>
+			claim, allowing the employer to rely on Sally’s assertion that she 
+			earned a master’s degree from Oxford. </p>
       </section>
-      <section>
-        <h4>Challenges</h4>
+      <section id="challenges-0">
+        <h4 id="x7-2-3-challenges"><bdi class="secno">7.2.3 </bdi>Challenges<a class="self-link" aria-label="§" href="#challenges-0"></a></h4>
         <p>Rotating keys without invalidating Sally's educational credentials and 
 			providing acceptable proof of education internationally.</p>
 </section>
-      <section>
-        <h4>Distinction</h4>
-        <p>Oxford had no need to provide services for  resetting or updating Sally&rsquo;s username or password; they had no role in  managing Sally&rsquo;s changes to her authentication credentials. The potential  employer did not need to contact Oxford to verify Sally&rsquo;s claim of a master&rsquo;s  degree; they were able to verify the credential and authenticate Sally&rsquo;s  identity with information retrieved over the Internet. </p>
+      <section id="distinction">
+        <h4 id="x7-2-4-distinction"><bdi class="secno">7.2.4 </bdi>Distinction<a class="self-link" aria-label="§" href="#distinction"></a></h4>
+        <p>Oxford had no need to provide services for  resetting or updating Sally’s username or password; they had no role in  managing Sally’s changes to her authentication credentials. The potential  employer did not need to contact Oxford to verify Sally’s claim of a master’s  degree; they were able to verify the credential and authenticate Sally’s  identity with information retrieved over the Internet. </p>
 </section>
     </section>
-    <section>
-      <h3>Prescriptions (healthcare)</h3>
-      <section>
-        <h4>Background</h4>
+    <section id="prescriptions-healthcare">
+      <h3 id="x7-3-prescriptions-healthcare"><bdi class="secno">7.3 </bdi>Prescriptions (healthcare)<a class="self-link" aria-label="§" href="#prescriptions-healthcare"></a></h3>
+      <section id="background-1">
+        <h4 id="x7-3-1-background"><bdi class="secno">7.3.1 </bdi>Background<a class="self-link" aria-label="§" href="#background-1"></a></h4>
         <p>
           Alice wants help with her urinary tract infection (UTI) and is a bit
           touchy about her privacy. In the old days, she would have to make an
@@ -749,8 +1102,8 @@
           pharmacy. She wants to save money and have peace of mind.
         </p>
       </section>
-      <section>
-        <h4>Description</h4>
+      <section id="description-1">
+        <h4 id="x7-3-2-description"><bdi class="secno">7.3.2 </bdi>Description<a class="self-link" aria-label="§" href="#description-1"></a></h4>
         <p>
           Because she lives in Seattle, Alice is in a state that allows Planned
           Parenthood to diagnose and prescribe online
@@ -771,8 +1124,8 @@
           QR code and fills the prescription. Alice pays cash.
         </p>
       </section>
-      <section>
-        <h4>Challenges</h4>
+      <section id="challenges-1">
+        <h4 id="x7-3-3-challenges"><bdi class="secno">7.3.3 </bdi>Challenges<a class="self-link" aria-label="§" href="#challenges-1"></a></h4>
         <p>
           The challenge of this particular use-case is that only Bob and
           Charlie are verified identities and accountable for their interaction
@@ -782,8 +1135,8 @@
           interaction in case of dispute.
         </p>
       </section>
-      <section>
-        <h4>Distinction</h4>
+      <section id="distinction-0">
+        <h4 id="x7-3-4-distinction"><bdi class="secno">7.3.4 </bdi>Distinction<a class="self-link" aria-label="§" href="#distinction-0"></a></h4>
         <p>
           The Prescription use-case is a common and high-value example of
           privacy engineering as we shift to convenient and cost-effective
@@ -795,10 +1148,10 @@
         </p>
       </section>
     </section>
-    <section>
-      <h3>Digital Executor (law)</h3>
-      <section>
-        <h4>Background</h4>
+    <section id="digital-executor-law">
+      <h3 id="x7-4-digital-executor-law"><bdi class="secno">7.4 </bdi>Digital Executor (law)<a class="self-link" aria-label="§" href="#digital-executor-law"></a></h3>
+      <section id="background-2">
+        <h4 id="x7-4-1-background"><bdi class="secno">7.4.1 </bdi>Background<a class="self-link" aria-label="§" href="#background-2"></a></h4>
         <p>
           Today, when people die, there are no standard technologies for heirs,
           executors, or probate courts to properly take control of an individual's
@@ -810,8 +1163,8 @@
           accountability.
         </p>
       </section>
-      <section>
-        <h4>Description</h4>
+      <section id="description-2">
+        <h4 id="x7-4-2-description"><bdi class="secno">7.4.2 </bdi>Description<a class="self-link" aria-label="§" href="#description-2"></a></h4>
         <p>
           Kathy uses DIDs to manage her authentications to various services.
           As part of her estate planning, she generates a unique credential
@@ -832,8 +1185,8 @@
           modified under a assertion of probate.
         </p>
       </section>
-      <section>
-        <h4>Challenges</h4>
+      <section id="challenges-2">
+        <h4 id="x7-4-3-challenges"><bdi class="secno">7.4.3 </bdi>Challenges<a class="self-link" aria-label="§" href="#challenges-2"></a></h4>
         <p>
           The late date change in digital executorship from Mike to Miyake
           could be problematic if Kathy had directly listed Mike's credential
@@ -849,8 +1202,8 @@
           case if Gloria weren't involved).
         </p>
       </section>
-      <section>
-        <h4>Distinction</h4>
+      <section id="distinction-1">
+        <h4 id="x7-4-4-distinction"><bdi class="secno">7.4.4 </bdi>Distinction<a class="self-link" aria-label="§" href="#distinction-1"></a></h4>
         <p>
           Multiple DIDs with a common, blinded authority for probate assumption
           of control. The legal selection of the new owner is mediated through
@@ -859,10 +1212,10 @@
         </p>
       </section>
     </section>
-    <section>
-      <h3>Single Sign On (security)</h3>
-      <section>
-        <h4>Background</h4>
+    <section id="single-sign-on-security">
+      <h3 id="x7-5-single-sign-on-security"><bdi class="secno">7.5 </bdi>Single Sign On (security)<a class="self-link" aria-label="§" href="#single-sign-on-security"></a></h3>
+      <section id="background-3">
+        <h4 id="x7-5-1-background"><bdi class="secno">7.5.1 </bdi>Background<a class="self-link" aria-label="§" href="#background-3"></a></h4>
         <p>
           Passwords are notoriously misused ("123456"), stolen from the
           supposedly-secure database on the server-side, easy to forget when
@@ -871,15 +1224,16 @@
           storage and retrieval of a shared secret.
         </p>
       </section>
-      <section>
-        <h4>Description</h4>
+      <section id="description-3">
+        <h4 id="x7-5-2-description"><bdi class="secno">7.5.2 </bdi>Description<a class="self-link" aria-label="§" href="#description-3"></a></h4>
         <p>
-          Use DID as single-sign-on to a website, using one of the variants of DID Auth (see [[DID-AUTH-INTRO]]).
-          This can be implemented using different protocols and APIs, such as [[DID-AUTH-OIDC-SIOP]] or [[CREDENTIAL-HANDLER-API]].
-          When desirable, the relationship can add
+          Use DID as single-sign-on to a website, using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/draft-documents/did_auth_draft.md">DID Auth</a> (especially
+          cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
+          example between a web page and web browser with a mobile
+          identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
+          Credential Handler API</a>. When desirable, the relationship can add
           a shared secret for 2FA.
-          <!--(except does DID Auth include any extensions that enable this
-          subsequent ascension without starting another socket?).-->
+          
         </p>
         <p>
           Note that what is stored on the server-side is a DID, so in cases
@@ -894,16 +1248,16 @@
           procedures remain valid after the hack, even for that site.
         </p>
       </section>
-      <section>
-        <h4>Challenges</h4>
+      <section id="challenges-3">
+        <h4 id="x7-5-3-challenges"><bdi class="secno">7.5.3 </bdi>Challenges<a class="self-link" aria-label="§" href="#challenges-3"></a></h4>
         <p>
           Transfer sign-on capability from control of a password to control of
-          the DID, as shown in DID Auth, using appropriate devices.  Optionally
+          the DID, as shown in DID-Auth, using appropriate devices.  Optionally
           include 2FA, although DID Auth doesn't handle that well, yet.
         </p>
       </section>
-      <section>
-        <h4>Distinction</h4>
+      <section id="distinction-2">
+        <h4 id="x7-5-4-distinction"><bdi class="secno">7.5.4 </bdi>Distinction<a class="self-link" aria-label="§" href="#distinction-2"></a></h4>
         <p>
           This use case describes the most common authentication action for
           people on the Internet.
@@ -911,5 +1265,6 @@
       </section>
     </section>
       </section>
-  </body>
-</html>
+  
+
+<p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top">↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
