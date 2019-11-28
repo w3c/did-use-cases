@@ -1,0 +1,17 @@
+language: node_js
+ 
+branches:
+  only:
+    - master
+ 
+env:
+  global:
+    - URL="https://w3c.github.io/did-use-cases/ECHIDNA"
+    - DECISION="https://www.w3.org/2019/did-wg/Meetings/Minutes/2019-11-19-did#resolution1"
+    - secure: "ETFzTq2w1Zl94lT0z8rz/E/RDef5snw2CXUPJFEW9wpPX8TelToQwnLpEl5QoagnIrkw0qZg3+p1iQL6nLJYU5VSKpicx764JiH22x+NALO4pRjPYgnEd/uCeIGnA3OiIc+UQ7A0ypylWgIlAW/AflNf4H8NXoV6vcoyuVVIuLa+4SjxvN90jUGfWqG3SKQqojUD8yrD3nsEgeiPIpnqCB59M5UP++MAF2xwiISCpXhFhVzMrZ8MUqwuKZlXC7KYDO7MYrkbTOY9qp+bzWg4rPGsWoC2Mag68fYH4E2DOXYaX2tGAfYRXWq67KQXw7F7SYzqNgZoF2Rt+pMagg6qLlOCFJVevNfPCnXZ8dyeL3yMPWjGlJGcZfr2xPFsvCoG7gwYCN4ASf3mtqRdw5WcwzfMHOvzXQfNBIkk1pB83JVZzuyz/gwOrSmXcYwP0YnJ/UZRI0wZ0PlbXydxu+T5QJ/DieGmIoWpWpEwgOjJrBwRjJDDYKp9I47+wp7W+ywb59hNbEU0qYGZUxEa+RjrNBrPvh5EWkIeLvQL68dN74cZa46yQE6hCYZtBfUw5IgGqSg7CJgzPe0093JSLPCMfcCUgcxHt99kXs7g00Nq5oQE1n1llFCRTtzCRMg98JEl+QVcaf66tVRCGiTIQvxDUgkVjoVV/POEvyoN6LvkMWc="
+ 
+script:
+  - echo "ok"
+ 
+after_success:
+  - test $TRAVIS_PULL_REQUEST = false && curl "https://labs.w3.org/echidna/api/request" --data "url=$URL" --data "decision=$DECISION" --data "token=$TOKEN"
