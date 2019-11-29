@@ -185,29 +185,29 @@ https://example.com/page.html
 	<p class="issue" data-number="39">Terminology in this opening prose is being discussed, in particular
 	the term 'relying party'</p>
         <p>A decentralized system will enable several key actions by three 
-        distinct entities: the Controller, the Relying Party, and the Subject.</p>
+		distinct entities: the Controller, the <span class="highlight">Relying Party</span>, and the Subject.</p>
         <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s, 
-          while Relying Parties rely on <abbr title="Decentralized Identifier">DID</abbr>s 
+		while <span class="highlight">Relying Parties</span> rely on <abbr title="Decentralized Identifier">DID</abbr>s 
           as an identifier for  interactions related to the <a>DID Subject</a>.</p>
         <p>The Subject is the entity referred to by the <abbr title="Decentralized 
           Identifier">DID</abbr>, which can be anything: a person,  an organization, 
-          a device, a location, even a concept. Typically, the Subject is  also 
+          a device, a location, even a concept. Typically, the Subject is also 
           the Controller, but in cases of guardianship, agents (human or software),  
           and inanimate Subjects, this is not possible. As such, the Subject has 
-          no functional  role. When the Subject is, in fact, the Controller, we 
+		no functional  role. When the Subject is, in fact, the <a>DID Controller</a>, we 
           consider the action to  be taken by the Controller on their own behalf 
-          as the Subject. When the Subject  is not the Controller, the Controller 
+          as the Subject. When the Subject  is not the DID Controller, the Controller 
           is said to be taking action on behalf of the Subject, such as when an 
           employee manages a <abbr title="Decentralized Identifier">DID</abbr> 
           on behalf of their employer  or a parent uses a <abbr title="Decentralized 
           Identifier">DID</abbr> on behalf of their child.</p>
-        <p>The Controller  and Relying Party may be individuals or interactive 
+	    <p>The DID Controller and <span class="highlight">Relying Party</span> may be individuals or interactive 
           systems, but for simplicity in this document, we refer to both as if 
           they were individual  persons performing these actions. </p>
-        <p>Only a Controller  can perform the actions that control a <abbr 
+	  <p>Only a <a>DID Controller</a> can perform the actions that control a <abbr 
           title="Decentralized Identifier">DID</abbr>, however, anyone can act 
-          as a  Relying Party for any <abbr title="Decentralized Identifier">DID</abbr> 
-          they know, including the Controller should they wish  to inspect or 
+	  as a <span class="highlight">Relying Party</span> for any <abbr title="Decentralized Identifier">DID</abbr> 
+          they know, including the DID Controller, should they wish to inspect or 
           verify their own <abbr title="Decentralized Identifier">DID</abbr>.</p>
         <p>This use case document defines these actions in terms of the eventual 
           systems we anticipate using the resultant specification.</p>
@@ -215,8 +215,8 @@ https://example.com/page.html
         <p>Perhaps the most salient point about <a>Decentralized Identifiers</a> is 
         that there are no "Identity Providers". Instead, this role is subsumed 
         in the decentralized systems that Controllers use to manage <abbr 
-        title="Decentralized Identifier">DID</abbr>s and, in turn, Relying 
-        Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s. 
+        title="Decentralized Identifier">DID</abbr>s and, in turn, <span class="highlight">Relying 
+		Parties</span> use to apply <abbr title="Decentralized Identifier">DID</abbr>s. 
         These  decentralized systems, which we refer to as <abbr 
         title="Decentralized Identifier">DID</abbr> registries, are designed to  
         operate independently from any particular service provider and hence, 
@@ -313,7 +313,7 @@ https://example.com/page.html
         </section>
         <section id="authenticate">
         <h2>Authenticate</h2>
-        <p>Relying Parties may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
+		<p><span class="highlight">Relying Parties</span> may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
 		specified as a Controller for a  particular service endpoint. This authentication process should use the cryptographic  
 		material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some 
 		sort of challenge-response. DID Documents and methods may allow for separate proofs for different service endpoints,  
@@ -362,9 +362,9 @@ https://example.com/page.html
         </section>
         <section id="forwardMigrate">
         <h2>Forward / Migrate</h2>
-        <p>To support interoperability, some methods may provide a way for controllers to record in their registry (by updating the 
+		<p>To support interoperability, some methods may provide a way for <a>DID Controllers</a> to record in their registry (by updating the 
 		DID Document), that the  DID should be redirected to another DID, which now has full authority to represent the originating 
-		DID. This mechanism would allow <a>DID controllers</a> to migrate a DID  from one method or registry to another.</p>
+		DID. This mechanism would allow <a>DID Controllers</a> to migrate a DID  from one method or registry to another.</p>
         </section>
         <section id="recover">
         <h2>Recover</h2>
