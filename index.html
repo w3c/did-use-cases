@@ -71,7 +71,15 @@
           title: "Introduction to DID Auth",
           href: "https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/final-documents/did-auth.md",
           authors: ["Markus Sabadello", "Kyle Den Hartog", "Christian Lundkvist", "Cedric Franz", "Alberto Elias", "Andrew Hughes", "John Jordan", "Dmitri Zagidulin"]
+          },
+	  "QR" : {
+          title: "Information technology — Automatic identification and data capture techniques — QR Code bar code symbology specification",
+          href: "https://www.iso.org/standard/62021.html",
+          authors: ["ISO/IEC JTC 1/SC 31 Automatic identification and data capture techniques"],
+	  status: "ISO/IEC standard",
+	  date: "February 2015"
           }
+
         }
       };
     </script>
@@ -253,9 +261,21 @@ https://example.com/page.html
         <h2>Use Cases</h2>
         <section id="onlineShopper">
           <h3>Online shopper</h3>
-        <p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase. The product and the information about it is trusted, because  it is put there by the brand, and shopper trusts the retailer has received the product through trusted supply chain partners. Today, there are a multitude of channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers, as the relationship is not as direct as the traditional mode of shopping.</p>
-        <p>Online shopping, especially including 3rd party marketplaces creates  the proliferation of digital records about that product across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information presented about that product) came from the brand or other authoritative source. Product identification and information and the source of the product itself is less reliable, and introduces trust issues with representations of products bought and sold online. Additionally, unique identification is critical to business processes, but also to online purchasing. Very often two different products share the same identifier across the supply chain, and so what a consumer purchases and what ultimately is received may be different.</p>
-        <p>Mechanisms are required for the following to provide trust in the digital representation of a product across platforms:</p><ol>
+        <p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase. 
+		The product and the information about it is trusted because it is put there by the brand, and the shopper trusts that 
+		the retailer has received the product through trusted supply chain partners. Today, there is a multitude of 
+		channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior 
+		as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers, 
+		as the relationship is not as direct as the traditional mode of shopping.</p>
+        <p>Online shopping, especially through 3rd party marketplaces, creates a proliferation of digital records about that product 
+		across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information 
+		presented about that product) came from the brand or other authoritative source. Product identification and information 
+		and the source of the product itself is less reliable, and introduces trust issues with representations of products 
+		bought and sold online. Additionally, unique identification is critical to business processes, but also to online 
+		purchasing. Very often two different products share the same identifier across the supply chain, and so what a 
+		consumer purchases and what ultimately is received may be different.</p>
+        <p>Mechanisms are required for the following to provide trust in the digital representation of a product across platforms:</p>
+	<ol>
           <li>validation of the legitimacy of an online listing &mdash; in particular on third party marketplaces;</li>
           <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
         </ol>
@@ -265,25 +285,41 @@ https://example.com/page.html
     </section>
       <section id="actions">
       <h2>DID Actions</h2>
-      <p class="ednote">This section currently unchanged from CG's document - needs to be updated.</p>
-        <p>Here are the  thirteen (13) actions currently supported by DIDs as envisioned by Credentials  Community Group and as intended in the DID Working Group Charter. </p>
-        <p>In the diagram,  we have grouped the actions by Create, Read, Update, and Delete (CRUD) as well  as Use.</p>
+        <p>Here are the thirteen (13) actions envisioned by Credentials Community Group as being necessarily supported by 
+		<abbr title="Dencentralized Identtifier">DID</abbr>s. In the diagram,  actions have been grouped by Create, 
+		Read, Update, and Delete (CRUD) as well as Use.</p>
             <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
         <section id="create">
         <h2>Create</h2>
-        <p>Controllers create DIDs, uniquely binding cryptographic  proofs with the identifier, typically using public-private key-pairs. These  DIDs are recorded in a registry in such a manner as to be able to resolve to a  DID Document. The DID Document may be dynamically and deterministically  generated through resolution or it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. This  process needs access to the registry, ideally a decentralized system, and like  the rest of the DID CRUD actions, can be performed without interaction with any  particular authority.</p>
+        <p>Controllers create DIDs, uniquely binding cryptographic proofs with the identifier, typically using 
+		public-private key-pairs. These  DIDs may be recorded in a registry in such a manner as to be able to 
+		resolve to a  DID Document. The DID Document may be dynamically and deterministically generated through resolution or 
+		it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. 
+		In this scenario, the process will need access to any registry, ideally a decentralized system, and like the 
+		rest of the DID CRUD actions, it shold be possible to create the DID without interaction with any particular authority.</p>
         </section>
         <section id="present">
             <h2>Present</h2>
-        <p>DIDs are <a>URI</a>s, which is to say a string of characters. As  such, they may be presented in the same manner as URIs, by simply transmitting  or presenting that string of characters. DIDs, however are not designed to be  human readable. They invariably contain long, complex numbers represented in  various formats. For ease of use, implementations often rely on QR codes for  ease of capture using a camera-enabled device such as a smart phone.</p>
+        <p>DIDs are <a>URI</a>s, which is to say a string of characters. As such, they may be presented in the same manner as 
+		URIs, by simply transmitting  or presenting that string of characters. There is no requirement, however, 
+		that DIDs be human readable. Thus they may contain long, complex numbers represented in  various formats. For 
+		ease of use, implementations may rely on data carriers such as QR codes [[QR]] for ease of capture using a camera-enabled device 
+		such as a smart phone.</p>
         </section>
         <section id="authenticate">
         <h2>Authenticate</h2>
-        <p>Relying Parties may wish to prove that the individual  presenting a DID is in fact its controller or specified as a Controller for a  particular service endpoint. This authentication process uses the cryptographic  material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some sort of challenge-response. Some DID Documents  and methods allow for separate, proofs for different service endpoints,  distinct from update and delete actions. This separation allows transactional  proofs that are expected to be used frequently, while controlling proofs are  used rarely.</p>
+        <p>Relying Parties may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
+		specified as a Controller for a  particular service endpoint. This authentication process uses the cryptographic  
+		material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some 
+		sort of challenge-response. Some DID Documents and methods allow for separate proofs for different service endpoints,  
+		distinct from update and delete actions. This separation allows transactional  proofs that are expected to be used frequently,
+		while controlling proofs are expected to be used rarely.</p>
         </section>
         <section id="sign">
         <h2>Sign</h2>
-        <p>Using cryptographic material associated with that found in a  DID Document, <a>DID Controller</a>s may sign digital assets or documents. This  signature can later be verified (#7 Signature Verification) to demonstrate the  authenticity of the asset. In this way, we may referred to the asset as "signed  by the DID".</p>
+        <p>Using cryptographic material associated with that found in a  DID Document, <a>DID Controller</a>s may sign digital
+		assets or documents. This  signature can <a href="#verifySignature"later be verified</a> to demonstrate the 
+		authenticity of the asset. In this way, we may referred to the asset as "signed  by the DID".</p>
         </section>
         <section id="resolve">
         <h2>Resolve</h2>
