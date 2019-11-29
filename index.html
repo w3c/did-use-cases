@@ -294,7 +294,7 @@ https://example.com/page.html
             <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
         <section id="create">
         <h2>Create</h2>
-		<p class="issue" data="number-14">This section refers to recording in a registry. I've changed it to say 
+		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say 
 			'may be' but this can only be finalized when Issue-14 is resolved.</p>
         <p>Controllers create DIDs, uniquely binding cryptographic proofs with the identifier, typically using 
 		public-private key-pairs. These DIDs may be recorded in a registry in such a manner as to be able to 
@@ -322,20 +322,20 @@ https://example.com/page.html
         </section>
         <section id="sign">
         <h2>Sign</h2>
-        <p>Using cryptographic material associated with that found in a  DID Document, <a>DID Controller</a>s may sign digital
+		<p>Using cryptographic material associated with that found in a  <a>DID Document</a>, <a>DID Controller</a>s may sign digital
 		assets or documents. This  signature can <a href="#verifySignature">later be verified</a> to demonstrate the 
 		authenticity of the asset. In this way, it should be possible to refer to the asset as "signed  by the DID".</p>
         </section>
         <section id="resolve">
         <h2>Resolve</h2>
-        <p>The first step in using a DID for anything other than presentation is to resolve the DID to a specific DID Document, 
+        <p>The first step in using a DID for anything other than presentation is to resolve the DID to a specific <a>DID Document</a>, 
 		to reveal the  cryptographic material and service endpoints associated with that DID. How this occurs should be 
 		method-specific and is out of scope for the DID Working Group.</p>
         </section>
         <section id="dereference">
         <h2>Dereference</h2>
         <p>Dereferencing a DID uses the material in its DID Document to return a resource. The expectation is that, by default, dereferencing 
-		a DID without a reference to a service endpoint will return the DID Document itself. When a DID is combined with a 
+		a DID without a reference to a service endpoint will return the <a>DID Document</a> itself. When a DID is combined with a 
 		<code>service</code> <a href="https://www.w3.org/TR/2019/WD-did-core-20191113/#generic-did-parameter-names">parameter</a> 
 		(forming a <a>DID URL</a>), dereferencing will return the resource pointed to from the named service endpoint, which was 
 		discovered by resolving the DID to its DID Document and looking up the endpoint by name. In this way, a 
