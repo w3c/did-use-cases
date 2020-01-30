@@ -305,11 +305,51 @@ https://example.com/page.html
 	<p>The vehicle itself has its own identifier too. This would allow that particular vehicle to be a reference for the components 
 	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control 
 	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout 
-		the entire lifecycle of the vehicle.</p>
+	the entire lifecycle of the vehicle.</p>
 	<p class="shortUcContributor">Contributed by Spherity</p>
 	</section> <!-- Vehicle assemblies -->
 	      
-        <p class="ednote">More short use cases to be added</p>
+	<section id="edv"><h3>Encrypted Data Vault</h3>
+	<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to 
+	you.’ For data to be stored in the cloud – in other words, on someone else’s computer – and for it to be only accessible to the data 
+	owner, it must be encrypted. A Decentralized Identifier that leads to information with which a user can prove control of the 
+	identifier without resort to a centralized authority could enable substitutable encrypted cloud storage. That is, the data owner 
+	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control 
+	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change 
+	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>
+	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
+	</section> <!-- Encrypted Data Vault-->
+	      
+	<section id="accessingServiceEndpoints"><h3>Accessing service endpoints</h3>
+	<p>A Decentralized Identifier resolves to information relevant to that identifier including service endpoints – typically 
+	APIs that allow some sort of interaction with the identified item. For example, a service endpoint might provide corporate 
+	master data about the item which in turn could be provided as a self-signed verifiable credential. The decentralized nature 
+	of the identifier is important here as it can continue to act as an entry to that master data even if the manufacturer goes 
+	out of business.</p>
+	<p>Another example would be parking spaces identified by a DID and connected to barriers. The static data directly associated 
+	with the parking space, such as its GPS position, can be made publicly available, perhaps leveraging schema.org, together with 
+	details of the secure service endpoint that facilitates interaction with the parking space’s barrier. The parking space may be 
+	owned by the local authority but the barrier is likely to be operated by a contracted third party and that contracted party 
+	can be replaced at any time without needing to change the parking space’s identifier.</p>
+	<p class="shortUcContributor">Contributed by Bosch</p>
+	</section><!-- service endpoints-->
+
+	<section id="vcEcosystem"><h3>Identifiers in an ecosystem of verifiable credentials (VCs)</h3>
+	<p>Remembering the <a href="#abstract">4 essential characteristics of a decentralized identifier</a>, there are situations 
+		where DIDs offer tangible benefits over existing identifier schemes. For example:</p><ul>
+	<li>Verifiable credential issuers publishing the list of subject attributes that they are authoritative for (their 
+		authoritative nature can be proven).</li>
+	<li>In similar vein, VC issuers may publish authoritative schemas for the types of credential that they issue.</li>
+	<li>Terms of use or other policy constraints that might apply to issued VCs.</li>
+	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself 
+		be verified.</li>
+	<li>The controller of a decentralized identifier can rotate their cryptographic keys, either to overcome their existing keys 
+		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
+		verifiable credentials associated with that identifier.</li>
+	</ul>
+	<p class="shortUcContributor">Contributed by David Chadwick, University of Kent</p>
+	</section><!-- VC ecosystem-->
+        <!--<p class="ednote">More short use cases to be added</p> -->
 
     </section>
       <section id="actions">
