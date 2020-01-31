@@ -320,18 +320,17 @@ https://example.com/page.html
 	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
 	</section> <!-- Encrypted Data Vault-->
 	      
-	<section id="accessingServiceEndpoints"><h3>Accessing service endpoints</h3>
-	<p>A Decentralized Identifier resolves to information relevant to that identifier including service endpoints – typically 
-	APIs that allow some sort of interaction with the identified item. For example, a service endpoint might provide corporate 
-	master data about the item which in turn could be provided as a self-signed verifiable credential. The decentralized nature 
-	of the identifier is important here as it can continue to act as an entry to that master data even if the manufacturer goes 
-	out of business.</p>
-	<p>Another example would be parking spaces identified by a DID and connected to barriers. The static data directly associated 
-	with the parking space, such as its GPS position, can be made publicly available, perhaps leveraging schema.org, together with 
-	details of the secure service endpoint that facilitates interaction with the parking space’s barrier. The parking space may be 
-	owned by the local authority but the barrier is likely to be operated by a contracted third party and that contracted party 
-	can be replaced at any time without needing to change the parking space’s identifier.</p>
-	<p class="shortUcContributor">Contributed by Bosch</p>
+	<section id="accessingServiceEndpoints"><h3>Accessing Master Data of Entities</h3>
+	<p>Decentralized identifiers allow one to discover the location of an authoritative public master data record of an entity. 
+	This mechanism can be used for organizations as well as things. The authoritative master data record could be retrieved from a 
+	designated service endpoint listed in the DID document. The record may be self-certifying, i.e. verifiable with a key listed in the 
+	DID document or third party attested represented as a <a 
+	href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations">verifiable presentation</a>.</p>
+	<p>The third party attesting master data of an organization might be a chamber of commerce, while the third party attesting 
+	the master data of a thing might be its manufacturer. The decentralized nature of the identifier is important in particular 
+	for the device as the DID can act as an entry to that master data even if the manufacturer goes out of business or stops the 
+	service.</p>
+	<p class="shortUcContributor">Contributed by Robert Bosch GmbH</p>
 	</section><!-- service endpoints-->
 
 	<section id="vcEcosystem"><h3>Identifiers in an ecosystem of verifiable credentials (VCs)</h3>
