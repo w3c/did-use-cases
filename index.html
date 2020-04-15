@@ -349,7 +349,7 @@ https://example.com/page.html
 	<li>Terms of use or other policy constraints that might apply to issued VCs.</li>
 	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself 
 		be verified.</li>
-	<li>The controller of a decentralized identifier can rotate their cryptographic keys, either to overcome their existing keys 
+	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys 
 		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
 		verifiable credentials associated with that identifier.</li>
 	</ul>
@@ -444,7 +444,7 @@ https://example.com/page.html
         </section>
         <section id="rotate">
         <h2>Rotate</h2>
-        <p>Controllers may rotate the cryptographic material for a DID  by updating the DID Document as 
+        <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as 
 		<span class="highlight">recorded in its registry</span>. Different methods should be able to handle this differently, but 
 		the result would be an update to the core cryptographic proof required to prove control of the DID and the DID Document.</p>
         </section>
