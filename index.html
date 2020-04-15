@@ -173,6 +173,7 @@ https://example.com/page.html
         <li><strong>resolvable</strong>: it should be possible to discover 
         metadata about the identifier.</li>
     </ol>
+	    <p>Further desired features and their benefits are <a href="#featureBenefitGrid">provided in a later section</a>.</p>
   <section id="existingWork">
     <h3>Existing Work</h3>
     <p>The use cases and requirements set out below have not been created <i>a 
@@ -349,7 +350,7 @@ https://example.com/page.html
 	<li>Terms of use or other policy constraints that might apply to issued VCs.</li>
 	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself 
 		be verified.</li>
-	<li>The controller of a decentralized identifier can rotate their cryptographic keys, either to overcome their existing keys 
+	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys 
 		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
 		verifiable credentials associated with that identifier.</li>
 	</ul>
@@ -368,6 +369,7 @@ https://example.com/page.html
 	<li>The ability to prove control of that identifier, again, without revealing any PII.</li>
 	<li>The ability to associate information likely to be of commercial interest with that identifier, such as purchase history, 
 		age, gender or social status, again, without revealing any PII.</li>
+		</ol>
 	<p>Such an identifier could be shared across multiple platforms that would be able to use it to provide a more customized 
 	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the 
 	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online 
@@ -384,7 +386,7 @@ https://example.com/page.html
         <p>Here are the thirteen (13) actions envisioned in earlier work by 
 		<a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> as being necessarily supported by 
 		<abbr title="Decentralized Identifier">DID</abbr>s. In the diagram, actions have been grouped by Create, 
-		Read, Update, and Delete (CRUD) as well as Use.</p>
+		Read, Update, Delete and Use.</p>
             <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
         <section id="create">
         <h2>Create</h2>
@@ -395,7 +397,7 @@ https://example.com/page.html
 		resolve to a  DID Document. The DID Document may be dynamically and deterministically generated through resolution or 
 		it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. 
 		In this scenario, the process will need access to any registry, ideally a decentralized system, and like the 
-		rest of the DID CRUD actions, it shold be possible to create the DID without interaction with any particular authority.</p>
+		rest of the DID actions, it should be possible to create the DID without interaction with any particular authority.</p>
         </section>
         <section id="present">
             <h2>Present</h2>
@@ -444,7 +446,7 @@ https://example.com/page.html
         </section>
         <section id="rotate">
         <h2>Rotate</h2>
-        <p>Controllers may rotate the cryptographic material for a DID  by updating the DID Document as 
+        <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as 
 		<span class="highlight">recorded in its registry</span>. Different methods should be able to handle this differently, but 
 		the result would be an update to the core cryptographic proof required to prove control of the DID and the DID Document.</p>
         </section>
@@ -470,7 +472,7 @@ https://example.com/page.html
         </section>
         <section id="audit">
         <h2>Audit</h2>
-        <p>Some methods may provide an explicit audit trail of all <abbr title="Create, Read, Update, Delete/Deactivate">CRUD</abbr> 
+        <p>Some methods may provide an explicit audit trail of all  
 		actions on that DID, including a timestamp for when the actions took place. For distributed ledger-based 
 		registries, this audit trail is fundamental to the way  the ledgers record transactions. This would allow
 		<span class="highlight">relying parties</span> to see, for example, how recently a DID was rotated or its service 
@@ -485,10 +487,10 @@ https://example.com/page.html
         </section>
     </section>
     <section id="featureBenefitGrid">
-	<h2>Feature/Benefit Grid</h2>
+	<h2>Features and Benefits</h2>
 		<p>In collecting and evaluating potential use cases, we have 
-		identified fifteen (15) key features supported by the DID specification, 
-		which provide benefits in the areas of anti-censorship, anti-exploitation,
+		identified fifteen (15) key features of DIDs 
+		that provide benefits in the areas of anti-censorship, anti-exploitation,
 		ease of use, privacy, and sustainability.<p>
 		<p>The features and their associated benefits can be seen in the following 
         grid. A brief definition of each feature follows.</p>
@@ -505,101 +507,102 @@ https://example.com/page.html
     <tr>
         <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
       <td class="a-censor">X</td>
-      <td class="a-exploit">&nbsp;</td>
-      <td class="ease">&nbsp;</td>
-      <td class="privacy">&nbsp;</td>
+      <td class="a-exploit"></td>
+      <td class="ease"></td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
     </tr>
     <tr>
         <th scope="row"><a href="#f2">2. Can't be administratively denied</a></th>
 	  <td class="a-censor">X</td>
-      <td class="a-exploit">&nbsp;</td>
-      <td class="ease">&nbsp;</td>
-      <td class="privacy">&nbsp;</td>
-      <td class="sustainability">&nbsp;</td>
+      <td class="a-exploit"></td>
+      <td class="ease"></td>
+      <td class="privacy"></td>
+      <td class="sustainability"></td>
     </tr>
     <tr>
         <th scope="row"><a href="#f3">3. Minimized rents</a></th>
-	  <td class="a-censor">&nbsp;</td>
+	  <td class="a-censor"></td>
       <td class="a-exploit">X</td>
-      <td class="ease">&nbsp;</td>
-      <td class="privacy">&nbsp;</td>
+      <td class="ease"></td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
     </tr>
     <tr>
         <th scope="row"><a href="#f4">4. No vendor lock in</a></th>
-	  <td class="a-censor">&nbsp;</td>
+	  <td class="a-censor"></td>
       <td class="a-exploit">X</td>
-      <td class="ease">&nbsp;</td>
-      <td class="privacy">&nbsp;</td>
+      <td class="ease"></td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
     </tr>
     <tr>
         <th scope="row"><a href="#f5">5. Self-issued, self-managed</a></th>
 	  <td class="a-censor">X</td>
       <td class="a-exploit">X</td>
-      <td class="ease">&nbsp;</td>
+      <td class="ease"></td>
       <td class="privacy">X</td>
-      <td class="sustainability">&nbsp;</td>
+      <td class="sustainability"></td>
     </tr>
     <tr>
         <th scope="row"><a href="#f6">6. Streamlined rotation</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
       <td class="ease">X</td>
-      <td class="privacy">&nbsp;</td>
-      <td class="sustainability">&nbsp;</td>
+      <td class="privacy"></td>
+      <td class="sustainability"></td>
     </tr>
     <tr>
         <th scope="row"><a href="#f7">7. No phone home</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
-      <td class="ease">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
+      <td class="ease"></td>
       <td class="privacy">X</td>
-      <td class="sustainability">&nbsp;</td>
+      <td class="sustainability"></td>
     </tr>
     <tr>
         <th scope="row"><a href="#f8">8. Preempt/limit trackable data trails</a></th>
  	  <td class="a-censor">&nbsp;</td>
+
       <td class="a-exploit">X</td>
-      <td class="ease">&nbsp;</td>
+      <td class="ease"></td>
       <td class="privacy">X</td>
       <td class="sustainability">X</td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f9">9. Cryptographic future proof</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
-      <td class="ease">&nbsp;</td>
-      <td class="privacy">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
+      <td class="ease"></td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f10">10. Survives issuing organization mortality</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
       <td class="ease">X</td>
-      <td class="privacy">&nbsp;</td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f11">11. Survives deployment end-of-life</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
-      <td class="ease">&nbsp;</td>
-      <td class="privacy">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
+      <td class="ease"></td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f12">12. Survives relationship with service provider</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
       <td class="ease">X</td>
-      <td class="privacy">&nbsp;</td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
 
     </tr>
@@ -607,17 +610,17 @@ https://example.com/page.html
         <th scope="row"><a href="#f13">13. Cryptographic authentication and communication</a></th>
  	  <td class="a-censor">X</td>
       <td class="a-exploit">X</td>
-      <td class="ease">&nbsp;</td>
+      <td class="ease"></td>
       <td class="privacy">X</td>
-      <td class="sustainability">&nbsp;</td>
+      <td class="sustainability"></td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f14">14. Service Discovery</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-      <td class="a-exploit">&nbsp;</td>
+ 	  <td class="a-censor"></td>
+      <td class="a-exploit"></td>
       <td class="ease">X</td>
-      <td class="privacy">&nbsp;</td>
+      <td class="privacy"></td>
       <td class="sustainability">X</td>
 
     </tr>
@@ -625,15 +628,15 @@ https://example.com/page.html
         <th scope="row"><a href="#f15">15. Registry agnostic</a></th>
  	  <td class="a-censor">X</td>
       <td class="a-exploit">X</td>
-      <td class="ease">&nbsp;</td>
+      <td class="ease"></td>
       <td class="privacy">X</td>
       <td class="sustainability">X</td>
     </tr>
   </tbody>
 </table>
-  </section>
+  <!--</section>
   <section id="requiredFeatures">
-  <h2>Required Features</h2>
+  <h2>Required Features</h2> -->
 	  <dl id="feature_definitions">
   <dt id="f1">1. Inter-jurisdictional</dt>
 	<dd>Inter-jurisdictional identifiers do not depend on the legal jurisdiction 
@@ -709,8 +712,7 @@ https://example.com/page.html
     <section id="featureCoverage">
 	<h2>Feature Coverage</h2>
 		<p>Not all use cases illustrate each feature, and not all DID methods
-		  support all features. However, we are gathering 
-		  use cases to make sure all key features are clearly described. The
+		  support all features. The
         following chart shows which features are explicitly illustrated in 
         the <a href="#focalUseCases">Focal Use Cases</a>.</p>
   <table class="feature_grid">
@@ -727,14 +729,14 @@ https://example.com/page.html
         <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
       <td class="corporate">X</td>
       <td class="education">X</td>
-      <td class="prescriptions">&nbsp;</td>
+      <td class="prescriptions"></td>
       <td class="executor">X</td>
-      <td class="sso">&nbsp;</td>
+      <td class="sso"></td>
     </tr>
     <tr>
       <th scope="row"><a href="#f2">2. Can't be administratively denied</a></th>
       <td class="corporate">X</td>
-      <td class="education">&nbsp;</td>
+      <td class="education"></td>
       <td class="prescriptions">X</td>
       <td class="executor">X</td>
       <td class="sso">X</td>
@@ -742,11 +744,11 @@ https://example.com/page.html
     </tr>
     <tr>
         <th scope="row"><a href="#f3">3. Minimized rents</a></th>
-      <td class="corporate">&nbsp;</td>
-      <td class="education">&nbsp;</td>
+      <td class="corporate"></td>
+      <td class="education"></td>
       <td class="prescriptions">X</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
@@ -755,7 +757,7 @@ https://example.com/page.html
       <td class="education">X</td>
       <td class="prescriptions">X</td>
       <td class="executor">X</td>
-      <td class="sso">&nbsp;</td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
@@ -764,25 +766,25 @@ https://example.com/page.html
       <td class="education">X</td>
       <td class="prescriptions">X</td>
       <td class="executor">X</td>
-      <td class="sso">&nbsp;</td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
       <th scope="row"><a href="#f6">6. Streamlined rotation</a></th>
-      <td class="corporate">&nbsp;</td>
+      <td class="corporate"></td>
       <td class="education">X</td>
-      <td class="prescriptions">&nbsp;</td>
+      <td class="prescriptions"></td>
       <td class="executor">X</td>
-      <td class="sso">&nbsp;</td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f7">7. No phone home</a></th>
-      <td class="corporate">&nbsp;</td>
+      <td class="corporate"></td>
       <td class="education">X</td>
       <td class="prescriptions">X</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
@@ -790,44 +792,44 @@ https://example.com/page.html
       <td class="corporate">&nbsp;</td>
       <td class="education">&nbsp;</td>
       <td class="prescriptions">X</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f9">9. Cryptographic future proof</a></th>
       <td class="corporate">X</td>
       <td class="education">X</td>
-      <td class="prescriptions">&nbsp;</td>
-      <td class="executor">&nbsp;</td>
+      <td class="prescriptions"></td>
+      <td class="executor"></td>
       <td class="sso">X</td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f10">10. Survives issuing organization mortality</a></th>
-      <td class="corporate">&nbsp;</td>
+      <td class="corporate"></td>
       <td class="education">X</td>
-      <td class="prescriptions">&nbsp;</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="prescriptions"></td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f11">11. Survives deployment end-of-life</a></th>
-      <td class="corporate">&nbsp;</td>
+      <td class="corporate"></td>
       <td class="education">X</td>
-      <td class="prescriptions">&nbsp;</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="prescriptions"></td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
         <th scope="row"><a href="#f12">12. Survives relationship with service provider</a></th>
       <td class="corporate">X</td>
       <td class="education">X</td>
-      <td class="prescriptions">&nbsp;</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="prescriptions"></td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
     <tr>
@@ -841,21 +843,21 @@ https://example.com/page.html
     </tr>
     <tr>
         <th scope="row"><a href="#f14">14. Service Discovery</a></th>
-      <td class="corporate">&nbsp;</td>
-      <td class="education">&nbsp;</td>
-      <td class="prescriptions">&nbsp;</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="corporate"></td>
+      <td class="education"></td>
+      <td class="prescriptions"></td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
 
     </tr>
     <tr>
         <th scope="row"><a href="#f15">15. Registry agnostic</a></th>
-      <td class="corporate">&nbsp;</td>
-      <td class="education">&nbsp;</td>
-      <td class="prescriptions">&nbsp;</td>
-      <td class="executor">&nbsp;</td>
-      <td class="sso">&nbsp;</td>
+      <td class="corporate"></td>
+      <td class="education"></td>
+      <td class="prescriptions"></td>
+      <td class="executor"></td>
+      <td class="sso"></td>
 
     </tr>
   </tbody>
@@ -892,7 +894,7 @@ https://example.com/page.html
           machine-readable digitally signed data. Digitally signed documentation
           is collected at each stage of the manufacturing, packaging, and
           shipping process. This documentation is then submitted to Customs
-          upon the products entry into the country where all digital signatures
+          upon the product's entry into the country where all digital signatures
           are verified on the documentation. Some aspects of the signed
           documentation, such as firmware hashes and checksums, are then used
           by Customs and downstream customers to verify that the products have
@@ -1153,7 +1155,7 @@ https://example.com/page.html
 information relevant to the WG's work.</p>
         <p>Use a DID as a single-sign-on to a Web site, for example between
           a Web page and a Web browser with a mobile identity app. When desirable, 
-          the relationship can add a shared secret for 2FA.</p>
+          the relationship can add a shared secret for two-factor authentication (2FA).</p>
         <p>Detailed aspects of this use case are out of scope for the Decentralized
         Identifier Working Group but they have been explored elsewhere [[DID-Auth]].
 
