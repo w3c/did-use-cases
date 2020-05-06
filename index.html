@@ -197,9 +197,9 @@ https://example.com/page.html
 	<p class="issue" data-number="39">Terminology in this opening prose is being discussed, in particular
 	the term 'relying party'</p>
         <p>A decentralized system will enable several key actions by three 
-		distinct entities: the Controller, the <span class="highlight">Relying Party</span>, and the Subject.</p>
+		distinct entities: the Controller, the <a>verifier</a> (sometimes known as the Relying Party), and the Subject.</p>
         <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s, 
-		while <span class="highlight">Relying Parties</span> rely on <abbr title="Decentralized Identifier">DID</abbr>s 
+		while verifiers rely on <abbr title="Decentralized Identifier">DID</abbr>s 
           as an identifier for  interactions related to the <a>DID Subject</a>.</p>
         <p>The Subject is the entity referred to by the <abbr title="Decentralized 
           Identifier">DID</abbr>, which can be anything: a person,  an organization, 
@@ -213,12 +213,12 @@ https://example.com/page.html
           employee manages a <abbr title="Decentralized Identifier">DID</abbr> 
           on behalf of their employer  or a parent uses a <abbr title="Decentralized 
           Identifier">DID</abbr> on behalf of their child.</p>
-	    <p>The DID Controller and <span class="highlight">Relying Party</span> may be individuals or interactive 
+	    <p>The DID Controller and verifiers may be individuals or interactive 
           systems, but for simplicity in this document, we refer to both as if 
           they were individual  persons performing these actions. </p>
 	  <p>Only a <a>DID Controller</a> can perform the actions that control a <abbr 
           title="Decentralized Identifier">DID</abbr>, however, anyone can act 
-	  as a <span class="highlight">Relying Party</span> for any <abbr title="Decentralized Identifier">DID</abbr> 
+	  as a verifier for any <abbr title="Decentralized Identifier">DID</abbr> 
           they know, including the DID Controller, should they wish to inspect or 
           verify their own <abbr title="Decentralized Identifier">DID</abbr>.</p>
         <p>This use case document defines these actions in terms of the eventual 
@@ -436,13 +436,13 @@ https://example.com/page.html
 		<code>service</code> <a href="https://www.w3.org/TR/2019/WD-did-core-20191113/#generic-did-parameter-names">parameter</a> 
 		(forming a <a>DID URL</a>), dereferencing will return the resource pointed to from the named service endpoint, which was 
 		discovered by resolving the DID to its DID Document and looking up the endpoint by name. In this way, a 
-		<span class="highlight">Relying Party</span> may dynamically discover and  interact with the current service endpoints for a 
+		verifier may dynamically discover and  interact with the current service endpoints for a 
 		given DID. Services can therefore be given persistent identifiers that do not change even when the underlying service 
 		endpoints change.</p>
         </section>
         <section id="verifySignature">
         <h2>Verify Signature</h2>
-        <p>Given a digital asset signed by a DID, a <span style="background-color:yellow">Relying Party</span> may use the 
+        <p>Given a digital asset signed by a DID, a verifier may use the 
 	cryptographic material in the DID Document to verify the signature.</p>
         </section>
         <section id="rotate">
