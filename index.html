@@ -227,8 +227,8 @@ https://example.com/page.html
         <p>Perhaps the most salient point about <a>Decentralized Identifiers</a> is 
         that there are no "Identity Providers". Instead, this role is subsumed 
         in the decentralized systems that Controllers use to manage <abbr 
-        title="Decentralized Identifier">DID</abbr>s and, in turn, <span class="highlight">Relying 
-		Parties</span> use to apply <abbr title="Decentralized Identifier">DID</abbr>s. 
+        title="Decentralized Identifier">DID</abbr>s and, in turn, verifiers use to apply 
+		<abbr title="Decentralized Identifier">DID</abbr>s. 
         These  decentralized systems, which we refer to as <abbr 
         title="Decentralized Identifier">DID</abbr> registries, are designed to  
         operate independently from any particular service provider and hence, 
@@ -410,7 +410,7 @@ https://example.com/page.html
         </section>
         <section id="authenticate">
         <h2>Authenticate</h2>
-		<p><span class="highlight">Relying Parties</span> may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
+		<p><a>Verifiers</a> may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
 		specified as a Controller for a  particular service endpoint. This authentication process should use the cryptographic  
 		material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some 
 		sort of challenge-response. DID Documents and methods may allow for separate proofs for different service endpoints,  
@@ -469,14 +469,14 @@ https://example.com/page.html
 		means will vary by method but can include social recovery, <span class="highlight">multi-signature</span>, 
 		<a href="https://en.wikipedia.org/wiki/Shamir's_Secret_Sharing">Shamir sharing</a>, or pre-rotated  keys. In general, 
 		recovery triggers a rotation to a new proof, allowing the <a>DID Controller</a> of that new proof to recover control of the 
-		DID without interacting  with any <span class="highlight">Relying Parties</span>.</p>
+		DID without interacting  with any verifiers.</p>
         </section>
         <section id="audit">
         <h2>Audit</h2>
         <p>Some methods may provide an explicit audit trail of all  
 		actions on that DID, including a timestamp for when the actions took place. For distributed ledger-based 
 		registries, this audit trail is fundamental to the way  the ledgers record transactions. This would allow
-		<span class="highlight">relying parties</span> to see, for example, how recently a DID was rotated or its service 
+		a verifier to see, for example, how recently a DID was rotated or its service 
 		endpoints updated, which may inform certain analytics regarding the reliability of the DID's  cryptographic material.</p>
 	</section>
         <section id="deactivate">
@@ -666,7 +666,7 @@ https://example.com/page.html
         these identifiers. (Anti-censorship, Ease of use, and Privacy)</dd>
   <dt id="f6">6. Streamlined rotation</dt>
     <dd>When authentication materials need to be updated, these identifiers can 
-        update without direct intervention with relying parties and with minimal 
+        update without direct intervention with verifiers and with minimal 
         individual interaction. (Ease of use)</dd>
   <dt id="f7">7. No phone home</dt>
     <dd>When using these identifiers, there is no need to contact the issuer of the 
@@ -690,7 +690,7 @@ https://example.com/page.html
         even the internal decay of an organization that no longer has the ability to 
         verify the authenticity of records they once issued.</dd>
   <dt id="f11">11. Survives deployment end-of-life</dt>
-    <dd>These identifiers are usable even after the systems deployed by relying parties 
+    <dd>These identifiers are usable even after the systems deployed by verifiers 
         move past their useful lifetime. They are robust against technology fads and can 
         seamlessly work with both legacy and next-generation systems.</dd>
   <dt id="f12">12. Survives relationship with service provider</dt>
@@ -703,7 +703,7 @@ https://example.com/page.html
         and to secure communications with the subject of the identifier, typically using 
         public-private key pairs.</dd>
   <dt id="f14">14. Service discovery</dt>
-    <dd>These identifiers allow relying parties to look up available service endpoints 
+    <dd>These identifiers allow verifiers to look up available service endpoints 
         for interacting with the subject of the identifier. (Ease of use and Sustainable)</dd>
   <dt id="f15">15. Registry agnostic</dt>
 	    <dd>These identifiers are free to reside on any registry implementing a compatible 
