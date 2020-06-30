@@ -147,7 +147,7 @@ https://example.com/page.html
     DOI organization and the suffix by the registrant.</li>
   <li>Global Trade Item Numbers (GTINs) seen on many of the world's barcodes 
       are managed in a similar way, as are Legal Entity Identifiers, 
-      <abbr title="International Standard Book Number">ISBN</a>s and more.</li>
+      <abbr title="International Standard Book Number">ISBN</abbr>s and more.</li>
   </ul>
   <p>In all these cases, ultimately, there is a central authority on which the 
    identifier system depends. Those central authorities go to significant 
@@ -310,7 +310,9 @@ https://example.com/page.html
 	is no requirement for the overall vehicle manufacturer to maintain an aggregated database  concerning a vehicle that, in a 
 	traditional system, is not only a single point of failure but that is immediately out of date as soon as the vehicle goes in 
 	for its first service. A decentralized system allows each component of the vehicle to have its own history, its own credentials 
-	and its own lifecycle, independent of other components and the vehicle – or vehicles – of which it is a part over time.</p>
+	and its own lifecycle, independent of other components and the vehicle – or vehicles – of which it is a part over time. At the end of its life, 
+	the identifier may continue to be useful as a reference point for recycling and safe disposal information, even if the original
+	manufacturer is no longer in business.</p>
 	<p>The vehicle itself has its own identifier too. This would allow that particular vehicle to be a reference for the components 
 	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control 
 	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout 
@@ -387,23 +389,47 @@ https://example.com/page.html
 	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows 
 	Sahar to retain anonimity but provide a means for others to pay the right person.</p>
 	<p class="shortUcContributor">Contributed by Juan Caballero</p>
-	      </section><!-- Ghost Writer-->
-	      
-	      
-	      <!--<p class="ednote">More short use cases to be added</p> -->
+  </section><!-- Ghost Writer-->
 
-    </section>
+  <section id="supplyChain"><h3>Anonymity within a supply chain</h3>
+	<p>Modern supply chains are highly complex, typically involving multiple companies taking ownership and/or custody of shipments from the point of
+	origin through to the final destination, be that a retailer or end consumer. Furthermore, since most mass-produced products are made to stock rather than 
+	bespoke for a specific customer, the manufacturer typically does not know which final  retailer or retail store will receive each specific product instance; 
+	the individual path through the supply chain network is not predefined by the manufacturer but instead emerges over time as a set of intermediate distributors 
+	and wholesalers distribute product in response to orders from their customers.  Data concerning that supply chain can be commercially sensitive. For example, 
+	a transport company may not wish their customer to know that they sub contracted part of the journey to another partner. It can be a security risk too. The 
+	locations of warehouses and distribution centers where large stocks of particular items are held can be a target for the insertion of counterfeit goods into 
+	legitimate supplies.</p>
+	<p>A downstream party such as a retailer, pharmacy or end consumer may have a legitimate reason or in some cases a legal requirement to know that 
+	each product is genuine and can be traced back to the genuine manufacturer through an unbroken chain of custody, without any gaps or inconsistencies 
+	in the traceability data.</p>
+	<p>A downstream party may also want to check whether the product ID and serial number were actually issued by the manufacturer. However, the manufacturer may 
+	not want to provide such information about valid serial numbers to its competitors or counterfeiters, so there may be a need to control access to such services.</p>
+	<p>For these reasons and more, identifiers for business partners, locations and transactions often need to be obfuscated, and the data exchanged between 
+	partners is typically restricted both in terms of its content and in terms of access to it. This is especially true when a manufacturer does not want its 
+	competitors to know the actual source of the ingredients or components in its products.  Different parties will be interested in different things too. For 
+	example, a retailer may be interested in knowing where a particular shipment is and when it is expected to arrive; a consumer of a food product is more likely 
+	to be concerned about the original source of the item and the total number of food miles in the product.</p>
+	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve anonymity yet prove control 
+	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without 
+	enabling correlation across multiple shipments or other sensitive information.</p>
+	<p class="shortUcContributor">Contributed by GS1</p>
+  </section><!-- end supply chain short use case -->
+      
+    </section> <!-- End short use cases -->
       <section id="actions">
       <h2>DID Actions</h2>
         <p>Here are the thirteen (13) actions envisioned in earlier work by 
 		<a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> as being necessarily supported by 
-		<abbr title="Decentralized Identifier">DID</abbr>s. In the diagram, actions have been grouped by Create, 
-		Read, Update, Delete and Use.</p>
+
+		<abbr title="Decentralized Identifier">DID</abbr>s. In the diagram, actions have been grouped by Create, Use, 
+		Read, Update, and Delete.</p>
             <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
         <section id="create">
         <h2>Create</h2>
 		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say 
-			'may be' but this can only be finalized when Issue-14 is resolved.</p>
+			'may be' but this can only be finalized when Issue-14 is resolved. (2020-04-01 - do we mean Issue-14? 
+			Doesn't look relevant)</p>
         <p>Controllers create DIDs, uniquely binding cryptographic proofs with the identifier, typically using 
 		public-private key-pairs. These DIDs may be recorded in a registry in such a manner as to be able to 
 		resolve to a  DID Document. The DID Document may be dynamically and deterministically generated through resolution or 
@@ -411,8 +437,9 @@ https://example.com/page.html
 		In this scenario, the process will need access to any registry, ideally a decentralized system, and like the 
 		rest of the DID actions, it should be possible to create the DID without interaction with any particular authority.</p>
         </section>
+	      <section id="use"><h2>Use</h2>
         <section id="present">
-            <h2>Present</h2>
+            <h3>Present</h3>
         <p>DIDs are <a>URI</a>s, which is to say a string of characters. As such, they may be presented in the same manner as 
 		URIs by simply transmitting  or presenting that string of characters. There is no requirement, however, 
 		that DIDs be human readable. Thus they may contain long, complex numbers represented in  various formats. For 
@@ -420,7 +447,7 @@ https://example.com/page.html
 		such as a smart phone.</p>
         </section>
         <section id="authenticate">
-        <h2>Authenticate</h2>
+        <h3>Authenticate</h3>
 		<p><span class="highlight">Relying Parties</span> may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
 		specified as a Controller for a  particular service endpoint. This authentication process should use the cryptographic  
 		material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some 
@@ -429,19 +456,21 @@ https://example.com/page.html
 		used frequently, while controlling proofs are expected to be used rarely.</p>
         </section>
         <section id="sign">
-        <h2>Sign</h2>
+        <h3>Sign</h3>
 		<p>Using cryptographic material associated with that found in a  <a>DID Document</a>, <a>DID Controller</a>s may sign digital
 		assets or documents. This  signature can <a href="#verifySignature">later be verified</a> to demonstrate the 
 		authenticity of the asset. In this way, it should be possible to refer to the asset as "signed  by the DID".</p>
         </section>
+	      </section><!-- use -->
+	      <section id="read"><h2>Read</h2>
         <section id="resolve">
-        <h2>Resolve</h2>
+        <h3>Resolve</h3>
         <p>The first step in using a DID for anything other than presentation is to resolve the DID to a specific <a>DID Document</a>, 
 		to reveal the  cryptographic material and service endpoints associated with that DID. How this occurs should be 
 		method-specific and is out of scope for the DID Working Group.</p>
         </section>
         <section id="dereference">
-        <h2>Dereference</h2>
+        <h3>Dereference</h3>
         <p>Dereferencing a DID uses the material in its DID Document to return a resource. The expectation is that, by default, dereferencing 
 		a DID without a reference to a service endpoint will return the <a>DID Document</a> itself. When a DID is combined with a 
 		<code>service</code> <a href="https://www.w3.org/TR/2019/WD-did-core-20191113/#generic-did-parameter-names">parameter</a> 
@@ -452,35 +481,9 @@ https://example.com/page.html
 		endpoints change.</p>
         </section>
         <section id="verifySignature">
-        <h2>Verify Signature</h2>
+        <h3>Verify Signature</h3>
         <p>Given a digital asset signed by a DID, a <span style="background-color:yellow">Relying Party</span> may use the 
 	cryptographic material in the DID Document to verify the signature.</p>
-        </section>
-        <section id="rotate">
-        <h2>Rotate</h2>
-        <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as 
-		<span class="highlight">recorded in its registry</span>. Different methods should be able to handle this differently, but 
-		the result would be an update to the core cryptographic proof required to prove control of the DID and the DID Document.</p>
-        </section>
-        <section id="modifyServiceEndpoint">
-        <h2>Modify Service Endpoint</h2>
-		<p><a>DID Controllers</a> should be able to change service endpoints associated with a DID, including the proof mechanism 
-		for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed to 
-		allow Controllers to make these changes without necessarily changing the primary proof mechanism for control of the DID itself.</p>
-        </section>
-        <section id="forwardMigrate">
-        <h2>Forward / Migrate</h2>
-		<p>To support interoperability, some methods may provide a way for <a>DID Controllers</a> to record in their registry (by updating the 
-		DID Document), that the  DID should be redirected to another DID, which now has full authority to represent the originating 
-		DID. This mechanism would allow <a>DID Controllers</a> to migrate a DID  from one method or registry to another.</p>
-        </section>
-        <section id="recover">
-        <h2>Recover</h2>
-        <p>Some methods may provide a means for recovering control of a DID if its existing private cryptographic material is lost. These 
-		means will vary by method but can include social recovery, <span class="highlight">multi-signature</span>, 
-		<a href="https://en.wikipedia.org/wiki/Shamir's_Secret_Sharing">Shamir sharing</a>, or pre-rotated  keys. In general, 
-		recovery triggers a rotation to a new proof, allowing the <a>DID Controller</a> of that new proof to recover control of the 
-		DID without interacting  with any <span class="highlight">Relying Parties</span>.</p>
         </section>
         <section id="audit">
         <h2>Audit</h2>
@@ -488,15 +491,47 @@ https://example.com/page.html
 		actions on that DID, including a timestamp for when the actions took place. For distributed ledger-based 
 		registries, this audit trail is fundamental to the way  the ledgers record transactions. This would allow
 		<span class="highlight">relying parties</span> to see, for example, how recently a DID was rotated or its service 
-		endpoints updated, which may inform certain analytics regarding the reliability of the DID's  cryptographic material.</p>
+		endpoints updated, which may inform certain analytics regarding the reliability of the DID's  
+    cryptographic material.</p>
 	</section>
-        <section id="deactivate">
-        <h2>Deactivate</h2>
-        <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and 
+	      </section><!-- Read -->
+	      <section id="update"><h2>Update</h2>
+            <section id="rotate">
+        <h2>Rotate</h2>
+        <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as 
+		<span class="highlight">recorded in its registry</span>. Different methods should be able to handle this differently, but 
+		the result would be an update to the core cryptographic proof required to prove control of the DID and the DID Document.</p>
+        </section>
+        <section id="modifyServiceEndpoint">
+        <h3>Modify Service Endpoint</h3>
+		<p><a>DID Controllers</a> should be able to change service endpoints associated with a DID, including the proof mechanism 
+		for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed to 
+		allow Controllers to make these changes without necessarily changing the primary proof mechanism for control of the DID itself.</p>
+        </section>
+        <section id="forwardMigrate">
+        <h3>Forward / Migrate</h3>
+		<p>To support interoperability, some methods may provide a way for <a>DID Controllers</a> to record in their registry (by updating the 
+		DID Document), that the  DID should be redirected to another DID, which now has full authority to represent the originating 
+		DID. This mechanism would allow <a>DID Controllers</a> to migrate a DID  from one method or registry to another.</p>
+        </section>
+        <section id="recover">
+        <h3>Recover</h3>
+        <p>Some methods may provide a means for recovering control of a DID if its existing private cryptographic material is lost. These 
+		means will vary by method but can include social recovery, <span class="highlight">multi-signature</span>, 
+		<a href="https://en.wikipedia.org/wiki/Shamir's_Secret_Sharing">Shamir sharing</a>, or pre-rotated  keys. In general, 
+		recovery triggers a rotation to a new proof, allowing the <a>DID Controller</a> of that new proof to recover control of the 
+		DID without interacting  with any <span class="highlight">Relying Parties</span>.</p>
+        </section>
+	      </section><!-- Update -->
+	      <section id="delete"><h2>Delete</h2>
+                <section id="deactivate"><h3>Deactivate</h3>
+
+       <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and 
 		dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.  
 		Indeed, distributed ledgers are often touted as "immutable". Methods should define deactivation processes to achieve 
 		the same effect as deletion. The mechanisms for deactivation will vary based on the method.</p>
         </section>
+	      </section><!--delete-->
     </section>
     <section id="featureBenefitGrid">
 	<h2>Features and Benefits</h2>
@@ -886,14 +921,16 @@ https://example.com/page.html
           There are many types of identifiers that corporations use today
           including tax identification numbers (e.g. 238-42-3893), Legal
           Entity Identifiers (e.g. 5493000IBP32UQZ0KL24), Data Universal
-          Numbering System identifiers (aka. DUNS Number) (e.g. 150483782),
+          Numbering System identifiers (a.k.a. DUNS Number, e.g. 150483782),
+	  Global Location Number (e.g. 9501101020016),
           and many more that communicate the unique identity of an organization.
           None of these numbers enable an organization to self-issue an
           identifier or to use the number to cryptographically authenticate or
-          digitally sign agreements. A great number of business to business
-          and business to customer transactions could be executed more quickly
-          and with greater assurance of the validity of the transaction if a
-          mechanism to self-issue cryptographic identifiers were created.
+          digitally sign agreements. Business to business 
+          and business to customer transactions might be conducted with more 
+	  efficiency and with greater assurance of the validity of the 
+	  transaction if a mechanism to self-issue cryptographic identifiers 
+	  were created.
         </p>
       </section>
       <section id="didEnterpriseDescrption">
@@ -901,9 +938,9 @@ https://example.com/page.html
         <p>
           A North American government would like to ensure that the supply
           chain that feeds electronic products into the country is secure. As
-          a result, a new method of submitting digital documentation to Customs
-          is enabled that requires that all documentation is provided as
-          machine-readable digitally signed data. Digitally signed documentation
+          a result, a new method of submitting digital documentation to Customs is enabled that requires that all documentation is 
+	  provided as machine-readable digitally signed data with proof of provenance from supply chain partners whose identities 
+	  are themselves known to a high degree of certainty. Digitally signed documentation
           is collected at each stage of the manufacturing, packaging, and
           shipping process. This documentation is then submitted to Customs
           upon the product's entry into the country where all digital signatures
@@ -1000,8 +1037,9 @@ https://example.com/page.html
       </section>
       <section id="eduDescription">
         <h4>Description</h4>
-        <p>When Sally earned her master&rsquo;s degree at  Oxford, she received a 
-			digital diploma that contained a decentralized identifier she provided. 
+	      <p>When Sally earned her master&rsquo;s degree at the <a href="http://www.ox.ac.uk/">University of Oxford</a>, 
+		      she received a digital diploma that contained a decentralized identifier she provided. This digital diploma is signed using a decentralized 
+		      identifier which has been published and verified by the University of Oxford.
 			Over time, she updates the cryptographic material associated with that 
 			DID to use her latest hardware wallet, with biometric protections and a 
 			quantum resistant algorithm. A decade after  graduation, she applies for 
@@ -1012,7 +1050,7 @@ https://example.com/page.html
 			In addition to the fact that her name matches the name on the diploma, 
 			the cryptographic authentication provides a robust verification of her 
 			claim, allowing the employer to rely on Sally&rsquo;s assertion that she 
-			earned a master&rsquo;s degree from Oxford. </p>
+			earned a master&rsquo;s degree from the stated university without having to contact the university directly.</p>
       </section>
       <section id="eduChallenges">
         <h4>Challenges</h4>
