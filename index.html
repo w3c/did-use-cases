@@ -423,18 +423,17 @@ https://example.com/page.html
       downloading and using a digital version of his physical card, including
       a one-time activation code. After getting a digital wallet, he visits
       the USCIS website, signs in, and uses his activation code to get a
-      digital credential. His wallet provides a DID to the website, demonstrating
-      control over the DID to proof to USCIS that the identifier is provably
-      under Sam's control. USCIS issues a newly minted digital credential
-      using the provided DID as the subject identifier.</p>
+      digital credential. His wallet provides a DID to the website and 
+      demonstrates control over the DID to prove to USCIS that the identifier 
+      is under Sam's control. USCIS issues a newly minted digital credential
+      with the subject identifier set to the provided DID.</p>
     <p> Now, Sam can use
       that digital credential anywhere by demonstrating the same proof of
-      control to prove he controls the identifier to whom the credential
-      was issued, providing a specific level of identity assurance anchored
+      control to provide a specific level of identity assurance, anchored
       in the cryptography of the proof-of-control ceremony. Verifiers of that
       credential can cryptographically verify both the authenticity and origin
       of the credential itself—it can be proven that it was issued by USCIS
-      and unchanged since then—AND it can verify that the presenter of the
+      and unchanged since then&mdash;AND it can verify that the presenter of the
       credential still controls the identifier.</p>
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section><!-- digital PRC -->
