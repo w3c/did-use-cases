@@ -293,6 +293,8 @@ https://example.com/page.html
           <li>validation of the legitimacy of an online listing &mdash; in particular on third party marketplaces;</li>
           <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
         </ol>
+	<p class="reqList"><span data-reqID="authenticate"></span>, 
+		<span data-reqID="unique"></span></p>
 	<p class="shortUcContributor">Contributed by GS1</p>
         </section><!-- Online shopper-->
 	      
@@ -317,6 +319,9 @@ https://example.com/page.html
 	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control 
 	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout 
 	the entire lifecycle of the vehicle.</p>
+	<p class="reqList"><span data-reqID="decentralized"></span>, 
+		<span data-reqID="authenticate"></span>, 
+		<span data-reqID="noCallHome"></span></p>
 	<p class="shortUcContributor">Contributed by Spherity</p>
 	</section> <!-- Vehicle assemblies -->
 	      
@@ -328,6 +333,9 @@ https://example.com/page.html
 	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control 
 	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change 
 	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>
+	<p class="reqList"><span data-reqID="authenticate">Authentication</span>, 
+		<span data-reqID="associatedCrypto">Associated cryptographic material</span>,
+		<span data-reqID="keyRotation">Key rotation</span></p>
 	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
 	</section> <!-- Encrypted Data Vault-->
 	      
@@ -341,6 +349,8 @@ https://example.com/page.html
 	the master data of a thing might be its manufacturer. The decentralized nature of the identifier is important in particular 
 	for the device as the DID can act as an entry to that master data even if the manufacturer goes out of business or stops the 
 	service.</p>
+	<p class="reqList"><span data-reqID="serviceEndpoint"></span>, 
+		<span data-reqID="associatedCrypto"></span></p>
 	<p class="shortUcContributor">Contributed by Robert Bosch GmbH</p>
 	</section><!-- service endpoints-->
 
@@ -349,17 +359,19 @@ https://example.com/page.html
 		where DIDs offer tangible benefits over existing identifier schemes. For example:</p><ul>
 	<li>Verifiable credential issuers publishing the list of subject attributes that they are authoritative for (their 
 		authoritative nature can be proven).</li>
-	<li>In similar vein, VC issuers may publish authoritative schemas for the types of credential that they issue.</li>
-	<li>Terms of use or other policy constraints that might apply to issued VCs.</li>
+	<li>In similar vein, Verifiable Credential issuers may publish authoritative schemas for the types of credential that they issue.</li>
+	<li>Terms of use or other policy constraints that might apply to issued <abbr title="Verifiable Credential">VC</abbr>s.</li>
 	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself 
 		be verified.</li>
 	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys 
 		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
 		verifiable credentials associated with that identifier.</li>
 	</ul>
+	<p class="reqList"><span data-reqID="authenticate">Authentication</span>, 
+		<span data-reqID="associatedCrypto"></span>,
+		<span data-reqID="keyRotation"></span></p>
 	<p class="shortUcContributor">Contributed by David Chadwick, University of Kent</p>
 	</section><!-- VC ecosystem-->
-        
 	    
 	<section id="crossPlatform">
           <h3>Sharing opted-in information across platforms</h3>
@@ -377,6 +389,8 @@ https://example.com/page.html
 	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the 
 	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online 
 	personas in this way and thereby have good control over what they did and didn’t share with different services.</p>
+	<p class="reqList"><span data-reqID="decentralized"></span>, 
+		<span data-reqID="privacyPreserving"></span></p>
 	<p class="shortUcContributor">Suggested by Airgrid</p>
 	</section><!-- Opted-in information -->
 
@@ -388,6 +402,7 @@ https://example.com/page.html
 	much about who exactly the contract 
 	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows 
 	Sahar to retain anonimity but provide a means for others to pay the right person.</p>
+		<p class="reqList"><span data-reqID="anonymity"></span></p>
 	<p class="shortUcContributor">Contributed by Juan Caballero</p>
   </section><!-- Ghost Writer-->
 
@@ -413,6 +428,9 @@ https://example.com/page.html
 	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve anonymity yet prove control 
 	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without 
 	enabling correlation across multiple shipments or other sensitive information.</p>
+		<p class="reqList"><span data-reqID="authenticate"></span>, 
+			<span data-reqID="serviceEndpoint"></span>, 
+			<span data-reqID="anonymity"></span></p>
 	<p class="shortUcContributor">Contributed by GS1</p>
   </section><!-- end supply chain short use case -->
   <section id="digitalPRC">
@@ -435,7 +453,9 @@ https://example.com/page.html
       of the credential itself—it can be proven that it was issued by USCIS
       and unchanged since then&mdash;AND it can verify that the presenter of the
       credential still controls the identifier.</p>
-      <p class="shortUcContributor">Suggested by DHS SVIP</p>
+	  <p class="reqList"><span data-reqID="authenticate"></span>,
+	  <span data-reqID="associatedCrypto"></span></p>
+	  <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section><!-- digital PRC -->
 
     <section id="retroToys">
@@ -471,6 +491,9 @@ https://example.com/page.html
         her license streamlines access through US Customs, regardless of her supply
         chain, without reducing the effectiveness of CBP at fighting the illegal
         import of pirated product.</p>
+	  <p class="reqList"><span data-reqID="authenticate"></span>,
+	  <span data-reqID="associatedCrypto"></span>,
+	  <span data-reqID="delegation"></span></p>
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section>
   </section> <!-- End short use cases -->
@@ -1313,5 +1336,6 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
       </section>
     </section>
       </section>
+	  
   </body>
 </html>
