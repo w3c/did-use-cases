@@ -415,9 +415,66 @@ https://example.com/page.html
 	enabling correlation across multiple shipments or other sensitive information.</p>
 	<p class="shortUcContributor">Contributed by GS1</p>
   </section><!-- end supply chain short use case -->
-      
-    </section> <!-- End short use cases -->
-      <section id="actions">
+  <section id="digitalPRC">
+    <h3>Digital Permanent Resident Card</h3>
+    <p>Sam is a long term immigrant to the United States who just received
+      notice of Permanent Resident status from the United States Customs and
+      Immigration Services (USCIS). Along with his notice is directions for
+      downloading and using a digital version of his physical card, including
+      a one-time activation code. After getting a digital wallet, he visits
+      the USCIS website, signs in, and uses his activation code to get a
+      digital credential. His wallet provides a DID to the website and 
+      demonstrates control over the DID to prove to USCIS that the identifier 
+      is under Sam's control. USCIS issues a newly minted digital credential
+      with the subject identifier set to the provided DID.</p>
+    <p> Now, Sam can use
+      that digital credential anywhere by demonstrating the same proof of
+      control to provide a specific level of identity assurance, anchored
+      in the cryptography of the proof-of-control ceremony. Verifiers of that
+      credential can cryptographically verify both the authenticity and origin
+      of the credential itself—it can be proven that it was issued by USCIS
+      and unchanged since then&mdash;AND it can verify that the presenter of the
+      credential still controls the identifier.</p>
+      <p class="shortUcContributor">Suggested by DHS SVIP</p>
+    </section><!-- digital PRC -->
+
+    <section id="retroToys">
+      <h3>Importing retro toys</h3>
+      <p>Jodie is operations manager at ImportersRUs, a boutique importer
+        specializing in small run retro products manufactured in Asia.
+        Last year she got her big break when she licensed the right to make "Retro"
+        Lima Bean Babies, a huge collector phenomenon in the 1990s. As long as her
+        products had a distinct, visible tag with "R" on one side and "Retro" on
+        the other, she could manufacture anything from the Lima Bean Babies catalog.</p>
+      <p>
+        To handle fulfilment, Jodie works in small batches
+        with a large number of different products and
+        frequently changes manufacturers to stay on top of shifting materials,
+        transportation, and tariff costs.</p>
+      <p>Jodie registers a DID with US Customs and Border Protection (US CBP) for
+        ImportersRUs (demonstrating proof-of-control as she does) and secures a digital
+        license from Tie Enterprises (owners of the Lima Bean Babies trademark and designs)
+        issued to her DID and signed using a DID that Tie Enterprises has also
+        registered with US CBP.
+        For her manufacturers, Jodie cryptographically delegates the digital license to
+        individual manufacturers using the DID (which is both the subject of the license
+        <em>and</em> known to US CBP). Those manufacturers are responsible for getting
+        the product to the port of Los Angeles. They, in turn, cryptographically delegate
+        their licenses to logistics firms to actually move the product from their facility
+        to Los Angeles, while maintaining cryptographic verifiability of both the
+        original license, and the chain of delegations.</p>
+      <p>When her products reach the United States, CBP can automatically review the
+        digital manifest filed for entry and each of the delegations to verify that this given
+        batch of products are, in fact, officially licensed Lima Bean Baby products.
+      </p>
+      <p>This digitally verifiable provenance of
+        her license streamlines access through US Customs, regardless of her supply
+        chain, without reducing the effectiveness of CBP at fighting the illegal
+        import of pirated product.</p>
+      <p class="shortUcContributor">Suggested by DHS SVIP</p>
+    </section>
+  </section> <!-- End short use cases -->
+  <section id="actions">
       <h2>DID Actions</h2>
         <p>Here are the thirteen (13) actions envisioned in earlier work by 
 		<a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> as being necessarily supported by 
