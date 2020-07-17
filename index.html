@@ -293,8 +293,9 @@ https://example.com/page.html
           <li>validation of the legitimacy of an online listing &mdash; in particular on third party marketplaces;</li>
           <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
         </ol>
-	<p class="reqList"><span data-reqID="authenticate"></span>, 
-		<span data-reqID="unique"></span></p>
+		<!-- The text to display in te following paragraph is generated based on the data-reqID attributes -->
+	<p class="reqList"><span data-reqid="authenticate"></span>, 
+		<span data-reqid="unique"></span></p>
 	<p class="shortUcContributor">Contributed by GS1</p>
         </section><!-- Online shopper-->
 	      
@@ -319,9 +320,9 @@ https://example.com/page.html
 	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control 
 	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout 
 	the entire lifecycle of the vehicle.</p>
-	<p class="reqList"><span data-reqID="decentralized"></span>, 
-		<span data-reqID="authenticate"></span>, 
-		<span data-reqID="noCallHome"></span></p>
+	<p class="reqList"><span data-reqid="decentralized"></span>, 
+		<span data-reqid="authenticate"></span>, 
+		<span data-reqid="noCallHome"></span></p>
 	<p class="shortUcContributor">Contributed by Spherity</p>
 	</section> <!-- Vehicle assemblies -->
 	      
@@ -333,9 +334,9 @@ https://example.com/page.html
 	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control 
 	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change 
 	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>
-	<p class="reqList"><span data-reqID="authenticate">Authentication</span>, 
-		<span data-reqID="associatedCrypto">Associated cryptographic material</span>,
-		<span data-reqID="keyRotation">Key rotation</span></p>
+	<p class="reqList"><span data-reqid="authenticate">Authentication</span>, 
+		<span data-reqid="associatedCrypto">Associated cryptographic material</span>,
+		<span data-reqid="keyRotation">Key rotation</span></p>
 	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
 	</section> <!-- Encrypted Data Vault-->
 	      
@@ -349,8 +350,8 @@ https://example.com/page.html
 	the master data of a thing might be its manufacturer. The decentralized nature of the identifier is important in particular 
 	for the device as the DID can act as an entry to that master data even if the manufacturer goes out of business or stops the 
 	service.</p>
-	<p class="reqList"><span data-reqID="serviceEndpoint"></span>, 
-		<span data-reqID="associatedCrypto"></span></p>
+	<p class="reqList"><span data-reqid="serviceEndpoint"></span>, 
+		<span data-reqid="associatedCrypto"></span></p>
 	<p class="shortUcContributor">Contributed by Robert Bosch GmbH</p>
 	</section><!-- service endpoints-->
 
@@ -367,9 +368,9 @@ https://example.com/page.html
 		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
 		verifiable credentials associated with that identifier.</li>
 	</ul>
-	<p class="reqList"><span data-reqID="authenticate">Authentication</span>, 
-		<span data-reqID="associatedCrypto"></span>,
-		<span data-reqID="keyRotation"></span></p>
+	<p class="reqList"><span data-reqid="authenticate">Authentication</span>, 
+		<span data-reqid="associatedCrypto"></span>,
+		<span data-reqid="keyRotation"></span></p>
 	<p class="shortUcContributor">Contributed by David Chadwick, University of Kent</p>
 	</section><!-- VC ecosystem-->
 	    
@@ -389,8 +390,8 @@ https://example.com/page.html
 	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the 
 	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online 
 	personas in this way and thereby have good control over what they did and didn’t share with different services.</p>
-	<p class="reqList"><span data-reqID="decentralized"></span>, 
-		<span data-reqID="privacyPreserving"></span></p>
+	<p class="reqList"><span data-reqid="decentralized"></span>, 
+		<span data-reqid="privacyPreserving"></span></p>
 	<p class="shortUcContributor">Suggested by Airgrid</p>
 	</section><!-- Opted-in information -->
 
@@ -402,7 +403,7 @@ https://example.com/page.html
 	much about who exactly the contract 
 	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows 
 	Sahar to retain anonimity but provide a means for others to pay the right person.</p>
-		<p class="reqList"><span data-reqID="anonymity"></span></p>
+		<p class="reqList"><span data-reqid="anonymity"></span></p>
 	<p class="shortUcContributor">Contributed by Juan Caballero</p>
   </section><!-- Ghost Writer-->
 
@@ -428,9 +429,9 @@ https://example.com/page.html
 	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve anonymity yet prove control 
 	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without 
 	enabling correlation across multiple shipments or other sensitive information.</p>
-		<p class="reqList"><span data-reqID="authenticate"></span>, 
-			<span data-reqID="serviceEndpoint"></span>, 
-			<span data-reqID="anonymity"></span></p>
+		<p class="reqList"><span data-reqid="authenticate"></span>, 
+			<span data-reqid="serviceEndpoint"></span>, 
+			<span data-reqid="anonymity"></span></p>
 	<p class="shortUcContributor">Contributed by GS1</p>
   </section><!-- end supply chain short use case -->
   <section id="digitalPRC">
@@ -453,8 +454,8 @@ https://example.com/page.html
       of the credential itself—it can be proven that it was issued by USCIS
       and unchanged since then&mdash;AND it can verify that the presenter of the
       credential still controls the identifier.</p>
-	  <p class="reqList"><span data-reqID="authenticate"></span>,
-	  <span data-reqID="associatedCrypto"></span></p>
+	  <p class="reqList"><span data-reqid="authenticate"></span>,
+	  <span data-reqid="associatedCrypto"></span></p>
 	  <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section><!-- digital PRC -->
 
@@ -491,12 +492,17 @@ https://example.com/page.html
         her license streamlines access through US Customs, regardless of her supply
         chain, without reducing the effectiveness of CBP at fighting the illegal
         import of pirated product.</p>
-	  <p class="reqList"><span data-reqID="authenticate"></span>,
-	  <span data-reqID="associatedCrypto"></span>,
-	  <span data-reqID="delegation"></span></p>
+	  <p class="reqList"><span data-reqid="authenticate"></span>,
+	  <span data-reqid="associatedCrypto"></span>,
+	  <span data-reqid="delegation"></span></p>
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section>
   </section> <!-- End short use cases -->
+	  <section id="ucMatrix"><h3>Use case matrix</h3>
+		  <p>Each identified requirement is listed below and linked back to the relevant use case(s).</p>
+		  <!-- The list is generated as a dl by the script at the bottom of the page -->
+	  </section>
+	  
   <section id="actions">
       <h2>DID Actions</h2>
         <p>Here are the thirteen (13) actions envisioned in earlier work by 
@@ -1336,6 +1342,83 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
       </section>
     </section>
       </section>
+<script>
+
+// Script to generate matrix of requirements and use cases
+// First we'll need a couple of data objects to draw from
+// one each for use cases and requirements
+let reqObjectList = [];
+let ucObjectList = [];
+
+function ReqObject(id,name) {
+  this.id = id;
+  this.name = name;
+  this.uc = [];
+}
+
+function ucObject(id,name) {
+  this.id = id;
+  this.name = name;
+}
+
+// This is hard coded, but it's the only place in the doc where each req's ID is given a natural language title
+reqObjectList.push(new ReqObject("authenticate", "Authentication/proof of control"));
+reqObjectList.push(new ReqObject("decentralized", "Decentralized/self issued"));
+reqObjectList.push(new ReqObject("unique", "Guaranteed unique identifier"));
+reqObjectList.push(new ReqObject("noCallHome", "No call home"));
+reqObjectList.push(new ReqObject("associatedCrypto", "Associated cryptographic material"));
+reqObjectList.push(new ReqObject("keyRotation", "Key rotation"));
+reqObjectList.push(new ReqObject("serviceEndpoint", "Service Endpoints"));
+reqObjectList.push(new ReqObject("privacyPreserving", "Privacy preserving"));
+reqObjectList.push(new ReqObject("anonymity", "Anonymity"));
+reqObjectList.push(new ReqObject("delegation", "Delegation of control"));
+
+
+function createReqSummary(targetElement) {
+  let reqListParas = document.querySelectorAll('p.reqList');  // Our list of p elements that contain spans with data-reqid
+  for (let i = 0; i < reqListParas.length; i++) {
+    let e = reqListParas[i];
+    let usecase = e.parentNode.id;   // This is the id of the UC that has these reqs
+    ucObjectList.push(new ucObject(usecase, document.querySelector('#' + usecase + ' h3').textContent)); // build the use case object
+    if (e.hasChildNodes()) {
+      let children = e.childNodes;
+      for (let j = 0; j < children.length; j++) {
+        if (children[j].nodeType === children[j].ELEMENT_NODE) {
+          let r = children[j].dataset.reqid;    //This is the id of the req listed under the UC
+          let reqObj = reqObjectList.find(x => x.id === r); // This is the ReqObject we're interested in
+          children[j].textContent = reqObj.name; // Adds name to the text under each UC
+          reqObj.uc.push(usecase);  // records the UC for which this is a requirement
+        }
+      }
+    }
+  }
+  // So our two objects now have all the info we want to print out
+  let dl = document.createElement('dl');  // Use dl cf. table for easier display on mobile
+  dl.id = "requirementsCrossRef";
+
+  for (let req = 0; req < reqObjectList.length; req++) {
+    let dt = document.createElement('dt');
+    dt.id = reqObjectList[req].id;
+    let t = document.createTextNode(reqObjectList[req].name);
+    dt.appendChild(t);
+    dl.appendChild(dt);
+    for (let usecase = 0; usecase < reqObjectList[req].uc.length; usecase++) {
+      let dd = document.createElement('dd');
+      let a = document.createElement('a');
+      a.href = '#' + ucObjectList.find(x => x.id == reqObjectList[req].uc[usecase]).id;
+      t = document.createTextNode(ucObjectList.find(x => x.id == reqObjectList[req].uc[usecase]).name);
+      a.appendChild(t);
+      dd.appendChild(a);
+      dl.appendChild(dd);
+    }
+  }
+  document.getElementById(targetElement).appendChild(dl);
+}
+
+createReqSummary('ucMatrix');
+
+</script>
+
 	  
   </body>
 </html>
