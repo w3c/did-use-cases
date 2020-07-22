@@ -1419,14 +1419,10 @@ function createReqSummary(targetElement) {
   }
   document.getElementById(targetElement).appendChild(dl);
 }
-
-// Wait until resources have loaded, including ReSpec
-  document.addEventListener("load", function () {
-    document.respecIsReady.then(createReqSummary('ucMatrix')
-    });
-  });
-	
-// createReqSummary('ucMatrix');
+if (document.getElementById('requirementsCrossRef') !== 'null') { // Hopefully prevents this code running twice
+  createReqSummary('ucSummary');
+}
+//createReqSummary('ucMatrix');
 
 </script>
 
