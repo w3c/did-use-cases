@@ -1420,7 +1420,13 @@ function createReqSummary(targetElement) {
   document.getElementById(targetElement).appendChild(dl);
 }
 
-createReqSummary('ucMatrix');
+// Wait until resources have loaded, including ReSpec
+  document.addEventListener("load", function () {
+    document.respecIsReady.then(createReqSummary('ucMatrix')
+    });
+  });
+	
+// createReqSummary('ucMatrix');
 
 </script>
 
