@@ -102,7 +102,6 @@
 	    
       .focalContributor, .shortUcContributor {font-size:small; font-style:italic}
       .shortUcContributor {text-align:right}
-      p.reqList {text-align:right}
       p.reqList span.reqListbefore {font-weight:bold}
     </style>
   </head>
@@ -296,8 +295,18 @@ https://example.com/page.html
           <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
         </ol>
 		<!-- The text to display in te following paragraph is generated based on the data-reqID attributes -->
-	<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="authenticate"></span>, 
-		<span data-reqid="unique"></span></p>
+		<p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noDenial"></span>,
+<span data-reqid="noCallHome"></span>,
+<span data-reqid="orgMort"></span>,
+<span data-reqid="deployEnd"></span>,
+<span data-reqid="survivesRel"></span>
+
+</p>
 	<p class="shortUcContributor">Contributed by GS1</p>
         </section><!-- Online shopper-->
 	      
@@ -322,9 +331,18 @@ https://example.com/page.html
 	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control 
 	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout 
 	the entire lifecycle of the vehicle.</p>
-	<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="decentralized"></span>, 
-		<span data-reqid="authenticate"></span>, 
-		<span data-reqid="noCallHome"></span></p>
+	<p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noDenial"></span>,
+<span data-reqid="noCallHome"></span>,
+<span data-reqid="orgMort"></span>,
+<span data-reqid="deployEnd"></span>,
+<span data-reqid="survivesRel"></span>
+
+</p>
 	<p class="shortUcContributor">Contributed by Spherity</p>
 	</section> <!-- Vehicle assemblies -->
 	      
@@ -336,9 +354,12 @@ https://example.com/page.html
 	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control 
 	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change 
 	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>
-	<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="authenticate">Authentication</span>, 
-		<span data-reqid="associatedCrypto">Associated cryptographic material</span>,
-		<span data-reqid="keyRotation">Key rotation</span></p>
+	<p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="authenticate"></span>,
+		<span data-reqid="associatedCrypto"></span>,
+		<span data-reqid="keyRotation"></span>,
+    <span data-reqid="noVendorLock"></span>,
+    <span data-reqid="privacyPreserving"></span></p>
 	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
 	</section> <!-- Encrypted Data Vault-->
 	      
@@ -352,7 +373,11 @@ https://example.com/page.html
 	the master data of a thing might be its manufacturer. The decentralized nature of the identifier is important in particular 
 	for the device as the DID can act as an entry to that master data even if the manufacturer goes out of business or stops the 
 	service.</p>
-	<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="serviceEndpoint"></span>, 
+	<p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="decentralized"></span>,
+    <span data-reqid="unique"></span>,
+    <span data-reqid="authenticate"></span>,
+    <span data-reqid="serviceEndpoint"></span>,
 		<span data-reqid="associatedCrypto"></span></p>
 	<p class="shortUcContributor">Contributed by Robert Bosch GmbH</p>
 	</section><!-- service endpoints-->
@@ -370,9 +395,12 @@ https://example.com/page.html
 		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
 		verifiable credentials associated with that identifier.</li>
 	</ul>
-	<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="authenticate">Authentication</span>, 
+	<p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="authenticate"></span>,
+    <span data-reqid="unique"></span>,
 		<span data-reqid="associatedCrypto"></span>,
-		<span data-reqid="keyRotation"></span></p>
+		<span data-reqid="keyRotation"></span>,
+    <span data-reqid="cryptoFuture"></span></p>
 	<p class="shortUcContributor">Contributed by David Chadwick, University of Kent</p>
 	</section><!-- VC ecosystem-->
 	    
@@ -392,8 +420,10 @@ https://example.com/page.html
 	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the 
 	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online 
 	personas in this way and thereby have good control over what they did and didn’t share with different services.</p>
-	<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="decentralized"></span>, 
-		<span data-reqid="privacyPreserving"></span></p>
+	<p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="decentralized"></span>,
+		<span data-reqid="privacyPreserving"></span>,
+    <span data-reqid="limitTrack"></span></p>
 	<p class="shortUcContributor">Suggested by Airgrid</p>
 	</section><!-- Opted-in information -->
 
@@ -405,7 +435,10 @@ https://example.com/page.html
 	much about who exactly the contract 
 	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows 
 	Sahar to retain anonimity but provide a means for others to pay the right person.</p>
-		<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="anonymity"></span></p>
+		<p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="anonymity"></span>,
+    <span data-reqid="minRent"></span>,
+    <span data-reqid="survivesRel"></span></p>
 	<p class="shortUcContributor">Contributed by Juan Caballero</p>
   </section><!-- Ghost Writer-->
 
@@ -431,9 +464,13 @@ https://example.com/page.html
 	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve anonymity yet prove control 
 	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without 
 	enabling correlation across multiple shipments or other sensitive information.</p>
-		<p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="authenticate"></span>, 
-			<span data-reqid="serviceEndpoint"></span>, 
-			<span data-reqid="anonymity"></span></p>
+		<p class="reqList"><span class="reqListbefore">Requirements:</span>
+      <span data-reqid="authenticate"></span>,
+      <span data-reqid="decentralized"></span>,
+			<span data-reqid="serviceEndpoint"></span>,
+			<span data-reqid="anonymity"></span>
+      <span data-reqid="limitTrack"></span>,
+      <span data-reqid="survivesRel"></span></p>
 	<p class="shortUcContributor">Contributed by GS1</p>
   </section><!-- end supply chain short use case -->
   <section id="digitalPRC">
@@ -456,8 +493,11 @@ https://example.com/page.html
       of the credential itself—it can be proven that it was issued by USCIS
       and unchanged since then&mdash;AND it can verify that the presenter of the
       credential still controls the identifier.</p>
-	  <p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="authenticate"></span>,
-	  <span data-reqid="associatedCrypto"></span></p>
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="authenticate"></span>,
+    <span data-reqid="noCallHome"></span>,
+	  <span data-reqid="associatedCrypto"></span>,
+    <span data-reqid="minRent"></span></p>
 	  <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section><!-- digital PRC -->
 
@@ -494,9 +534,11 @@ https://example.com/page.html
         her license streamlines access through US Customs, regardless of her supply
         chain, without reducing the effectiveness of CBP at fighting the illegal
         import of pirated product.</p>
-	  <p class="reqList"><span class="reqListbefore">Requirements:</span> <span data-reqid="authenticate"></span>,
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+    <span data-reqid="authenticate"></span>,
 	  <span data-reqid="associatedCrypto"></span>,
-	  <span data-reqid="delegation"></span></p>
+	  <span data-reqid="delegation"></span>,
+    <span data-reqid="interJ"></span></p>
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section>
   </section> <!-- End short use cases -->
@@ -1013,10 +1055,10 @@ https://example.com/page.html
           and many more that communicate the unique identity of an organization.
           None of these numbers enable an organization to self-issue an
           identifier or to use the number to cryptographically authenticate or
-          digitally sign agreements. Business to business 
-          and business to customer transactions might be conducted with more 
-	  efficiency and with greater assurance of the validity of the 
-	  transaction if a mechanism to self-issue cryptographic identifiers 
+          digitally sign agreements. Business to business
+          and business to customer transactions might be conducted with more
+	  efficiency and with greater assurance of the validity of the
+	  transaction if a mechanism to self-issue cryptographic identifiers
 	  were created.
         </p>
       </section>
@@ -1025,8 +1067,8 @@ https://example.com/page.html
         <p>
           A North American government would like to ensure that the supply
           chain that feeds electronic products into the country is secure. As
-          a result, a new method of submitting digital documentation to Customs is enabled that requires that all documentation is 
-	  provided as machine-readable digitally signed data with proof of provenance from supply chain partners whose identities 
+          a result, a new method of submitting digital documentation to Customs is enabled that requires that all documentation is
+	  provided as machine-readable digitally signed data with proof of provenance from supply chain partners whose identities
 	  are themselves known to a high degree of certainty. Digitally signed documentation
           is collected at each stage of the manufacturing, packaging, and
           shipping process. This documentation is then submitted to Customs
@@ -1076,7 +1118,30 @@ https://example.com/page.html
           Decentralized Identifiers.
         </p>
       </section>
-    </section>
+
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="noCallHome"></span>,
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="keyRotation"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="delegation"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noDenial"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="cryptoFuture"></span>,
+<span data-reqid="orgMort"></span>,
+<span data-reqid="deployEnd"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="cryptoAuthComm"></span>,
+<span data-reqid="regAgnostic"></span></p>
+
+
+    </section><!-- end enterprise IDs -->
+
+
     <section id="edu">
       <h3>Life-long, recipient-managed Credentials (education)</h3>
 	    <p class="focalContributor">Contributed by Kim Hamilton-Duffy</p>
@@ -1087,74 +1152,96 @@ https://example.com/page.html
           share their credentials, and a third party may independently verify
           the credential (including authenticating the identity of the recipient),
 		  without necessarily consulting the issuer, and without dependence on
-		  centuries old treaty-based bureaucratic process for the international 
-      verification of credentials. This provides the promise of recipient-owned 
-		  long-lived credentials that the recipient may use in any country, 
+		  centuries old treaty-based bureaucratic process for the international
+      verification of credentials. This provides the promise of recipient-owned
+		  long-lived credentials that the recipient may use in any country,
 		  even if the issuing institution goes out of business.
         </p>
-        <p> However, traditional public-private key pair-based identifiers 
-			present challenges for rotating keys, especially if 
-			the identifier in a credential is simply the public key (with 
+        <p> However, traditional public-private key pair-based identifiers
+			present challenges for rotating keys, especially if
+			the identifier in a credential is simply the public key (with
 			the private key used for authentication).</p>
         <ol>
-    		<li>With the public key embedded in the digitally signed credential, 
-				it is literally impossible to update the signing key; a recipient 
-				must  contact the issuer and request re-issuing with a new 
-				identifer. If the issuer is not reachable, or is unwilling 
-				or unable to issue a new credential, the recipient cannot 
+    		<li>With the public key embedded in the digitally signed credential,
+				it is literally impossible to update the signing key; a recipient
+				must  contact the issuer and request re-issuing with a new
+				identifer. If the issuer is not reachable, or is unwilling
+				or unable to issue a new credential, the recipient cannot
 				update the cryptographic material.</li>
-			<li>If the credential relies on a centralized key registry or 
-				authority for managing rotation, then that registry becomes 
-				the centralized point of failure. This may or may not be an 
+			<li>If the credential relies on a centralized key registry or
+				authority for managing rotation, then that registry becomes
+				the centralized point of failure. This may or may not be an
 				improvement, especially for longer held credentials.</li>
-			<li>If the credential's cryptographic technology becomes outdated, 
-				there is no way to update the credential to use a more robust 
+			<li>If the credential's cryptographic technology becomes outdated,
+				there is no way to update the credential to use a more robust
 				technology; a recipient must contact the issuer for reissuance.</li>
 		  </ol>
-        <p>The key rotation is particularly problematic for credentials 
-            expected to last a lifetime. It should be anticipated that 
-			a given individual will change their key management strategy and 
+        <p>The key rotation is particularly problematic for credentials
+            expected to last a lifetime. It should be anticipated that
+			a given individual will change their key management strategy and
 		    systems several times over the course of their life, e.g. relying
 		    on a cloud wallet, a mobile wallet, or a dedicated hardware wallet,
 		    as their needs change.</p>
-        <p>By issuing an educational credential to a recipient's DID, the 
-			recipient has the ability to prove ownership of a credential even 
-			if the cryptographic material used for authenticating changes over time.
-        </p>
+        <p>By issuing an educational credential to a recipient's DID, the
+			recipient has the ability to prove ownership of a credential even
+			if the cryptographic material used for authenticating changes over time.</p>
       </section>
       <section id="eduDescription">
         <h4>Description</h4>
-	      <p>When Sally earned her master&rsquo;s degree at the <a href="http://www.ox.ac.uk/">University of Oxford</a>, 
-		      she received a digital diploma that contained a decentralized identifier she provided. This digital diploma is signed using a decentralized 
+	      <p>When Sally earned her master&rsquo;s degree at the <a href="http://www.ox.ac.uk/">University of Oxford</a>,
+		      she received a digital diploma that contained a decentralized identifier she provided. This digital diploma is signed using a decentralized
 		      identifier which has been published and verified by the University of Oxford.
-			Over time, she updates the cryptographic material associated with that 
-			DID to use her latest hardware wallet, with biometric protections and a 
-			quantum resistant algorithm. A decade after  graduation, she applies for 
-			a job in Japan, for which she provides her digital diploma by uploading 
-			it to the prospective employee&rsquo;s website. To verify she is the 
-			actual recipient of that degree, she uses the decentralized identifier 
-			to authenticate, using her current hardware wallet (with rotated keys). 
-			In addition to the fact that her name matches the name on the diploma, 
-			the cryptographic authentication provides a robust verification of her 
-			claim, allowing the employer to rely on Sally&rsquo;s assertion that she 
+			Over time, she updates the cryptographic material associated with that
+			DID to use her latest hardware wallet, with biometric protections and a
+			quantum resistant algorithm. A decade after  graduation, she applies for
+			a job in Japan, for which she provides her digital diploma by uploading
+			it to the prospective employee&rsquo;s website. To verify she is the
+			actual recipient of that degree, she uses the decentralized identifier
+			to authenticate, using her current hardware wallet (with rotated keys).
+			In addition to the fact that her name matches the name on the diploma,
+			the cryptographic authentication provides a robust verification of her
+			claim, allowing the employer to rely on Sally&rsquo;s assertion that she
 			earned a master&rsquo;s degree from the stated university without having to contact the university directly.</p>
       </section>
       <section id="eduChallenges">
         <h4>Challenges</h4>
-        <p>Rotating keys without invalidating Sally's educational credentials and 
+        <p>Rotating keys without invalidating Sally's educational credentials and
 			providing acceptable proof of education internationally.</p>
-</section>
+      </section>
       <section id="eduDistinction">
         <h4>Distinction</h4>
-        <p>Oxford had no need to provide services for  resetting or updating 
-        Sally&rsquo;s username or password; they had no role in  managing 
-        Sally&rsquo;s changes to her authentication credentials. The potential  
-        employer did not need to contact Oxford to verify Sally&rsquo;s claim of 
-        a master&rsquo;s  degree; they were able to verify the credential and 
-        authenticate Sally&rsquo;s  identity with information retrieved over the 
+        <p>Oxford had no need to provide services for  resetting or updating
+        Sally&rsquo;s username or password; they had no role in  managing
+        Sally&rsquo;s changes to her authentication credentials. The potential
+        employer did not need to contact Oxford to verify Sally&rsquo;s claim of
+        a master&rsquo;s  degree; they were able to verify the credential and
+        authenticate Sally&rsquo;s  identity with information retrieved over the
         Internet.</p>
-</section>
-    </section>
+      </section>
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="noCallHome"></span>,
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="keyRotation"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noDenial"></span>,
+<span data-reqid="minRent"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="limitTrack"></span>,
+<span data-reqid="cryptoFuture"></span>,
+<span data-reqid="orgMort"></span>,
+<span data-reqid="deployEnd"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="cryptoAuthComm"></span>,
+<span data-reqid="regAgnostic"></span></p>
+
+    </section> <!-- end Edu -->
+
+
     <section id="prescriptions">
       <h3>Prescriptions (healthcare)</h3>
       <section id="prescriptionsBackground">
@@ -1169,9 +1256,9 @@ https://example.com/page.html
       <section id="prescriptionsDescription">
         <h4>Description</h4>
         <p>
-          Alicia is in a state that allows an online service to diagnose and 
+          Alicia is in a state that allows an online service to diagnose and
           prescribe medication. She uses the identity wallet on her smartphone
-          to register with the online medical practice. She tells the online 
+          to register with the online medical practice. She tells the online
           practice her name is Althea (a pseudonym)
           with password-less authentication and a verified driver's license
           credential to prove that she's a resident of the state. The remote physician,
@@ -1187,12 +1274,14 @@ https://example.com/page.html
           QR code and fills the prescription. Alicia pays cash.
         </p>
       </section>
+
+
       <section id="prescriptionsChallenges">
         <h4>Challenges</h4>
         <p>The challenge of this particular use-case is that only Barkley and
           Connor are verified identities and accountable for their interaction
           with Alicia. Alicia can be anonymous or pairwise-pseudonymous with both
-          Barkley and Connor and everything just works. Alicia, Barkley, and Connor          
+          Barkley and Connor and everything just works. Alicia, Barkley, and Connor
           all keep separate and legally authentic copies of the records of their
           interaction in case of dispute.
         </p>
@@ -1209,7 +1298,20 @@ https://example.com/page.html
           of mind.
         </p>
       </section>
-    </section>
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="privacyPreserving"></span>,
+<span data-reqid="anonymity"></span>,
+<span data-reqid="limitTrack"></span>,
+<span data-reqid="cryptoAuthComm"></span></p>
+
+
+    </section> <!-- end prescriptions -->
+
     <section id="law">
       <h3>Digital Executor (law)</h3>
       <section id="lawBackground">
@@ -1246,7 +1348,11 @@ https://example.com/page.html
           authority <em>and</em> specifically know that Kathy's credentials were
           modified under a assertion of probate.
         </p>
+
       </section>
+
+
+
       <section id="lawChallenges">
         <h4>Challenges</h4>
         <p>
@@ -1273,7 +1379,27 @@ https://example.com/page.html
           ownership.
         </p>
       </section>
-    </section>
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="keyRotation"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="privacyPreserving"></span>,
+<span data-reqid="delegation"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noDenial"></span>,
+<span data-reqid="minRent"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="cryptoFuture"></span>,
+<span data-reqid="deployEnd"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="cryptoAuthComm"></span></p>
+
+    </section> <!-- end law -->
+
     <section id="sso">
       <h3>Single Sign On (security)</h3>
       <section id="ssoBackground">
@@ -1288,61 +1414,35 @@ https://example.com/page.html
       </section>
       <section id="ssoDescription">
         <h4>Description</h4>
-<p class="ednote">This section in particular needs review to ensure it carries 
+<p class="ednote">This section in particular needs review to ensure it carries
 information relevant to the WG's work.</p>
         <p>Use a DID as a single-sign-on to a Web site, for example between
-          a Web page and a Web browser with a mobile identity app. When desirable, 
+          a Web page and a Web browser with a mobile identity app. When desirable,
           the relationship can add a shared secret for two-factor authentication (2FA).</p>
         <p>Detailed aspects of this use case are out of scope for the Decentralized
-        Identifier Working Group but they have been explored elsewhere [[DID-Auth]].
-
-<!--
-using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/draft-documents/did_auth_draft.md">DID Auth</a> (especially
-          cases like the <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did_auth_draft.md#did-auth-architecture-6-web-page-and-web-browser">
-          example between a web page and web browser with a mobile
-          identity app</a>) directly or via the <a href="https://w3c-ccg.github.io/credential-handler-api/">
-          Credential Handler API</a>.
-
-          Use DID as single-sign-on to a website, using one of the variants of DID Auth (see [[DID-AUTH-INTRO]]).
-          This can be implemented using different protocols and APIs, such as [[DID-AUTH-OIDC-SIOP]] or [[CREDENTIAL-HANDLER-API]].
-          When desirable, the relationship can add
-          a shared secret for 2FA.
-
-          (except does DID Auth include any extensions that enable this
-          subsequent ascension without starting another socket?).-->
-        </p>
-<!--        <p>
-          Note that what is stored on the server-side is a DID, so in cases
-          where a successful attack reads (but does not mutate) the database,
-          all that is revealed is linkage of the DID to use the site (so
-          probably as a consequence the user should spawn a unique DID to reveal
-          to that site), and any 2FA secret (which should be a random number for
-          <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm">TOTP</a>,
-          instead of a <a href="https://blog.coinbase.com/on-phone-numbers-and-identity-423db8577e58">phone number</a>
-          susceptible to carrier social engineering and
-          <a href="https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls">SS7 bugs</a>).  In other words, the user's DID Auth
-          procedures remain valid after the hack, even for that site.
-        </p> -->
+        Identifier Working Group but they have been explored elsewhere [[DID-Auth]].</p>
       </section>
       <section id="ssoChallenges">
         <h4>Challenges</h4>
         <p>
-          Transfer sign-on capability from control of a password to control of
-
-          the DID. <!--, as shown in DID-Auth, using appropriate devices.  Optionally
-          include 2FA, although DID Auth doesn't handle that well, yet.
-          the DID, as shown in DID Auth, using appropriate devices.  Optionally
-          include 2FA, although DID Auth doesn't handle that well, yet. -->
+          Transfer sign-on capability from control of a password to control of the DID.
         </p>
       </section>
       <section id="ssoDistinction">
         <h4>Distinction</h4>
-        <p>
-          This use case describes the most common authentication action for
-          people on the Internet.
+        <p>This use case describes the most common authentication action for people on the Internet.
         </p>
       </section>
-    </section>
+
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="minRent"></span>,
+<span data-reqid="cryptoFuture"></span></p>
+
+    </section> <!-- end sso -->
       </section>
 <script class="remove">
 
@@ -1369,11 +1469,22 @@ reqObjectList.push(new ReqObject("decentralized", "Decentralized/self issued"));
 reqObjectList.push(new ReqObject("unique", "Guaranteed unique identifier"));
 reqObjectList.push(new ReqObject("noCallHome", "No call home"));
 reqObjectList.push(new ReqObject("associatedCrypto", "Associated cryptographic material"));
-reqObjectList.push(new ReqObject("keyRotation", "Key rotation"));
-reqObjectList.push(new ReqObject("serviceEndpoint", "Service Endpoints"));
+reqObjectList.push(new ReqObject("keyRotation", "Streamlined key rotation"));
+reqObjectList.push(new ReqObject("serviceEndpoint", "Service endpoint discovery"));
 reqObjectList.push(new ReqObject("privacyPreserving", "Privacy preserving"));
 reqObjectList.push(new ReqObject("anonymity", "Anonymity"));
 reqObjectList.push(new ReqObject("delegation", "Delegation of control"));
+reqObjectList.push(new ReqObject("interJ", "Inter-jurisdictional"));
+reqObjectList.push(new ReqObject("noDenial", "Can't be administratively denied"));
+reqObjectList.push(new ReqObject("minRent","Minimized rents"));
+reqObjectList.push(new ReqObject("noVendorLock", "No vendor lock in"));
+reqObjectList.push(new ReqObject("limitTrack", "Preempt/limit trackable data trails"));
+reqObjectList.push(new ReqObject("cryptoFuture", "Cryptographic future proof"));
+reqObjectList.push(new ReqObject("orgMort", "Survives issuing organization mortality"));
+reqObjectList.push(new ReqObject("deployEnd", "Survives deployment end-of-life"));
+reqObjectList.push(new ReqObject("survivesRel", "Survives relationship with service provider"));
+reqObjectList.push(new ReqObject("cryptoAuthComm", "Cryptographic authentication and communication"));
+reqObjectList.push(new ReqObject("regAgnostic", "Registry agnostic"));
 
 
 function createReqSummary(targetElement) {
