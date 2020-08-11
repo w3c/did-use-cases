@@ -1227,8 +1227,8 @@ function createReqSummaryTable(targetElement) {
 }
 
 function createFeatureBenefitGrid(targetElement) {
-  // featureBenefitGrid
   let table = document.createElement('table');
+  table.id = 'featureBenefitGridTable';
   let tr = document.createElement('tr');
   let th = document.createElement('th');
   tr.appendChild(th);
@@ -1239,7 +1239,6 @@ function createFeatureBenefitGrid(targetElement) {
   th.className = 'multiColHeader';
   tr.appendChild(th);
   table.append(tr);
-
   tr = document.createElement('tr');
   th = document.createElement('th');
   th.appendChild(document.createTextNode('Requirement'));
@@ -1286,13 +1285,10 @@ function createRequirementsDefList(targetElement) {
 }
 
 
-//if (document.getElementById('requirementsCrossRef') !== 'null') {
-//  createReqSummaryDl('ucSummary');
-  createReqSummaryTable('requirements');
-  createRequirementsDefList('requirements');
-  createFeatureBenefitGrid('featureBenefitGrid');
-//}
-
+//if (document.getElementById('requirementsCrossRef') !== 'null') {createReqSummaryDl('ucSummary')}
+if (document.getElementById('requirementsCrossRefTable') !== 'null'){createReqSummaryTable('requirements')}
+if (document.getElementById('requirementsDefinitions') !== 'null'){createRequirementsDefList('requirements')}
+if (document.getElementById('featureBenefitGridTable') !== 'null'){createFeatureBenefitGrid('featureBenefitGrid')
 
 </script>
 	  
