@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <title>Use Cases and Requirements for Decentralized Identifiers</title>
     <script
      src="https://www.w3.org/Tools/respec/respec-w3c-common"
      class="remove"></script>
-    <script class='remove' src="./common.js">
+    <script class='remove' src="https://w3c.github.io/did-use-cases/common.js">
     </script>
     <script class="remove">
       var respecConfig = {
@@ -40,7 +40,7 @@
         // lcEnd: "2009-08-05",
 
         editors: [{
-          name: "Joe Andrieu", 
+          name: "Joe Andrieu",
           company: "Invited Expert",
           url: "http://legreq.com",
           w3cid: 97261
@@ -97,25 +97,49 @@
       table.feature_grid th { border: 1px solid; }
       table.feature_grid th[scope=row] { text-align: left; }
       dl.feature_definitions dt { font-weight: 400; }
-	    
+
       .highlight {background-color:yellow}
-	    
+
       .focalContributor, .shortUcContributor {font-size:small; font-style:italic}
       .shortUcContributor {text-align:right}
+
       p.reqList span.reqListbefore {font-weight:bold}
+
+      table {
+        border-collapse: collapse;
+        margin-bottom: 1em;
+        overflow: scroll;
+      }
+      table tr th, table tr td {
+        border: thin solid black;
+        min-width: 1.5em;
+      }
+
+      .noBorder {
+        border:none;
+      }
+
+      .multiColHeader, .onlyX {
+        text-align: center;
+      }
+
+      .noBold {
+        font-weight: normal;
+      }
+
     </style>
   </head>
   <body>
     <section id="abstract">
       <p>This document sets out use cases and requirements for a new type of identifier that has 4 essential characteristics:</p>
       <ol>
-        <li><strong>decentralized</strong>: there should be no central issuing 
+        <li><strong>decentralized</strong>: there should be no central issuing
         agency;</li>
-        <li><strong>persistent</strong>: the identifier should be inherently 
+        <li><strong>persistent</strong>: the identifier should be inherently
         persistent, not requiring the continued operation of an underling organization;</li>
-        <li><strong>crytopgraphically verifiable</strong>: it should be possible 
+        <li><strong>crytopgraphically verifiable</strong>: it should be possible
         to prove control of the identifier cryptographically;</li>
-        <li><strong>resolvable</strong>: it should be possible to discover 
+        <li><strong>resolvable</strong>: it should be possible to discover
         metadata about the identifier.</li>
     </ol>
     <p>Although existing identifiers may display some of these characteristics, none currently displays all four.</p>
@@ -123,16 +147,16 @@
     <section id="sotd"></section>
     <section id="intro">
       <h2>Introduction</h2>
-      <p>The need for globally unique identifier schemes has been addressed many 
-      times. Globally unique ID schemes typically rely on a central authority 
-      controlling a 'root' space that is then delegated to local organizations 
-      who in turn delegate to further organizations who eventually add the final 
-      string to complete the identifer. Even if we restrict ourseleves to online 
+      <p>The need for globally unique identifier schemes has been addressed many
+      times. Globally unique ID schemes typically rely on a central authority
+      controlling a 'root' space that is then delegated to local organizations
+      who in turn delegate to further organizations who eventually add the final
+      string to complete the identifer. Even if we restrict ourseleves to online
       identifiers, there are many examples of this.</p><ul>
-  <li>IANA controls the root namespace of the Internet's Domain Name System; 
-      registrars operate the top level domains and then license specific domain 
-      names to their clients, and it's these clients who create the actual 
-      identifiers for online resources (URLs). The example below shows who 
+  <li>IANA controls the root namespace of the Internet's Domain Name System;
+      registrars operate the top level domains and then license specific domain
+      names to their clients, and it's these clients who create the actual
+      identifiers for online resources (URLs). The example below shows who
       controls what in a typical URL.
 
 <pre class="example">
@@ -143,109 +167,109 @@ https://example.com/page.html
            ↑           ↑
         Registrar   Licensee
 </pre></li>
-  <li><abbr title="Digital Object Identifier">DOI</abbr>s have the form 
-    <code>10.{registrant}/{suffix}</code> where 'registrant' is defined by the 
+  <li><abbr title="Digital Object Identifier">DOI</abbr>s have the form
+    <code>10.{registrant}/{suffix}</code> where 'registrant' is defined by the
     DOI organization and the suffix by the registrant.</li>
-  <li>Global Trade Item Numbers (GTINs) seen on many of the world's barcodes 
-      are managed in a similar way, as are Legal Entity Identifiers, 
+  <li>Global Trade Item Numbers (GTINs) seen on many of the world's barcodes
+      are managed in a similar way, as are Legal Entity Identifiers,
       <abbr title="International Standard Book Number">ISBN</abbr>s and more.</li>
   </ul>
-  <p>In all these cases, ultimately, there is a central authority on which the 
-   identifier system depends. Those central authorities go to significant 
-    efforts to make their identifiers persistent and resolvable, however, 
-    should they cease to exist, the long term integrity of the identifier 
-    is at least questionable to a greater or lesser extent. For as long as 
-    those organizations exist (and they are generally well established with no 
-    immediate threat to their survival), the way to assess whether a particular 
+  <p>In all these cases, ultimately, there is a central authority on which the
+   identifier system depends. Those central authorities go to significant
+    efforts to make their identifiers persistent and resolvable, however,
+    should they cease to exist, the long term integrity of the identifier
+    is at least questionable to a greater or lesser extent. For as long as
+    those organizations exist (and they are generally well established with no
+    immediate threat to their survival), the way to assess whether a particular
     identifier is in some way 'valid' is to query the issuing authority.</p>
-  <p>These factors point to a need in some circumstances for a globally unique 
-    identifier that is 'self sovereign', that is, one that does not depend on 
-    any issuing authority. Universally unique identifiers (<a>UUID</a>s) [[RFC4122]] 
-    fulfill this role, however, there is no way to <em>prove</em> control of 
+  <p>These factors point to a need in some circumstances for a globally unique
+    identifier that is 'self sovereign', that is, one that does not depend on
+    any issuing authority. Universally unique identifiers (<a>UUID</a>s) [[RFC4122]]
+    fulfill this role, however, there is no way to <em>prove</em> control of
     a <abbr title="Universally unique identifier">UUID</abbr>.</p>
-  <p>This document sets out use cases and requirements for a new kind of 
+  <p>This document sets out use cases and requirements for a new kind of
     identifier that meets all these basic requirements:</p>
       <ol>
-        <li><strong>decentralized</strong>: there should be no central issuing 
+        <li><strong>decentralized</strong>: there should be no central issuing
         agency;</li>
-        <li><strong>persistent</strong>: the identifier should be inherently 
+        <li><strong>persistent</strong>: the identifier should be inherently
         persistent, not requiring the continued operation of an underling organization;</li>
-        <li><strong>crytopgraphically verifiable</strong>: it should be possible 
+        <li><strong>crytopgraphically verifiable</strong>: it should be possible
         to prove control of the identifier cryptographically;</li>
-        <li><strong>resolvable</strong>: it should be possible to discover 
+        <li><strong>resolvable</strong>: it should be possible to discover
         metadata about the identifier.</li>
     </ol>
 	    <p>Further desired features and their benefits are <a href="#featureBenefitGrid">provided in a later section</a>.</p>
   <section id="existingWork">
     <h3>Existing Work</h3>
-    <p>The use cases and requirements set out below have not been created <i>a 
-        priori</i>. Substantial work has been done within W3C and elsewhere 
-        leading, in particular, to <a href="https://www.w3.org/2019/08/did-20190828/">Decentralized 
-        Identifiers (DIDs) Data Model and Syntaxes</a> published as a Community 
-        Group Report by the <a href="https://www.w3.org/community/credentials/">Credentials 
-        Community Group</a> in August 2019. That work provides a framework &mdash; 
-        a set of concepts &mdash; that have proved to be useful when discussing 
-        <abbr title="Decentralized Identifier">DID</abbr>s and the problems they 
-        can solve (see below). Those concepts are used within this document to 
-        set out the detail of the problem that the Decentralized Identifier Working 
-        Group is <a href="https://www.w3.org/2019/09/did-wg-charter">chartered</a> 
-        to solve. It is the nature of the standardization process that these 
-        terms may be modified within the standard itself and therefore, their 
+    <p>The use cases and requirements set out below have not been created <i>a
+        priori</i>. Substantial work has been done within W3C and elsewhere
+        leading, in particular, to <a href="https://www.w3.org/2019/08/did-20190828/">Decentralized
+        Identifiers (DIDs) Data Model and Syntaxes</a> published as a Community
+        Group Report by the <a href="https://www.w3.org/community/credentials/">Credentials
+        Community Group</a> in August 2019. That work provides a framework &mdash;
+        a set of concepts &mdash; that have proved to be useful when discussing
+        <abbr title="Decentralized Identifier">DID</abbr>s and the problems they
+        can solve (see below). Those concepts are used within this document to
+        set out the detail of the problem that the Decentralized Identifier Working
+        Group is <a href="https://www.w3.org/2019/09/did-wg-charter">chartered</a>
+        to solve. It is the nature of the standardization process that these
+        terms may be modified within the standard itself and therefore, their
         use here should not be seen as authoritative.</p>
       </section>
     <section>
       <h2 id="concepts">Concepts of Decentralized Identity</h2>
 	<p class="issue" data-number="39">Terminology in this opening prose is being discussed, in particular
 	the term 'relying party' which has been changed to 'requesting party' in this version of the doc.</p>
-        <p>A decentralized system will enable several key actions by three 
+        <p>A decentralized system will enable several key actions by three
 		distinct entities: the Controller, the Requesting Party, and the Subject.</p>
-        <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s, 
-		while Requesting Parties rely on <abbr title="Decentralized Identifier">DID</abbr>s 
+        <p>Controllers create and control <abbr title="Decentralized Identifier">DID</abbr>s,
+		while Requesting Parties rely on <abbr title="Decentralized Identifier">DID</abbr>s
           as an identifier for  interactions related to the <a>DID Subject</a>.</p>
-        <p>The Subject is the entity referred to by the <abbr title="Decentralized 
-          Identifier">DID</abbr>, which can be anything: a person,  an organization, 
-          a device, a location, even a concept. Typically, the Subject is also 
-          the Controller, but in cases of guardianship, agents (human or software),  
-          and inanimate Subjects, this is not possible. As such, the Subject has 
-		no functional  role. When the Subject is, in fact, the <a>DID Controller</a>, we 
-          consider the action to  be taken by the Controller on their own behalf 
-          as the Subject. When the Subject  is not the DID Controller, the Controller 
-          is said to be taking action on behalf of the Subject, such as when an 
-          employee manages a <abbr title="Decentralized Identifier">DID</abbr> 
-          on behalf of their employer  or a parent uses a <abbr title="Decentralized 
+        <p>The Subject is the entity referred to by the <abbr title="Decentralized
+          Identifier">DID</abbr>, which can be anything: a person,  an organization,
+          a device, a location, even a concept. Typically, the Subject is also
+          the Controller, but in cases of guardianship, agents (human or software),
+          and inanimate Subjects, this is not possible. As such, the Subject has
+		no functional  role. When the Subject is, in fact, the <a>DID Controller</a>, we
+          consider the action to  be taken by the Controller on their own behalf
+          as the Subject. When the Subject  is not the DID Controller, the Controller
+          is said to be taking action on behalf of the Subject, such as when an
+          employee manages a <abbr title="Decentralized Identifier">DID</abbr>
+          on behalf of their employer  or a parent uses a <abbr title="Decentralized
           Identifier">DID</abbr> on behalf of their child.</p>
-	    <p>The DID Controller and Requesting Party may be individuals or interactive 
-          systems, but for simplicity in this document, we refer to both as if 
+	    <p>The DID Controller and Requesting Party may be individuals or interactive
+          systems, but for simplicity in this document, we refer to both as if
           they were individual  persons performing these actions. </p>
-	  <p>Only a <a>DID Controller</a> can perform the actions that control a <abbr 
-          title="Decentralized Identifier">DID</abbr>, however, anyone can act 
-	  as a Requesting Party for any <abbr title="Decentralized Identifier">DID</abbr> 
-          they know, including the DID Controller, should they wish to inspect or 
+	  <p>Only a <a>DID Controller</a> can perform the actions that control a <abbr
+          title="Decentralized Identifier">DID</abbr>, however, anyone can act
+	  as a Requesting Party for any <abbr title="Decentralized Identifier">DID</abbr>
+          they know, including the DID Controller, should they wish to inspect or
           verify their own <abbr title="Decentralized Identifier">DID</abbr>.</p>
-        <p>This use case document defines these actions in terms of the eventual 
+        <p>This use case document defines these actions in terms of the eventual
           systems we anticipate using the resultant specification.</p>
 
-        <p>Perhaps the most salient point about <a>Decentralized Identifiers</a> is 
-        that there are no "Identity Providers". Instead, this role is subsumed 
-        in the decentralized systems that Controllers use to manage <abbr 
-        title="Decentralized Identifier">DID</abbr>s and, in turn, Requesting 
-		Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s. 
-        These  decentralized systems, which we refer to as <abbr 
-        title="Decentralized Identifier">DID</abbr> registries, are designed to  
-        operate independently from any particular service provider and hence, 
-        free from  any given platform authority. It is anticipated that <abbr 
-        title="Decentralized Identifier">DID</abbr>s will be registered using 
-        distributed ledger technology (<a>DLT</a>). 
+        <p>Perhaps the most salient point about <a>Decentralized Identifiers</a> is
+        that there are no "Identity Providers". Instead, this role is subsumed
+        in the decentralized systems that Controllers use to manage <abbr
+        title="Decentralized Identifier">DID</abbr>s and, in turn, Requesting
+		Parties use to apply <abbr title="Decentralized Identifier">DID</abbr>s.
+        These  decentralized systems, which we refer to as <abbr
+        title="Decentralized Identifier">DID</abbr> registries, are designed to
+        operate independently from any particular service provider and hence,
+        free from  any given platform authority. It is anticipated that <abbr
+        title="Decentralized Identifier">DID</abbr>s will be registered using
+        distributed ledger technology (<a>DLT</a>).
 
-        <p>In practice, the definition and operation of all current decentralized 
-        systems retain some elements of centralized control. Depending on the 
-        criteria one uses to evaluate such systems &mdash; from who controls 
-        the most widely used code base to who controls  the specification &mdash; 
-        where a system resides on the spectrum of centralized and decentralized 
-        varies. However, the design of any decentralized identity system is 
-        separate from the  academic debate about how decentralized it may be 
+        <p>In practice, the definition and operation of all current decentralized
+        systems retain some elements of centralized control. Depending on the
+        criteria one uses to evaluate such systems &mdash; from who controls
+        the most widely used code base to who controls  the specification &mdash;
+        where a system resides on the spectrum of centralized and decentralized
+        varies. However, the design of any decentralized identity system is
+        separate from the  academic debate about how decentralized it may be
         in practice.</p>
-        <p>The use cases presented below make use of a number of high level 
+        <p>The use cases presented below make use of a number of high level
         concepts as follows.</p>
 
 <div class="note" title="Shared terminology">
@@ -259,14 +283,14 @@ https://example.com/page.html
   <p class="issue" data-number="14">The term DID registry is under discussion within the Working Group.
   A particular point to bear in mind is that not all DID methods require DIDs to be registered to be functional.</p>
 
-<p>When we refer to <em>methods</em> and <em>registries</em>, we mean <a><abbr 
-  title="Decentralized Identifier">DID</abbr> methods</a> and <a><abbr title="Decentralized 
-  Identifier">DID</abbr> registries</a>. A working assumption for the use cases is that all 
-  <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized 
-  Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr> 
-  Documents contain the cryptographic material to perform the functions related to 
-  that particular <abbr title="Decentralized Identifier">DID</abbr>, including 
-  associated proof methods and any service endpoints, that is, services that can 
+<p>When we refer to <em>methods</em> and <em>registries</em>, we mean <a><abbr
+  title="Decentralized Identifier">DID</abbr> methods</a> and <a><abbr title="Decentralized
+  Identifier">DID</abbr> registries</a>. A working assumption for the use cases is that all
+  <abbr title="Decentralized Identifier">DID</abbr>s resolve to <abbr title="Decentralized
+  Identifier">DID</abbr> Documents. <abbr title="Decentralized Identifier">DID</abbr>
+  Documents contain the cryptographic material to perform the functions related to
+  that particular <abbr title="Decentralized Identifier">DID</abbr>, including
+  associated proof methods and any service endpoints, that is, services that can
   make use of the <abbr title="Decentralized Identifier">DID</abbr>.</p>
       </section>
     </section>
@@ -276,18 +300,18 @@ https://example.com/page.html
         <h2>Use Cases</h2>
         <section id="onlineShopper">
           <h3>Online shopper</h3>
-        <p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase. 
-		The product and the information about it is trusted because it is put there by the brand, and the shopper trusts that 
-		the retailer has received the product through trusted supply chain partners. Today, there is a multitude of 
-		channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior 
-		as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers, 
+        <p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase.
+		The product and the information about it is trusted because it is put there by the brand, and the shopper trusts that
+		the retailer has received the product through trusted supply chain partners. Today, there is a multitude of
+		channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior
+		as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers,
 		as the relationship is not as direct as the traditional mode of shopping.</p>
-        <p>Online shopping, especially through 3rd party marketplaces, creates a proliferation of digital records about that product 
-		across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information 
-		presented about that product) came from the brand or other authoritative source. Product identification and information 
-		and the source of the product itself is less reliable, and introduces trust issues with representations of products 
-		bought and sold online. Additionally, unique identification is critical to business processes, but also to online 
-		purchasing. Very often two different products share the same identifier across the supply chain, and so what a 
+        <p>Online shopping, especially through 3rd party marketplaces, creates a proliferation of digital records about that product
+		across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information
+		presented about that product) came from the brand or other authoritative source. Product identification and information
+		and the source of the product itself is less reliable, and introduces trust issues with representations of products
+		bought and sold online. Additionally, unique identification is critical to business processes, but also to online
+		purchasing. Very often two different products share the same identifier across the supply chain, and so what a
 		consumer purchases and what ultimately is received may be different.</p>
         <p>Mechanisms are required for the following to provide trust in the digital representation of a product across platforms:</p>
 	<ol>
@@ -309,27 +333,27 @@ https://example.com/page.html
 </p>
 	<p class="shortUcContributor">Contributed by GS1</p>
         </section><!-- Online shopper-->
-	      
+
 	<section id="vehicleAssemblies"><h3>Vehicle assemblies</h3>
-	<p>Manufactured goods are usually the output of multiple processes carried out by multiple actors. Think of a vehicle 
-	(be it a ship, a train, a car or a plane) with 
-	components and assemblies of components from multiple suppliers that are then added to the emerging vehicle as it makes its 
-	way along the production line. During the lifetime of that vehicle, components will be replaced and serviced, and this work 
+	<p>Manufactured goods are usually the output of multiple processes carried out by multiple actors. Think of a vehicle
+	(be it a ship, a train, a car or a plane) with
+	components and assemblies of components from multiple suppliers that are then added to the emerging vehicle as it makes its
+	way along the production line. During the lifetime of that vehicle, components will be replaced and serviced, and this work
 	can be carried out by any number of different agents.</p>
-	<p>A mechanism that allows each agent to make independent assertions about their work – the components created or replaced, 
-	the tests carried out, which part was married up to which other part and so on – would allow the complete manufacturing and 
+	<p>A mechanism that allows each agent to make independent assertions about their work – the components created or replaced,
+	the tests carried out, which part was married up to which other part and so on – would allow the complete manufacturing and
 	service history of the vehicle to be computed.</p>
-	<p>The independent aspect is important. A decentralized identifier created and applied to each component or assembly can be 
-	cryptographically verified without the need to call home to a supply company that may or may not continue to exist. Moreover, there 
-	is no requirement for the overall vehicle manufacturer to maintain an aggregated database  concerning a vehicle that, in a 
-	traditional system, is not only a single point of failure but that is immediately out of date as soon as the vehicle goes in 
-	for its first service. A decentralized system allows each component of the vehicle to have its own history, its own credentials 
-	and its own lifecycle, independent of other components and the vehicle – or vehicles – of which it is a part over time. At the end of its life, 
+	<p>The independent aspect is important. A decentralized identifier created and applied to each component or assembly can be
+	cryptographically verified without the need to call home to a supply company that may or may not continue to exist. Moreover, there
+	is no requirement for the overall vehicle manufacturer to maintain an aggregated database  concerning a vehicle that, in a
+	traditional system, is not only a single point of failure but that is immediately out of date as soon as the vehicle goes in
+	for its first service. A decentralized system allows each component of the vehicle to have its own history, its own credentials
+	and its own lifecycle, independent of other components and the vehicle – or vehicles – of which it is a part over time. At the end of its life,
 	the identifier may continue to be useful as a reference point for recycling and safe disposal information, even if the original
 	manufacturer is no longer in business.</p>
-	<p>The vehicle itself has its own identifier too. This would allow that particular vehicle to be a reference for the components 
-	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control 
-	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout 
+	<p>The vehicle itself has its own identifier too. This would allow that particular vehicle to be a reference for the components
+	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control
+	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout
 	the entire lifecycle of the vehicle.</p>
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
 
@@ -345,14 +369,14 @@ https://example.com/page.html
 </p>
 	<p class="shortUcContributor">Contributed by Spherity</p>
 	</section> <!-- Vehicle assemblies -->
-	      
+
 	<section id="edv"><h3>Encrypted Data Vault</h3>
-	<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to 
-	you.’ For data to be stored in the cloud – in other words, on someone else’s computer – and for it to be only accessible to the data 
-	owner, it must be encrypted. A Decentralized Identifier that leads to information with which a user can prove control of the 
-	identifier without resort to a centralized authority could enable substitutable encrypted cloud storage. That is, the data owner 
-	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control 
-	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change 
+	<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to
+	you.’ For data to be stored in the cloud – in other words, on someone else’s computer – and for it to be only accessible to the data
+	owner, it must be encrypted. A Decentralized Identifier that leads to information with which a user can prove control of the
+	identifier without resort to a centralized authority could enable substitutable encrypted cloud storage. That is, the data owner
+	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control
+	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change
 	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="authenticate"></span>,
@@ -362,16 +386,16 @@ https://example.com/page.html
     <span data-reqid="privacyPreserving"></span></p>
 	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
 	</section> <!-- Encrypted Data Vault-->
-	      
+
 	<section id="accessingServiceEndpoints"><h3>Accessing Master Data of Entities</h3>
-	<p>Decentralized identifiers allow one to discover the location of an authoritative public master data record of an entity. 
-	This mechanism can be used for organizations as well as things. The authoritative master data record could be retrieved from a 
-	designated service endpoint listed in the DID document. The record may be self-certifying, i.e. verifiable with a key listed in the 
-	DID document or third party attested represented as a <a 
+	<p>Decentralized identifiers allow one to discover the location of an authoritative public master data record of an entity.
+	This mechanism can be used for organizations as well as things. The authoritative master data record could be retrieved from a
+	designated service endpoint listed in the DID document. The record may be self-certifying, i.e. verifiable with a key listed in the
+	DID document or third party attested represented as a <a
 	href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations">verifiable presentation</a>.</p>
-	<p>The third party attesting master data of an organization might be a chamber of commerce, while the third party attesting 
-	the master data of a thing might be its manufacturer. The decentralized nature of the identifier is important in particular 
-	for the device as the DID can act as an entry to that master data even if the manufacturer goes out of business or stops the 
+	<p>The third party attesting master data of an organization might be a chamber of commerce, while the third party attesting
+	the master data of a thing might be its manufacturer. The decentralized nature of the identifier is important in particular
+	for the device as the DID can act as an entry to that master data even if the manufacturer goes out of business or stops the
 	service.</p>
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="decentralized"></span>,
@@ -383,16 +407,16 @@ https://example.com/page.html
 	</section><!-- service endpoints-->
 
 	<section id="vcEcosystem"><h3>Identifiers in an ecosystem of verifiable credentials (VCs)</h3>
-	<p>Remembering the <a href="#abstract">4 essential characteristics of a decentralized identifier</a>, there are situations 
+	<p>Remembering the <a href="#abstract">4 essential characteristics of a decentralized identifier</a>, there are situations
 		where DIDs offer tangible benefits over existing identifier schemes. For example:</p><ul>
-	<li>Verifiable credential issuers publishing the list of subject attributes that they are authoritative for (their 
+	<li>Verifiable credential issuers publishing the list of subject attributes that they are authoritative for (their
 		authoritative nature can be proven).</li>
 	<li>In similar vein, Verifiable Credential issuers may publish authoritative schemas for the types of credential that they issue.</li>
 	<li>Terms of use or other policy constraints that might apply to issued <abbr title="Verifiable Credential">VC</abbr>s.</li>
-	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself 
+	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself
 		be verified.</li>
-	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys 
-		being compromised or the development of superior technology. This does not affect the validity or proveability of any 
+	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys
+		being compromised or the development of superior technology. This does not affect the validity or proveability of any
 		verifiable credentials associated with that identifier.</li>
 	</ul>
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
@@ -403,22 +427,22 @@ https://example.com/page.html
     <span data-reqid="cryptoFuture"></span></p>
 	<p class="shortUcContributor">Contributed by David Chadwick, University of Kent</p>
 	</section><!-- VC ecosystem-->
-	    
+
 	<section id="crossPlatform">
           <h3>Sharing opted-in information across platforms</h3>
-	<p>Individuals are concerned that their online activity is tracked and analysed by many websites and third party services 
-	without their full knowledge. Consent for the storing of cookies is routinely given without any real care being taken, 
-	and service terms and conditions rarely read before being agreed to. A solution to this problem might have the following 
+	<p>Individuals are concerned that their online activity is tracked and analysed by many websites and third party services
+	without their full knowledge. Consent for the storing of cookies is routinely given without any real care being taken,
+	and service terms and conditions rarely read before being agreed to. A solution to this problem might have the following
 	characteristics:</p><ol>
-	<li>The ability to create an identifier for oneself without having to provide any personally identifiable information (PII) 
+	<li>The ability to create an identifier for oneself without having to provide any personally identifiable information (PII)
 		to any third party.</li>
 	<li>The ability to prove control of that identifier, again, without revealing any PII.</li>
-	<li>The ability to associate information likely to be of commercial interest with that identifier, such as purchase history, 
+	<li>The ability to associate information likely to be of commercial interest with that identifier, such as purchase history,
 		age, gender or social status, again, without revealing any PII.</li>
 		</ol>
-	<p>Such an identifier could be shared across multiple platforms that would be able to use it to provide a more customized 
-	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the 
-	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online 
+	<p>Such an identifier could be shared across multiple platforms that would be able to use it to provide a more customized
+	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the
+	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online
 	personas in this way and thereby have good control over what they did and didn’t share with different services.</p>
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="decentralized"></span>,
@@ -428,15 +452,15 @@ https://example.com/page.html
 	</section><!-- Opted-in information -->
 
 	<section id="ghostWriter"><h3>Collecting payments for work conducted anonymously</h3>
-	<p>Before becoming a full time journalist, Sahar worked many odd jobs and uncredited gigs in the publishing and movie 
-	industries: she was a ghostwriter, a scriptfixer, various kinds of editor, a translator, and more. Some of these gigs 
-	still pay her residuals years later in the form of tiny micropayments. When these now-classic works are reprinted or 
-	syndicated, the payments are automatically sent using information associated with Sahar's DID without anyone involved thinking 
-	much about who exactly the contract 
-	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows 
+	<p>Before becoming a full time journalist, Sahar worked many odd jobs and uncredited gigs in the publishing and movie
+	industries: she was a ghostwriter, a scriptfixer, various kinds of editor, a translator, and more. Some of these gigs
+	still pay her residuals years later in the form of tiny micropayments. When these now-classic works are reprinted or
+	syndicated, the payments are automatically sent using information associated with Sahar's DID without anyone involved thinking
+	much about who exactly the contract
+	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows
 	Sahar to retain anonimity but provide a means for others to pay the right person.</p>
 		<p class="reqList"><span class="reqListbefore">Requirements:</span>
-    <span data-reqid="anonymity"></span>,
+    <span data-reqid="privacyPreserving"></span>,
     <span data-reqid="minRent"></span>,
     <span data-reqid="survivesRel"></span></p>
 	<p class="shortUcContributor">Contributed by Juan Caballero</p>
@@ -444,31 +468,31 @@ https://example.com/page.html
 
   <section id="supplyChain"><h3>Anonymity within a supply chain</h3>
 	<p>Modern supply chains are highly complex, typically involving multiple companies taking ownership and/or custody of shipments from the point of
-	origin through to the final destination, be that a retailer or end consumer. Furthermore, since most mass-produced products are made to stock rather than 
-	bespoke for a specific customer, the manufacturer typically does not know which final  retailer or retail store will receive each specific product instance; 
-	the individual path through the supply chain network is not predefined by the manufacturer but instead emerges over time as a set of intermediate distributors 
-	and wholesalers distribute product in response to orders from their customers.  Data concerning that supply chain can be commercially sensitive. For example, 
-	a transport company may not wish their customer to know that they sub contracted part of the journey to another partner. It can be a security risk too. The 
-	locations of warehouses and distribution centers where large stocks of particular items are held can be a target for the insertion of counterfeit goods into 
+	origin through to the final destination, be that a retailer or end consumer. Furthermore, since most mass-produced products are made to stock rather than
+	bespoke for a specific customer, the manufacturer typically does not know which final  retailer or retail store will receive each specific product instance;
+	the individual path through the supply chain network is not predefined by the manufacturer but instead emerges over time as a set of intermediate distributors
+	and wholesalers distribute product in response to orders from their customers.  Data concerning that supply chain can be commercially sensitive. For example,
+	a transport company may not wish their customer to know that they sub contracted part of the journey to another partner. It can be a security risk too. The
+	locations of warehouses and distribution centers where large stocks of particular items are held can be a target for the insertion of counterfeit goods into
 	legitimate supplies.</p>
-	<p>A downstream party such as a retailer, pharmacy or end consumer may have a legitimate reason or in some cases a legal requirement to know that 
-	each product is genuine and can be traced back to the genuine manufacturer through an unbroken chain of custody, without any gaps or inconsistencies 
+	<p>A downstream party such as a retailer, pharmacy or end consumer may have a legitimate reason or in some cases a legal requirement to know that
+	each product is genuine and can be traced back to the genuine manufacturer through an unbroken chain of custody, without any gaps or inconsistencies
 	in the traceability data.</p>
-	<p>A downstream party may also want to check whether the product ID and serial number were actually issued by the manufacturer. However, the manufacturer may 
+	<p>A downstream party may also want to check whether the product ID and serial number were actually issued by the manufacturer. However, the manufacturer may
 	not want to provide such information about valid serial numbers to its competitors or counterfeiters, so there may be a need to control access to such services.</p>
-	<p>For these reasons and more, identifiers for business partners, locations and transactions often need to be obfuscated, and the data exchanged between 
-	partners is typically restricted both in terms of its content and in terms of access to it. This is especially true when a manufacturer does not want its 
-	competitors to know the actual source of the ingredients or components in its products.  Different parties will be interested in different things too. For 
-	example, a retailer may be interested in knowing where a particular shipment is and when it is expected to arrive; a consumer of a food product is more likely 
+	<p>For these reasons and more, identifiers for business partners, locations and transactions often need to be obfuscated, and the data exchanged between
+	partners is typically restricted both in terms of its content and in terms of access to it. This is especially true when a manufacturer does not want its
+	competitors to know the actual source of the ingredients or components in its products.  Different parties will be interested in different things too. For
+	example, a retailer may be interested in knowing where a particular shipment is and when it is expected to arrive; a consumer of a food product is more likely
 	to be concerned about the original source of the item and the total number of food miles in the product.</p>
-	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve anonymity yet prove control 
-	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without 
+	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve anonymity yet prove control
+	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without
 	enabling correlation across multiple shipments or other sensitive information.</p>
 		<p class="reqList"><span class="reqListbefore">Requirements:</span>
       <span data-reqid="authenticate"></span>,
       <span data-reqid="decentralized"></span>,
 			<span data-reqid="serviceEndpoint"></span>,
-			<span data-reqid="anonymity"></span>
+			<span data-reqid="privacyPreserving"></span>
       <span data-reqid="limitTrack"></span>,
       <span data-reqid="survivesRel"></span></p>
 	<p class="shortUcContributor">Contributed by GS1</p>
@@ -481,8 +505,8 @@ https://example.com/page.html
       downloading and using a digital version of his physical card, including
       a one-time activation code. After getting a digital wallet, he visits
       the USCIS website, signs in, and uses his activation code to get a
-      digital credential. His wallet provides a DID to the website and 
-      demonstrates control over the DID to prove to USCIS that the identifier 
+      digital credential. His wallet provides a DID to the website and
+      demonstrates control over the DID to prove to USCIS that the identifier
       is under Sam's control. USCIS issues a newly minted digital credential
       with the subject identifier set to the provided DID.</p>
     <p> Now, Sam can use
@@ -542,7 +566,7 @@ https://example.com/page.html
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section>
   </section> <!-- End short use cases -->
-	  
+
 <section id="requirements"><h2>Requirements</h2>
 <p>The short use cases in the previous section, and the focal use cases towards the end of the document, point to a set of requirements that Decentralized Identifiers must fulfil. The use cases and their requirements are tabulated below, followed by a definition of each requirement.</p>
 <!-- table and reqs definitions are inserted automagically here -->
@@ -552,118 +576,118 @@ https://example.com/page.html
 <p>In collecting and evaluating potential use cases and requirements it is posisble to identify the key features of DIDs that provide benefits in the areas of anti-censorship, anti-exploitation, ease of use, privacy, and sustainability. The features and their associated benefits can be seen in the following grid.</p>
 <!-- grid automagically appears here -->
 </section>
-	  
+
   <section id="actions">
       <h2>DID Actions</h2>
-        <p>Here are the thirteen (13) actions envisioned in earlier work by 
-		<a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> as being necessarily supported by 
+        <p>Here are the thirteen (13) actions envisioned in earlier work by
+		<a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> as being necessarily supported by
 
-		<abbr title="Decentralized Identifier">DID</abbr>s. In the diagram, actions have been grouped by Create, Use, 
+		<abbr title="Decentralized Identifier">DID</abbr>s. In the diagram, actions have been grouped by Create, Use,
 		Read, Update, and Delete.</p>
             <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
-        <section id="create">
+        <section id="actionCreate">
         <h2>Create</h2>
-		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say 
-			'may be' but this can only be finalized when Issue-14 is resolved. (2020-04-01 - do we mean Issue-14? 
+		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say
+			'may be' but this can only be finalized when Issue-14 is resolved. (2020-04-01 - do we mean Issue-14?
 			Doesn't look relevant)</p>
-        <p>Controllers create DIDs, uniquely binding cryptographic proofs with the identifier, typically using 
-		public-private key-pairs. These DIDs may be recorded in a registry in such a manner as to be able to 
-		resolve to a  DID Document. The DID Document may be dynamically and deterministically generated through resolution or 
-		it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry. 
-		In this scenario, the process will need access to any registry, ideally a decentralized system, and like the 
+        <p>Controllers create DIDs, uniquely binding cryptographic proofs with the identifier, typically using
+		public-private key-pairs. These DIDs may be recorded in a registry in such a manner as to be able to
+		resolve to a  DID Document. The DID Document may be dynamically and deterministically generated through resolution or
+		it may be explicitly constructed as a  stand-alone resource and either stored or referenced in the registry.
+		In this scenario, the process will need access to any registry, ideally a decentralized system, and like the
 		rest of the DID actions, it should be possible to create the DID without interaction with any particular authority.</p>
         </section>
 	      <section id="use"><h2>Use</h2>
-        <section id="present">
+        <section id="actionPresent">
             <h3>Present</h3>
-        <p>DIDs are <a>URI</a>s, which is to say a string of characters. As such, they may be presented in the same manner as 
-		URIs by simply transmitting  or presenting that string of characters. There is no requirement, however, 
-		that DIDs be human readable. Thus they may contain long, complex numbers represented in  various formats. For 
-		ease of use, implementations may rely on data carriers such as QR codes [[QR]] for ease of capture using a camera-enabled device 
+        <p>DIDs are <a>URI</a>s, which is to say a string of characters. As such, they may be presented in the same manner as
+		URIs by simply transmitting  or presenting that string of characters. There is no requirement, however,
+		that DIDs be human readable. Thus they may contain long, complex numbers represented in  various formats. For
+		ease of use, implementations may rely on data carriers such as QR codes [[QR]] for ease of capture using a camera-enabled device
 		such as a smart phone.</p>
         </section>
-        <section id="authenticate">
+        <section id="actionAuthenticate">
         <h2>Authenticate</h2>
-		<p>Requesting Parties may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or 
-		specified as a Controller for a  particular service endpoint. This authentication process should use the cryptographic  
-		material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some 
-		sort of challenge-response. DID Documents and methods may allow for separate proofs for different service endpoints,  
-		distinct from update and delete actions. This separation would support transactional proofs that are expected to be 
+		<p>Requesting Parties may wish to prove that the individual presenting a DID is in fact its <a>DID Controller</a> or
+		specified as a Controller for a  particular service endpoint. This authentication process should use the cryptographic
+		material in the DID Document to test if the claimed Controller can, in fact, prove  control, typically through some
+		sort of challenge-response. DID Documents and methods may allow for separate proofs for different service endpoints,
+		distinct from update and delete actions. This separation would support transactional proofs that are expected to be
 		used frequently, while controlling proofs are expected to be used rarely.</p>
         </section>
-        <section id="sign">
+        <section id="actionSign">
         <h3>Sign</h3>
 		<p>Using cryptographic material associated with that found in a  <a>DID Document</a>, <a>DID Controller</a>s may sign digital
-		assets or documents. This  signature can <a href="#verifySignature">later be verified</a> to demonstrate the 
+		assets or documents. This  signature can <a href="#verifySignature">later be verified</a> to demonstrate the
 		authenticity of the asset. In this way, it should be possible to refer to the asset as "signed  by the DID".</p>
         </section>
 	      </section><!-- use -->
-	      <section id="read"><h2>Read</h2>
-        <section id="resolve">
+	      <section id="actonRead"><h2>Read</h2>
+        <section id="actionResolve">
         <h3>Resolve</h3>
-        <p>The first step in using a DID for anything other than presentation is to resolve the DID to a specific <a>DID Document</a>, 
-		to reveal the  cryptographic material and service endpoints associated with that DID. How this occurs should be 
+        <p>The first step in using a DID for anything other than presentation is to resolve the DID to a specific <a>DID Document</a>,
+		to reveal the  cryptographic material and service endpoints associated with that DID. How this occurs should be
 		method-specific and is out of scope for the DID Working Group.</p>
         </section>
-        <section id="dereference">
+        <section id="actionDereference">
         <h3>Dereference</h3>
-        <p>Dereferencing a DID uses the material in its DID Document to return a resource. The expectation is that, by default, dereferencing 
-		a DID without a reference to a service endpoint will return the <a>DID Document</a> itself. When a DID is combined with a 
-		<code>service</code> <a href="https://www.w3.org/TR/2019/WD-did-core-20191113/#generic-did-parameter-names">parameter</a> 
-		(forming a <a>DID URL</a>), dereferencing will return the resource pointed to from the named service endpoint, which was 
-		discovered by resolving the DID to its DID Document and looking up the endpoint by name. In this way, a 
-		Requesting Party may dynamically discover and  interact with the current service endpoints for a 
-		given DID. Services can therefore be given persistent identifiers that do not change even when the underlying service 
+        <p>Dereferencing a DID uses the material in its DID Document to return a resource. The expectation is that, by default, dereferencing
+		a DID without a reference to a service endpoint will return the <a>DID Document</a> itself. When a DID is combined with a
+		<code>service</code> <a href="https://www.w3.org/TR/2019/WD-did-core-20191113/#generic-did-parameter-names">parameter</a>
+		(forming a <a>DID URL</a>), dereferencing will return the resource pointed to from the named service endpoint, which was
+		discovered by resolving the DID to its DID Document and looking up the endpoint by name. In this way, a
+		Requesting Party may dynamically discover and  interact with the current service endpoints for a
+		given DID. Services can therefore be given persistent identifiers that do not change even when the underlying service
 		endpoints change.</p>
         </section>
-        <section id="verifySignature">
+        <section id="actionVerifySignature">
         <h2>Verify Signature</h2>
-        <p>Given a digital asset signed by a DID, a Requesting Party may use the 
+        <p>Given a digital asset signed by a DID, a Requesting Party may use the
 	cryptographic material in the DID Document to verify the signature.</p>
         </section>
-        <section id="audit">
+        <section id="actionAudit">
         <h2>Audit</h2>
-        <p>Some methods may provide an explicit audit trail of all  
-		actions on that DID, including a timestamp for when the actions took place. For distributed ledger-based 
+        <p>Some methods may provide an explicit audit trail of all
+		actions on that DID, including a timestamp for when the actions took place. For distributed ledger-based
 		registries, this audit trail is fundamental to the way  the ledgers record transactions. This would allow
-		Requesting Parties to see, for example, how recently a DID was rotated or its service 
-		endpoints updated, which may inform certain analytics regarding the reliability of the DID's  
+		Requesting Parties to see, for example, how recently a DID was rotated or its service
+		endpoints updated, which may inform certain analytics regarding the reliability of the DID's
     cryptographic material.</p>
 	</section>
 	      </section><!-- Read -->
-	      <section id="update"><h2>Update</h2>
-            <section id="rotate">
+	      <section id="actionUpdate"><h2>Update</h2>
+            <section id="actionRotate">
         <h2>Rotate</h2>
-        <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as 
-		<span class="highlight">recorded in its registry</span>. Different methods should be able to handle this differently, but 
+        <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as
+		<span class="highlight">recorded in its registry</span>. Different methods should be able to handle this differently, but
 		the result would be an update to the core cryptographic proof required to prove control of the DID and the DID Document.</p>
         </section>
-        <section id="modifyServiceEndpoint">
+        <section id="actionModifyServiceEndpoint">
         <h3>Modify Service Endpoint</h3>
-		<p><a>DID Controllers</a> should be able to change service endpoints associated with a DID, including the proof mechanism 
-		for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed to 
+		<p><a>DID Controllers</a> should be able to change service endpoints associated with a DID, including the proof mechanism
+		for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed to
 		allow Controllers to make these changes without necessarily changing the primary proof mechanism for control of the DID itself.</p>
         </section>
-        <section id="forwardMigrate">
+        <section id="actionForwardMigrate">
         <h3>Forward / Migrate</h3>
-		<p>To support interoperability, some methods may provide a way for <a>DID Controllers</a> to record in their registry (by updating the 
-		DID Document), that the  DID should be redirected to another DID, which now has full authority to represent the originating 
+		<p>To support interoperability, some methods may provide a way for <a>DID Controllers</a> to record in their registry (by updating the
+		DID Document), that the  DID should be redirected to another DID, which now has full authority to represent the originating
 		DID. This mechanism would allow <a>DID Controllers</a> to migrate a DID  from one method or registry to another.</p>
         </section>
-        <section id="recover">
+        <section id="actionRecover">
         <h3>Recover</h3>
-        <p>Some methods may provide a means for recovering control of a DID if its existing private cryptographic material is lost. These 
-		means will vary by method but can include social recovery, <span class="highlight">multi-signature</span>, 
-		<a href="https://en.wikipedia.org/wiki/Shamir's_Secret_Sharing">Shamir sharing</a>, or pre-rotated  keys. In general, 
-		recovery triggers a rotation to a new proof, allowing the <a>DID Controller</a> of that new proof to recover control of the 
+        <p>Some methods may provide a means for recovering control of a DID if its existing private cryptographic material is lost. These
+		means will vary by method but can include social recovery, <span class="highlight">multi-signature</span>,
+		<a href="https://en.wikipedia.org/wiki/Shamir's_Secret_Sharing">Shamir sharing</a>, or pre-rotated  keys. In general,
+		recovery triggers a rotation to a new proof, allowing the <a>DID Controller</a> of that new proof to recover control of the
 		DID without interacting  with any Requesting Parties.</p>
         </section>
     </section><!-- Update -->
     <section id="delete"><h2>Delete</h2>
-           <section id="deactivate"><h3>Deactivate</h3>
-       <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and 
-		dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.  
-		Indeed, distributed ledgers are often touted as "immutable". Methods should define deactivation processes to achieve 
+           <section id="actionDeactivate"><h3>Deactivate</h3>
+       <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and
+		dereferencing are no longer functional.  Most decentralized systems cannot guarantee actual deletion of a record.
+		Indeed, distributed ledgers are often touted as "immutable". Methods should define deactivation processes to achieve
 		the same effect as deletion. The mechanisms for deactivation will vary based on the method.</p>
         </section>
      </section><!--delete-->
@@ -934,7 +958,6 @@ https://example.com/page.html
 <span data-reqid="associatedCrypto"></span>,
 <span data-reqid="serviceEndpoint"></span>,
 <span data-reqid="privacyPreserving"></span>,
-<span data-reqid="anonymity"></span>,
 <span data-reqid="limitTrack"></span>,
 <span data-reqid="cryptoAuthComm"></span></p>
 
@@ -1287,7 +1310,10 @@ function createRequirementsDefList(targetElement) {
 if (document.getElementById('requirementsCrossRefTable') !== 'null'){createReqSummaryTable('requirements')}
 if (document.getElementById('requirementsDefinitions') !== 'null'){createRequirementsDefList('requirements')}
 if (document.getElementById('featureBenefitGridTable') !== 'null'){createFeatureBenefitGrid('featureBenefitGrid')}
+
+
+
 </script>
-	  
+
   </body>
 </html>
