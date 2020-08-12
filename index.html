@@ -1278,7 +1278,10 @@ function createFeatureBenefitGrid(targetElement) {
   for (let r = 0; r < reqObjectList.length; r++) {  // The list of requirements
     tr = document.createElement('tr');
     th = document.createElement('th');
-    th.appendChild(document.createTextNode(reqObjectList[r].name));
+    let a = document.createElement('a');
+    a.href = '#' + reqObjectList[r].id;
+    a.appendChild(document.createTextNode(reqObjectList[r].name));
+    th.appendChild(a);
     th.className = 'noBold';
     tr.appendChild(th);
     for (let f = 0; f < featureObjectList.length; f++) {
