@@ -473,6 +473,38 @@ https://example.com/page.html
         import of pirated product.</p>
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section>
+
+    <section id="didcomm">
+      <h3>DIDComm</h3>
+      <p>
+        DIDComm is a low-level protocol for interoperable, authenticated, 
+        end to end encryption using decentralized identifiers. 
+        It is transport-agnostic, meaning it can run over HTTP(S), 
+        email, sockets, Bluetooth, AMQP, sneakernet, NFC, XMPP, Kafka, 
+        or any other mechanism that makes data flow. 
+        It is message-based and asynchronous. 
+        DIDComm can be used as a foundation for any high-level protocol 
+        exchange sensitive information. DIDComm is not API-centric, 
+        which means it doesn't need a different serviceEndpoint for each protocol.
+      </p>
+
+      <p>
+        Some examples of problems solved by DIDComm-based protocols 
+        include 
+        <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0036-issue-credential/README.md">
+          issuing credentials one-by-one or in bulk
+        </a>, <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0037-present-proof/README.md">
+          exchanging a DIF presentation submission with a verifier
+        </a>, <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0075-payment-decorators/README.md">negotiating and finalizing payment</a>,
+         recovering a sharded secret, synchronizing the state of multiple mobile wallets, 
+        conducting a multi-player game, backing up and recovering 
+        personal data, <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0193-coin-flip/README.md">securely randomizing turn-taking</a>, and so forth.
+      </p>
+      
+      <p class="ednote">
+        See <a href="https://github.com/decentralized-identity/didcomm-messaging">decentralized-identity/didcomm-messaging</a> for latest issues.
+      </p>
+    </section>
   </section> <!-- End short use cases -->
   <section id="actions">
       <h2>DID Actions</h2>
@@ -1312,6 +1344,7 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
         </p>
       </section>
     </section>
+
       </section>
   </body>
 </html>
