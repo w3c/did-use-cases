@@ -474,36 +474,46 @@ https://example.com/page.html
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section>
 
-    <section id="didcomm">
-      <h3>DIDComm</h3>
+    <section id="didcomm-1">
+      <h3>Bulk Credential Issuance</h3>
       <p>
-        DIDComm is a low-level protocol for interoperable, authenticated, 
-        end to end encryption using decentralized identifiers. 
-        It is transport-agnostic, meaning it can run over HTTP(S), 
-        email, sockets, Bluetooth, AMQP, sneakernet, NFC, XMPP, Kafka, 
-        or any other mechanism that makes data flow. 
-        It is message-based and asynchronous. 
-        DIDComm can be used as a foundation for any high-level protocol 
-        exchange sensitive information. DIDComm is not API-centric, 
-        which means it doesn't need a different serviceEndpoint for each protocol.
-      </p>
-
-      <p>
-        Some examples of problems solved by DIDComm-based protocols 
-        include 
-        <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0036-issue-credential/README.md">
+        Using DIDs, key agreement keys and authenticated encryption, 
+        2 parties agree to issue one or more credentials over a message
+        oriented transport agnositc communication channel, such as <a href="https://github.com/decentralized-identity/didcomm-messaging">DIDComm</a>.
+        See <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0036-issue-credential/README.md">
           issuing credentials one-by-one or in bulk
-        </a>, <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0037-present-proof/README.md">
-          exchanging a DIF presentation submission with a verifier
-        </a>, <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0075-payment-decorators/README.md">negotiating and finalizing payment</a>,
-         recovering a sharded secret, synchronizing the state of multiple mobile wallets, 
-        conducting a multi-player game, backing up and recovering 
-        personal data, <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0193-coin-flip/README.md">securely randomizing turn-taking</a>, and so forth.
+        </a>.
       </p>
-      
-      <p class="ednote">
-        See <a href="https://github.com/decentralized-identity/didcomm-messaging">decentralized-identity/didcomm-messaging</a> for latest issues.
+      <p class="reqList"><span class="reqListbefore">Requirements:</span>
+        <span data-reqid="authenticate"></span>,
+        <span data-reqid="associatedCrypto"></span>
       </p>
+    </section>
+
+    <section id="didcomm-2">
+      <h3>Privacy Preserving Credential Presentations</h3>
+      <p>
+        Using DIDs, authentication keys and authenticated encryption, 
+        a party can privatly and securely present credentials over a message
+        oriented transport agnositc communication channel, such as <a href="https://github.com/decentralized-identity/didcomm-messaging">DIDComm</a>.
+        See <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0037-present-proof/README.md">
+          HyperLedger Aries Present Proof Protocol
+        </a> and <a href="https://identity.foundation/presentation-exchange/">DIF Presentation Exchange spec.</a>.
+      </p>
+    </section>
+
+    <section id="didcomm-3">
+      <h3>Negotiating and Finalizing Payment</h3>
+      <p>
+        Using DIDs, assertion method keys and authenticated encryption, 
+        a party can privatly and securely negotiate and finalize payment over a message
+        oriented transport agnositc communication channel, such as <a href="https://github.com/decentralized-identity/didcomm-messaging">DIDComm</a>.
+        See <a href="https://github.com/hyperledger/aries-rfcs/blob/master/features/0075-payment-decorators/README.md">
+        HyperLedger Aries Payment Decorators.
+        </a>
+      </p>
+    </section>
+ 
     </section>
   </section> <!-- End short use cases -->
   <section id="actions">
