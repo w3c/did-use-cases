@@ -596,7 +596,8 @@ https://example.com/page.html
     <span data-reqid="authenticate"></span>,
     <span data-reqid="noCallHome"></span>,
 	  <span data-reqid="associatedCrypto"></span>,
-    <span data-reqid="minRent"></span></p>
+    <span data-reqid="minRent"></span>,
+    <span data-reqid="legallyEnabled"></span></p>
 	  <p class="shortUcContributor">Suggested by DHS SVIP</p>
     </section><!-- digital PRC -->
 
@@ -639,7 +640,40 @@ https://example.com/page.html
 	  <span data-reqid="delegation"></span>,
     <span data-reqid="interJ"></span></p>
       <p class="shortUcContributor">Suggested by DHS SVIP</p>
-    </section>
+    </section><!-- importing retro toys -->
+
+    <section id="publicAuthorityCredentials">
+      <h3>Public authority identity credentials (eIDAS)</h3>
+      <p>Public authority based eID solutions, such as the eIDAS based approach of the
+        European Union, were originally designed for governmental services only. Due to
+        the limited number and frequency of use cases, the European Commission seeks to
+        extend the usage also for the private sector (healthcare, education, financial
+        services, etc.). The number of credentials provided and verified by public
+        authorities are – though quite limited – but of the highest level of assurance
+        and are based on a sound liability framework.</p>
+      <p>Therefore, it is useful to integrate these credentials provided by public
+        authorities via a standardized set of interfaces and credentials (such as eIDAS)
+        into an SSI based approach, which can be used to integrate credentials from other
+        trusted sources/credential issuer and enable fully automated use cases for private
+        sectors accordingly. This integration can also overcome the centralized approaches,
+        including eIDAS-nodes, and be amended with decentralized SSI approaches and make
+        them more adherent to GDPR and less prune to data breach attacks.</p>
+      <p>The <a href="https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=262505734">
+        European Self-Sovereign Identity Framework (ESSIF)</a> is being implemented to
+        combine the benefits of a decentralized identity architecture with the trust characteristics
+        offered by public authorities.</p>
+	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
+      <span data-reqid="authenticate"></span>,
+	  <span data-reqid="unique"></span>,
+	  <span data-reqid="noCallHome"></span>,
+	  <span data-reqid="associatedCrypto"></span>,
+	  <span data-reqid="minRent"></span>,
+      <span data-reqid="noVendorLock"></span>,
+      <span data-reqid="cryptoFuture"></span>,
+      <span data-reqid="cryptoAuthComm"></span>,
+      <span data-reqid="legallyEnabled"></span></p>
+      <p class="shortUcContributor">Suggested by Eric Wagner, Markus Sabadello</p>
+    </section><!-- public authority credentials -->
   </section> <!-- End short use cases -->
 
 <section id="requirements"><h2>Requirements</h2>
@@ -1526,7 +1560,8 @@ https://example.com/page.html
 <span data-reqid="cryptoFuture"></span>,
 <span data-reqid="deployEnd"></span>,
 <span data-reqid="survivesRel"></span>,
-<span data-reqid="cryptoAuthComm"></span></p>
+<span data-reqid="cryptoAuthComm"></span>,
+<span data-reqid="legallyEnabled"></span></p>
 
     </section> <!-- end law -->
 
@@ -1650,6 +1685,7 @@ reqObjectList.push(new ReqObject("deployEnd", "Survives deployment end-of-life",
 reqObjectList.push(new ReqObject("survivesRel", "Survives relationship with service provider", "These identifiers are not dependent on the tenure of the relationship with a service provider. This contrasts with identifiers like service-centric emails, e.g., joe@example.com, which when used as identifiers in other systems can cause problems when individuals no longer use the service provider.", ['antiExploit', 'sustainability']));
 reqObjectList.push(new ReqObject("cryptoAuthComm", "Cryptographic authentication and communication", "These identifiers enable cryptographic techniques to authenticate individuals and to secure communications with the subject of the identifier, typically using public-private key pairs.", ['antiCensorship', 'antiExploit']));
 reqObjectList.push(new ReqObject("regAgnostic", "Registry agnostic", "These identifiers are free to reside on any registry implementing a compatible interface. They are not beholden to any particular technology or vendor.", ['antiCensorship', 'antiExploit', 'sustainability']));
+reqObjectList.push(new ReqObject("legallyEnabled", "Legally-enabled identity", "These identifiers can be used as a basis for credentials and transactions that can be recognized as legally valid under one or more jurisdictions.", ['antiExploit', 'easeOfUse', 'sustainability']));
 
 
 featureObjectList.push(new featureObject("antiCensorship","Anti-censor"));
