@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf8"?>
+<!-- https://www.svgrepo.com/svg/14756/person-silhouette  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="650px" height="450px" viewBox="30 0 650 450" xml:space="preserve">
+
+  <style type="text/css">
+
+    text {
+      fill: black;
+      stroke: none;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Frutiger, Myriad, Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+      font-weight: normal;
+    }
+
+    #endArrow {
+      fill: rgb(49, 54, 149);
+      stroke: none;
+      stroke-width: 1px;
+      stroke-linejoin: round;
+    }
+
+    .connector text {
+      font-size: 18px;
+    }
+ 
+    .connector path {
+      fill: none;
+      stroke: rgb(49, 54, 149);
+      stroke-width: 3px;
+      marker-end: url(#endArrow);
+    }
+
+  </style>
+
+
+
+<defs>
+  <g id="person">
+  	<path d="M52.65,125.2h19.9c3.3,0,6-2.7,6-6V86.301h3.399c3.301,0,6-2.701,6-6V43.2c0-3.3-2.699-6-6-6H43.25c-3.3,0-6,2.7-6,6
+		v37.101c0,3.299,2.7,6,6,6h3.4V119.2C46.65,122.5,49.25,125.2,52.65,125.2z"/>
+  	<circle cx="62.55" cy="15.7" r="15.7"/>
+  </g>
+
+  <marker id="endArrow" viewBox="-30 -15 40 60" markerUnits="strokeWidth"
+    refX="-4" refY="0" markerWidth="10" markerHeight="20" orient="auto" class="process">
+    <path d="M-12,0 L-19,-9.5 L0,0 L-19,9.5 Z"/>
+  </marker>
+
+  <g class="header" id="headerEllipse">
+    <ellipse cx="280" cy="35" rx="50" ry="20" fill="cyan" stroke="black" stroke-width="1" />
+  </g>
+
+  <rect x="0" y="0" width="100" height="50" stroke="black" stroke-width="1" id="firstRect" />  
+
+  <rect x="0" y="0" width="200" height="50" stroke="black" stroke-width="1" id="secondRect" />
+
+
+</defs>
+
+<g id="use">
+  <use xlink:href="#headerEllipse" transform="translate(50,0)"/>
+  <text x="330" y="40">Use</text>
+
+  <g transform="translate(10, 60)">
+    <use xlink:href="#person" fill="#0c0"/>
+    <text x="63" y="140">Controller</text>
+  </g>
+
+  <g class="connector">
+    <path d="M110,100 220,100"/>
+    <text x="160" y="90">Present</text>
+  </g>
+
+  <use xlink:href="#secondRect" fill="#ccf" transform="translate(230,80)"/>
+  <text x="330" y="110">DID</text>
+
+  <g class="connector">
+    <path d="M110,180 220,180"/>
+    <text x="160" y="170">Publish</text>
+  </g>
+
+  <use xlink:href="#secondRect" fill="#ccf" transform="translate(230,160)"/>
+  <text x="330" y="190">Public proof material</text>
+
+  <g class="connector">
+    <path d="M450,100 570,100"/>
+  </g>
+
+  <g class="connector">
+    <path d="M550,180 450,180"/>
+    <path d="M550,180 570,180"/>
+    <text x="510" y="170">Resolve</text>
+  </g>
+
+  <g transform="translate(550, 60)">
+    <use xlink:href="#person" fill="#0c0"/>
+    <text x="63" y="150">Requesting Party</text>
+  </g>
+
+  <use xlink:href="#secondRect" fill="#ccf" transform="translate(230,240)"/>
+  <text x="330" y="270">Private proof material</text>
+
+  <g class="connector">
+    <path d="M100, 210, 100,270 220,270"/>
+    <text x="160" y="260">Sign using</text>
+  </g>
+
+  <use xlink:href="#secondRect" fill="#ccf" transform="translate(230,320)"/>
+  <text x="330" y="350">Challenge string</text>
+
+  <g class="connector">
+    <path d="M220,350 80,350 80,210"/>
+  </g>
+
+  <g class="connector">
+    <path d="M600,220 600,350 450,350"/>
+    <text x="520" y="340">Auth request</text>
+  </g>
+
+  <use xlink:href="#secondRect" fill="#ccf" transform="translate(230,400)"/>
+  <text x="330" y="430">Signed response</text>
+
+  <g class="connector">
+    <path d="M60,210 60,430 220,430"/>
+    <text x="140" y="420">Auth response</text>
+  </g>
+
+  <g class="connector">
+    <path d="M450,430 620,430 620,220"/>
+    <text x="540" y="420">Verify signature</text>
+  </g>
+
+
+
+</g>
+
+
+</svg>
+
+
+
+
+
+<!-- 3.2.2 replacememt text:
+
+Using private proof material tied to the public proof material in the DID Document, DID Controllers may sign digital assets or documents.
+
+This signature can later be verified using the public proof material to demonstrate the authenticity of the asset. In this way, it should be possible to refer to the asset as "signed by the DID".
+
+3.2.3 Verify signature
+Move this from 3.2.2: This signature can later be verified to demonstrate the authenticity of the asset. In this way, it should be possible to refer to the asset as "signed by the DID".
+
+
+3.2.4 (new) is Authenticate
+
+
+ -->
+
+
+
+
+
+
+

@@ -583,17 +583,21 @@ https://example.com/page.html
 
   <section id="actions">
       <h2>DID Actions</h2>
-        <p>Here are the thirteen (13) actions envisioned in earlier work by
+        <p>Here are the actions envisioned in earlier work by
 		<a href="https://www.w3.org/community/credentials/">Credentials Community Group</a> as being necessarily supported by
 
-		<abbr title="Decentralized Identifier">DID</abbr>s. In the diagram, actions have been grouped by Create, Use,
+		<abbr title="Decentralized Identifier">DID</abbr>s. Actions have been grouped by Create, Use,
 		Read, Update, and Delete.</p>
-            <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/>
+<!--            <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/> -->
         <section id="actionCreate">
         <h2>Create</h2>
-		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say
+<!--		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say
 			'may be' but this can only be finalized when Issue-14 is resolved. (2020-04-01 - do we mean Issue-14?
-			Doesn't look relevant)</p>
+			Doesn't look relevant)</p>-->
+<figure id="didCreate" class="actionSVG">
+<img src="images/didCreate.svg" alt="Diagram shows Subject and Controller as separate entities (represented as outlines of people) then an arrow labelled with the word Create pointing to a box representing the DID. A second arrow, labelled Register DID, points to a box representing the registry." />
+<figcaption>The basic flow for creating and registering a DID</figcaption>
+</figure>
         <p>Controllers create DIDs, uniquely binding cryptographic proofs with the identifier, typically using
 		public-private key-pairs. These DIDs may be recorded in a registry in such a manner as to be able to
 		resolve to a  DID Document. The DID Document may be dynamically and deterministically generated through resolution or
@@ -602,6 +606,11 @@ https://example.com/page.html
 		rest of the DID actions, it should be possible to create the DID without interaction with any particular authority.</p>
         </section>
 	      <section id="use"><h2>Use</h2>
+
+<figure id="didUse" class="actionSVG">
+<img src="images/didUse.svg" alt="Complex diagram. Controller presents DID to requesting party (RP). RP resolves DID to get public proof material published by controller, signed by controller's private proof material. Requesting party sends challenge string to controller who signs with same private material and returns, thus proving control of DID and verifying the signature." />
+<figcaption>Possible flow showing how an authentication interaction could use DIDs for autonomous authentication</figcaption>
+</figure>
         <section id="actionPresent">
             <h3>Present</h3>
         <p>DIDs are <a>URI</a>s, which is to say a string of characters. As such, they may be presented in the same manner as
@@ -625,8 +634,17 @@ https://example.com/page.html
 		assets or documents. This  signature can <a href="#verifySignature">later be verified</a> to demonstrate the
 		authenticity of the asset. In this way, it should be possible to refer to the asset as "signed  by the DID".</p>
         </section>
+        <section id="actionVerifySignature">
+        <h2>Verify Signature</h2>
+        <p>Given a digital asset signed by a DID, a Requesting Party may use the
+	cryptographic material in the DID Document to verify the signature.</p>
+        </section>
 	      </section><!-- use -->
 	      <section id="actonRead"><h2>Read</h2>
+<figure id="didRead" class="actionSVG">
+<img src="images/didRead.svg" alt="Complex diagram. Requesting party resolves DID at a DID registry. A DID document is returned. The DID is then dereferenced to get a service endpoint. There is no identity provider involved. The process can be audited by querying the registry." />
+<figcaption>The 'DID Document' should be understood to be information suitable for establishing secure interactions on behalf of the subject, such as public key material and service endpoints.</figcaption>
+</figure>
         <section id="actionResolve">
         <h3>Resolve</h3>
         <p>The first step in using a DID for anything other than presentation is to resolve the DID to a specific <a>DID Document</a>,
@@ -644,11 +662,6 @@ https://example.com/page.html
 		given DID. Services can therefore be given persistent identifiers that do not change even when the underlying service
 		endpoints change.</p>
         </section>
-        <section id="actionVerifySignature">
-        <h2>Verify Signature</h2>
-        <p>Given a digital asset signed by a DID, a Requesting Party may use the
-	cryptographic material in the DID Document to verify the signature.</p>
-        </section>
         <section id="actionAudit">
         <h2>Audit</h2>
         <p>Some methods may provide an explicit audit trail of all
@@ -660,6 +673,11 @@ https://example.com/page.html
 	</section>
 	      </section><!-- Read -->
 	      <section id="actionUpdate"><h2>Update</h2>
+<figure id="didUpdate" class="actionSVG">
+  <img src="images/didupdate.svg" alt="Diagram shows controller on the left with an arraow labeled 'Modify' leading to three boxes labeled 'Service endpoints', 'Forward/Migrate' and 'Recovery material'. A separate arrow labeled 'Rotate or revoke' points to 'Public proof material.'" />
+<figcaption>Controllers have many options to ensure the continued usefulness of a DID</figcaption>
+</figure>
+
             <section id="actionRotate">
         <h2>Rotate</h2>
         <p>Controllers may rotate (that is, update) the cryptographic material for a DID  by updating the DID Document as
@@ -688,11 +706,16 @@ https://example.com/page.html
         </section>
     </section><!-- Update -->
     <section id="delete"><h2>Delete</h2>
+<figure id="didDelete" class="actionSVG">
+<img src="images/didDelete.svg" alt="Diagram shows an arrow from the controller to the registry, labeled 'Deactivate DID'. On the roght hand side, the Requesting patry is connected to the Registry by an arrow labeled 'Resolve DID'. The return arrow, colored red, is labeled 'Inactive.'" />
+<figcaption>DIDs can be deactivated</figcaption>
+</figure>
+
            <section id="deactivate"><h3>Deactivate</h3>
        <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and 
 		dereferencing are no longer functional. Most decentralized systems cannot guarantee actual deletion of a record.  
 		Indeed, distributed ledgers are often touted as "immutable". Methods should define deactivation processes to achieve 
-		the same effect as deletion. The mechanisms for deactivation will vary based on the method.</p>
+		the same effect as deletion. The mechanisms for deactivation will vary based on the method and therefore the 'inactive' message(s) will vary.</p>
         </section>
      </section><!--delete-->
     </section> <!-- Actions -->

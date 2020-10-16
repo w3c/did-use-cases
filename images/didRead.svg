@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf8"?>
+<!-- https://www.svgrepo.com/svg/14756/person-silhouette  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="670px" height="300px" viewBox="100 0 670 300" xml:space="preserve">
+
+  <style type="text/css">
+    text {
+      fill: black;
+      stroke: none;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Frutiger, Myriad, Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+      font-weight: normal;
+    }
+
+    #endArrow {
+      fill: rgb(49, 54, 149);
+      stroke: none;
+      stroke-width: 1px;
+      stroke-linejoin: round;
+    }
+
+    .connector text {
+      font-size: 18px;
+      text-anchor: start;
+    }
+ 
+    .connector path {
+      fill: none;
+      stroke: rgb(49, 54, 149);
+      stroke-width: 3px;
+      marker-end: url(#endArrow);
+    }
+
+    .cross path {
+      fill: none;
+      stroke: rgb(255, 0, 0);
+      stroke-width: 3px;
+      marker-end: none;
+    }
+
+
+
+  </style>
+
+
+
+<defs>
+  <g id="person">
+  	<path d="M52.65,125.2h19.9c3.3,0,6-2.7,6-6V86.301h3.399c3.301,0,6-2.701,6-6V43.2c0-3.3-2.699-6-6-6H43.25c-3.3,0-6,2.7-6,6
+		v37.101c0,3.299,2.7,6,6,6h3.4V119.2C46.65,122.5,49.25,125.2,52.65,125.2z"/>
+  	<circle cx="62.55" cy="15.7" r="15.7"/>
+  </g>
+
+  <marker id="endArrow" viewBox="-30 -15 40 60" markerUnits="strokeWidth"
+    refX="-4" refY="0" markerWidth="10" markerHeight="20" orient="auto" class="process">
+    <path d="M-12,0 L-19,-9.5 L0,0 L-19,9.5 Z"/>
+  </marker>
+
+  <g class="header" id="headerEllipse">
+    <ellipse cx="280" cy="35" rx="50" ry="20" fill="cyan" stroke="black" stroke-width="1" />
+  </g>
+
+  <rect x="0" y="0" width="100" height="50" stroke="black" stroke-width="1" id="firstRect" />  
+  <rect x="0" y="0" width="200" height="50" stroke="black" stroke-width="1" id="secondRect" />
+
+</defs>
+
+<g id="present">
+  <use xlink:href="#headerEllipse" transform="translate(130, 0)" />
+  <text x="410" y="40">Read</text>
+
+  <use xlink:href="#firstRect" fill="#ccf" transform="translate(230,80)"/>
+  <text x="280" y="110">Registry</text>
+
+  <g class="connector">
+    <path d="M520,100 340,100"/>
+    <text x="380" y="90">Resolve DID</text>
+    <path d="M340,140 520,140"/>
+    <text x="380" y="130">DID Doc</text>
+    <path d="M520,180 280,180 280, 150"/>
+    <text x="380" y="170">Audit</text>
+  </g>
+
+  <g transform="translate(500, 60)">
+    <use xlink:href="#person" fill="#0c0"/>
+    <text x="63" y="140">Requesting Party</text>
+  </g>
+
+  <use xlink:href="#secondRect" fill="#ccf" transform="translate(130,240)"/>
+  <text x="230" y="270">Service endpoint</text>
+
+  <g class="connector">
+    <path d="M400,260 340,260"/>
+    <path d="M400,260 560,260 560, 210"/>
+    <text x="380" y="250" >Dereference DID</text>
+  </g>
+
+  <g transform="translate(630, 150)">
+    <use xlink:href="#person" fill="#0c0"/>
+    <text x="63" y="140">Identity provider</text>
+  </g>
+
+  <g class="cross" transform="translate(200, -150)">
+    <path d="M422,440 562,300"/>
+    <path d="M422,300 562,440"/>
+  </g>
+
+</g>
+
+
+
+
+</svg>

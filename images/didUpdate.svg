@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- https://www.svgrepo.com/svg/14756/person-silhouette  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="550px" height="310px" viewBox="0 0 550 310" xml:space="preserve">
+
+  <style type="text/css">
+    text {
+      fill: black;
+      stroke: none;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Frutiger, Myriad, Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+      font-weight: normal;
+    }
+
+    #endArrow {
+      fill: rgb(49, 54, 149);
+      stroke: none;
+      stroke-width: 1px;
+      stroke-linejoin: round;
+    }
+
+    .connector text {
+      font-size: 18px;
+    }
+
+    .connector text.left {
+      text-anchor: start;
+    }
+
+    .connector path {
+      fill: none;
+      stroke: rgb(49, 54, 149);
+      stroke-width: 3px;
+      marker-end: url(#endArrow);
+    }
+
+    .switcher {
+      text-decoration: underline;
+      cursor: pointer;
+      text-anchor:start;
+    }
+  
+  </style>
+
+
+
+<defs>
+  <g id="person">
+  	<path d="M52.65,125.2h19.9c3.3,0,6-2.7,6-6V86.301h3.399c3.301,0,6-2.701,6-6V43.2c0-3.3-2.699-6-6-6H43.25c-3.3,0-6,2.7-6,6
+		v37.101c0,3.299,2.7,6,6,6h3.4V119.2C46.65,122.5,49.25,125.2,52.65,125.2z"/>
+  	<circle cx="62.55" cy="15.7" r="15.7"/>
+  </g>
+
+  <marker id="endArrow" viewBox="-30 -15 40 60" markerUnits="strokeWidth"
+    refX="-4" refY="0" markerWidth="10" markerHeight="20" orient="auto" class="process">
+    <path d="M-12,0 L-19,-9.5 L0,0 L-19,9.5 Z"/>
+  </marker>
+
+  <g class="header" id="headerEllipse">
+    <ellipse cx="280" cy="35" rx="50" ry="20" fill="cyan" stroke="black" stroke-width="1" />
+  </g>
+
+  <rect x="0" y="0" width="170" height="50" stroke="black" stroke-width="1" id="firstRect" />
+
+</defs>
+
+
+<g id="update">
+  <use xlink:href="#headerEllipse" />
+  <text x="280" y="40">Update</text>
+
+  <g transform="translate(10, 60)">
+    <use xlink:href="#person" fill="#0c0"/>
+    <text x="63" y="140">Controller</text>
+  </g>
+
+  <g class="connector">
+    <path d="M110,100 280,100"/>
+    <text x="130" y="90" class="left">Modify</text>
+<!--    <text x="130" y="180" class="left">Forward/Migrate</text> -->
+  </g>
+
+  <use xlink:href="#firstRect" fill="#ccf" transform="translate(300,80)"/>
+  <text x="385" y="110">Service endpoints</text>
+
+  <use xlink:href="#firstRect" fill="#ccf" transform="translate(330,120)"/>
+  <text x="415" y="150">Forward/Migrate</text>
+
+  <use xlink:href="#firstRect" fill="#ccf" transform="translate(360,160)"/>
+  <text x="445" y="190">Recovery material</text>
+
+
+  <g class="connector">
+    <path d="M110,180 290,275"/>
+    <text x="190" y="220" class="left">Rotate or revoke</text>
+  </g>
+
+  <use xlink:href="#firstRect" fill="#ccf" transform="translate(300,250)"/>
+  <text x="385" y="280">Public proof material</text>
+
+</g>
+
+
+</svg>
