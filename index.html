@@ -644,24 +644,35 @@ https://example.com/page.html
 
     <section id="publicAuthorityCredentials">
       <h3>Public authority identity credentials (eIDAS)</h3>
-      <p>Public authority based eID solutions, such as the eIDAS based approach of the
-        European Union, were originally designed for governmental services only. Due to
-        the limited number and frequency of use cases, the European Commission seeks to
-        extend the usage also for the private sector (healthcare, education, financial
-        services, etc.). The number of credentials provided and verified by public
-        authorities are – though quite limited – but of the highest level of assurance
-        and are based on a sound liability framework.</p>
-      <p>Therefore, it is useful to integrate these credentials provided by public
-        authorities via a standardized set of interfaces and credentials (such as eIDAS)
-        into an SSI based approach, which can be used to integrate credentials from other
-        trusted sources/credential issuer and enable fully automated use cases for private
-        sectors accordingly. This integration can also overcome the centralized approaches,
-        including eIDAS-nodes, and be amended with decentralized SSI approaches and make
-        them more adherent to GDPR and less prune to data breach attacks.</p>
-      <p>The <a href="https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=262505734">
-        European Self-Sovereign Identity Framework (ESSIF)</a> is being implemented to
-        combine the benefits of a decentralized identity architecture with the trust characteristics
-        offered by public authorities.</p>
+      <p>Eva is a young woman and citizen of Belgium. Like many individuals of her
+        generation, what matters to her is not only her connection to her own nation
+        state, but also her identity as European as well as the beliefs in cross-border
+        values and mobility. Eva is interested in pursuing a Bachelor's Degree at a
+        university in Spain.</p>
+      <p>In order to facilitate the administrative processes involving authorities and
+        organizations in multiple countries, she wishes to manage her digital identity
+        in a way that is independent of a central authority. She installs a
+        wallet and creates a DID within the European Self-Sovereign Identity Framework
+        (<a href="https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=262505734">ESSIF</a>),
+        which is being implemented with support from the European Commission,
+        as part of the European Blockchain Service Infrastructure
+        (<a href="https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/ebsi">EBSI</a>).
+        Eva then requests a digital credential from the Federal Government of Belgium
+        containing claims about her legal identity (name, date of birth, etc.).
+        This credential is compliant with the E.U.'s Electronic IDentification,
+        Authentication and Trust Services regulation
+        (<a href="https://en.wikipedia.org/wiki/EIDAS">eIDAS</a>), which standardizes
+        attributes and trust services in all E.U. member states.</p>
+      <p>With her ESSIF identity, Eva can apply to the Spanish university. The university
+        in turn issues further digital credentials to Eva's wallet, such as a student
+        record number, or - after successful completion of the program - a digital diploma.
+        In her future life, Eva can continue to enrich and use her ESSIF identity in many
+        ways, for example when applying for a job at a company in Finland, for registering
+        her own business in Romania, for opening a bank account, or for applying for E.U.
+        grants. Since her ESSIF identity includes credentials from eIDAS-compliant public
+        authorities, it is suitable for use cases requiring the highest levels of
+        assurance, while still providing the benefits of a decentralized identity
+        architecture.</p>
 	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
       <span data-reqid="authenticate"></span>,
 	  <span data-reqid="unique"></span>,
