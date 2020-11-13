@@ -400,20 +400,33 @@ https://example.com/page.html
 	</section> <!-- Vehicle assemblies -->
 
 	<section id="edv"><h3>Encrypted Data Vault</h3>
-	<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to
+	<p>Maria runs a small shopping &amp; delivery service for several dozen shoppers. She uses a DID provided by 
+		each shopper to provide secure access to her records of purchases, which include receipts and product 
+		names for everything she's ever bought them through her service. As she shops, she scans the products 
+		as she puts them in her basket, automatically uploading her shopping progress to her secure storage. 
+		Her customers can follow along, viewing her progress and even communicating securely to answer questions about product options.</p>
+	<p>Each customer's data is encrypted just for them, and only accessible using the DID they gave to Maria. Customers 
+		are able to see the actual products purchased, with ready access to product details like USDA nutrition facts, 
+		ingredients, and certifications. All of this information is stored in the cloud, yet encrypted at the source 
+		so that not even the cloud storage provider can see what Maria is buying for her customers and each customer 
+		only has access to information related to their own shopping list. When she changes cloud providers, Maria 
+		is able to easily and simply migrate all of the data, encrypted and without exposing any data, while the system 
+		just continues to work with the new data store.</p>
+<!--		
+		<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to
 	you.’ For data to be stored in the cloud – in other words, on someone else’s computer – and for it to be only accessible to the data
 	owner, it must be encrypted. A Decentralized Identifier that leads to information with which a user can prove control of the
 	identifier without resort to a centralized authority could enable substitutable encrypted cloud storage. That is, the data owner
 	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control
 	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change
-	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>
+	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>-->
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="authenticate"></span>,
 		<span data-reqid="associatedCrypto"></span>,
 		<span data-reqid="keyRotation"></span>,
     <span data-reqid="noVendorLock"></span>,
     <span data-reqid="privacyPreserving"></span></p>
-	<p class="shortUcContributor">Contributed by Digital Bazaar &amp; Transmute</p>
+	<p class="shortUcContributor">Contributed by Digital Bazaar, Transmute &amp; Legendary Requirements</p>
 	</section> <!-- Encrypted Data Vault-->
 
 	<section id="accessingServiceEndpoints"><h3>Accessing Master Data of Entities</h3>
