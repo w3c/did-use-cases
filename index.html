@@ -1687,28 +1687,56 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 <h3>Alice Rents a Car (credentials)</h3>
 <section id="aliceRentsBackground">
 <h4>Background</h4>
-<p>It’s 2021 and <abbr title="Self-Sovereign Identity">SSI</abbr> is the golden child. Alice looks forward to never having to use a password or fill out a form again. Alice’s service providers are looking to adopt zero-trust architecture with <abbr title="Year 2000 bug">Y2K</abbr> zeal. Neither of them really know what SSI or zero-trust means, but they want it.</p>
+<p>It’s 2021 and <abbr title="Self-Sovereign Identity">SSI</abbr> is the golden child. Alice looks forward to never having to 
+	use a password or fill out a form again. Alice’s service providers are looking to adopt zero-trust architecture with 
+	<abbr title="Year 2000 bug">Y2K</abbr> zeal. Neither of them really know what SSI or zero-trust means, but they want it.</p>
 </section>
 <section id="aliceRentsDescription"><h4>Description</h4>
-<p>Alice has just provisioned an “agent” as recommended by an organization she trusts and supported by her browser vendor. It’s costing her $5/month and is somehow linked to the facial recognition that also unlocks her smartphone. Her agent occasionally sends a text message asking a question with a yes or no answer but otherwise mostly leaves her alone. Her agent bears a “Magic Button” logo that she thinks is a bit like “credit cards welcome here” in the old days.</p>
-<p>Alice is going to France. She uses a non-tracking search engine to discover a list of car rental companies anonymously to avoid price discrimination and targeted ads. Some of the rental companies display the "Magic Button" logo, some don’t. She knows that the ones that do will respect her agent. She picks a company for the rental even though she has never done business with them before, knowing that with "Magic Button" her user experience will be an automated breeze.</p>
-<p>Among dozens of others, Alice already has "Magic Button" service providers for her US driver’s license, her US insurance, and her bank. The <abbr title="Department of Motor Vehicles.">DMV</abbr>, insurer, and bank all authenticate Alice using a secure pseudonym linked to her smartphone. Each of the three has a different DID for Alice, but each of the three knows that they can use that DID in court to hold Alice accountable. Alice just knows that her smartphone allowed her to sign her driver’s license application, her insurance application, and her bank customer registration form using facial recognition because Gold Button works.</p>
+<p>Alice has just provisioned an “agent” as recommended by an organization she trusts and supported by her browser vendor. 
+	It’s costing her $5/month and is somehow linked to the facial recognition that also unlocks her smartphone. Her 
+	agent occasionally sends a text message asking a question with a yes or no answer but otherwise mostly leaves her 
+	alone. Her agent bears a “Magic Button” logo that she thinks is a bit like “credit cards welcome here” in the old days.</p>
+<p>Alice is going to France. She uses a non-tracking search engine to discover a list of car rental companies anonymously to avoid 
+	price discrimination and targeted ads. Some of the rental companies display the "Magic Button" logo, some don’t. She 
+	knows that the ones that do will respect her agent. She picks a company for the rental even though she has never done 
+	business with them before, knowing that with "Magic Button" her user experience will be an automated breeze.</p>
+<p>Among dozens of others, Alice already has "Magic Button" service providers for her US driver’s license, her US insurance, 
+	and her bank. The <abbr title="Department of Motor Vehicles.">DMV</abbr>, insurer, and bank all authenticate Alice using 
+	a secure pseudonym linked to her smartphone. Each of the three has a different DID for Alice, but each of the three knows 
+	that they can use that DID in court to hold Alice accountable. Alice just knows that her smartphone allowed her to sign her 
+	driver’s license application, her insurance application, and her bank customer registration form using facial recognition because "Magic Button" works.</p>
 <p>Alice clicks on the “Rent Now” button and:</p><ul>
   <li>Exposes a DID through her agent in order to set up a secure communication channel.</li>
-  <li>The car rental company tells Alice’s agent that they will need license, insurance, and bank info for the purpose of renting a car in France.</li>
-  <li>Alice’s agent has a policy that saying that any company as large as her chosen car rental company can get whatever they explicitly ask for. Smaller companies, or large ones on a blacklist may need Alice to give explicit permission &mdash; which the agent will ask for using a text message.</li>
-  <li>Alice’s agent gives offers three signed bearer tokens authorizing release of her personal information from three specific service providers. These tokens are encrypted so that the rental company doesn’t know what’s in them. Alice’s service providers use pre-registered information linked to their DID for Alice to decrypt the tokens and verify they were signed by Alice’s agent.</li>
-  <li>Note, that in this example, Alice does not care that her three service providers know she is becoming a rental customer. If Alice did care, she might go through the trouble of having one or another of the services issue a Verified Credential to her so she can present it wherever she wants. Alice’s agent has policies that force the more privacy preserving, Holder-mediated flow when dealing with some less trusted vendors.</li>
-  <li>The rental company gathers the information from Alice’s service providers, checks it against their internal rental policies, and issues Alice’s agent a signed capability linked to a QR code. The agent emails the capability to Alice.</li></ul>
+  <li>The car rental company tells Alice’s agent that they will need license, insurance, and bank info for the purpose of 
+	  renting a car in France.</li>
+  <li>Alice’s agent has a policy that saying that any company as large as her chosen car rental company can get whatever 
+	  they explicitly ask for. Smaller companies, or large ones on a blacklist may need Alice to give explicit permission 
+	  &mdash; which the agent will ask for using a text message.</li>
+  <li>Alice’s agent gives offers three signed bearer tokens authorizing release of her personal information from three specific 
+	  service providers. These tokens are encrypted so that the rental company doesn’t know what’s in them. Alice’s service 
+	  providers use pre-registered information linked to their DID for Alice to decrypt the tokens and verify they were signed by Alice’s agent.</li>
+  <li>Note, that in this example, Alice does not care that her three service providers know she is becoming a rental customer. 
+	  If Alice did care, she might go through the trouble of having one or another of the services issue a Verified Credential 
+	  to her so she can present it wherever she wants. Alice’s agent has policies that force the more privacy preserving, 
+	  Holder-mediated flow when dealing with some less trusted vendors.</li>
+  <li>The rental company gathers the information from Alice’s service providers, checks it against their internal rental policies, 
+	  and issues Alice’s agent a signed capability linked to a QR code. The agent emails the capability to Alice.</li></ul>
 <p>The whole sequence from click in the search results to Alice getting a QR code in the email took 8 seconds. A week later:</p><ul>
-  <li>Alice goes to the rental garage at Charles de Gaulle airport, and picks a car with the keys already in it and the price posted on the parking space. She drives to the automated exit gate.</li>
-  <li>At the gate, Alice opens her email, shows the QR code she received through her agent and gets a message on her phone asking her to scan her face. The gate agent combines the license info of the car, the QR code and the challenge signed by Alice with her face and opens the gate.</li></ul>
+  <li>Alice goes to the rental garage at Charles de Gaulle airport, and picks a car with the keys already in it and the price posted on 
+	  the parking space. She drives to the automated exit gate.</li>
+  <li>At the gate, Alice opens her email, shows the QR code she received through her agent and gets a message on her phone 
+	  asking her to scan her face. The gate agent combines the license info of the car, the QR code and the challenge signed 
+	  by Alice with her face and opens the gate.</li></ul>
 </section>
 <section id="aliceRentsChallenges"><h4>Challenges</h4>
-<p>The challenge in this case is to combine technical standards and protocols into a <em>human-meaningful</em> interoperability claim that crosses between one's general-purpose agent and a multitude of domain-specific service offerings.</p>
+<p>The challenge in this case is to combine technical standards and protocols into a <em>human-meaningful</em> interoperability 
+	claim that crosses between one's general-purpose agent and a multitude of domain-specific service offerings.</p>
 </section>
 <section id="aliceRentsDistinction"><h4>Distinction</h4>
-<p>This use case is based on a profiling exercise by a group to be determined and the voluntary adoption of the badge by some agents and some service providers. The badge need not be associated with a costly certification process which means that both audited and un-audited versions of the claim can co-exist. False and misleading assertions are already enforced by both the marketplace and by truth in labeling laws.</p>
+<p>This use case is based on a profiling exercise by a group to be determined and the voluntary adoption of the badge by some 
+	agents and some service providers. The badge need not be associated with a costly certification process which means that 
+	both audited and un-audited versions of the claim can co-exist. False and misleading assertions are already enforced by 
+	both the marketplace and by truth in labeling laws.</p>
 </section>
 
 <p class="reqList"><span class="reqListbefore">Requirements:</span>
