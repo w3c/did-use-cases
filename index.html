@@ -1750,6 +1750,71 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 
 </section> <!-- Alice Rents a car -->
 
+<section id="messaging">
+      <h3>Secure Messaging (consumer)</h3>
+      <section id="messagingBackground">
+        <h4>Background</h4>
+        <p>
+          On the web today, the process of connecting with other users and sharing information via messages is almost always facilitated by centralized systems that mediate the interaction. Secure messaging services like Signal, Telegram, WhatsApp are available and widely used, though there is no common standard around the messages being exchanged, effectively creating siloed ecosystems that prevent data portability and make it difficult to implement secure messaging functionality more broadly into applications and services. In addition, existing secure messaging services typically use phone numbers as primary identifiers, which creates a number of security limitations and privacy implications for the user. 
+        </p>
+        <p>
+          Secure communication based on DIDs such as <a href="https://identity.foundation/didcomm-messaging/spec/">DIDComm</a> provides a unique solution to this problem that not only addresses the limitations of secure messaging for consumers, but provides a more terse and consistent messaging protocol that can be implemented broadly as an asynchronous decentralized service. The motivation of DIDComm is to allow machine-readable messages to be sent back and forth between virtually any person or thing by utilizing the security features of decentralized identifiers. The use of DIDs as primary identifiers allows for secure communication that’s resilient to address change -- rollover of identifiers, keys, or service endpoints. Providing messaging functionality as a native feature of decentralized systems enables the internet to be built on a foundation of user-sovereign, peer-to-peer connections, unifying various kinds of distributed applications using message-based architectures. This will not only create new kinds of value for users, but also new opportunities for organizations, machines, and software projects.
+        </p>
+      </section>
+      <section id="messagingDescription">
+        <h4>Description</h4>
+        <p>
+          Samira works as a therapist. When she meets a new client, she establishes a secure connection with them by having them scan a QR code to exchange her DID and start sharing messages. Messages are secured via mutual authentication between Samira and her clients. Using this connection, Samira is able to have private and confidential communications with her patients at any time. Her patients are able to have confidence that they’re talking to Samira, and Samira is able to tell whether she is speaking to a client, or, if delegated by the client, communicating with their spouse or children. 
+        </p>
+        <p>
+          Samira is part of a network of therapists that share best practices and insights from their respective fields. Using a separate DID to identify herself in the group, she is able to keep these communications separate from conversations with her clients and can be sure that her messages can only be read by their intended recipients in either context. In addition, Samira doesn’t have to worry that what she shares in the context of her professional peers will be seen by her employer or her clients.
+        </p>
+        <p>
+          Samira also communicates with her friends and family via instant messaging to keep in touch. She lives in the United States and wants to talk to her brother Ahmed who lives in Sudan. They both have mobile phones but can’t send SMS to one another without incurring fees from their service provider. Samira sends Ahmed an invitation to connect with her using a newly created DID, which Ahmed uses to establish a connection and start securely messaging with his sister. 
+        </p>
+        <p>
+          Eventually, Samira loses her phone. To make sure no one impersonates her, she rotates the keys on all of the DIDs she is using for communication. Rather than losing access to all of her existing connections, Samira is able to update her service endpoints and routing capabilities to make sure she is still receiving messages on the devices she still owns. When she gets a new phone, she can add new keys to her DID Document to continue exchanging secure messages with her connections uninterrupted. In the case that Samira wants to change the DIDs she’s using, for instance because she’s changing DID method providers, she can send a message to her connections notifying them that she’s deprecating her old DID and using a new DID with authentic digital signatures.
+        </p>
+        <p>
+          Samira is able to manage all of her messaging with different connections while maintaining her privacy and preventing unwanted tracking of her communications across applications. This allows her to be social and active without inviting unwanted spam, attention, and surveillance. In addition, she is able to manage the contexts of her connections with greater ease, making sure she is sharing the right information with the right people and generally having more control over her experience by giving her the ability to move her data, change devices, and more. 
+        </p>
+      </section>
+
+      <section id="messagingChallenges">
+        <h4>Challenges</h4>
+        <p>
+          In order to facilitate secure communication using decentralized identifiers, users may often need to share their DID over an out-of-band connection such as SMS, bluetooth, QR code, etc. Depending on the type and quality of the connection, this step may prove to be a vulnerability if the connection is compromised.
+        </p>
+        <p>
+          In addition, bridging the gap between app-based communications and consumer messaging introduces a number of user experience challenges that need to be addressed, particularly around context management and the automation of connection management like key rotation, service endpoints, and routing via Agents. Users should not be exposed to the details of such coordination, but should be able to interact with, modify, and audit the process as needed. It’s likely that users will be interacting with this secure messaging protocol via a number of different interfaces, though the logic and experience should be coherent and consistent across different platforms.
+        </p>
+      </section>
+      <section id="messagingDistinction">
+        <h4>Distinction</h4>
+        <p>
+          This use case focuses on the widespread need for distributed and asynchronous messaging services that are not mediated by a third party and which utilize cryptography in a way that's directly applicable to everyday users. It directly addresses the reliance on phone numbers as primary identifiers for messaging services.
+        </p>
+      </section>
+    <p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="keyRotation"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="privacyPreserving"></span>,
+<span data-reqid="delegation"></span>,
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="limitTrack"></span>,
+<span data-reqid="cryptoFuture"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="cryptoAuthComm"></span>,
+<span data-reqid="humanInterop"></span></p>
+
+    </section> <!-- end messaging -->
+
 </section>
 	    
 	    
