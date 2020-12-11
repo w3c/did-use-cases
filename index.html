@@ -1905,7 +1905,10 @@ function createReqSummaryTable(targetElement) {
     let tr = document.createElement('tr');
     th = document.createElement('th');
     th.className = 'noBold';
-    th.appendChild(document.createTextNode(ucObjectList[u].name));
+    let ucRef = document.createElement('a');
+    ucRef.href = '#' + ucObjectList[u].id;
+    ucRef.appendChild(document.createTextNode(ucObjectList[u].name));
+    th.appendChild(ucRef);
     tr.appendChild(th);
     for (let r = 0; r < reqObjectList.length; r++) {  // The list of requirements
       let td = document.createElement('td');
@@ -1917,6 +1920,7 @@ function createReqSummaryTable(targetElement) {
     }
     table.appendChild(tr);
   }
+  table.appendChild(headertr.cloneNode(true));  // Repeat header row at the bottom of the table.
   document.getElementById(targetElement).appendChild(table);
 }
 
@@ -1986,9 +1990,6 @@ function createRequirementsDefList(targetElement) {
 if (document.getElementById('requirementsCrossRefTable') !== 'null'){createReqSummaryTable('requirements')}
 if (document.getElementById('requirementsDefinitions') !== 'null'){createRequirementsDefList('requirements')}
 if (document.getElementById('featureBenefitGridTable') !== 'null'){createFeatureBenefitGrid('featureBenefitGrid')}
-
-
-
 </script>
 
   </body>
