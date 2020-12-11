@@ -137,7 +137,7 @@
         agency;</li>
         <li><strong>persistent</strong>: the identifier should be inherently
         persistent, not requiring the continued operation of an underling organization;</li>
-        <li><strong>cryptographically verifiable</strong>: it should be possible 
+        <li><strong>cryptographically verifiable</strong>: it should be possible
         to prove control of the identifier cryptographically;</li>
         <li><strong>resolvable</strong>: it should be possible to discover
         metadata about the identifier.</li>
@@ -147,11 +147,11 @@
     <section id="sotd"></section>
     <section id="intro">
       <h2>Introduction</h2>
-      <p>The need for globally unique identifier schemes has been addressed many 
-      times. Globally unique ID schemes typically rely on a central authority 
-      controlling a 'root' space that is then delegated to local organizations 
-      who in turn delegate to further organizations who eventually add the final 
-      string to complete the identifier. Even if we restrict ourselves to online 
+      <p>The need for globally unique identifier schemes has been addressed many
+      times. Globally unique ID schemes typically rely on a central authority
+      controlling a 'root' space that is then delegated to local organizations
+      who in turn delegate to further organizations who eventually add the final
+      string to complete the identifier. Even if we restrict ourselves to online
       identifiers, there are many examples of this.</p><ul>
   <li>IANA controls the root namespace of the Internet's Domain Name System;
       registrars operate the top level domains and then license specific domain
@@ -194,7 +194,7 @@ https://example.com/page.html
         agency;</li>
         <li><strong>persistent</strong>: the identifier should be inherently
         persistent, not requiring the continued operation of an underling organization;</li>
-        <li><strong>cryptographically verifiable</strong>: it should be possible 
+        <li><strong>cryptographically verifiable</strong>: it should be possible
         to prove control of the identifier cryptographically;</li>
         <li><strong>resolvable</strong>: it should be possible to discover
         metadata about the identifier.</li>
@@ -300,19 +300,19 @@ https://example.com/page.html
         <h2>Use Cases</h2>
         <section id="onlineShopper">
           <h3>Online shopper</h3>
-        <p>Merry has been seeking a special edition, collectible card ever since her best friend, Eli, opined about 
-		losing the one his Dad had given him as a reward for getting straight "A"s at school. She found it 
-		on an online marketplace, for sale by DeepVintage in another country, over 2000 miles away. Although the 
+        <p>Merry has been seeking a special edition, collectible card ever since her best friend, Eli, opined about
+		losing the one his Dad had given him as a reward for getting straight "A"s at school. She found it
+		on an online marketplace, for sale by DeepVintage in another country, over 2000 miles away. Although the
 		marketplace promises refunds, Merry is also worried that Eli's heart would be broken if she accidentally got him a fake.</p>
-	<p>Fortunately, DeepVintage makes use of globally-recognized identifiers for everything in its marketplace so that Merry 
-		can be sure she's searching the the right collectible. Furthermore, DeepVintage is 
+	<p>Fortunately, DeepVintage makes use of globally-recognized identifiers for everything in its marketplace so that Merry
+		can be sure she's searching the the right collectible. Furthermore, DeepVintage is
 		able to provide identity documentation in the form of signed statements of title transfer from each of the owners,
-		all the way back to the original, which includes a statement of authenticity from the original manufacturer. Each of 
-		the signed statements can be independently verified because they were signed using public DIDs for the buyer and seller. 
-		The collected signatures comprise a complete chain of custody along with some interesting anecdotes about each sale. 
+		all the way back to the original, which includes a statement of authenticity from the original manufacturer. Each of
+		the signed statements can be independently verified because they were signed using public DIDs for the buyer and seller.
+		The collected signatures comprise a complete chain of custody along with some interesting anecdotes about each sale.
 		Merry was able to verify the provenance of the card and delighted Eli with a surprise gift of a perfect replacement for his lost memento.</p>
-		
-		<!--		
+
+		<!--
 		<p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase.
 		The product and the information about it is trusted because it is put there by the brand, and the shopper trusts that
 		the retailer has received the product through trusted supply chain partners. Today, there is a multitude of
@@ -349,22 +349,22 @@ https://example.com/page.html
         </section><!-- Online shopper-->
 
 	<section id="vehicleAssemblies"><h3>Vehicle assemblies</h3>
-		<p>When Bertha bought her new car, it came with its own DID, not just as an alternative 
-			<abbr title="Vehicle Identification Number">VIN</abbr>, but with unique DIDs for every replaceable 
-			component in the vehicle and a secure data storage for keeping track of vehicle use and maintenance. 
-			Even before she purchased it, she was able to verify that, as advertised, every part in the car is 
+		<p>When Bertha bought her new car, it came with its own DID, not just as an alternative
+			<abbr title="Vehicle Identification Number">VIN</abbr>, but with unique DIDs for every replaceable
+			component in the vehicle and a secure data storage for keeping track of vehicle use and maintenance.
+			Even before she purchased it, she was able to verify that, as advertised, every part in the car is
 			100% made with carbon-neutral processes as certified by various independent agencies.</p>
-		<p>As the controller of the car's DID, she had automatic control over all of its components' DIDs. During 
-			maintenance, she would choose mechanics that automatically provided digital records of their work, 
-			stored at her direction in the car's data store. When a part needed to be replaced, she'd make sure 
-			the new component's DID is recorded and the old one retired. Similarly, her car automatically tracked 
+		<p>As the controller of the car's DID, she had automatic control over all of its components' DIDs. During
+			maintenance, she would choose mechanics that automatically provided digital records of their work,
+			stored at her direction in the car's data store. When a part needed to be replaced, she'd make sure
+			the new component's DID is recorded and the old one retired. Similarly, her car automatically tracked
 			fuel purchases and saved telemetry reports to storage, where it was kept securely under her control.</p>
-		<p>She found an insurance company that was able to automatically offer her a discount after passing a certification 
-			of good maintenance and good driving. When she later put her car up for sale, she was able to prove her 
-			track record of maintenance. Upon sale, she transferred control over the car's DID and its secure storage, 
+		<p>She found an insurance company that was able to automatically offer her a discount after passing a certification
+			of good maintenance and good driving. When she later put her car up for sale, she was able to prove her
+			track record of maintenance. Upon sale, she transferred control over the car's DID and its secure storage,
 			giving the new owner a working, and contiguous record of the vehicle.</p>
-		
-<!--		
+
+<!--
 	<p>Manufactured goods are usually the output of multiple processes carried out by multiple actors. Think of a vehicle
 	(be it a ship, a train, a car or a plane) with
 	components and assemblies of components from multiple suppliers that are then added to the emerging vehicle as it makes its
@@ -402,19 +402,19 @@ https://example.com/page.html
 	</section> <!-- Vehicle assemblies -->
 
 	<section id="edv"><h3>Encrypted Data Vault</h3>
-	<p>Maria runs a small shopping &amp; delivery service for several dozen shoppers. She uses a DID provided by 
-		each shopper to provide secure access to her records of purchases, which include receipts and product 
-		names for everything she's ever bought them through her service. As she shops, she scans the products 
-		as she puts them in her basket, automatically uploading her shopping progress to her secure storage. 
+	<p>Maria runs a small shopping &amp; delivery service for several dozen shoppers. She uses a DID provided by
+		each shopper to provide secure access to her records of purchases, which include receipts and product
+		names for everything she's ever bought them through her service. As she shops, she scans the products
+		as she puts them in her basket, automatically uploading her shopping progress to her secure storage.
 		Her customers can follow along, viewing her progress and even communicating securely to answer questions about product options.</p>
-	<p>Each customer's data is encrypted just for them, and only accessible using the DID they gave to Maria. Customers 
-		are able to see the actual products purchased, with ready access to product details like USDA nutrition facts, 
-		ingredients, and certifications. All of this information is stored in the cloud, yet encrypted at the source 
-		so that not even the cloud storage provider can see what Maria is buying for her customers and each customer 
-		only has access to information related to their own shopping list. When she changes cloud providers, Maria 
-		is able to easily and simply migrate all of the data, encrypted and without exposing any data, while the system 
+	<p>Each customer's data is encrypted just for them, and only accessible using the DID they gave to Maria. Customers
+		are able to see the actual products purchased, with ready access to product details like USDA nutrition facts,
+		ingredients, and certifications. All of this information is stored in the cloud, yet encrypted at the source
+		so that not even the cloud storage provider can see what Maria is buying for her customers and each customer
+		only has access to information related to their own shopping list. When she changes cloud providers, Maria
+		is able to easily and simply migrate all of the data, encrypted and without exposing any data, while the system
 		just continues to work with the new data store.</p>
-<!--		
+<!--
 		<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to
 	you.’ For data to be stored in the cloud – in other words, on someone else’s computer – and for it to be only accessible to the data
 	owner, it must be encrypted. A Decentralized Identifier that leads to information with which a user can prove control of the
@@ -451,21 +451,21 @@ https://example.com/page.html
 	</section><!-- service endpoints-->
 
 	<section id="vcEcosystem"><h3>Identifiers in an ecosystem of verifiable credentials (VCs)</h3>
-		<p>Dixon's employer uses DIDs and <abbr title="Verifiable Credentials">VC</abbr>s to track workplace successes and recognition. 
-			Every employee has a DID registered with the company and accessible via the company registry. When he 
-			completes a training program &mdash; like CPR or Export Compliance &mdash; or receives an accolade like employee of 
-			the month, the company mints a new Verifiable Credential. These are not only used by <abbr title="Human resources">HR</abbr> 
-			in their evaluations for raises and bonuses, they are all made available to Dixon in a form he can use outside 
+		<p>Dixon's employer uses DIDs and <abbr title="Verifiable Credentials">VC</abbr>s to track workplace successes and recognition.
+			Every employee has a DID registered with the company and accessible via the company registry. When he
+			completes a training program &mdash; like CPR or Export Compliance &mdash; or receives an accolade like employee of
+			the month, the company mints a new Verifiable Credential. These are not only used by <abbr title="Human resources">HR</abbr>
+			in their evaluations for raises and bonuses, they are all made available to Dixon in a form he can use outside
 			the firm. He maintains a career portfolio on his own server which he uses to keep track of his career.</p>
-		<p>When a devastating Earthquake nearly destroyed half of his small town, Dixon was able to present a selection 
-			of his workplace credentials to the office of the Incident Commander, establishing his expertise in disaster 
-			response. He used the proof material associated with the DID to prove that he was the recipient of those 
+		<p>When a devastating Earthquake nearly destroyed half of his small town, Dixon was able to present a selection
+			of his workplace credentials to the office of the Incident Commander, establishing his expertise in disaster
+			response. He used the proof material associated with the DID to prove that he was the recipient of those
 			credentials. He was immediately put to work helping people recover from the disaster.</p>
-		<p>Over the years, following corporate policy, he updates his cryptographic material for his workplace DID. After 
+		<p>Over the years, following corporate policy, he updates his cryptographic material for his workplace DID. After
 			these updates, all of the credentials could still be verified as having been issued to Dixon.</p>
-		
+
 <!--
-		
+
 		<p>Remembering the <a href="#abstract">4 essential characteristics of a decentralized identifier</a>, there are situations
 		where DIDs offer tangible benefits over existing identifier schemes. For example:</p><ul>
 	<li>Verifiable credential issuers publishing the list of subject attributes that they are authoritative for (their
@@ -474,8 +474,8 @@ https://example.com/page.html
 	<li>Terms of use or other policy constraints that might apply to issued <abbr title="Verifiable Credential">VC</abbr>s.</li>
 	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself
 		be verified.</li>
-	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys 
-		being compromised or the development of superior technology. This does not affect the validity or provability of any 
+	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys
+		being compromised or the development of superior technology. This does not affect the validity or provability of any
 		verifiable credentials associated with that identifier.</li>
 	</ul>-->
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
@@ -489,37 +489,37 @@ https://example.com/page.html
 
 	<section id="crossPlatform">
           <h3>Sharing opted-in information across platforms</h3>
-		<p>Franklyn is frustrated by the seemingly endless surveillance that tracks his activity online. He is a 
-			single father of two girls whose privacy is absolutely vital to him. He does what he can to minimize 
-			the ways in which he might accidentally put his kids at risk, avoiding sharing details of his life, 
-			his shopping, or the inadvertent geo-located digital photo. He has minimized her digital footprint and 
+		<p>Franklyn is frustrated by the seemingly endless surveillance that tracks his activity online. He is a
+			single father of two girls whose privacy is absolutely vital to him. He does what he can to minimize
+			the ways in which he might accidentally put his kids at risk, avoiding sharing details of his life,
+			his shopping, or the inadvertent geo-located digital photo. He has minimized her digital footprint and
 			opted out of everything but the most secure and privacy respecting sites.</p>
-		<p>However, when he can verify that a website is meeting his own standards for privacy and is willing to accept 
-			a fiduciary obligation to protect her and her information, he appreciates the personalized services 
+		<p>However, when he can verify that a website is meeting his own standards for privacy and is willing to accept
+			a fiduciary obligation to protect her and her information, he appreciates the personalized services
 			that can be created by sharing select nuggets of information while remaining as anonymous as possible.</p>
-		<p>For each service, he creates a new unique DID and authorizes the company to use it to track him, as long as they 
-			have agreed to his specific terms of service, which covers inappropriate use of his data, whether internally 
-			or in redistributing it to other companies. With this unique identifier, the services are able to build 
-			up a history of interactions with Franklyn, without recourse to his legal identity, IP address, any 
-			credit or income data, nothing. Just the DID. By authenticating using the DID the service has an exceptionally 
-			strong assurance that the current session is Franklyn. Should the store data become compromised in a data breach, 
-			all the attackers will get is a history of shopping and shopping lists associated with an arbitrary DID 
+		<p>For each service, he creates a new unique DID and authorizes the company to use it to track him, as long as they
+			have agreed to his specific terms of service, which covers inappropriate use of his data, whether internally
+			or in redistributing it to other companies. With this unique identifier, the services are able to build
+			up a history of interactions with Franklyn, without recourse to his legal identity, IP address, any
+			credit or income data, nothing. Just the DID. By authenticating using the DID the service has an exceptionally
+			strong assurance that the current session is Franklyn. Should the store data become compromised in a data breach,
+			all the attackers will get is a history of shopping and shopping lists associated with an arbitrary DID
 			controlled by an unknown party.</p>
-		<p>As he becomes comfortable with a given service, he gradually shares more details, such as his pending shopping requirements. 
-			This virtual shopping list is broken into categories and different parts are shared with different retailers depending 
-			on their specialty. The stores are able to notify Franklyn of any special offers, which he is free to ignore or 
+		<p>As he becomes comfortable with a given service, he gradually shares more details, such as his pending shopping requirements.
+			This virtual shopping list is broken into categories and different parts are shared with different retailers depending
+			on their specialty. The stores are able to notify Franklyn of any special offers, which he is free to ignore or
 			take advantage of.</p>
-		<p>Thanks to a promotional banner at a particular retailer's website, Franklyn learned he could get an extra discount on 
-			clothing because he is a military veteran. He gives that retailer a digital credential attesting to his status and 
+		<p>Thanks to a promotional banner at a particular retailer's website, Franklyn learned he could get an extra discount on
+			clothing because he is a military veteran. He gives that retailer a digital credential attesting to his status and
 			links it to the DID they already have, securing the military discount for the rest of his relationship with them.</p>
-		<p>Both Franklyn and the merchant realize that, over time, the merchant will have an increasingly accurate profile of 
-		Franklyn's interests and this might prompt him to begin using a new DID, unlinked to the previous one. Recognizing this 
-			as a negative in some of their customers' opinions, the merchant explicitly offers Franklyn the option of revoking his current DID. 
+		<p>Both Franklyn and the merchant realize that, over time, the merchant will have an increasingly accurate profile of
+		Franklyn's interests and this might prompt him to begin using a new DID, unlinked to the previous one. Recognizing this
+			as a negative in some of their customers' opinions, the merchant explicitly offers Franklyn the option of revoking his current DID.
 			Doing so would mean that access to, and use of, the information associated with the DID would be restricted to
 			legal record-keeping mandates clearly described in the merchant's privacy policy.</p>
-			<p>Even without this explicit option, as Franklyn is the controller of the DID, he can cancel access to his data storage or simply 
+			<p>Even without this explicit option, as Franklyn is the controller of the DID, he can cancel access to his data storage or simply
 			revoke the DID entirely at any time.</p>
-	
+
 <!--	<p>Individuals are concerned that their online activity is tracked and analysed by many websites and third party services
 	without their full knowledge. Consent for the storing of cookies is routinely given without any real care being taken,
 	and service terms and conditions rarely read before being agreed to. A solution to this problem might have the following
@@ -530,9 +530,9 @@ https://example.com/page.html
 	<li>The ability to associate information likely to be of commercial interest with that identifier, such as purchase history,
 		age, gender or social status, again, without revealing any PII.</li>
 		</ol>
-	<p>Such an identifier could be shared across multiple platforms that would be able to use it to provide a more customized 
-	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the 
-	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online 
+	<p>Such an identifier could be shared across multiple platforms that would be able to use it to provide a more customized
+	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the
+	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online
 	personas in this way and thereby have good control over what they did and didn't share with different services.</p>-->
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="decentralized"></span>,
@@ -544,12 +544,12 @@ https://example.com/page.html
 	</section><!-- Opted-in information -->
 
 	<section id="ghostWriter"><h3>Collecting payments for work conducted anonymously</h3>
-	<p>Before becoming a full time journalist, Sahar worked many odd jobs and uncredited gigs in the publishing and movie 
-	industries: she was a ghostwriter, a scriptfixer, various kinds of editor, a translator, and more. Some of these gigs 
-	still pay her residuals years later in the form of tiny micropayments. When these now-classic works are reprinted or 
-	syndicated, the payments are automatically sent using information associated with Sahar's DID without anyone involved thinking 
-	much about who exactly the contract 
-	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows 
+	<p>Before becoming a full time journalist, Sahar worked many odd jobs and uncredited gigs in the publishing and movie
+	industries: she was a ghostwriter, a scriptfixer, various kinds of editor, a translator, and more. Some of these gigs
+	still pay her residuals years later in the form of tiny micropayments. When these now-classic works are reprinted or
+	syndicated, the payments are automatically sent using information associated with Sahar's DID without anyone involved thinking
+	much about who exactly the contract
+	refers to as “anonymous ghostwriter X” or “translator of appendix C”. Using a DID as her identifier, rather than her name, allows
 	Sahar to retain psuedonymity but provide a means for others to pay the right person.</p>
 		<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="privacyPreserving"></span>,
@@ -562,22 +562,22 @@ https://example.com/page.html
 
   <section id="supplyChain"><h3>Psuedonymity within a supply chain</h3>
 	<p>Modern supply chains are highly complex, typically involving multiple companies taking ownership and/or custody of shipments from the point of
-	origin through to the final destination, be that a retailer or end consumer. Furthermore, since most mass-produced products are made to stock rather than 
-	bespoke for a specific customer, the manufacturer typically does not know which final  retailer or retail store will receive each specific product instance; 
-	the individual path through the supply chain network is not predefined by the manufacturer but instead emerges over time as a set of intermediate distributors 
-	and wholesalers distribute product in response to orders from their customers. Data concerning that supply chain can be commercially sensitive. For example, 
-	a transport company may not wish their customer to know that they sub contracted part of the journey to another partner. It can be a security risk too. The 
-	locations of warehouses and distribution centers where large stocks of particular items are held can be a target for the insertion of counterfeit goods into 
+	origin through to the final destination, be that a retailer or end consumer. Furthermore, since most mass-produced products are made to stock rather than
+	bespoke for a specific customer, the manufacturer typically does not know which final  retailer or retail store will receive each specific product instance;
+	the individual path through the supply chain network is not predefined by the manufacturer but instead emerges over time as a set of intermediate distributors
+	and wholesalers distribute product in response to orders from their customers. Data concerning that supply chain can be commercially sensitive. For example,
+	a transport company may not wish their customer to know that they sub contracted part of the journey to another partner. It can be a security risk too. The
+	locations of warehouses and distribution centers where large stocks of particular items are held can be a target for the insertion of counterfeit goods into
 	legitimate supplies.</p>
 	<p>A downstream party such as a retailer, pharmacy or end consumer may have a legitimate reason or in some cases a legal requirement to know that
 	each product is genuine and can be traced back to the genuine manufacturer through an unbroken chain of custody, without any gaps or inconsistencies
 	in the traceability data.</p>
 	<p>A downstream party may also want to check whether the product ID and serial number were actually issued by the manufacturer. However, the manufacturer may
 	not want to provide such information about valid serial numbers to its competitors or counterfeiters, so there may be a need to control access to such services.</p>
-	<p>For these reasons and more, identifiers for business partners, locations and transactions often need to be obfuscated, and the data exchanged between 
-	partners is typically restricted both in terms of its content and in terms of access to it. This is especially true when a manufacturer does not want its 
-	competitors to know the actual source of the ingredients or components in its products. Different parties will be interested in different things too. For 
-	example, a retailer may be interested in knowing where a particular shipment is and when it is expected to arrive; a consumer of a food product is more likely 
+	<p>For these reasons and more, identifiers for business partners, locations and transactions often need to be obfuscated, and the data exchanged between
+	partners is typically restricted both in terms of its content and in terms of access to it. This is especially true when a manufacturer does not want its
+	competitors to know the actual source of the ingredients or components in its products. Different parties will be interested in different things too. For
+	example, a retailer may be interested in knowing where a particular shipment is and when it is expected to arrive; a consumer of a food product is more likely
 	to be concerned about the original source of the item and the total number of food miles in the product.</p>
 	<p>Decentralized Identifiers could be generated by sending and receiving parties at each stage in the chain. This would preserve psuedonymity yet prove control
 	of the identified shipment at each stage and, via the DID Document, provide access to data (subject to authorization) pertaining to each transaction without
@@ -713,15 +713,15 @@ https://example.com/page.html
   </section> <!-- End short use cases -->
 
 <section id="requirements"><h2>Requirements</h2>
-<p>The short use cases in the previous section, and the focal use cases towards the end of the document, 
-	point to a set of requirements that Decentralized Identifiers must fulfil. The use cases and their 
+<p>The short use cases in the previous section, and the focal use cases towards the end of the document,
+	point to a set of requirements that Decentralized Identifiers must fulfil. The use cases and their
 	requirements are tabulated below, followed by a definition of each requirement.</p>
 <!-- table and reqs definitions are inserted automagically here -->
 </section>
 
 <section id="featureBenefitGrid"><h2>Features and Benefits</h2>
-<p>In collecting and evaluating potential use cases and requirements it is posisble to identify the key 
-	features of DIDs that provide benefits in the areas of anti-censorship, anti-exploitation, ease of 
+<p>In collecting and evaluating potential use cases and requirements it is posisble to identify the key
+	features of DIDs that provide benefits in the areas of anti-censorship, anti-exploitation, ease of
 	use, privacy, and sustainability. The requirements and their associated benefits can be seen in the following grid.</p>
 <!-- grid automagically appears here -->
 </section>
@@ -857,20 +857,23 @@ https://example.com/page.html
 </figure>
 
            <section id="deactivate"><h3>Deactivate</h3>
-       <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and 
-		dereferencing are no longer functional. Most decentralized systems cannot guarantee actual deletion of a record.  
-		Indeed, distributed ledgers are often touted as "immutable". Methods should define deactivation processes to achieve 
+       <p>Instead of deleting a DID, Controllers should be able to deactivate a DID such that downstream processes like authentication and
+		dereferencing are no longer functional. Most decentralized systems cannot guarantee actual deletion of a record.
+		Indeed, distributed ledgers are often touted as "immutable". Methods should define deactivation processes to achieve
 		the same effect as deletion. The mechanisms for deactivation will vary based on the method and therefore the 'inactive' message(s) will vary.</p>
         </section>
      </section><!--delete-->
     </section> <!-- Actions -->
+
+
+<!--
     <section id="featureBenefitGrid">
 	<h2>Features and Benefits</h2>
-		<p>In collecting and evaluating potential use cases, we have 
-		identified fifteen (15) key features of DIDs 
+		<p>In collecting and evaluating potential use cases, we have
+		identified fifteen (15) key features of DIDs
 		that provide benefits in the areas of anti-censorship, anti-exploitation,
 		ease of use, privacy, and sustainability.</p>
-		<p>The features and their associated benefits can be seen in the following 
+		<p>The features and their associated benefits can be seen in the following
         grid. A brief definition of each feature follows.</p>
   <table id="feature_benefit_grid" class="feature_grid">
   <tbody>
@@ -1015,83 +1018,89 @@ https://example.com/page.html
   <!--</section>
   <section id="requiredFeatures">
   <h2>Required Features</h2> -->
+<!--
 	  <dl id="feature_definitions">
   <dt id="f1">1. Inter-jurisdictional</dt>
-	<dd>Inter-jurisdictional identifiers do not depend on the legal jurisdiction 
-      in which they are issued. They are valid for uses anywhere without loss 
-      of fidelity or reliability. No jurisdiction is directly able to prevent 
+	<dd>Inter-jurisdictional identifiers do not depend on the legal jurisdiction
+      in which they are issued. They are valid for uses anywhere without loss
+      of fidelity or reliability. No jurisdiction is directly able to prevent
       their use. (Anti-censorship and Sustainable).</dd>
   <dt id="f2">2. Can't be administratively denied</dt>
-    <dd>These identifiers can't be denied or taken away by administrative 
-        function. This prevents shifting politics and bad actors from 
+    <dd>These identifiers can't be denied or taken away by administrative
+        function. This prevents shifting politics and bad actors from
         interfering. (Anti-censorship).</dd>
   <dt id="f3">3. Minimized rents</dt>
-    <dd>These identifiers don't incur ongoing expenses if unused nor on a per 
-        transaction basis. Fees based on updates—which incurs network and 
-        computational costs to verify—are considered "minimal". (Anti-exploitation 
+    <dd>These identifiers don't incur ongoing expenses if unused nor on a per
+        transaction basis. Fees based on updates—which incurs network and
+        computational costs to verify—are considered "minimal". (Anti-exploitation
         and Sustainable).</dd>
   <dt id="f4">4. No vendor lock in</dt>
-    <dd>These identifiers are not dependent on any given vendor. Vendor-specific 
-        identifiers restrict usage to that which is acceptable to the vendor and 
-        may allow vendors to extract disproportionate rents for usage. 
+    <dd>These identifiers are not dependent on any given vendor. Vendor-specific
+        identifiers restrict usage to that which is acceptable to the vendor and
+        may allow vendors to extract disproportionate rents for usage.
         (Anti-exploitation, Privacy, and Sustainable).</dd>
   <dt id="f5">5. Self-issued, self-managed</dt>
-    <dd>These identifiers are created and managed by the subject of the identifier. 
-        They are not assigned, given, sold, or rented to the individual using them. 
-        The party relying on the identifier for identification, authentication, and 
-        authorization, does not need to manage the creation, update, and recovery of 
+    <dd>These identifiers are created and managed by the subject of the identifier.
+        They are not assigned, given, sold, or rented to the individual using them.
+        The party relying on the identifier for identification, authentication, and
+        authorization, does not need to manage the creation, update, and recovery of
         these identifiers. (Anti-censorship, Ease of use, and Privacy)</dd>
   <dt id="f6">6. Streamlined rotation</dt>
-    <dd>When authentication materials need to be updated, these identifiers can 
-        update without direct intervention with requesting parties and with minimal 
+    <dd>When authentication materials need to be updated, these identifiers can
+        update without direct intervention with requesting parties and with minimal
         individual interaction. (Ease of use)</dd>
   <dt id="f7">7. No phone home</dt>
-    <dd>When using these identifiers, there is no need to contact the issuer of the 
-        identifier to verify it. Verification and authentication can occur without 
+    <dd>When using these identifiers, there is no need to contact the issuer of the
+        identifier to verify it. Verification and authentication can occur without
         further communication with the issuer. (Privacy)</dd>
   <dt id="f8">8. Preempt/limit trackable data trails</dt>
     <dd>As &ldquo;cookie&rdquo; and other session/state-tracking mechanisms were gradually turned into scaffolding
 	    for unwanted or collusive tracking in the evolution of the web stack, so too might any new data exchange
-	    or communication systems unwittingly facilitate unwanted tracking based on new data trails. Resistance 
+	    or communication systems unwittingly facilitate unwanted tracking based on new data trails. Resistance
 	    to these kinds of surveillance exploits need to be designed into new systems.</dd>
   <dt id="f9">9. Cryptographic future proofing</dt>
-    <dd>These identifiers are capable of being updated as technology evolves. Current 
-        cryptography techniques are known to be susceptible to quantum computational 
-        attacks. Future-proofed identifiers provide a means to continue using the same 
-        identifier with updated, advanced authentication and authorization technologies. 
+    <dd>These identifiers are capable of being updated as technology evolves. Current
+        cryptography techniques are known to be susceptible to quantum computational
+        attacks. Future-proofed identifiers provide a means to continue using the same
+        identifier with updated, advanced authentication and authorization technologies.
         (Sustainable)</dd>
   <dt id="f10">10. Survives organizational mortality</dt>
-    <dd>These identifiers survive the demise of the organization that issued them. They 
-        usefulness of these identifiers survive organizations going out of business, 
-        being purchased (and potentially losing domain names or root credentials), and 
-        even the internal decay of an organization that no longer has the ability to 
+    <dd>These identifiers survive the demise of the organization that issued them. They
+        usefulness of these identifiers survive organizations going out of business,
+        being purchased (and potentially losing domain names or root credentials), and
+        even the internal decay of an organization that no longer has the ability to
         verify the authenticity of records they once issued.</dd>
   <dt id="f11">11. Survives deployment end-of-life</dt>
-    <dd>These identifiers are usable even after the systems deployed by requesting parties 
-        move past their useful lifetime. They are robust against technology fads and can 
+    <dd>These identifiers are usable even after the systems deployed by requesting parties
+        move past their useful lifetime. They are robust against technology fads and can
         seamlessly work with both legacy and next-generation systems.</dd>
   <dt id="f12">12. Survives relationship with service provider</dt>
-    <dd>These identifiers are not dependent on the tenure of the relationship with a 
-        service provider. This contrasts with identifiers like service-centric emails, 
-        e.g., joe@example.com, which when used as identifiers in other systems can cause 
+    <dd>These identifiers are not dependent on the tenure of the relationship with a
+        service provider. This contrasts with identifiers like service-centric emails,
+        e.g., joe@example.com, which when used as identifiers in other systems can cause
         problems when individuals no longer use the service provider.</dd>
   <dt id="f13">13. Cryptographic authentication and communication</dt>
-    <dd>These identifiers enable cryptographic techniques to authenticate individuals 
-        and to secure communications with the subject of the identifier, typically using 
+    <dd>These identifiers enable cryptographic techniques to authenticate individuals
+        and to secure communications with the subject of the identifier, typically using
         public-private key pairs.</dd>
   <dt id="f14">14. Service discovery</dt>
-    <dd>These identifiers allow requesting parties to look up available service endpoints 
+    <dd>These identifiers allow requesting parties to look up available service endpoints
         for interacting with the subject of the identifier. (Ease of use and Sustainable)</dd>
   <dt id="f15">15. Registry agnostic</dt>
-	    <dd>These identifiers are free to reside on any registry implementing a compatible 
+	    <dd>These identifiers are free to reside on any registry implementing a compatible
           interface. They are not beholden to any particular technology or vendor.</dd>
     </dl>
 	  </section>
+
+-->
+
+
+
     <section id="featureCoverage">
 	<h2>Feature Coverage</h2>
 		<p>Not all use cases illustrate each feature, and not all DID methods
 		  support all features. The
-        following chart shows which features are explicitly illustrated in 
+        following chart shows which features are explicitly illustrated in
         the <a href="#focalUseCases">Focal Use Cases</a>.</p>
   <table class="feature_grid">
   <tbody>
@@ -1363,11 +1372,11 @@ https://example.com/page.html
 			the identifier in a credential is simply the public key (with
 			the private key used for authentication).</p>
         <ol>
-    		<li>With the public key embedded in the digitally signed credential, 
-				it is literally impossible to update the signing key; a recipient 
-				must  contact the issuer and request re-issuing with a new 
-				identifier. If the issuer is not reachable, or is unwilling 
-				or unable to issue a new credential, the recipient cannot 
+    		<li>With the public key embedded in the digitally signed credential,
+				it is literally impossible to update the signing key; a recipient
+				must  contact the issuer and request re-issuing with a new
+				identifier. If the issuer is not reachable, or is unwilling
+				or unable to issue a new credential, the recipient cannot
 				update the cryptographic material.</li>
 			<li>If the credential relies on a centralized key registry or
 				authority for managing rotation, then that registry becomes
@@ -1682,60 +1691,60 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 </p>
 
     </section> <!-- end sso -->
-	    
+
 	    <section id="aliceRents">
 <h3>Alice Rents a Car (credentials)</h3>
 <section id="aliceRentsBackground">
 <h4>Background</h4>
-<p>It’s 2021 and <abbr title="Self-Sovereign Identity">SSI</abbr> is the golden child. Alice looks forward to never having to 
-	use a password or fill out a form again. Alice’s service providers are looking to adopt zero-trust architecture with 
+<p>It’s 2021 and <abbr title="Self-Sovereign Identity">SSI</abbr> is the golden child. Alice looks forward to never having to
+	use a password or fill out a form again. Alice’s service providers are looking to adopt zero-trust architecture with
 	<abbr title="Year 2000 bug">Y2K</abbr> zeal. Neither of them really know what SSI or zero-trust means, but they want it.</p>
 </section>
 <section id="aliceRentsDescription"><h4>Description</h4>
-<p>Alice has just provisioned an “agent” as recommended by an organization she trusts and supported by her browser vendor. 
-	It’s costing her $5/month and is somehow linked to the facial recognition that also unlocks her smartphone. Her 
-	agent occasionally sends a text message asking a question with a yes or no answer but otherwise mostly leaves her 
+<p>Alice has just provisioned an “agent” as recommended by an organization she trusts and supported by her browser vendor.
+	It’s costing her $5/month and is somehow linked to the facial recognition that also unlocks her smartphone. Her
+	agent occasionally sends a text message asking a question with a yes or no answer but otherwise mostly leaves her
 	alone. Her agent bears a “Magic Button” logo that she thinks is a bit like “credit cards welcome here” in the old days.</p>
-<p>Alice is going to France. She uses a non-tracking search engine to discover a list of car rental companies anonymously to avoid 
-	price discrimination and targeted ads. Some of the rental companies display the "Magic Button" logo, some don’t. She 
-	knows that the ones that do will respect her agent. She picks a company for the rental even though she has never done 
+<p>Alice is going to France. She uses a non-tracking search engine to discover a list of car rental companies anonymously to avoid
+	price discrimination and targeted ads. Some of the rental companies display the "Magic Button" logo, some don’t. She
+	knows that the ones that do will respect her agent. She picks a company for the rental even though she has never done
 	business with them before, knowing that with "Magic Button" her user experience will be an automated breeze.</p>
-<p>Among dozens of others, Alice already has "Magic Button" service providers for her US driver’s license, her US insurance, 
-	and her bank. The <abbr title="Department of Motor Vehicles.">DMV</abbr>, insurer, and bank all authenticate Alice using 
-	a secure pseudonym linked to her smartphone. Each of the three has a different DID for Alice, but each of the three knows 
-	that they can use that DID in court to hold Alice accountable. Alice just knows that her smartphone allowed her to sign her 
+<p>Among dozens of others, Alice already has "Magic Button" service providers for her US driver’s license, her US insurance,
+	and her bank. The <abbr title="Department of Motor Vehicles.">DMV</abbr>, insurer, and bank all authenticate Alice using
+	a secure pseudonym linked to her smartphone. Each of the three has a different DID for Alice, but each of the three knows
+	that they can use that DID in court to hold Alice accountable. Alice just knows that her smartphone allowed her to sign her
 	driver’s license application, her insurance application, and her bank customer registration form using facial recognition because "Magic Button" works.</p>
 <p>Alice clicks on the “Rent Now” button and:</p><ul>
   <li>Exposes a DID through her agent in order to set up a secure communication channel.</li>
-  <li>The car rental company tells Alice’s agent that they will need license, insurance, and bank info for the purpose of 
+  <li>The car rental company tells Alice’s agent that they will need license, insurance, and bank info for the purpose of
 	  renting a car in France.</li>
-  <li>Alice’s agent has a policy that saying that any company as large as her chosen car rental company can get whatever 
-	  they explicitly ask for. Smaller companies, or large ones on a blacklist may need Alice to give explicit permission 
+  <li>Alice’s agent has a policy that saying that any company as large as her chosen car rental company can get whatever
+	  they explicitly ask for. Smaller companies, or large ones on a blacklist may need Alice to give explicit permission
 	  &mdash; which the agent will ask for using a text message.</li>
-  <li>Alice’s agent gives offers three signed bearer tokens authorizing release of her personal information from three specific 
-	  service providers. These tokens are encrypted so that the rental company doesn’t know what’s in them. Alice’s service 
+  <li>Alice’s agent gives offers three signed bearer tokens authorizing release of her personal information from three specific
+	  service providers. These tokens are encrypted so that the rental company doesn’t know what’s in them. Alice’s service
 	  providers use pre-registered information linked to their DID for Alice to decrypt the tokens and verify they were signed by Alice’s agent.</li>
-  <li>Note, that in this example, Alice does not care that her three service providers know she is becoming a rental customer. 
-	  If Alice did care, she might go through the trouble of having one or another of the services issue a Verified Credential 
-	  to her so she can present it wherever she wants. Alice’s agent has policies that force the more privacy preserving, 
+  <li>Note, that in this example, Alice does not care that her three service providers know she is becoming a rental customer.
+	  If Alice did care, she might go through the trouble of having one or another of the services issue a Verified Credential
+	  to her so she can present it wherever she wants. Alice’s agent has policies that force the more privacy preserving,
 	  Holder-mediated flow when dealing with some less trusted vendors.</li>
-  <li>The rental company gathers the information from Alice’s service providers, checks it against their internal rental policies, 
+  <li>The rental company gathers the information from Alice’s service providers, checks it against their internal rental policies,
 	  and issues Alice’s agent a signed capability linked to a QR code. The agent emails the capability to Alice.</li></ul>
 <p>The whole sequence from click in the search results to Alice getting a QR code in the email took 8 seconds. A week later:</p><ul>
-  <li>Alice goes to the rental garage at Charles de Gaulle airport, and picks a car with the keys already in it and the price posted on 
+  <li>Alice goes to the rental garage at Charles de Gaulle airport, and picks a car with the keys already in it and the price posted on
 	  the parking space. She drives to the automated exit gate.</li>
-  <li>At the gate, Alice opens her email, shows the QR code she received through her agent and gets a message on her phone 
-	  asking her to scan her face. The gate agent combines the license info of the car, the QR code and the challenge signed 
+  <li>At the gate, Alice opens her email, shows the QR code she received through her agent and gets a message on her phone
+	  asking her to scan her face. The gate agent combines the license info of the car, the QR code and the challenge signed
 	  by Alice with her face and opens the gate.</li></ul>
 </section>
 <section id="aliceRentsChallenges"><h4>Challenges</h4>
-<p>The challenge in this case is to combine technical standards and protocols into a <em>human-meaningful</em> interoperability 
+<p>The challenge in this case is to combine technical standards and protocols into a <em>human-meaningful</em> interoperability
 	claim that crosses between one's general-purpose agent and a multitude of domain-specific service offerings.</p>
 </section>
 <section id="aliceRentsDistinction"><h4>Distinction</h4>
-<p>This use case is based on a profiling exercise by a group to be determined and the voluntary adoption of the badge by some 
-	agents and some service providers. The badge need not be associated with a costly certification process which means that 
-	both audited and un-audited versions of the claim can co-exist. False and misleading assertions are already enforced by 
+<p>This use case is based on a profiling exercise by a group to be determined and the voluntary adoption of the badge by some
+	agents and some service providers. The badge need not be associated with a costly certification process which means that
+	both audited and un-audited versions of the claim can co-exist. False and misleading assertions are already enforced by
 	both the marketplace and by truth in labeling laws.</p>
 </section>
 
@@ -1751,10 +1760,10 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 </section> <!-- Alice Rents a car -->
 
 </section>
-	    
-	    
-	    
-	    
+
+
+
+
       </section>
 <script class="remove">
 // The reqs are mapped to use cases via the data and functions in this section.
