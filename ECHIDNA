@@ -1,3 +1,7 @@
 # ECHIDNA configuration
 index.html?specStatus=WD&shortName=did-use-cases respec
-images/did_actions.png
+images/didCreate.svg
+images/didUse.svg
+images/didRead.svg
+images/didUpdate.svg
+images/didDelete.svg
