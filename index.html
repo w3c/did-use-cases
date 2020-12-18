@@ -274,7 +274,7 @@ https://example.com/page.html
 	  section of the DID Core specification, as published in the 
 	  <a href="https://www.w3.org/TR/2020/WD-did-core-20201108/#terminology">8 November 
 	2020 Working Draft</a>. Any subsequent change to that terminology section is not reflected 
-	  here. In the case of discrepency, the terms provided in DID Core document are authoritative.</p></div>
+	  here. In the case of discrepancy, the terms provided in DID Core document are authoritative.</p></div>
 	    
 <dl class="termlist">
 
@@ -640,7 +640,7 @@ cryptographically-verifiable.
 		on an online marketplace, for sale by DeepVintage in another country, over 2000 miles away. Although the
 		marketplace promises refunds, Merry is also worried that Eli's heart would be broken if she accidentally got him a fake.</p>
 	<p>Fortunately, DeepVintage makes use of globally-recognized identifiers for everything in its marketplace so that Merry
-		can be sure she's searching the the right collectible. Furthermore, DeepVintage is
+		can be sure she's searching the right collectible. Furthermore, DeepVintage is
 		able to provide identity documentation in the form of signed statements of title transfer from each of the owners,
 		all the way back to the original, which includes a statement of authenticity from the original manufacturer. Each of
 		the signed statements can be independently verified because they were signed using public DIDs for the buyer and seller.
@@ -743,7 +743,7 @@ cryptographically-verifiable.
 		as she puts them in her basket, automatically uploading her shopping progress to her secure storage.
 		Her customers can follow along, viewing her progress and even communicating securely to answer questions about product options.</p>
 	<p>Each customer's data is encrypted just for them, and only accessible using the DID they gave to Maria. Customers
-		are able to see the actual products purchased, with ready access to product details like USDA nutrition facts,
+		are able to see the actual products purchased, with ready access to product details like nutrition facts,
 		ingredients, and certifications. All of this information is stored in the cloud, yet encrypted at the source
 		so that not even the cloud storage provider can see what Maria is buying for her customers and each customer
 		only has access to information related to their own shopping list. When she changes cloud providers, Maria
@@ -895,7 +895,7 @@ cryptographically-verifiable.
 	<p class="shortUcContributor">Contributed by Juan Caballero</p>
   </section><!-- Ghost Writer-->
 
-  <section id="supplyChain"><h3>Psuedonymity within a supply chain</h3>
+  <section id="supplyChain"><h3>Pseudonymity within a supply chain</h3>
 	<p>Modern supply chains are highly complex, typically involving multiple companies taking ownership and/or custody of shipments from the point of
 	origin through to the final destination, be that a retailer or end consumer. Furthermore, since most mass-produced products are made to stock rather than
 	bespoke for a specific customer, the manufacturer typically does not know which final  retailer or retail store will receive each specific product instance;
@@ -1055,7 +1055,7 @@ cryptographically-verifiable.
 </section>
 
 <section id="featureBenefitGrid"><h2>Features and Benefits</h2>
-<p>In collecting and evaluating potential use cases and requirements it is posisble to identify the key
+<p>In collecting and evaluating potential use cases and requirements it is possible to identify the key
 	features of DIDs that provide benefits in the areas of anti-censorship, anti-exploitation, ease of
 	use, privacy, and sustainability. The requirements and their associated benefits can be seen in the following grid.</p>
 <!-- grid automagically appears here -->
@@ -2129,8 +2129,8 @@ function featureObject(id, name) {
 
 // This is hard coded, but it's the only place in the doc where each req's ID is given a natural language title
 reqObjectList.push(new ReqObject("authenticate", "Authentication/proof of control", "It is possible to prove that the entity claiming control over the identifier is indeed its controller", ['antiExploit', 'sustainability']));
-reqObjectList.push(new ReqObject("decentralized", "Decentralized/self issued", "These identifiers are created and managed by the subject of the identifier. They are not assigned, given, sold, or rented to the individual using them. The party relying on the identifier for identification, authentication, and authorization, does not need to manage the creation, update, and recovery of these identifiers.", ['antiCensorship', 'antiExploit', 'privacy', 'sustainability']));
-reqObjectList.push(new ReqObject("unique", "Guaranteed unique identifier", "identifiers are globaly unique with no possibility of duplication, however unlikely that may be.", ['easeOfUse', 'sustainability']));
+reqObjectList.push(new ReqObject("decentralized", "Decentralized/self issued", "These identifiers are created and managed by the controller of the identifier, who may also be its subject. They are not assigned, given, sold, or rented to the individual using them. The party relying on the identifier for identification, authentication, and authorization, does not need to manage the creation, update, and recovery of these identifiers.", ['antiCensorship', 'antiExploit', 'privacy', 'sustainability']));
+reqObjectList.push(new ReqObject("unique", "Guaranteed unique identifier", "Identifiers are globally unique with no possibility of duplication, however unlikely that may be.", ['easeOfUse', 'sustainability']));
 reqObjectList.push(new ReqObject("noCallHome", "No call home", "When using these identifiers, there is no need to contact the issuer of the identifier to verify it. Verification and authentication can occur without further communication with the issuer.", ['antiCensorship', 'antiExploit', 'privacy', 'sustainability']));
 reqObjectList.push(new ReqObject("associatedCrypto", "Associated cryptographic material", "The identifier is tightly coupled with cryptographic material that can be used to prove control over that identifier.", ['antiCensorship', 'antiExploit', 'easeOfUse']));
 reqObjectList.push(new ReqObject("keyRotation", "Streamlined key rotation", "When authentication materials need to be updated, these identifiers can update without direct intervention with requesting parties and with minimal individual interaction.", ['antiCensorship', 'antiExploit', 'easeOfUse', 'sustainability']));
@@ -2145,7 +2145,7 @@ reqObjectList.push(new ReqObject("limitTrack", "Preempt/limit trackable data tra
 reqObjectList.push(new ReqObject("cryptoFuture", "Cryptographic future proof", "These identifiers are capable of being updated as technology evolves. Current cryptography techniques are known to be susceptible to quantum computational attacks. Future-proofed identifiers provide a means to continue using the same identifier with updated, advanced authentication and authorization technologies.", ['antiExploit', 'sustainability']));
 reqObjectList.push(new ReqObject("orgMort", "Survives issuing organization mortality", "These identifiers survive the demise of the organization that issued them. They usefulness of these identifiers survive organizations going out of business, being purchased (and potentially losing domain names or root credentials), and even the internal decay of an organization that no longer has the ability to verify the authenticity of records they once issued.", ['sustainability']));
 reqObjectList.push(new ReqObject("deployEnd", "Survives deployment end-of-life", "These identifiers are usable even after the systems deployed by requesting parties move past their useful lifetime. They are robust against technology fads and can seamlessly work with both legacy and next-generation systems.", ['antiCensorship', 'sustainability']));
-reqObjectList.push(new ReqObject("survivesRel", "Survives relationship with service provider", "These identifiers are not dependent on the tenure of the relationship with a service provider. This contrasts with identifiers like service-centric emails, e.g., joe@example.com, which when used as identifiers in other systems can cause problems when individuals no longer use the service provider.", ['antiExploit', 'sustainability']));
+reqObjectList.push(new ReqObject("survivesRel", "Survives relationship with service provider", "These identifiers are not dependent on the tenure of the relationship with a service provider. This contrasts with identifiers like service-centric emails, e.g. joe@example.com, which, when used as identifiers in other systems, can cause problems when individuals no longer use the service provider.", ['antiExploit', 'sustainability']));
 reqObjectList.push(new ReqObject("cryptoAuthComm", "Cryptographic authentication and communication", "These identifiers enable cryptographic techniques to authenticate individuals and to secure communications with the subject of the identifier, typically using public-private key pairs.", ['antiCensorship', 'antiExploit']));
 reqObjectList.push(new ReqObject("regAgnostic", "Registry agnostic", "These identifiers are free to reside on any registry implementing a compatible interface. They are not beholden to any particular technology or vendor.", ['antiCensorship', 'antiExploit', 'sustainability']));
 reqObjectList.push(new ReqObject("legallyEnabled", "Legally-enabled identity", "These identifiers can be used as a basis for credentials and transactions that can be recognized as legally valid under one or more jurisdictions.", ['antiExploit', 'easeOfUse', 'sustainability']));
@@ -2153,7 +2153,7 @@ reqObjectList.push(new ReqObject("humanInterop", "Human-centered interoperabilit
 
 
 featureObjectList.push(new featureObject("antiCensorship","Anti-censor"));
-featureObjectList.push(new featureObject("antiExploit","Anti-explotation"));
+featureObjectList.push(new featureObject("antiExploit","Anti-exploitation"));
 featureObjectList.push(new featureObject("easeOfUse","Ease of use"));
 featureObjectList.push(new featureObject("privacy","Privacy"));
 featureObjectList.push(new featureObject("sustainability","Sustainability"));
