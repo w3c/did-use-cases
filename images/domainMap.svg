@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1300px" height="900px" viewBox="90 30 1250 900" xml:space="preserve">
+
+  <style type="text/css">
+
+    text {
+      fill: black;
+      stroke: none;
+      font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+      font-family: Frutiger, Myriad, Arial, Helvetica, sans-serif;
+      text-anchor: middle;
+      font-weight: normal;
+    }
+
+    #endArrow {
+      fill: rgb(49, 54, 149);
+      stroke: none;
+      stroke-width: 1px;
+      stroke-linejoin: round;
+    }
+
+    .connector text {
+      font-size: 18px;
+    }
+ 
+    .connector path {
+      fill: none;
+      stroke: rgb(49, 54, 149);
+      stroke-width: 3px;
+      marker-end: url(#endArrow);
+    }
+
+  </style>
+
+
+
+<defs>
+  <marker id="endArrow" viewBox="-30 -15 40 60" markerUnits="strokeWidth"
+    refX="-4" refY="0" markerWidth="10" markerHeight="20" orient="auto" class="process">
+    <path d="M-12,0 L-19,-9.5 L0,0 L-19,9.5 Z"/>
+  </marker>
+
+  <rect x="0" y="0" width="100" height="50" stroke="black" stroke-width="1" id="firstRect" />  
+
+  <rect x="0" y="0" width="230" height="50" stroke="black" stroke-width="1" id="secondRect" />
+
+
+</defs>
+
+<g id="centre">
+  <use xlink:href="#secondRect" fill="#ccc" transform="translate(650,450)"/>
+  <text x="770" y="480">Use cases</text>
+</g>
+
+<g class="connector"> <!-- core to Corporate -->
+  <path d="M645,475 595,475"/>
+</g>
+
+<g class="connector"> <!-- Core to Auth &amp; auth -->
+  <path d="M885,475 935,475"/>
+</g>
+
+<g class="connector"> <!-- Core to Learners & workers -->
+  <path d="M720,445 620,355"/>
+</g>
+
+<g class="connector"> <!-- Core to Law & legal -->
+  <path d="M830,445 920,355"/>
+</g>
+
+<g class="connector"> <!-- Core to Retail & consumer -->
+  <path d="M720,505 620,595"/>
+</g>
+
+<g class="connector"> <!-- Core to Supply chain -->
+  <path d="M830,505 920,595"/>
+</g>
+
+
+<g transform="translate(200,0)"> <!-- Learners & Workers -->
+  <g id="learnersWorkers">
+    <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(300,300)"/>
+    <text x="420" y="330">Learners &amp; workers</text>
+  </g>
+
+  <g id="dm_edu"><a xlink:href="../#edu" target="_top">
+    <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(100,200)"/>
+    <text x="220" y="230">6.2 Lifelong credentials</text></a>
+  </g>
+
+  <g id="dm_ghostWriter"><a xlink:href="../#ghostWriter">
+    <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(180,140)"/>
+    <text x="300" y="170">2.7 Pseudonymous work</text></a>
+  </g>
+
+
+  <g id="dm_vcEcosystem"><a xlink:href="../#vcEcosystem">
+    <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(260,80)"/>
+    <text x="380" y="110">2.5 Transferable skills</text></a>
+  </g>
+
+  <g class="connector"> <!-- Learners & workers to Lifelong creds -->
+    <path d="M365,295 315,255"/>
+  </g>
+
+  <g class="connector"> <!-- Learners & workers to Pseudonymous work -->
+    <path d="M365,295 365,195"/>
+  </g>
+
+  <g class="connector"> <!-- Learners & workers to Pseudonymous work -->
+    <path d="M365,295 465,135"/>
+  </g>
+</g> <!-- End legal & workers -->
+
+
+<g transform="translate(200,0)">   <!-- Law and legal -->
+
+  <g id="lawLegal">
+    <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(600,300)"/>
+    <text x="720" y="330">Law &amp; legal</text>
+  </g>
+
+  <g id="dm_digitalPRC"><a xlink:href="../#digitalPRC">
+    <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(800,200)"/>
+    <text x="920" y="230">2.9 Permanent residence</text></a>
+  </g>
+
+  <g id="dm_law"><a xlink:href="../#law">
+    <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(720,140)"/>
+    <text x="840" y="170">6.4 Digital executor</text></a>
+  </g>
+
+  <g id="dm_publicAuthorityCredentials"><a xlink:href="../#publicAuthorityCredentials">
+    <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(640,80)"/>
+    <text x="760" y="110">2.11 Public Authority creds</text></a>
+  </g>
+
+
+  <g class="connector"> <!-- Law & Legal to Perm residence -->
+    <path d="M765,295 805,255"/>
+  </g>
+
+  <g class="connector"> <!-- Law & Legal to Digital executor -->
+    <path d="M765,295 765,195"/>
+  </g>
+
+  <g class="connector"> <!-- Law & Legal to pubic ID creds -->
+    <path d="M765,295 675,135"/>
+  </g>
+
+
+</g>  <!-- End Law & Legal -->
+
+<g transform="translate(200,50)">   <!-- Corporate -->
+
+  <g id="corporate">
+    <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(160,400)"/>
+    <text x="280" y="430">Corporate</text>
+  </g>
+
+  <g id="dm_accessingServiceEndpoints"><a xlink:href="../#accessingServiceEndpoints">
+    <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(-100,400)"/>
+    <text x="20" y="430">2.4 Accessing master data</text></a>
+  </g>
+
+  <g id="dm_didEnterprise"><a xlink:href="../#didEnterprise">
+    <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(0,300)"/>
+    <text x="120" y="330">6.1 Enterprise identifiers</text></a>
+  </g>
+
+  <g id="dm_edv"><a xlink:href="../#edv">
+    <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(0,500)"/>
+    <text x="115" y="530">2.3 Confidential engagement</text></a>
+  </g>
+
+  <g class="connector"> <!-- Corporate to enterprise IDs -->
+    <path d="M220,395 175,355"/>
+  </g>
+
+  <g class="connector"> <!-- Corporate to confidential engagement -->
+    <path d="M220,455 175,495"/>
+  </g>
+
+  <g class="connector"> <!-- Corporate to master data -->
+    <path d="M155,430 135,430"/>
+  </g>
+
+</g> <!-- End Corporate -->
+
+<g transform="translate(200,0)">   <!-- Retail/consumer -->
+
+  <g id="retailConsumer">
+    <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(300,600)"/>
+    <text x="420" y="630">Retail &amp; consumer</text>
+  </g>
+
+  <g id="dm_onlineShopper"><a xlink:href="../#onlineShopper">
+    <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(100,700)"/>
+    <text x="220" y="730">2.1 Online shopper</text></a>
+  </g>
+
+  <g id="dm_prescriptions"><a xlink:href="../#prescriptions">
+    <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(180,760)"/>
+    <text x="300" y="790">6.3 Prescriptions</text></a>
+  </g>
+
+  <g id="dm_aliceRents"><a xlink:href="../#aliceRents">
+    <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(260,820)"/>
+    <text x="380" y="850">6.6 Alice rents a car</text></a>
+  </g>
+
+  <g class="connector"> <!-- Retail/consumer to Online shopper -->
+    <path d="M360,655 315,695"/>
+  </g>
+
+  <g class="connector"> <!-- Retail/consumer to Prescriptions -->
+    <path d="M360,655 360,755"/>
+  </g>
+
+  <g class="connector"> <!-- Retail/consumer to Alice rents a car -->
+    <path d="M360,655 465,815"/>
+  </g>
+
+  <g class="connector"> <!-- Retail/consumer to Confidential engagement (the odd one) -->
+    <path d="M295,625 235,575"/>
+  </g>
+
+
+</g> <!-- retail/consumer -->
+
+
+<g transform="translate(200,0)">   <!-- Supply chain -->
+
+  <g id="supplyChain">
+    <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(600,600)"/>
+    <text x="720" y="630">Supply chain</text>
+  </g>
+
+
+  <g id="dm_retroToys"><a xlink:href="../#retroToys">
+    <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(800,700)"/>
+    <text x="920" y="730">2.10 Import retro toys</text></a>
+  </g>
+
+  <g id="dm_vehicleAssemblies"><a xlink:href="../#vehicleAssemblies">
+    <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(720,760)"/>
+    <text x="840" y="790">2.2 Vehicle assemblies</text></a>
+  </g>
+
+  <g id="dm_supplyChain"><a xlink:href="../#supplyChain">
+    <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(640,820)"/>
+    <text x="755" y="850">2.8 Pseudomymous distribution</text></a>
+  </g>
+
+  <g class="connector"> <!-- Supply chain to Import retro toys -->
+    <path d="M770,655 810,695"/>
+  </g>
+
+  <g class="connector"> <!-- Supply chain to Vehicle assemblies -->
+    <path d="M770,655 770,755"/>
+  </g>
+
+  <g class="connector"> <!-- Supply chain to Pseudonymous distribution -->
+    <path d="M770,655 670,815"/>
+  </g>
+
+</g> <!-- End supply chain -->
+
+
+<g transform="translate(200,50)"> <!-- Auth &amp; auth -->
+
+  <g id="authentication">
+    <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(740,400)"/>
+    <text x="860" y="430">Authentication &amp; authorization</text>
+  </g>
+
+  <g id="dm_sso"><a xlink:href="../#sso">
+    <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,300)"/>
+    <text x="1020" y="330">6.5 Single sign on</text></a>
+  </g>
+
+  <g id="dm_crossPlatform"><a xlink:href="../#crossPlatform">
+    <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,500)"/>
+    <text x="1010" y="530">2.6 Cross-platform sharing</text></a>
+  </g>
+
+  <g class="connector"> <!-- Auth & auth to Single sign on -->
+    <path d="M900,395 940,355"/>
+  </g>
+
+  <g class="connector"> <!-- Auth & auth to cross-platform sharing -->
+    <path d="M900,455 940,495"/>
+  </g>
+
+
+</g>
+
+</svg>
+
+
