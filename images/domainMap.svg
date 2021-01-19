@@ -90,13 +90,13 @@
     <text x="220" y="230">6.2 Lifelong credentials</text></a>
   </g>
 
-  <g id="dm_ghostWriter"><a xlink:href="../#ghostWriter">
+  <g id="dm_ghostWriter"><a xlink:href="../#ghostWriter" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(180,140)"/>
     <text x="300" y="170">2.7 Pseudonymous work</text></a>
   </g>
 
 
-  <g id="dm_vcEcosystem"><a xlink:href="../#vcEcosystem">
+  <g id="dm_vcEcosystem"><a xlink:href="../#vcEcosystem" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(260,80)"/>
     <text x="380" y="110">2.5 Transferable skills</text></a>
   </g>
@@ -122,17 +122,17 @@
     <text x="720" y="330">Law &amp; legal</text>
   </g>
 
-  <g id="dm_digitalPRC"><a xlink:href="../#digitalPRC">
+  <g id="dm_digitalPRC"><a xlink:href="../#digitalPRC" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(800,200)"/>
     <text x="920" y="230">2.9 Permanent residence</text></a>
   </g>
 
-  <g id="dm_law"><a xlink:href="../#law">
+  <g id="dm_law"><a xlink:href="../#law" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(720,140)"/>
     <text x="840" y="170">6.4 Digital executor</text></a>
   </g>
 
-  <g id="dm_publicAuthorityCredentials"><a xlink:href="../#publicAuthorityCredentials">
+  <g id="dm_publicAuthorityCredentials"><a xlink:href="../#publicAuthorityCredentials" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(640,80)"/>
     <text x="760" y="110">2.11 Public Authority creds</text></a>
   </g>
@@ -160,17 +160,17 @@
     <text x="280" y="430">Corporate</text>
   </g>
 
-  <g id="dm_accessingServiceEndpoints"><a xlink:href="../#accessingServiceEndpoints">
+  <g id="dm_accessingServiceEndpoints"><a xlink:href="../#accessingServiceEndpoints" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(-100,400)"/>
     <text x="20" y="430">2.4 Accessing master data</text></a>
   </g>
 
-  <g id="dm_didEnterprise"><a xlink:href="../#didEnterprise">
+  <g id="dm_didEnterprise"><a xlink:href="../#didEnterprise" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(0,300)"/>
     <text x="120" y="330">6.1 Enterprise identifiers</text></a>
   </g>
 
-  <g id="dm_edv"><a xlink:href="../#edv">
+  <g id="dm_edv"><a xlink:href="../#edv" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(0,500)"/>
     <text x="115" y="530">2.3 Confidential engagement</text></a>
   </g>
@@ -196,17 +196,17 @@
     <text x="420" y="630">Retail &amp; consumer</text>
   </g>
 
-  <g id="dm_onlineShopper"><a xlink:href="../#onlineShopper">
+  <g id="dm_onlineShopper"><a xlink:href="../#onlineShopper" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(100,700)"/>
     <text x="220" y="730">2.1 Online shopper</text></a>
   </g>
 
-  <g id="dm_prescriptions"><a xlink:href="../#prescriptions">
+  <g id="dm_prescriptions"><a xlink:href="../#prescriptions" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(180,760)"/>
     <text x="300" y="790">6.3 Prescriptions</text></a>
   </g>
 
-  <g id="dm_aliceRents"><a xlink:href="../#aliceRents">
+  <g id="dm_aliceRents"><a xlink:href="../#aliceRents" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(260,820)"/>
     <text x="380" y="850">6.6 Alice rents a car</text></a>
   </g>
@@ -239,17 +239,17 @@
   </g>
 
 
-  <g id="dm_retroToys"><a xlink:href="../#retroToys">
+  <g id="dm_retroToys"><a xlink:href="../#retroToys" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(800,700)"/>
     <text x="920" y="730">2.10 Import retro toys</text></a>
   </g>
 
-  <g id="dm_vehicleAssemblies"><a xlink:href="../#vehicleAssemblies">
+  <g id="dm_vehicleAssemblies"><a xlink:href="../#vehicleAssemblies" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(720,760)"/>
     <text x="840" y="790">2.2 Vehicle assemblies</text></a>
   </g>
 
-  <g id="dm_supplyChain"><a xlink:href="../#supplyChain">
+  <g id="dm_supplyChain"><a xlink:href="../#supplyChain" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(640,820)"/>
     <text x="755" y="850">2.8 Pseudomymous distribution</text></a>
   </g>
@@ -276,12 +276,12 @@
     <text x="860" y="430">Authentication &amp; authorization</text>
   </g>
 
-  <g id="dm_sso"><a xlink:href="../#sso">
+  <g id="dm_sso"><a xlink:href="../#sso" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,300)"/>
     <text x="1020" y="330">6.5 Single sign on</text></a>
   </g>
 
-  <g id="dm_crossPlatform"><a xlink:href="../#crossPlatform">
+  <g id="dm_crossPlatform"><a xlink:href="../#crossPlatform" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,500)"/>
     <text x="1010" y="530">2.6 Cross-platform sharing</text></a>
   </g>
