@@ -647,25 +647,6 @@ cryptographically-verifiable.
 		The collected signatures comprise a complete chain of custody along with some interesting anecdotes about each sale.
 		Merry was able to verify the provenance of the card and delighted Eli with a surprise gift of a perfect replacement for his lost memento.</p>
 
-		<!--
-		<p>Traditionally, a shopper frequents a trusted retailer and can physically hold the products they wish to purchase.
-		The product and the information about it is trusted because it is put there by the brand, and the shopper trusts that
-		the retailer has received the product through trusted supply chain partners. Today, there is a multitude of
-		channels and platforms for selling and buying products. The internet has changed consumer purchasing behavior
-		as more and more commerce is conducted digitally. This introduces new challenges for brands, retailers and consumers,
-		as the relationship is not as direct as the traditional mode of shopping.</p>
-        <p>Online shopping, especially through 3rd party marketplaces, creates a proliferation of digital records about that product
-		across platforms. Unlike a physical product, a consumer cannot be assured that the record (and the information
-		presented about that product) came from the brand or other authoritative source. Product identification and information
-		and the source of the product itself is less reliable, and introduces trust issues with representations of products
-		bought and sold online. Additionally, unique identification is critical to business processes, but also to online
-		purchasing. Very often two different products share the same identifier across the supply chain, and so what a
-		consumer purchases and what ultimately is received may be different.</p>
-        <p>Mechanisms are required for the following to provide trust in the digital representation of a product across platforms:</p>
-	<ol>
-          <li>validation of the legitimacy of an online listing &mdash; in particular on third party marketplaces;</li>
-          <li>assurance of identification uniqueness and key identifying data element accuracy.</li>
-        </ol>-->
 		<!-- The text to display in the following paragraph is generated based on the data-reqID attributes -->
 		<p class="reqList"><span class="reqListbefore">Requirements:</span>
 
@@ -699,27 +680,6 @@ cryptographically-verifiable.
 			track record of maintenance. Upon sale, she transferred control over the car's DID and its secure storage,
 			giving the new owner a working, and contiguous record of the vehicle.</p>
 
-<!--
-	<p>Manufactured goods are usually the output of multiple processes carried out by multiple actors. Think of a vehicle
-	(be it a ship, a train, a car or a plane) with
-	components and assemblies of components from multiple suppliers that are then added to the emerging vehicle as it makes its
-	way along the production line. During the lifetime of that vehicle, components will be replaced and serviced, and this work
-	can be carried out by any number of different agents.</p>
-	<p>A mechanism that allows each agent to make independent assertions about their work – the components created or replaced,
-	the tests carried out, which part was married up to which other part and so on – would allow the complete manufacturing and
-	service history of the vehicle to be computed.</p>
-	<p>The independent aspect is important. A decentralized identifier created and applied to each component or assembly can be
-	cryptographically verified without the need to call home to a supply company that may or may not continue to exist. Moreover, there
-	is no requirement for the overall vehicle manufacturer to maintain an aggregated database  concerning a vehicle that, in a
-	traditional system, is not only a single point of failure but that is immediately out of date as soon as the vehicle goes in
-	for its first service. A decentralized system allows each component of the vehicle to have its own history, its own credentials
-	and its own lifecycle, independent of other components and the vehicle – or vehicles – of which it is a part over time. At the end of its life,
-	the identifier may continue to be useful as a reference point for recycling and safe disposal information, even if the original
-	manufacturer is no longer in business.</p>
-	<p>The vehicle itself has its own identifier too. This would allow that particular vehicle to be a reference for the components
-	and any licensing, insurance, servicing etc. Again, the decentralized nature of DIDs promises <em>subsequent owners</em> control
-	over the identifier without dependency on any central agency allowing the maintenance record(s) to transition smoothly throughout
-	the entire lifecycle of the vehicle.</p>-->
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
 
 <span data-reqid="authenticate"></span>,
@@ -749,14 +709,7 @@ cryptographically-verifiable.
 		only has access to information related to their own shopping list. When she changes cloud providers, Maria
 		is able to easily and simply migrate all of the data, encrypted and without exposing any data, while the system
 		just continues to work with the new data store.</p>
-<!--
-		<p>Data stored in the cloud is typically visible to the cloud platform operator, even when flagged as being ‘only accessible to
-	you.’ For data to be stored in the cloud – in other words, on someone else’s computer – and for it to be only accessible to the data
-	owner, it must be encrypted. A Decentralized Identifier that leads to information with which a user can prove control of the
-	identifier without resort to a centralized authority could enable substitutable encrypted cloud storage. That is, the data owner
-	would be able to change cloud storage provider, take their encrypted data with them, and still offer fine-grained access control
-	to specific parties or their delegates. Associating cryptographic information with the DID would allow the data owner to change
-	their keys and <em>still</em> be able to control access without having to decrypt and re-encrypt it.</p>-->
+
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="authenticate"></span>,
 		<span data-reqid="associatedCrypto"></span>,
@@ -801,20 +754,6 @@ cryptographically-verifiable.
 		<p>Over the years, following corporate policy, he updates his cryptographic material for his workplace DID. After
 			these updates, all of the credentials could still be verified as having been issued to Dixon.</p>
 
-<!--
-
-		<p>Remembering the <a href="#abstract">4 essential characteristics of a decentralized identifier</a>, there are situations
-		where DIDs offer tangible benefits over existing identifier schemes. For example:</p><ul>
-	<li>Verifiable credential issuers publishing the list of subject attributes that they are authoritative for (their
-		authoritative nature can be proven).</li>
-	<li>In similar vein, Verifiable Credential issuers may publish authoritative schemas for the types of credential that they issue.</li>
-	<li>Terms of use or other policy constraints that might apply to issued <abbr title="Verifiable Credential">VC</abbr>s.</li>
-	<li>A published list of the public keys used to sign credentials becomes useful in a chain of trust if that list can itself
-		be verified.</li>
-	<li>The controller of a decentralized identifier can rotate (update) their cryptographic keys, either to overcome their existing keys
-		being compromised or the development of superior technology. This does not affect the validity or provability of any
-		verifiable credentials associated with that identifier.</li>
-	</ul>-->
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="authenticate"></span>,
     <span data-reqid="unique"></span>,
@@ -857,20 +796,6 @@ cryptographically-verifiable.
 			<p>Even without this explicit option, as Franklyn is the controller of the DID, he can cancel access to his data storage or simply
 			revoke the DID entirely at any time.</p>
 
-<!--	<p>Individuals are concerned that their online activity is tracked and analysed by many websites and third party services
-	without their full knowledge. Consent for the storing of cookies is routinely given without any real care being taken,
-	and service terms and conditions rarely read before being agreed to. A solution to this problem might have the following
-	characteristics:</p><ol>
-	<li>The ability to create an identifier for oneself without having to provide any personally identifiable information (PII)
-		to any third party.</li>
-	<li>The ability to prove control of that identifier, again, without revealing any PII.</li>
-	<li>The ability to associate information likely to be of commercial interest with that identifier, such as purchase history,
-		age, gender or social status, again, without revealing any PII.</li>
-		</ol>
-	<p>Such an identifier could be shared across multiple platforms that would be able to use it to provide a more customized
-	service, but without gaining any PII and therefore without being able to correlate with other services that did depend the
-	individual’s identity, such as their health records. A single individual would be well able to maintain multiple online
-	personas in this way and thereby have good control over what they did and didn't share with different services.</p>-->
 	<p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="decentralized"></span>,
 		<span data-reqid="privacyPreserving"></span>,
@@ -1063,6 +988,17 @@ cryptographically-verifiable.
 <!-- grid automagically appears here -->
 </section>
 
+<section id="domainMap"><h2>Domain map</h2>
+<p>The diagram below provides a visual guide to the different domains where Decentralized Identity is seen as important
+and links to the use cases within each domain as presented in this document.</p>
+
+<figure id="domainMapFig">
+  <embed src="images/domainMap.svg" alt="The diagram shows six distinct domains: Learners and workers, Law and legal, Corporate, Authentication and authorization, retail and consumer, and Supply chain. The Use Cases in this doc radiate out from those 6 providing a mini-classification." style="width:100%" id="domainMapSVG" />
+  <figcaption>Each use case is assigned to one of six broad domains</figcaption>
+</figure>
+
+</section>
+
   <section id="actions">
       <h2>DID Actions</h2>
         <p>Here are the actions envisioned in earlier work by
@@ -1070,12 +1006,9 @@ cryptographically-verifiable.
 
 		<abbr title="Decentralized Identifier">DID</abbr>s. Actions have been grouped by Create, Use,
 		Read, Update, and Delete.</p>
-<!--            <img src="images/did_actions.png" alt="Actions supported by DIDs, grouped by type, and related to the entity which carries out the action"/> -->
         <section id="actionCreate">
         <h2>Create</h2>
-<!--		<p class="issue" data-number="14">This section refers to recording in a registry. I've changed it to say
-			'may be' but this can only be finalized when Issue-14 is resolved. (2020-04-01 - do we mean Issue-14?
-			Doesn't look relevant)</p>-->
+
 <figure id="didCreate" class="actionSVG">
 <img src="images/didCreate.svg" alt="Diagram shows Subject and Controller as separate entities (represented as outlines of people) then an arrow labelled with the word Create pointing to a box representing the DID. A second arrow, labelled Register DID, points to a box representing the registry." />
 <figcaption>The basic flow for creating and registering a DID</figcaption>
@@ -1202,393 +1135,6 @@ cryptographically-verifiable.
      </section><!--delete-->
     </section> <!-- Actions -->
 
-
-<!--
-    <section id="featureBenefitGrid">
-	<h2>Features and Benefits</h2>
-		<p>In collecting and evaluating potential use cases, we have
-		identified fifteen (15) key features of DIDs
-		that provide benefits in the areas of anti-censorship, anti-exploitation,
-		ease of use, privacy, and sustainability.</p>
-		<p>The features and their associated benefits can be seen in the following
-        grid. A brief definition of each feature follows.</p>
-  <table id="feature_benefit_grid" class="feature_grid">
-  <tbody>
-    <tr>
-      <th scope="col">Feature </th>
-      <th scope="col">Anti-censor</th>
-      <th scope="col">Anti-exploitation</th>
-      <th scope="col">Ease of Use</th>
-      <th scope="col">Privacy</th>
-      <th scope="col">Sustainability</th>
-    </tr>
-    <tr>
-        <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
-      <td class="a-censor">X</td>
-      <td class="a-exploit"></td>
-      <td class="ease"></td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f2">2. Can't be administratively denied</a></th>
-	  <td class="a-censor">X</td>
-      <td class="a-exploit"></td>
-      <td class="ease"></td>
-      <td class="privacy"></td>
-      <td class="sustainability"></td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f3">3. Minimized rents</a></th>
-	  <td class="a-censor"></td>
-      <td class="a-exploit">X</td>
-      <td class="ease"></td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f4">4. No vendor lock in</a></th>
-	  <td class="a-censor"></td>
-      <td class="a-exploit">X</td>
-      <td class="ease"></td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f5">5. Self-issued, self-managed</a></th>
-	  <td class="a-censor">X</td>
-      <td class="a-exploit">X</td>
-      <td class="ease"></td>
-      <td class="privacy">X</td>
-      <td class="sustainability"></td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f6">6. Streamlined rotation</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease">X</td>
-      <td class="privacy"></td>
-      <td class="sustainability"></td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f7">7. No phone home</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease"></td>
-      <td class="privacy">X</td>
-      <td class="sustainability"></td>
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f8">8. Preempt/limit trackable data trails</a></th>
- 	  <td class="a-censor">&nbsp;</td>
-
-      <td class="a-exploit">X</td>
-      <td class="ease"></td>
-      <td class="privacy">X</td>
-      <td class="sustainability">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f9">9. Cryptographic future proof</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease"></td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f10">10. Survives issuing organization mortality</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease">X</td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f11">11. Survives deployment end-of-life</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease"></td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f12">12. Survives relationship with service provider</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease">X</td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f13">13. Cryptographic authentication and communication</a></th>
- 	  <td class="a-censor">X</td>
-      <td class="a-exploit">X</td>
-      <td class="ease"></td>
-      <td class="privacy">X</td>
-      <td class="sustainability"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f14">14. Service Discovery</a></th>
- 	  <td class="a-censor"></td>
-      <td class="a-exploit"></td>
-      <td class="ease">X</td>
-      <td class="privacy"></td>
-      <td class="sustainability">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f15">15. Registry agnostic</a></th>
- 	  <td class="a-censor">X</td>
-      <td class="a-exploit">X</td>
-      <td class="ease"></td>
-      <td class="privacy">X</td>
-      <td class="sustainability">X</td>
-    </tr>
-  </tbody>
-</table>
-  <!--</section>
-  <section id="requiredFeatures">
-  <h2>Required Features</h2> -->
-<!--
-	  <dl id="feature_definitions">
-  <dt id="f1">1. Inter-jurisdictional</dt>
-	<dd>Inter-jurisdictional identifiers do not depend on the legal jurisdiction
-      in which they are issued. They are valid for uses anywhere without loss
-      of fidelity or reliability. No jurisdiction is directly able to prevent
-      their use. (Anti-censorship and Sustainable).</dd>
-  <dt id="f2">2. Can't be administratively denied</dt>
-    <dd>These identifiers can't be denied or taken away by administrative
-        function. This prevents shifting politics and bad actors from
-        interfering. (Anti-censorship).</dd>
-  <dt id="f3">3. Minimized rents</dt>
-    <dd>These identifiers don't incur ongoing expenses if unused nor on a per
-        transaction basis. Fees based on updates—which incurs network and
-        computational costs to verify—are considered "minimal". (Anti-exploitation
-        and Sustainable).</dd>
-  <dt id="f4">4. No vendor lock in</dt>
-    <dd>These identifiers are not dependent on any given vendor. Vendor-specific
-        identifiers restrict usage to that which is acceptable to the vendor and
-        may allow vendors to extract disproportionate rents for usage.
-        (Anti-exploitation, Privacy, and Sustainable).</dd>
-  <dt id="f5">5. Self-issued, self-managed</dt>
-    <dd>These identifiers are created and managed by the subject of the identifier.
-        They are not assigned, given, sold, or rented to the individual using them.
-        The party relying on the identifier for identification, authentication, and
-        authorization, does not need to manage the creation, update, and recovery of
-        these identifiers. (Anti-censorship, Ease of use, and Privacy)</dd>
-  <dt id="f6">6. Streamlined rotation</dt>
-    <dd>When authentication materials need to be updated, these identifiers can
-        update without direct intervention with requesting parties and with minimal
-        individual interaction. (Ease of use)</dd>
-  <dt id="f7">7. No phone home</dt>
-    <dd>When using these identifiers, there is no need to contact the issuer of the
-        identifier to verify it. Verification and authentication can occur without
-        further communication with the issuer. (Privacy)</dd>
-  <dt id="f8">8. Preempt/limit trackable data trails</dt>
-    <dd>As &ldquo;cookie&rdquo; and other session/state-tracking mechanisms were gradually turned into scaffolding
-	    for unwanted or collusive tracking in the evolution of the web stack, so too might any new data exchange
-	    or communication systems unwittingly facilitate unwanted tracking based on new data trails. Resistance
-	    to these kinds of surveillance exploits need to be designed into new systems.</dd>
-  <dt id="f9">9. Cryptographic future proofing</dt>
-    <dd>These identifiers are capable of being updated as technology evolves. Current
-        cryptography techniques are known to be susceptible to quantum computational
-        attacks. Future-proofed identifiers provide a means to continue using the same
-        identifier with updated, advanced authentication and authorization technologies.
-        (Sustainable)</dd>
-  <dt id="f10">10. Survives organizational mortality</dt>
-    <dd>These identifiers survive the demise of the organization that issued them. They
-        usefulness of these identifiers survive organizations going out of business,
-        being purchased (and potentially losing domain names or root credentials), and
-        even the internal decay of an organization that no longer has the ability to
-        verify the authenticity of records they once issued.</dd>
-  <dt id="f11">11. Survives deployment end-of-life</dt>
-    <dd>These identifiers are usable even after the systems deployed by requesting parties
-        move past their useful lifetime. They are robust against technology fads and can
-        seamlessly work with both legacy and next-generation systems.</dd>
-  <dt id="f12">12. Survives relationship with service provider</dt>
-    <dd>These identifiers are not dependent on the tenure of the relationship with a
-        service provider. This contrasts with identifiers like service-centric emails,
-        e.g., joe@example.com, which when used as identifiers in other systems can cause
-        problems when individuals no longer use the service provider.</dd>
-  <dt id="f13">13. Cryptographic authentication and communication</dt>
-    <dd>These identifiers enable cryptographic techniques to authenticate individuals
-        and to secure communications with the subject of the identifier, typically using
-        public-private key pairs.</dd>
-  <dt id="f14">14. Service discovery</dt>
-    <dd>These identifiers allow requesting parties to look up available service endpoints
-        for interacting with the subject of the identifier. (Ease of use and Sustainable)</dd>
-  <dt id="f15">15. Registry agnostic</dt>
-	    <dd>These identifiers are free to reside on any registry implementing a compatible
-          interface. They are not beholden to any particular technology or vendor.</dd>
-    </dl>
-	  </section>
-
--->
-
-<!--
-
-    <section id="featureCoverage">
-	<h2>Feature Coverage</h2>
-		<p>Not all use cases illustrate each feature, and not all DID methods
-		  support all features. The
-        following chart shows which features are explicitly illustrated in
-        the <a href="#focalUseCases">Focal Use Cases</a>.</p>
-  <table class="feature_grid">
-  <tbody>
-    <tr>
-      <th scope="col">Feature </th>
-      <th scope="col">Corporate</th>
-      <th scope="col">Educational<br/>credentials</th>
-      <th scope="col">Prescriptions</th>
-      <th scope="col">Digital<br/>Executor</th>
-      <th scope="col">Single<br/>Sign On</th>
-    </tr>
-    <tr>
-        <th scope="row"> <a href="#f1">1. Inter-jurisdictional</a></th>
-      <td class="corporate">X</td>
-      <td class="education">X</td>
-      <td class="prescriptions"></td>
-      <td class="executor">X</td>
-      <td class="sso"></td>
-    </tr>
-    <tr>
-      <th scope="row"><a href="#f2">2. Can't be administratively denied</a></th>
-      <td class="corporate">X</td>
-      <td class="education"></td>
-      <td class="prescriptions">X</td>
-      <td class="executor">X</td>
-      <td class="sso">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f3">3. Minimized rents</a></th>
-      <td class="corporate"></td>
-      <td class="education"></td>
-      <td class="prescriptions">X</td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f4">4. No vendor lock in</a></th>
-      <td class="corporate">X</td>
-      <td class="education">X</td>
-      <td class="prescriptions">X</td>
-      <td class="executor">X</td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f5">5. Self-issued, self-managed</a></th>
-      <td class="corporate">X</td>
-      <td class="education">X</td>
-      <td class="prescriptions">X</td>
-      <td class="executor">X</td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-      <th scope="row"><a href="#f6">6. Streamlined rotation</a></th>
-      <td class="corporate"></td>
-      <td class="education">X</td>
-      <td class="prescriptions"></td>
-      <td class="executor">X</td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f7">7. No phone home</a></th>
-      <td class="corporate"></td>
-      <td class="education">X</td>
-      <td class="prescriptions">X</td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f8">8. Preempt/limit trackable data trails</a></th>
-      <td class="corporate">&nbsp;</td>
-      <td class="education">&nbsp;</td>
-      <td class="prescriptions">X</td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f9">9. Cryptographic future proof</a></th>
-      <td class="corporate">X</td>
-      <td class="education">X</td>
-      <td class="prescriptions"></td>
-      <td class="executor"></td>
-      <td class="sso">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f10">10. Survives issuing organization mortality</a></th>
-      <td class="corporate"></td>
-      <td class="education">X</td>
-      <td class="prescriptions"></td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f11">11. Survives deployment end-of-life</a></th>
-      <td class="corporate"></td>
-      <td class="education">X</td>
-      <td class="prescriptions"></td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f12">12. Survives relationship with service provider</a></th>
-      <td class="corporate">X</td>
-      <td class="education">X</td>
-      <td class="prescriptions"></td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f13">13. Cryptographic authentication and communication</a></th>
-      <td class="corporate">X</td>
-      <td class="education">X</td>
-      <td class="prescriptions">X</td>
-      <td class="executor">X</td>
-      <td class="sso">X</td>
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f14">14. Service Discovery</a></th>
-      <td class="corporate"></td>
-      <td class="education"></td>
-      <td class="prescriptions"></td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-
-    </tr>
-    <tr>
-        <th scope="row"><a href="#f15">15. Registry agnostic</a></th>
-      <td class="corporate"></td>
-      <td class="education"></td>
-      <td class="prescriptions"></td>
-      <td class="executor"></td>
-      <td class="sso"></td>
-
-    </tr>
-  </tbody>
-</table>
-  </section>
-
--->
     <section id="focalUseCases">
         <h2>Focal Use Cases</h2>
         <section id="didEnterprise">
@@ -2323,10 +1869,12 @@ function createRequirementsDefList(targetElement) {
 }
 
 
+
 //if (document.getElementById('requirementsCrossRef') !== 'null') {createReqSummaryDl('ucSummary')}
 if (document.getElementById('requirementsCrossRefTable') !== 'null'){createReqSummaryTable('requirements')}
 if (document.getElementById('requirementsDefinitions') !== 'null'){createRequirementsDefList('requirements')}
 if (document.getElementById('featureBenefitGridTable') !== 'null'){createFeatureBenefitGrid('featureBenefitGrid')}
+
 </script>
 
   </body>
