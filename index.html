@@ -1750,6 +1750,71 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 
 </section> <!-- Alice Rents a car -->
 
+<section id="messaging">
+      <h3>Portable Secure Communication</h3>
+      <section id="messagingBackground">
+        <h4>Background</h4>
+        <p>
+          Designing systems that securely support the scale of global communication on the web has traditionally come with a distinct set of tradeoffs that often negatively impact end-users. Current PKI systems tightly control who gets to manage and control the cryptographic keys associated with the set of digital certificates that serve as the backbone of the internet. This constraint means that modern cryptography is largely unusable for the average user, forcing them to borrow or ‘rent’ identifiers such as email addresses, usernames, and website domains through systems like <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>, <a href="https://en.wikipedia.org/wiki/X.509">X.509</a>, and <a href="https://en.wikipedia.org/wiki/Social_network">social networks</a>. By not directly controlling their own identifiers, people who want to use secure communication are not only unable to utilize cryptographic security in many of their everyday interactions, they are also limited to choosing between traditional secure messaging services such as Signal, Telegram, WhatsApp to safely communicate with friends and family in a limited, chat-style context. 
+        </p>
+        <p>
+          In a traditional secure messaging approach (e.g. WhatsApp, Facebook Messenger, S/MIME, iMessage, etc.), the security is a property of the platform; if a user changes platforms, either temporarily or permanently, they get their security a different way, tied to a different login and different terms of service. DIDs take security out of the hands of the context owner, i.e. an application or service provider, and put it in the hands of the DID controller who can choose which contexts they want to communicate in and when. This makes security decentralized and portable, instead of having security of an interaction tied to the protocol, transport, or application used to facilitate it. This feature allows people to easily switch communication contexts without losing any security guarantees, and provides a resilient backbone for all internet communications. Moving away from traditional identifiers such as phone numbers and email addresses can help to break down the siloed ecosystems that prevent data portability and make it difficult to implement secure communication technology more broadly into applications and services. Current approaches to secure communication often have the following drawbacks:
+        </p>
+        <ul>
+          <li>They rely on commonly used identifiers which are not directly under user control</li>
+          <li>They use a central intermediary or centralized components to facilitation interactions</li>
+          <li>They require one or more parties to have a highly available web server</li>
+          <li>They have siloed and non-interoperable security architectures tied to a single domain</li>
+        </ul>
+        <p>
+          DIDs help to solve this issue by enabling a style of communication which is truly peer-to-peer and messaging-based. Message-based systems decouple the relationship between producers of messages and consumers of messages, creating an abstraction that puts the two on equal footing and allows for many different kinds of devices with differing requirements to interface in a flexible and technology-neutral way. DIDs allow people to simultaneously use the same identifier for both traditional communications and transactions that require a level of cryptographic security, as well as switch contexts without losing any security guarantees. These identifiers are not rented or borrowed from centralized providers but are rather directly under user control. 
+        </p>
+      </section>
+      <section id="messagingDescription">
+        <h4>Description</h4>
+        <p>
+          Samira is a humanitarian aid worker in Khartoum and wants to create connections with new people she meets. She has a smartphone but doesn’t have any internet access in remote areas that she visits in her line of work. Since she can’t use the internet, most of her preferred methods of communication are unavailable. When she meets a new person she wishes to communicate with, she establishes a secure connection with them by having them scan a QR code to pass on her DID and start sharing messages secured by the keys referenced in her DID Document. She can maintain these secure connections whether she has access to the internet or not. Whenever Samira is working on a new campaign or wants to raise awareness about issues affecting her local region, she is able to securely communicate with all of the relevant parties, regardless of the device, platform, or network infrastructure they are using.
+        </p>
+        <p>
+          Later on, Samira sees a friend of hers, Ahmed, that’s part of a local organization who are organizing against unfair labor practices in the agriculture industry. Samira wants to support the efforts of this group and get involved, but she worries that publicly allying with wage workers will negatively affect her ability to act as a neutral party in labor negotiations. Using DIDs to create a unique identifier for herself in the group at very little cost, she can engage in multi-party secure communication with all of the members of Ahmed’s organization. Messages are secured via mutual authentication between Samira and each of the other members. Using this connection, Samira is able to have private and confidential communications with the other members at any time without fear of censorship or surveillance. Members of the organization are able to have confidence that they’re talking to Samira and she can verify whether she’s talking to someone legitimate or not. Samira can use the same identifier and connection with the group to share credentials that prove she’s a humanitarian worker and attest to her history.
+        </p>
+        <p>
+          Eventually, Samira loses her phone. To make sure no one impersonates her, she rotates the keys on all of the DIDs she is using for communication. Rather than losing access to all of her existing connections, Samira is able to update her service endpoints and routing capabilities to make sure she is still receiving messages securely on the devices she still owns. When she gets a new phone, she can add new keys to her DID Document to continue exchanging secure messages with her connections uninterrupted. In the case that Samira wants to change the DIDs she’s using, for instance because she’s changing DID method providers, she can send a message to her connections notifying them that she’s deprecating her old DID and using a new DID with authentic digital signatures. Samira is able to manage all of her secure communications across her devices, platforms, and applications in a consistent way, thanks to the security features provided by DIDs.
+        </p>
+      </section>
+
+      <section id="messagingChallenges">
+        <h4>Challenges</h4>
+        <p>
+          Samira’s use of a DID-based communication system comes with a number of challenges as it relates to user experience. This includes management of different communication contexts and context-switching, as well as the automation of connection management with things like key rotation, updating service endpoints, and routing via Agents. Users should not be exposed to the details of such coordination, but should be able to interact with, modify, and audit the process as needed. It’s likely that users will be interacting with secure messaging protocols via a number of different interfaces & devices and for a variety of different purposes, though the logic and experience should be coherent and consistent across different platforms.
+        </p>
+      </section>
+      <section id="messagingDistinction">
+        <h4>Distinction</h4>
+        <p>
+          Many decentralized identifier use cases describe the need for authenticated communication and cryptographic security. This use case focuses on the reliance on phone numbers or email addresses as primary identifiers for messaging services and illustrates how DIDs can be the backbone of a resilient message-based architecture for the internet which is asynchronous, not mediated by third parties, and empowers everyday users to utilize cryptographic identifiers for both basic messaging and higher-level communications.
+        </p>
+      </section>
+    <p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="keyRotation"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="privacyPreserving"></span>,
+<span data-reqid="delegation"></span>,
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="limitTrack"></span>,
+<span data-reqid="cryptoFuture"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="cryptoAuthComm"></span>,
+<span data-reqid="humanInterop"></span></p>
+
+    </section> <!-- end messaging -->
+
 </section>
 	    
 	    
