@@ -87,7 +87,7 @@
 
   <g id="dm_edu"><a xlink:href="../#edu" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(100,200)"/>
-    <text x="220" y="230">6.2 Lifelong credentials</text></a>
+    <text x="220" y="230">7.2 Lifelong credentials</text></a>
   </g>
 
   <g id="dm_ghostWriter"><a xlink:href="../#ghostWriter" target="_top">
@@ -129,7 +129,7 @@
 
   <g id="dm_law"><a xlink:href="../#law" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(720,140)"/>
-    <text x="840" y="170">6.4 Digital executor</text></a>
+    <text x="840" y="170">7.4 Digital executor</text></a>
   </g>
 
   <g id="dm_publicAuthorityCredentials"><a xlink:href="../#publicAuthorityCredentials" target="_top">
@@ -167,7 +167,7 @@
 
   <g id="dm_didEnterprise"><a xlink:href="../#didEnterprise" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(0,300)"/>
-    <text x="120" y="330">6.1 Enterprise identifiers</text></a>
+    <text x="120" y="330">7.1 Enterprise identifiers</text></a>
   </g>
 
   <g id="dm_edv"><a xlink:href="../#edv" target="_top">
@@ -203,12 +203,12 @@
 
   <g id="dm_prescriptions"><a xlink:href="../#prescriptions" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(180,760)"/>
-    <text x="300" y="790">6.3 Prescriptions</text></a>
+    <text x="300" y="790">7.3 Prescriptions</text></a>
   </g>
 
   <g id="dm_aliceRents"><a xlink:href="../#aliceRents" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(260,820)"/>
-    <text x="380" y="850">6.6 Alice rents a car</text></a>
+    <text x="380" y="850">7.6 Alice rents a car</text></a>
   </g>
 
   <g class="connector"> <!-- Retail/consumer to Online shopper -->
@@ -278,7 +278,7 @@
 
   <g id="dm_sso"><a xlink:href="../#sso" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,300)"/>
-    <text x="1020" y="330">6.5 Single sign on</text></a>
+    <text x="1020" y="330">7.5 Single sign on</text></a>
   </g>
 
   <g id="dm_crossPlatform"><a xlink:href="../#crossPlatform" target="_top">
