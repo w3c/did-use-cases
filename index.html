@@ -972,6 +972,44 @@ cryptographically-verifiable.
 </p>
       <p class="shortUcContributor">Suggested by Eric Wagner, Markus Sabadello</p>
     </section><!-- public authority credentials -->
+	      
+        <section id="correlation">
+          <h3>Correlation-controlled Services</h3>
+        <p>Cary is frustrated by the seemingly ubiquitous systems of privatized surveillance that monitor her actions in an
+     attempt to improve their convenience. She was one the first adopters of anti-cookie features and anti-adware software 
+     and avoids "Sign-in with (some platform)". Unfortunately, this also means all she doesn't get the benefits offered by 
+     many of today's online services including the ability to cut the airport security line or shop by using her face at the 
+	      neighborhood market. She just isn't willing to sacrifice her privacy by using OAuth or OpenID Connect for a 
+		convenient login: every sign-in with those technologies are visible to the "identity provider". Further, behind 
+		the scenes, every service is legally able to correlate the identifier she uses for authentication with each other, 
+		collecting information that Cary may not have divulged if asked directly. She finds it manipulative at best, and 
+		at times, outright coercive. With Decentralized Identifiers, Cary creates a pair-wise unique DID for every service 
+		provider she interacts with, and her wallet and/or agent not only manages which DID is used for which service, it
+		also manages &mdash; if she approves it directly or though policy &mdash; automatic authentication and authorization 
+		with those services she trusts. She now has cryptographically unique identifiers that are correlatable only by 
+		those services she chooses to use them &mdash; and a single-sign-on experience with her semi-autonomous client-side 
+		self-sovereign or fiduciary delegate &mdash; without introducing a third party who knows every site she visits.</p>
+
+		<!-- The text to display in the following paragraph is generated based on the data-reqID attributes -->
+		<p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="noCallHome"></span>,
+<span data-reqid="privacyPreserving"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="limitTrack"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="humanInterop"></span>
+
+</p>
+	<p class="shortUcContributor">Contributed by Adrian Gropper</p>
+        </section><!-- Correlation-->
+
+	      
+	      
+	      
+	      
   </section> <!-- End short use cases -->
 
 <section id="requirements"><h2>Requirements</h2>
