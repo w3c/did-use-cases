@@ -32,6 +32,10 @@
       marker-end: url(#endArrow);
     }
 
+  a:hover {
+    stroke-width:3px;
+  }
+
   </style>
 
 
@@ -42,9 +46,9 @@
     <path d="M-12,0 L-19,-9.5 L0,0 L-19,9.5 Z"/>
   </marker>
 
-  <rect x="0" y="0" width="100" height="50" stroke="black" stroke-width="1" id="firstRect" />  
+  <rect x="0" y="0" width="100" height="50" stroke="black"  id="firstRect" />  
 
-  <rect x="0" y="0" width="230" height="50" stroke="black" stroke-width="1" id="secondRect" />
+  <rect x="0" y="0" width="230" height="50" stroke="black"  id="secondRect" />
 
 
 </defs>
