@@ -1503,7 +1503,8 @@ and links to the use cases within each domain as presented in this document.</p>
 
     <section id="sso">
       <h3>Single Sign On (security)</h3>
-      <section id="ssoBackground">
+      	    <p class="focalContributor">Contributed by Adrian Gropper</p>
+<section id="ssoBackground">
         <h4>Background</h4>
         <p>
           Passwords are notoriously misused ("123456"), stolen from the
@@ -1538,18 +1539,6 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
           (except does DID Auth include any extensions that enable this
           subsequent ascension without starting another socket?).-->
         </p>
-<!--        <p>
-          Note that what is stored on the server-side is a DID, so in cases
-          where a successful attack reads (but does not mutate) the database,
-          all that is revealed is linkage of the DID to use the site (so
-          probably as a consequence the user should spawn a unique DID to reveal
-          to that site), and any 2FA secret (which should be a random number for
-          <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm">TOTP</a>,
-          instead of a <a href="https://blog.coinbase.com/on-phone-numbers-and-identity-423db8577e58">phone number</a>
-          susceptible to carrier social engineering and
-          <a href="https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls">SS7 bugs</a>). In other words, the user's DID Auth
-          procedures remain valid after the hack, even for that site.
-        </p> -->
       </section>
       <section id="ssoChallenges">
         <h4>Challenges</h4>
@@ -1579,6 +1568,7 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 
 	    <section id="aliceRents">
 <h3>Alice Rents a Car (credentials)</h3>
+	    <p class="focalContributor">Contributed by Adrian Gropper</p>
 <section id="aliceRentsBackground">
 <h4>Background</h4>
 <p>It’s 2021 and <abbr title="Self-Sovereign Identity">SSI</abbr> is the golden child. Alice looks forward to never having to
@@ -1646,6 +1636,8 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 
 	    <section id="messaging">
       <h3>Portable Secure Communication</h3>
+		    	    <p class="focalContributor">Contributed by Nader Helmy, Daniel Hardman, Ted Thibodeau Jr</p>
+
       <section id="messagingBackground">
         <h4>Background</h4>
         <p>
@@ -1722,55 +1714,40 @@ control.
       <section id="messagingDescription">
         <h4>Description</h4>
         <p>
-Samira is a humanitarian aid worker in Khartoum who wants to create
-connections with new people she meets. She has a smartphone but doesn’t
-have any internet access in remote areas that she visits in her line of
-work. Since she can’t use the internet, most of her preferred methods of
-communication are unavailable. When she meets a new person she wishes to
-communicate with, she establishes a direct secure connection between her
-device and theirs by having them scan a QR code to pass on her DID and
-start sharing messages secured by the keys referenced in her DID Document,
-which is served from her device. She can maintain these secure connections
-whether she has access to the internet or not. Whenever Samira is working
-on a new campaign or wants to raise awareness about issues affecting her
-local region, she is able to securely communicate with all relevant
-parties, regardless of the device, platform, or network infrastructure
-they are using.
-        </p>
-        <p>
-At one point, Samira sees a friend of hers, Ahmed, who’s part of a
-local organization campaigning against unfair labor practices in local
-agriculture. Samira wants to support the efforts of this group and get
-involved, but she worries that publicly allying with the farm workers
-will negatively affect her ability to act as a neutral party in labor
-negotiations. By creating a unique DID for herself in the group at very
-little cost, she can engage in multi-party secure communication with
-all of the members of Ahmed’s organization. Messages are secured via
-mutual authentication between Samira and each of the other members.
-Using these connections, Samira is able to have private and confidential
-communications with the other members at any time, without fear of
-censorship or surveillance. Members of the organization are able to have
-confidence that they’re talking to Samira, and she can verify who she is
-communicating with. Samira can use the same identifier and connection
-with the group to share credentials that prove she’s a humanitarian
-worker and attest to her history.
-        </p>
-        <p>
-Eventually, Samira loses her phone. To make sure no one impersonates her, 
-she rotates the keys on all of the DIDs she is using for communication. 
-Rather than losing access to all of her existing connections, Samira is 
-able to update her service endpoints and routing capabilities to make sure 
-she continues to receive messages securely on the devices she still owns. 
-When she gets a new phone, she can add new keys to her DID Document to 
-continue exchanging secure messages with her connections without 
-interruption. Should Samira want to change the DIDs she’s using (for 
-instance, because she’s changing DID method providers), she can send a 
-message to her connections notifying them that she’s deprecating her 
-old DID and providing her new DID with authentic digital signatures. 
-Samira is able to manage all of her secure communications across her 
-devices, platforms, and applications in a consistent way, thanks to 
-the security features provided by DIDs.
-        </p>
+Samira is a humanitarian aid worker in Khartoum who wants to create connections with new people she meets. 
+		She has a smartphone but doesn’t always have Internet access in the remote areas that she 
+		visits in her line of work. Since she can’t always use the Internet, most of her preferred 
+		methods of communication are not always available. When she’s offline and meets a new person 
+		she wishes to communicate with, she establishes a direct secure connection between her device 
+		and theirs by having them scan a QR code to pass on her DID and start sharing peer-to-peer 
+		messages secured by the keys on her device. When online, Samira’s DID can be resolved to its 
+		DID document that contains her public key material. In this way, she can maintain these secure 
+		connections whether she has access to the Internet or not. Whenever Samira is working on a new 
+		campaign or wants to raise awareness about issues affecting her local region, she is able to 
+		securely communicate with all relevant parties, regardless of the device, platform, or network 
+		infrastructure they are using. </p>
+<p>At one point, Samira sees a friend of hers, Ahmed, who’s part of a local organization campaigning against 
+	unfair labor practices in local agriculture. Samira wants to support the efforts of this group and get 
+	involved, but she worries that publicly allying with the farm workers will negatively affect her ability 
+	to act as a neutral party in labor negotiations. By creating a unique DID for herself in the group at very 
+	little cost, she can engage in online multi-party secure communication with all of the members of Ahmed’s 
+	organization. Messages are secured via mutual authentication between Samira and each of the other members. 
+	Using these connections, and using either direct peer to peer connections or online services that both Samir 
+	and Ahmed trust not to have any ‘backdoors’,  they are able to have private and confidential communications 
+	with the other members at any time, without fear of censorship. Members of the organization are able to have 
+	confidence that they’re talking to Samira, and she can verify who she is communicating with. Samira can use 
+	the same identifier and connection with the group to share credentials that prove she’s a humanitarian worker 
+	and attest to her history.</p>
+<p>Eventually, Samira loses her phone. To make sure no one impersonates her, she revokes the keys on all of the DIDs 
+	she is using for communication. Rather than losing access to all of her existing connections, Samira is able 
+	to update her online service endpoints and routing capabilities to make sure she continues to receive messages 
+	securely on the devices she still owns. When she gets a new phone, she can add new keys to her DID Document to 
+	continue exchanging secure messages online with her connections without interruption. Keys shared through direct, 
+	offline connections need to be updated one by one. Should Samira want to change the DIDs she’s using (for instance, 
+	because she’s changing DID method providers), she can send a message to her connections notifying them that she’s 
+	deprecating her old DID and providing her new DID with authentic digital signatures. Again, for offline 
+	communication, this must be done one by one but it means that Samira is able to manage all of her secure communications
+	across her devices, platforms, and applications in a consistent way, thanks to the security features provided by DIDs.</p>
       </section>
 
       <section id="messagingChallenges">
