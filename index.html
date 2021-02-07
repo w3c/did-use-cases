@@ -1541,7 +1541,8 @@ and links to the use cases within each domain as presented in this document.</p>
 
     <section id="sso">
       <h3>Single Sign On (security)</h3>
-      <section id="ssoBackground">
+      	    <p class="focalContributor">Contributed by Adrian Gropper</p>
+<section id="ssoBackground">
         <h4>Background</h4>
         <p>
           Passwords are notoriously misused ("123456"), stolen from the
@@ -1576,18 +1577,6 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
           (except does DID Auth include any extensions that enable this
           subsequent ascension without starting another socket?).-->
         </p>
-<!--        <p>
-          Note that what is stored on the server-side is a DID, so in cases
-          where a successful attack reads (but does not mutate) the database,
-          all that is revealed is linkage of the DID to use the site (so
-          probably as a consequence the user should spawn a unique DID to reveal
-          to that site), and any 2FA secret (which should be a random number for
-          <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm">TOTP</a>,
-          instead of a <a href="https://blog.coinbase.com/on-phone-numbers-and-identity-423db8577e58">phone number</a>
-          susceptible to carrier social engineering and
-          <a href="https://www.theguardian.com/technology/2016/apr/19/ss7-hack-explained-mobile-phone-vulnerability-snooping-texts-calls">SS7 bugs</a>). In other words, the user's DID Auth
-          procedures remain valid after the hack, even for that site.
-        </p> -->
       </section>
       <section id="ssoChallenges">
         <h4>Challenges</h4>
@@ -1617,6 +1606,7 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 
 	    <section id="aliceRents">
 <h3>Alice Rents a Car (credentials)</h3>
+	    <p class="focalContributor">Contributed by Adrian Gropper</p>
 <section id="aliceRentsBackground">
 <h4>Background</h4>
 <p>It’s 2021 and <abbr title="Self-Sovereign Identity">SSI</abbr> is the golden child. Alice looks forward to never having to
@@ -1681,6 +1671,170 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
 <span data-reqid="humanInterop"></span></p>
 
 </section> <!-- Alice Rents a car -->
+
+	    <section id="messaging">
+      <h3>Portable Secure Communication</h3>
+		    	    <p class="focalContributor">Contributed by Nader Helmy, Daniel Hardman, Ted Thibodeau Jr</p>
+
+      <section id="messagingBackground">
+        <h4>Background</h4>
+        <p>
+Designing systems that securely support the scale of global communication
+on the Web has traditionally come with a distinct set of tradeoffs that
+often negatively impact end-users. Current <abbr title="Public Key
+Infrastructure">PKI</abbr> systems tightly control who gets to manage
+and control the cryptographic keys associated with the set of digital
+certificates that serve as the backbone of the internet. This constraint
+means that modern cryptography is largely unusable for the average user,
+forcing them to borrow or "rent" identifiers such as email addresses,
+usernames, and website domains, through systems like
+<a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>,
+<a href="https://en.wikipedia.org/wiki/X.509">X.509</a>, and
+<a href="https://en.wikipedia.org/wiki/Social_network">social
+networks</a>. By not directly controlling their own identifiers, people
+who want to use secure communication are not only unable to utilize
+cryptographic security in many of their everyday interactions, they are
+also limited to choosing between traditional secure messaging services
+to safely communicate with friends and family in a limited, chat-style
+context.
+        </p>
+        <p>
+In a traditional secure messaging approach, the security is a property 
+of the platform; if a user changes platforms, either temporarily or 
+permanently, they get their security a different way, tied to a different 
+login and different terms of service. DIDs take security out of the hands 
+of the context owner, i.e., an application or service provider, and put 
+it in the hands of the DID controller, who can choose the contexts in 
+which they want to communicate and when. This makes security decentralized 
+and portable, instead of having the security of an interaction tied to the 
+protocol, transport, or application used to facilitate it. This feature 
+allows people to easily switch communication contexts without losing any 
+security guarantees, and provides a resilient backbone for all internet 
+communications. Moving away from traditional identifiers, such as phone 
+numbers and email addresses, can help to break down the siloed ecosystems 
+that prevent data portability and make it difficult to more broadly 
+incorporate secure communication technology in applications and services. 
+Current approaches to secure communication often have drawbacks such as 
+the following:
+        </p>
+        <ul>
+          <li>
+reliance on commonly used identifiers which are not directly under 
+user control
+          </li>
+          <li>
+use of a central intermediary or centralized components to facilitate 
+interactions
+          </li>
+          <li>
+requirement that one or more parties have a highly available web server
+          </li>
+          <li>
+siloed and non-interoperable security architectures tied to a single 
+domain
+          </li>
+        </ul>
+        <p>
+DIDs help to solve this issue by enabling a style of communication which
+is truly peer-to-peer and message-based. Message-based systems decouple
+the relationship between producers of messages and consumers of messages,
+creating an abstraction that puts the two on equal footing and allows for
+many different kinds of devices with differing requirements to interface
+in a flexible and technology-neutral way. DIDs allow people to
+simultaneously use the same identifier for both traditional communications
+and newer transactions that require a higher level of cryptographic
+security, as well as allowing them to switch contexts without losing any
+security guarantees. These decentralized identifiers are not rented or
+borrowed from centralized providers but are instead directly under user
+control.
+        </p>
+      </section>
+      <section id="messagingDescription">
+        <h4>Description</h4>
+        <p>
+Samira is a humanitarian aid worker in Khartoum who wants to create connections with new people she meets. 
+		She has a smartphone but doesn’t always have Internet access in the remote areas that she 
+		visits in her line of work. Since she can’t always use the Internet, most of her preferred 
+		methods of communication are not always available. When she’s offline and meets a new person 
+		she wishes to communicate with, she establishes a direct secure connection between her device 
+		and theirs by having them scan a QR code to pass on her DID and start sharing peer-to-peer 
+		messages secured by the keys on her device. When online, Samira’s DID can be resolved to its 
+		DID document that contains her public key material. In this way, she can maintain these secure 
+		connections whether she has access to the Internet or not. Whenever Samira is working on a new 
+		campaign or wants to raise awareness about issues affecting her local region, she is able to 
+		securely communicate with all relevant parties, regardless of the device, platform, or network 
+		infrastructure they are using. </p>
+<p>At one point, Samira sees a friend of hers, Ahmed, who’s part of a local organization campaigning against 
+	unfair labor practices in local agriculture. Samira wants to support the efforts of this group and get 
+	involved, but she worries that publicly allying with the farm workers will negatively affect her ability 
+	to act as a neutral party in labor negotiations. By creating a unique DID for herself in the group at very 
+	little cost, she can engage in online multi-party secure communication with all of the members of Ahmed’s 
+	organization. Messages are secured via mutual authentication between Samira and each of the other members. 
+	Using these connections, and using either direct peer to peer connections or online services that both Samira
+	and Ahmed trust not to have any ‘backdoors’,  they are able to have private and confidential communications 
+	with the other members at any time, without fear of censorship. Members of the organization are able to have 
+	confidence that they’re talking to Samira, and she can verify who she is communicating with. Samira can use 
+	the same identifier and connection with the group to share credentials that prove she’s a humanitarian worker 
+	and attest to her history.</p>
+<p>Eventually, Samira loses her phone. To make sure no one impersonates her, she revokes the keys on all of the DIDs 
+	she is using for communication. Rather than losing access to all of her existing connections, Samira is able 
+	to update her online service endpoints and routing capabilities to make sure she continues to receive messages 
+	securely on the devices she still owns. When she gets a new phone, she can add new keys to her DID Document to 
+	continue exchanging secure messages online with her connections without interruption. Keys shared through direct, 
+	offline connections need to be updated individually by Samira to ensure continued communication. Should Samira want to change the DIDs she’s using (for instance, 
+	because she’s changing DID method providers), she can send a message to her connections notifying them that she’s 
+	deprecating her old DID and providing her new DID with authentic digital signatures. Again, for entirely offline 
+	connections, this must be done one by one but it means that Samira is able to manage all of her secure communications
+	across her devices, platforms, and applications in a consistent way, thanks to the security features provided by DIDs.</p>
+      </section>
+
+      <section id="messagingChallenges">
+        <h4>Challenges</h4>
+        <p>
+Samira's use of a DID-based communication system comes with a number of
+user experience challenges. These include the management of her different
+communication contexts and switching between them, as well as the
+automation of connection management with things like key rotation,
+updating service endpoints, and routing via Agents. Users should not be
+exposed to the details of such coordination, but should be able to
+interact with, modify, and audit the process as needed. It’s likely that
+users will be interacting with secure messaging protocols via a number
+of different interfaces &amp; devices and for a variety of different
+purposes, though the logic and experience should be coherent and
+consistent across different platforms.
+        </p>
+      </section>
+      <section id="messagingDistinction">
+        <h4>Distinction</h4>
+        <p>
+Many DID use cases describe the need for authenticated communication and
+cryptographic security. This use case focuses on today's reliance on phone
+numbers or email addresses as primary identifiers for messaging services,
+and illustrates how DIDs can be the backbone of a resilient message-based
+architecture for the internet which is asynchronous, not mediated by third
+parties, and empowering of everyday use of cryptographic identifiers for
+both basic messaging and higher-level communications.
+        </p>
+      </section>
+    <p class="reqList"><span class="reqListbefore">Requirements:</span>
+
+<span data-reqid="associatedCrypto"></span>,
+<span data-reqid="keyRotation"></span>,
+<span data-reqid="serviceEndpoint"></span>,
+<span data-reqid="privacyPreserving"></span>,
+<span data-reqid="delegation"></span>,
+<span data-reqid="authenticate"></span>,
+<span data-reqid="decentralized"></span>,
+<span data-reqid="unique"></span>,
+<span data-reqid="interJ"></span>,
+<span data-reqid="noVendorLock"></span>,
+<span data-reqid="limitTrack"></span>,
+<span data-reqid="cryptoFuture"></span>,
+<span data-reqid="survivesRel"></span>,
+<span data-reqid="cryptoAuthComm"></span>,
+<span data-reqid="humanInterop"></span></p>
+
+    </section> <!-- end messaging -->
 
 </section>
 
