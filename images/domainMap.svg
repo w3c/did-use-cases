@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1300px" height="900px" viewBox="90 30 1250 900" xml:space="preserve">
+	 width="1350px" height="900px" viewBox="90 30 1350 900" xml:space="preserve">
 
   <style type="text/css">
 
@@ -12,6 +12,7 @@
       font-family: Frutiger, Myriad, Arial, Helvetica, sans-serif;
       text-anchor: middle;
       font-weight: normal;
+      font-size: 20px;
     }
 
     #endArrow {
@@ -46,7 +47,7 @@
     <path d="M-12,0 L-19,-9.5 L0,0 L-19,9.5 Z"/>
   </marker>
 
-  <rect x="0" y="0" width="100" height="50" stroke="black"  id="firstRect" />  
+  <rect x="0" y="0" width="270" height="50" stroke="black"  id="firstRect" />
 
   <rect x="0" y="0" width="230" height="50" stroke="black"  id="secondRect" />
 
@@ -96,7 +97,7 @@
 
   <g id="dm_ghostWriter"><a xlink:href="../#ghostWriter" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,200)" transform="translate(180,140)"/>
-    <text x="300" y="170">2.7 Pseudonymous work</text></a>
+    <text x="295" y="170">2.7 Pseudonymous work</text></a>
   </g>
 
 
@@ -128,7 +129,7 @@
 
   <g id="dm_digitalPRC"><a xlink:href="../#digitalPRC" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(800,200)"/>
-    <text x="920" y="230">2.9 Permanent residence</text></a>
+    <text x="915" y="230">2.9 Permanent residence</text></a>
   </g>
 
   <g id="dm_law"><a xlink:href="../#law" target="_top">
@@ -137,8 +138,8 @@
   </g>
 
   <g id="dm_publicAuthorityCredentials"><a xlink:href="../#publicAuthorityCredentials" target="_top">
-    <use xlink:href="#secondRect" fill="rgb(255,255,208)" transform="translate(640,80)"/>
-    <text x="760" y="110">2.11 Public Authority creds</text></a>
+    <use xlink:href="#firstRect" fill="rgb(255,255,208)" transform="translate(640,80)"/>
+    <text x="770" y="110">2.11 Public Authority creds</text></a>
   </g>
 
 
@@ -166,7 +167,7 @@
 
   <g id="dm_accessingServiceEndpoints"><a xlink:href="../#accessingServiceEndpoints" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(-100,400)"/>
-    <text x="20" y="430">2.4 Accessing master data</text></a>
+    <text x="20" y="430">2.4 Accessing data</text></a>
   </g>
 
   <g id="dm_didEnterprise"><a xlink:href="../#didEnterprise" target="_top">
@@ -176,7 +177,7 @@
 
   <g id="dm_edv"><a xlink:href="../#edv" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,230,228)" transform="translate(0,500)"/>
-    <text x="115" y="530">2.3 Confidential engagement</text></a>
+    <text x="115" y="530">2.3 Confidential engage</text></a>
   </g>
 
   <g class="connector"> <!-- Corporate to enterprise IDs -->
@@ -199,6 +200,14 @@
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(300,600)"/>
     <text x="420" y="630">Retail &amp; consumer</text>
   </g>
+
+
+  <g id="dm_correlation"><a xlink:href="../#correlation" target="_top">
+    <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(50,640)"/>
+    <text x="165" y="670">2.12 Correlation control</text></a>
+  </g>
+
+
 
   <g id="dm_onlineShopper"><a xlink:href="../#onlineShopper" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(100,700)"/>
@@ -231,6 +240,9 @@
     <path d="M295,625 235,575"/>
   </g>
 
+  <g class="connector"> <!-- Retail/consumer to Correlation -->
+    <path d="M295,625 280,635"/>
+  </g>
 
 </g> <!-- retail/consumer -->
 
@@ -255,7 +267,7 @@
 
   <g id="dm_supplyChain"><a xlink:href="../#supplyChain" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,200,255)" transform="translate(640,820)"/>
-    <text x="755" y="850">2.8 Pseudomymous distribution</text></a>
+    <text x="755" y="850">2.8 Pseudomymous dist.</text></a>
   </g>
 
   <g class="connector"> <!-- Supply chain to Import retro toys -->
@@ -277,7 +289,7 @@
 
   <g id="authentication">
     <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(740,400)"/>
-    <text x="860" y="430">Authentication &amp; authorization</text>
+    <text x="860" y="430">Auth’n &amp; authorization</text>
   </g>
 
   <g id="dm_sso"><a xlink:href="../#sso" target="_top">
@@ -285,14 +297,24 @@
     <text x="1020" y="330">6.5 Single sign on</text></a>
   </g>
 
+  <g id="dm_messaging"><a xlink:href="../#messaging" target="_top">
+    <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(1000,400)"/>
+    <text x="1120" y="430">6.7 Secure Comms</text></a>
+  </g>
+
   <g id="dm_crossPlatform"><a xlink:href="../#crossPlatform" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,500)"/>
-    <text x="1010" y="530">2.6 Cross-platform sharing</text></a>
+    <text x="1010" y="530">2.6 X-platform sharing</text></a>
   </g>
 
   <g class="connector"> <!-- Auth & auth to Single sign on -->
     <path d="M900,395 940,355"/>
   </g>
+
+  <g class="connector"> <!-- Auth &amp; auth to Secure Comm-->
+    <path d="M975,425 995,425"/>
+  </g>
+
 
   <g class="connector"> <!-- Auth & auth to cross-platform sharing -->
     <path d="M900,455 940,495"/>
