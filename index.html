@@ -751,10 +751,12 @@ and links to the use cases within each domain.</p>
 	</section><!-- service endpoints-->
 
 	<section id="vcEcosystem"><h3>Transferable Skills Credentials</h3>
-		<p>Dixon's employer uses DIDs and <abbr title="Verifiable Credentials">VC</abbr>s to track workplace successes and recognition.
-			Every employee has a DID registered with the company and accessible via the company registry. When he
-			completes a training program &mdash; like CPR or Export Compliance &mdash; or receives an accolade like employee of
-			the month, the company mints a new Verifiable Credential. These are not only used by <abbr title="Human resources">HR</abbr>
+		<p>Dixon's employer uses <abbr title="Decentralized Identifier">DID</abbr>s and <abbr title="Verifiable Credentials">VC</abbr>s to 
+			track workplace successes and recognition.
+			Every employee has a DID registered with the company that is accessible via the company registry. When Dixon
+			completes a training program &mdash; like <abbr title="Cardiopulmonary Resuscitation">CPR</abbr> or Export 
+			Compliance &mdash; or receives an accolade like employee of
+			the month, the company mints a new Verifiable Credential for him. These are not only used by <abbr title="Human resources">HR</abbr>
 			in their evaluations for raises and bonuses, they are all made available to Dixon in a form he can use outside
 			the firm. He maintains a career portfolio on his own server which he uses to keep track of his career.</p>
 		<p>When a devastating Earthquake nearly destroyed half of his small town, Dixon was able to present a selection
@@ -778,17 +780,17 @@ and links to the use cases within each domain.</p>
 		<p>Franklyn is frustrated by the seemingly endless surveillance that tracks his activity online. He is a
 			single father of two girls whose privacy is absolutely vital to him. He does what he can to minimize
 			the ways in which he might accidentally put his kids at risk, avoiding sharing details of his life,
-			his shopping, or the inadvertent geo-located digital photo. He has minimized her digital footprint and
+			his shopping, or the inadvertent geo-located digital photo. He has minimized his digital footprint and
 			opted out of everything but the most secure and privacy respecting sites.</p>
 		<p>However, when he can verify that a website is meeting his own standards for privacy and is willing to accept
-			a fiduciary obligation to protect her and her information, he appreciates the personalized services
+			a fiduciary obligation to protect his information, he appreciates the personalized services
 			that can be created by sharing select nuggets of information while remaining as anonymous as possible.</p>
 		<p>For each service, he creates a new unique DID and authorizes the company to use it to track him, as long as they
 			have agreed to his specific terms of service, which covers inappropriate use of his data, whether internally
 			or in redistributing it to other companies. With this unique identifier, the services are able to build
 			up a history of interactions with Franklyn, without recourse to his legal identity, IP address, any
-			credit or income data, nothing. Just the DID. By authenticating using the DID the service has an exceptionally
-			strong assurance that the current session is Franklyn. Should the store data become compromised in a data breach,
+			credit or income data, nothing. Just the DID. By authenticating, using the DID, the service has an exceptionally
+			strong assurance that the current session user is Franklyn. Should the store data become compromised in a data breach,
 			all the attackers will get is a history of shopping and shopping lists associated with an arbitrary DID
 			controlled by an unknown party.</p>
 		<p>As he becomes comfortable with a given service, he gradually shares more details, such as his pending shopping requirements.
@@ -880,8 +882,8 @@ and links to the use cases within each domain.</p>
       control to provide a specific level of identity assurance, anchored
       in the cryptography of the proof-of-control ceremony. Verifiers of that
       credential can cryptographically verify both the authenticity and origin
-      of the credential itself—it can be proven that it was issued by USCIS
-      and unchanged since then&mdash;AND it can verify that the presenter of the
+      of the credential itself &mdash; it can be proven that it was issued by USCIS
+      and unchanged since then &mdash; AND it can verify that the presenter of the
       credential still controls the identifier.</p>
 	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="authenticate"></span>,
@@ -900,8 +902,8 @@ and links to the use cases within each domain.</p>
         specializing in small run retro products manufactured in Asia.
         Last year she got her big break when she licensed the right to make "Retro"
         Lima Bean Babies, a huge collector phenomenon in the 1990s. As long as her
-        products had a distinct, visible tag with "R" on one side and "Retro" on
-        the other, she could manufacture anything from the Lima Bean Babies catalog.</p>
+        products have a distinct, visible tag with "R" on one side and "Retro" on
+        the other, she can manufacture anything from the Lima Bean Babies catalog.</p>
       <p>
         To handle fulfilment, Jodie works in small batches
         with a large number of different products and
@@ -919,13 +921,13 @@ and links to the use cases within each domain.</p>
         their licenses to logistics firms to actually move the product from their facility
         to Los Angeles, while maintaining cryptographic verifiability of both the
         original license, and the chain of delegations.</p>
-      <p>When her products reach the United States, CBP can automatically review the
+      <p>When her products reach the United States, US CBP can automatically review the
         digital manifest filed for entry and each of the delegations to verify that this given
-        batch of products are, in fact, officially licensed Lima Bean Baby products.
+        batch of products is, in fact, officially licensed Lima Bean Baby products.
       </p>
       <p>This digitally verifiable provenance of
         her license streamlines access through US Customs, regardless of her supply
-        chain, without reducing the effectiveness of CBP at fighting the illegal
+        chain, without reducing the effectiveness of US CBP at fighting the illegal
         import of pirated product.</p>
 	  <p class="reqList"><span class="reqListbefore">Requirements:</span>
     <span data-reqid="authenticate"></span>,
@@ -934,20 +936,21 @@ and links to the use cases within each domain.</p>
     <span data-reqid="interJ"></span>,
 	    <span data-reqid="humanInterop"></span>
 </p>
-      <p class="shortUcContributor">Suggested by DHS SVIP</p>
+      <p class="shortUcContributor">Suggested by <a href="https://www.dhs.gov/science-and-technology/svip"><abbr title="Department 
+	      of Homeland Security">DHS</abbr> <abbr title="Silicon Valley Innovation Program">SVIP</abbr></a></p>
     </section><!-- importing retro toys -->
 
     <section id="publicAuthorityCredentials">
       <h3>Public authority identity credentials (eIDAS)</h3>
       <p>Eva is a young woman and citizen of Belgium. Like many individuals of her
         generation, what matters to her is not only her connection to her own nation
-        state, but also her identity as European as well as the beliefs in cross-border
+        state, but also her identity as European, as well as the beliefs in cross-border
         values and mobility. Eva is interested in pursuing a Bachelor's Degree at a
         university in Spain.</p>
       <p>In order to facilitate the administrative processes involving authorities and
         organizations in multiple countries, she wishes to manage her digital identity
         in a way that is independent of a central authority. She installs a
-        wallet and creates a DID within the European Self-Sovereign Identity Framework
+	      wallet and creates a <abbr title="Decentralized Identifier">DID</abbr> within the European Self-Sovereign Identity Framework
         (<a href="https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=262505734">ESSIF</a>),
         which is being implemented with support from the European Commission,
         as part of the European Blockchain Service Infrastructure
@@ -958,13 +961,16 @@ and links to the use cases within each domain.</p>
         Authentication and Trust Services regulation
         (<a href="https://en.wikipedia.org/wiki/EIDAS">eIDAS</a>), which standardizes
         attributes and trust services in all E.U. member states.</p>
-      <p>With her ESSIF identity, Eva can apply to the Spanish university. The university
+	    <p>With her <abbr title="European Self-Sovereign Identity Framework">ESSIF</abbr> 
+	    identity, Eva can apply to the Spanish university. The university
         in turn issues further digital credentials to Eva's wallet, such as a student
-        record number, or - after successful completion of the program - a digital diploma.
+        record number, or &mdash; after successful completion of the program &mdash; a digital diploma.
         In her future life, Eva can continue to enrich and use her ESSIF identity in many
         ways, for example when applying for a job at a company in Finland, for registering
         her own business in Romania, for opening a bank account, or for applying for E.U.
-        grants. Since her ESSIF identity includes credentials from eIDAS-compliant public
+        grants. Since her <abbr title="European Self-Sovereign Identity Framework">ESSIF</abbr> 
+        identity includes credentials from <abbr title="Electronic IDentification,
+		Authentication and Trust Services">eIDAS</abbr>-compliant public
         authorities, it is suitable for use cases requiring the highest levels of
         assurance, while still providing the benefits of a decentralized identity
         architecture.</p>
@@ -987,10 +993,10 @@ and links to the use cases within each domain.</p>
           <h3>Correlation-controlled Services</h3>
         <p>Cary is frustrated by the seemingly ubiquitous systems of privatized surveillance that monitor her actions in an
      attempt to improve their convenience. She was one the first adopters of anti-cookie features and anti-adware software 
-     and avoids "Sign-in with (some platform)". Unfortunately, this also means all she doesn't get the benefits offered by 
+     and avoids "Sign-in with (some platform)". Unfortunately, this also means that she doesn't get the benefits offered by 
      many of today's online services including the ability to cut the airport security line or shop by using her face at the 
 	      neighborhood market. She just isn't willing to sacrifice her privacy by using OAuth or OpenID Connect for a 
-		convenient login: every sign-in with those technologies are visible to the "identity provider". Further, behind 
+		convenient login: every sign-in with those technologies is visible to the "identity provider". Further, behind 
 		the scenes, every service is legally able to correlate the identifier she uses for authentication with each other, 
 		collecting information that Cary may not have divulged if asked directly. She finds it manipulative at best, and 
 		at times, outright coercive. With Decentralized Identifiers, Cary creates a pair-wise unique DID for every service 
@@ -1107,7 +1113,7 @@ and links to the use cases within each domain.</p>
         <h3>Dereference</h3>
         <p>Dereferencing a DID uses the material in its DID Document to return a resource. The expectation is that, by default, dereferencing
 		a DID without a reference to a service endpoint will return the <a>DID Document</a> itself. When a DID is combined with a
-		<code>service</code> <a href="https://www.w3.org/TR/2019/WD-did-core-20191113/#generic-did-parameter-names">parameter</a>
+		<code>service parameter</code>
 		(forming a <a>DID URL</a>), dereferencing will return the resource pointed to from the named service endpoint, which was
 		discovered by resolving the DID to its DID Document and looking up the endpoint by name. In this way, a
 		Requesting Party may dynamically discover and  interact with the current service endpoints for a
@@ -1140,7 +1146,7 @@ and links to the use cases within each domain.</p>
         <h3>Modify Service Endpoint</h3>
 		<p><a>DID Controllers</a> should be able to change service endpoints associated with a DID, including the proof mechanism
 		for authenticating as the Subject for any  given endpoint. The process for doing this is method specific, but is designed to
-		allow Controllers to make these changes without necessarily changing the primary proof mechanism for control of the DID itself.</p>
+			allow <a>DID Controllers</a> to make these changes without necessarily changing the primary proof mechanism for control of the DID itself.</p>
         </section>
         <section id="actionForwardMigrate">
         <h3>Forward / Migrate</h3>
@@ -1633,7 +1639,7 @@ using <a href="https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/
   <li>Alice’s agent has a policy that saying that any company as large as her chosen car rental company can get whatever
 	  they explicitly ask for. Smaller companies, or large ones on a blacklist may need Alice to give explicit permission
 	  &mdash; which the agent will ask for using a text message.</li>
-  <li>Alice’s agent gives offers three signed bearer tokens authorizing release of her personal information from three specific
+  <li>Alice’s agent offers three signed bearer tokens authorizing release of her personal information from three specific
 	  service providers. These tokens are encrypted so that the rental company doesn’t know what’s in them. Alice’s service
 	  providers use pre-registered information linked to their DID for Alice to decrypt the tokens and verify they were signed by Alice’s agent.</li>
   <li>Note, that in this example, Alice does not care that her three service providers know she is becoming a rental customer.
