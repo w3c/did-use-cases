@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1350px" height="900px" viewBox="90 30 1350 900" xml:space="preserve">
+	 width="1250px" height="900px" viewBox="90 30 1250 900" xml:space="preserve">
 
   <style type="text/css">
 
@@ -221,7 +221,7 @@
 
   <g id="dm_aliceRents"><a xlink:href="../#aliceRents" target="_top">
     <use xlink:href="#secondRect" fill="rgb(255,200,240)" transform="translate(260,820)"/>
-    <text x="380" y="850">6.6 Alice rents a car</text></a>
+    <text x="380" y="850">6.5 Alice rents a car</text></a>
   </g>
 
   <g class="connector"> <!-- Retail/consumer to Online shopper -->
@@ -294,12 +294,7 @@
 
   <g id="dm_sso"><a xlink:href="../#sso" target="_top">
     <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(900,300)"/>
-    <text x="1020" y="330">6.5 Single sign on</text></a>
-  </g>
-
-  <g id="dm_messaging"><a xlink:href="../#messaging" target="_top">
-    <use xlink:href="#secondRect" fill="rgb(200,250,200)" transform="translate(1000,400)"/>
-    <text x="1120" y="430">6.7 Secure Comms</text></a>
+    <text x="1020" y="330">6.6 Secure Comms</text></a>
   </g>
 
   <g id="dm_crossPlatform"><a xlink:href="../#crossPlatform" target="_top">
@@ -307,15 +302,11 @@
     <text x="1010" y="530">2.6 X-platform sharing</text></a>
   </g>
 
-  <g class="connector"> <!-- Auth & auth to Single sign on -->
+  <g class="connector"> <!-- Auth & auth to Secure Comms -->
     <path d="M900,395 940,355"/>
   </g>
 
-  <g class="connector"> <!-- Auth &amp; auth to Secure Comm-->
-    <path d="M975,425 995,425"/>
-  </g>
-
-
+ 
   <g class="connector"> <!-- Auth & auth to cross-platform sharing -->
     <path d="M900,455 940,495"/>
   </g>
