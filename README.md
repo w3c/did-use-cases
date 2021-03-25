@@ -5,7 +5,7 @@
 
 This is the repository of the W3C’s note on Decentralized Identifier Use Cases v1.0, developed by the [DID Working Group](https://www.w3.org/2019/did-wg/). The editors’ draft of the specification can also be [read directly](https://w3c.github.io/did-use-cases/).
 
-<p style="background-color:red; color: white">Work on this document has now been completed with publication of the [Use Cases and Requirements document as a Working Group Note](https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/) on 17th March 2021.</p>
+<span style="background-color:red; color: white">Work on this document has now been completed with publication of the [Use Cases and Requirements as a Working Group Note](https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/) on 17th March 2021.</span>
 
 ## Contributing to the Repository
 
