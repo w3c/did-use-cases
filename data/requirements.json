@@ -1,0 +1,238 @@
+{
+  "version": "2.0.0",
+  "source": "W3C DID Use Cases and Requirements (NOTE-did-use-cases-20210317)",
+  "sourceUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#requirements",
+  "tierDefinitions": {
+    "core": "Referenced by 70%+ of use cases \u2014 expected of any serious DID method",
+    "common": "Referenced by 40-69% of use cases \u2014 important for most implementations",
+    "specialized": "Referenced by <40% of use cases \u2014 needed for specific domains"
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "name": "Authentication / Proof of Control",
+      "description": "It is possible to prove that the entity claiming control over the identifier is indeed its controller.",
+      "benefits": [
+        "antiExploitation",
+        "sustainability"
+      ],
+      "tier": "core"
+    },
+    {
+      "id": "R2",
+      "name": "Decentralized / Self-Issued",
+      "description": "These identifiers are created and managed by the controller of the identifier, who may also be its subject. They are not assigned, given, sold, or rented to the individual using them. The party relying on the identifier for identification, authentication, and authorization, does not need to manage the creation, update, and recovery of these identifiers.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "privacy",
+        "sustainability"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R3",
+      "name": "Guaranteed Unique Identifier",
+      "description": "Identifiers are globally unique with no possibility of duplication, however unlikely that may be.",
+      "benefits": [
+        "easeOfUse",
+        "sustainability"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R4",
+      "name": "No Call Home",
+      "description": "When using these identifiers, there is no need to contact the issuer of the identifier to verify it. Verification and authentication can occur without further communication with the issuer.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "privacy",
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R5",
+      "name": "Associated Cryptographic Material",
+      "description": "The identifier is tightly coupled with cryptographic material that can be used to prove control over that identifier.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "easeOfUse"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R6",
+      "name": "Streamlined Key Rotation",
+      "description": "When authentication materials need to be updated, these identifiers can update without direct intervention with requesting parties and with minimal individual interaction.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "easeOfUse",
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R7",
+      "name": "Service Endpoint Discovery",
+      "description": "These identifiers allow requesting parties to look up available service endpoints for interacting with the subject of the identifier.",
+      "benefits": [
+        "easeOfUse"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R8",
+      "name": "Privacy Preserving",
+      "description": "Use of the identifier does not, of itself, reveal any information about the subject.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "privacy"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R9",
+      "name": "Delegation of Control",
+      "description": "The controller of the identifier is able to delegate that control to a third party.",
+      "benefits": [
+        "easeOfUse"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R10",
+      "name": "Inter-Jurisdictional",
+      "description": "Inter-jurisdictional identifiers do not depend on the legal jurisdiction in which they are issued. They are valid for uses anywhere without loss of fidelity or reliability. No jurisdiction is directly able to prevent their use.",
+      "benefits": [
+        "antiCensorship",
+        "sustainability"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R11",
+      "name": "Cannot Be Administratively Denied",
+      "description": "These identifiers can't be denied or taken away by administrative function. This prevents shifting politics and bad actors from interfering.",
+      "benefits": [
+        "antiCensorship"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R12",
+      "name": "Minimized Rents",
+      "description": "These identifiers don't incur ongoing expenses if unused nor on a per transaction basis. Fees based on updates\u2014which incurs network and computational costs to verify\u2014are considered \"minimal\".",
+      "benefits": [
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R13",
+      "name": "No Vendor Lock-In",
+      "description": "These identifiers are not dependent on any given vendor. Vendor-specific identifiers restrict usage to that which is acceptable to the vendor and may allow vendors to extract disproportionate rents for usage.",
+      "benefits": [
+        "antiExploitation",
+        "sustainability"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R14",
+      "name": "Preempt / Limit Trackable Data Trails",
+      "description": "As cookies and other session/state-tracking mechanisms were gradually turned into scaffolding for unwanted or collusive tracking in the evolution of the web stack, so too might any new data exchange or communication systems unwittingly facilitate unwanted tracking based on new data trails. Resistance to these kinds of surveillance exploits need to be designed into new systems.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "privacy"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R15",
+      "name": "Cryptographic Future-Proof",
+      "description": "These identifiers are capable of being updated as technology evolves. Current cryptography techniques are known to be susceptible to quantum computational attacks. Future-proofed identifiers provide a means to continue using the same identifier with updated, advanced authentication and authorization technologies.",
+      "benefits": [
+        "antiExploitation",
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R16",
+      "name": "Survives Issuing Organization Mortality",
+      "description": "These identifiers survive the demise of the organization that issued them. They usefulness of these identifiers survive organizations going out of business, being purchased (and potentially losing domain names or root credentials), and even the internal decay of an organization that no longer has the ability to verify the authenticity of records they once issued.",
+      "benefits": [
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R17",
+      "name": "Survives Deployment End-of-Life",
+      "description": "These identifiers are usable even after the systems deployed by requesting parties move past their useful lifetime. They are robust against technology fads and can seamlessly work with both legacy and next-generation systems.",
+      "benefits": [
+        "antiCensorship",
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R18",
+      "name": "Survives Relationship with Service Provider",
+      "description": "These identifiers are not dependent on the tenure of the relationship with a service provider. This contrasts with identifiers like service-centric emails, e.g. joe@example.com, which, when used as identifiers in other systems, can cause problems when individuals no longer use the service provider.",
+      "benefits": [
+        "antiExploitation",
+        "sustainability"
+      ],
+      "tier": "common"
+    },
+    {
+      "id": "R19",
+      "name": "Cryptographic Authentication and Communication",
+      "description": "These identifiers enable cryptographic techniques to authenticate individuals and to secure communications with the subject of the identifier, typically using public-private key pairs.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R20",
+      "name": "Registry Agnostic",
+      "description": "These identifiers are free to reside on any registry implementing a compatible interface. They are not beholden to any particular technology or vendor.",
+      "benefits": [
+        "antiCensorship",
+        "antiExploitation",
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R21",
+      "name": "Legally-Enabled Identity",
+      "description": "These identifiers can be used as a basis for credentials and transactions that can be recognized as legally valid under one or more jurisdictions.",
+      "benefits": [
+        "antiExploitation",
+        "easeOfUse",
+        "sustainability"
+      ],
+      "tier": "specialized"
+    },
+    {
+      "id": "R22",
+      "name": "Human-Centered Interoperability",
+      "description": "Decentralized identifiers need to be easy to use by people with no technical expertise or specialist knowledge.",
+      "benefits": [
+        "easeOfUse",
+        "sustainability"
+      ],
+      "tier": "core"
+    }
+  ]
+}
