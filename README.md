@@ -7,6 +7,14 @@ This is the repository of the W3C’s note on Decentralized Identifier Use Cases
 
 <span style="background-color:red; color: white">Work on this document has now been completed with publication of the [Use Cases and Requirements as a Working Group Note](https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/) on 17th March 2021.</span>
 
+## Structured Data
+
+The [`data/`](data/) directory contains machine-readable JSON extractions of the use cases and requirements from the published Note, organized for tooling and onboarding:
+
+- **[`data/use-cases.json`](data/use-cases.json)** — 18 use cases across 6 domain categories, each with required requirements, actors, and tags
+- **[`data/requirements.json`](data/requirements.json)** — 22 requirements with tier classification (Core / Common / Specialized), benefit mapping, and use case cross-references
+- **[`data/README.md`](data/README.md)** — Full reference tables organized by tier, including the complete Requirement x Use Case matrix
+
 ## Contributing to the Repository
 
 Use the standard fork, branch, and pull request workflow to propose changes to the specification. Please make branch names informative—by including the issue or bug number for example.

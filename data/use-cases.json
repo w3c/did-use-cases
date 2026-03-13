@@ -1,0 +1,273 @@
+{
+  "version": "2.0.0",
+  "source": "W3C DID Use Cases and Requirements (NOTE-did-use-cases-20210317)",
+  "sourceUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/",
+  "categories": [
+    {
+      "id": "CAT-FIN",
+      "name": "Finance & Commerce",
+      "description": "Identity for transactions, trade, and financial services"
+    },
+    {
+      "id": "CAT-GOV",
+      "name": "Government & Legal",
+      "description": "Public authority credentials, residency, legal delegation"
+    },
+    {
+      "id": "CAT-EDU",
+      "name": "Education & Workforce",
+      "description": "Academic credentials, skills portability, HR verification"
+    },
+    {
+      "id": "CAT-HEALTH",
+      "name": "Healthcare",
+      "description": "Prescriptions, health records, patient identity"
+    },
+    {
+      "id": "CAT-INFRA",
+      "name": "Infrastructure & IoT",
+      "description": "Machine identity, supply chain, vehicle assemblies"
+    },
+    {
+      "id": "CAT-PRIVACY",
+      "name": "Privacy & Communication",
+      "description": "Pseudonymity, anti-correlation, secure messaging"
+    }
+  ],
+  "useCases": [
+    {
+      "id": "UC-ENT",
+      "name": "Enterprise Identifiers",
+      "category": "CAT-FIN",
+      "description": "Corporate and organizational identity — LEI binding, subsidiary hierarchies, B2B trust.",
+      "w3cSection": "6.1",
+      "detailLevel": "full",
+      "detailUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#enterpriseIdentifiers",
+      "requiredRequirements": ["R1","R2","R3","R4","R5","R6","R7","R9","R10","R11","R13","R15","R16","R17","R18","R19","R20"],
+      "industries": ["finance", "enterprise", "government"],
+      "actors": ["corporation", "subsidiary", "regulator", "auditor"],
+      "tags": ["b2b", "lei", "organizational", "compliance"]
+    },
+    {
+      "id": "UC-EDU",
+      "name": "Life-long Credentials",
+      "category": "CAT-EDU",
+      "description": "Academic credentials that survive institutional closure and travel across jurisdictions.",
+      "w3cSection": "6.2",
+      "detailLevel": "full",
+      "detailUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#lifeLongLearning",
+      "requiredRequirements": ["R1","R2","R3","R4","R5","R6","R7","R10","R11","R12","R13","R14","R15","R16","R17","R18","R19","R20","R22"],
+      "industries": ["education"],
+      "actors": ["student", "university", "employer", "credential-registry"],
+      "tags": ["education", "portability", "institutional-survival"]
+    },
+    {
+      "id": "UC-RX",
+      "name": "Prescriptions",
+      "category": "CAT-HEALTH",
+      "description": "Medical prescriptions and health records with strict privacy and selective disclosure.",
+      "w3cSection": "6.3",
+      "detailLevel": "full",
+      "detailUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#prescriptions",
+      "requiredRequirements": ["R1","R2","R3","R5","R7","R8","R14","R19","R22"],
+      "industries": ["healthcare"],
+      "actors": ["patient", "physician", "pharmacy", "insurer"],
+      "tags": ["healthcare", "privacy", "selective-disclosure", "hipaa"]
+    },
+    {
+      "id": "UC-LAW",
+      "name": "Digital Executor",
+      "category": "CAT-GOV",
+      "description": "Legal delegation, power of attorney, and post-mortem identity management.",
+      "w3cSection": "6.4",
+      "detailLevel": "full",
+      "detailUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#digitalExecutor",
+      "requiredRequirements": ["R1","R2","R3","R5","R6","R7","R8","R9","R10","R11","R12","R13","R15","R17","R18","R19","R21","R22"],
+      "industries": ["legal"],
+      "actors": ["executor", "decedent", "beneficiary", "court"],
+      "tags": ["legal", "delegation", "power-of-attorney", "estate"]
+    },
+    {
+      "id": "UC-CRED",
+      "name": "Portable Credentials",
+      "category": "CAT-FIN",
+      "description": "Portable verifiable credentials for everyday identity verification — rental, travel, age-gating.",
+      "w3cSection": "6.5",
+      "detailLevel": "full",
+      "detailUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#aliceRentsACar",
+      "requiredRequirements": ["R6","R7","R10","R13","R18","R22"],
+      "industries": ["credentials", "travel", "retail"],
+      "actors": ["holder", "verifier", "issuer", "merchant"],
+      "tags": ["b2c", "portable", "verifiable-credentials", "everyday"]
+    },
+    {
+      "id": "UC-COMM",
+      "name": "Secure Communication",
+      "category": "CAT-PRIVACY",
+      "description": "Encrypted peer-to-peer communication that survives provider changes.",
+      "w3cSection": "6.6",
+      "detailLevel": "full",
+      "detailUrl": "https://www.w3.org/TR/2021/NOTE-did-use-cases-20210317/#portableSecureCommunication",
+      "requiredRequirements": ["R1","R2","R3","R5","R6","R7","R8","R9","R10","R13","R14","R15","R18","R19","R22"],
+      "industries": ["communication", "enterprise"],
+      "actors": ["sender", "receiver", "messaging-service"],
+      "tags": ["encryption", "didcomm", "messaging", "provider-independent"]
+    },
+    {
+      "id": "UC-SHOP",
+      "name": "Online Shopper",
+      "category": "CAT-FIN",
+      "description": "Consumer purchases with minimal identity disclosure and anti-tracking across merchants.",
+      "w3cSection": "2.1",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R2","R4","R10","R11","R16","R17","R18","R22"],
+      "industries": ["retail", "ecommerce"],
+      "actors": ["consumer", "merchant", "payment-processor"],
+      "tags": ["b2c", "privacy", "retail", "anti-tracking"]
+    },
+    {
+      "id": "UC-VEH",
+      "name": "Vehicle Assemblies",
+      "category": "CAT-INFRA",
+      "description": "Machine-to-machine identity for vehicle components, assembly tracking, and recall provenance.",
+      "w3cSection": "2.2",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R2","R4","R10","R11","R16","R17","R18","R22"],
+      "industries": ["manufacturing", "iot"],
+      "actors": ["vehicle", "component", "manufacturer", "regulator"],
+      "tags": ["iot", "machine-identity", "supply-chain", "recall"]
+    },
+    {
+      "id": "UC-CONF",
+      "name": "Confidential Customer Engagement",
+      "category": "CAT-FIN",
+      "description": "Private advisory relationships where client identity must be verified but interactions stay confidential.",
+      "w3cSection": "2.3",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R5","R6","R8","R13","R19"],
+      "industries": ["finance", "enterprise"],
+      "actors": ["client", "advisor", "firm"],
+      "tags": ["confidential", "advisory", "wealth-management"]
+    },
+    {
+      "id": "UC-DATA",
+      "name": "Accessing Master Data",
+      "category": "CAT-INFRA",
+      "description": "Authenticated access to authoritative entity data across organizational boundaries.",
+      "w3cSection": "2.4",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R2","R3","R5","R7"],
+      "industries": ["enterprise", "data"],
+      "actors": ["data-consumer", "data-authority", "registry"],
+      "tags": ["master-data", "b2b", "data-governance"]
+    },
+    {
+      "id": "UC-SKILL",
+      "name": "Transferable Skills Credentials",
+      "category": "CAT-EDU",
+      "description": "Portable skill attestations that follow a worker across employers and platforms.",
+      "w3cSection": "2.5",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R3","R5","R6","R14"],
+      "industries": ["education", "hr"],
+      "actors": ["worker", "employer", "training-provider", "credentialing-body"],
+      "tags": ["workforce", "skills", "portability", "hr"]
+    },
+    {
+      "id": "UC-SHARE",
+      "name": "Cross-Platform Sharing",
+      "category": "CAT-PRIVACY",
+      "description": "User-controlled content and identity sharing across social platforms without lock-in.",
+      "w3cSection": "2.6",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R2","R8","R14","R22"],
+      "industries": ["social", "communication"],
+      "actors": ["user", "platform-a", "platform-b"],
+      "tags": ["social", "portability", "anti-lock-in", "user-controlled"]
+    },
+    {
+      "id": "UC-ANON",
+      "name": "Pseudonymous Work",
+      "category": "CAT-PRIVACY",
+      "description": "Freelance and creative work under a persistent pseudonym with verifiable reputation.",
+      "w3cSection": "2.7",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R8","R12","R18","R22"],
+      "industries": ["freelance", "creative"],
+      "actors": ["pseudonymous-worker", "client", "reputation-system"],
+      "tags": ["pseudonymity", "reputation", "freelance", "creator-economy"]
+    },
+    {
+      "id": "UC-SUPPLY",
+      "name": "Supply Chain Pseudonymity",
+      "category": "CAT-INFRA",
+      "description": "Verifiable supply chain attestations without revealing proprietary supplier relationships.",
+      "w3cSection": "2.8",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R2","R7","R8","R14","R18"],
+      "industries": ["logistics", "manufacturing"],
+      "actors": ["supplier", "manufacturer", "auditor", "customs"],
+      "tags": ["supply-chain", "pseudonymity", "trade-secret", "provenance"]
+    },
+    {
+      "id": "UC-RESID",
+      "name": "Digital Permanent Resident Card",
+      "category": "CAT-GOV",
+      "description": "Government-issued residency credential that is portable, tamper-evident, and privacy-preserving.",
+      "w3cSection": "2.9",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R4","R5","R12","R21","R22"],
+      "industries": ["government", "immigration"],
+      "actors": ["resident", "immigration-authority", "border-agent", "employer"],
+      "tags": ["government", "residency", "immigration", "legal-identity"]
+    },
+    {
+      "id": "UC-TRADE",
+      "name": "Importing Goods (Customs)",
+      "category": "CAT-FIN",
+      "description": "Cross-border trade identity for customs declarations, duty compliance, and import licensing.",
+      "w3cSection": "2.10",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R5","R9","R10","R22"],
+      "industries": ["trade", "customs"],
+      "actors": ["importer", "customs-authority", "freight-forwarder"],
+      "tags": ["cross-border", "customs", "trade", "delegation"]
+    },
+    {
+      "id": "UC-EIDAS",
+      "name": "eIDAS Public Authority Credentials",
+      "category": "CAT-GOV",
+      "description": "EU-compliant public authority identity credentials under the eIDAS regulatory framework.",
+      "w3cSection": "2.11",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R3","R4","R5","R12","R13","R15","R19","R21","R22"],
+      "industries": ["government", "eu"],
+      "actors": ["citizen", "public-authority", "trust-service-provider"],
+      "tags": ["eidas", "eu", "government", "qualified-credentials", "trust-framework"]
+    },
+    {
+      "id": "UC-CORR",
+      "name": "Correlation-Controlled Services",
+      "category": "CAT-PRIVACY",
+      "description": "Services that let users control how much cross-session correlation is possible.",
+      "w3cSection": "2.12",
+      "detailLevel": "brief",
+      "detailUrl": null,
+      "requiredRequirements": ["R1","R2","R4","R8","R13","R14","R18","R22"],
+      "industries": ["privacy", "consumer"],
+      "actors": ["user", "service-provider", "data-broker"],
+      "tags": ["anti-correlation", "privacy", "user-control", "tracking-prevention"]
+    }
+  ]
+}
